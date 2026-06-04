@@ -1,0 +1,33 @@
+{
+  "name": "danho-detailpage-maker-codex",
+  "version": "0.1.0",
+  "description": "Codex plugin for Korean e-commerce detail-page planning, text-first HTML publishing, and native image generation.",
+  "author": {
+    "name": "Danho"
+  },
+  "keywords": [
+    "korean-ecommerce",
+    "detail-page",
+    "html",
+    "image-prompts"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "단호한 상세페이지 메이커",
+    "shortDescription": "Korean e-commerce detail pages in Codex.",
+    "longDescription": "Plan Korean e-commerce product detail pages, build static text-first HTML from PLANNING.md and DESIGN.md, generate image plans and prompts, create visuals through Codex native image generation, and replace sections while preventing duplicate copy.",
+    "developerName": "Danho",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Design",
+      "Generate"
+    ],
+    "defaultPrompt": [
+      "상세페이지 전체 제작 워크플로우를 시작해줘",
+      "PLANNING.md와 DESIGN.md로 텍스트 HTML을 만들어줘",
+      "v1 HTML 기준 image-plan과 네이티브 이미지 생성을 진행해줘"
+    ],
+    "brandColor": "#111827"
+  }
+}

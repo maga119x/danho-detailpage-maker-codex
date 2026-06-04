@@ -1,0 +1,7 @@
+interface:
+  display_name: "Danho Detailpage Planning"
+  short_description: "Plan Korean e-commerce detail-page copy."
+  default_prompt: "Use $danho-detailpage-planning to create PLANNING.md and DESIGN.md."
+
+policy:
+  allow_implicit_invocation: true

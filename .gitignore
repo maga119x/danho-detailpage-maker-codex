@@ -1,0 +1,38 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Runtime outputs from detail-page projects
+projects/
+
+# Generated media and manifests
+assets/generated/
+assets/inbox/
+**/assets/generated/
+**/assets/inbox/
+
+# Build artifacts created inside generated projects
+**/build/
+**/prompts/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+tmp/
+temp/
