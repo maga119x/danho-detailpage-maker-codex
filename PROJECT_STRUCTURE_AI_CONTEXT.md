@@ -7,7 +7,7 @@
 
 `danho-detailpage-maker-codex`는 한국 이커머스 상세페이지를 기획, 코딩, 이미지 제작까지 진행하는 Codex 플러그인 프로젝트다.
 
-핵심 방식은 `v3 text-first workflow`다. 먼저 `PLANNING.md`와 `DESIGN.md`로 모든 카피가 들어간 텍스트 중심 HTML을 만들고, 그 다음 `image-plan.md`에서 각 섹션을 `REPLACE`, `SUPPORT`, `NONE`으로 확정한다. 이 구조는 같은 한국어 카피가 HTML과 이미지에 중복 노출되는 문제를 막기 위한 설계다.
+핵심 방식은 `v4 hybrid detail workflow`다. 먼저 `PLANNING.md`와 `DESIGN.md`로 카피와 설득 흐름을 확정하고, HTML에서는 모바일 세로형 스토리 구조를 만든다. 이후 `image-plan.md`에서 각 섹션을 `FULL_IMAGE`, `HTML_MIXED`, `HTML_ONLY`로 확정한다. legacy 용어로는 각각 `REPLACE`, `SUPPORT`, `NONE`에 대응한다. 최종 페이지는 통 이미지 섹션과 HTML+이미지 혼합 섹션을 함께 사용하며, 같은 한국어 카피가 이미지와 HTML에 중복 노출되지 않게 한다.
 
 ### Root Layout
 
@@ -32,8 +32,8 @@ danho-detailpage-maker-codex/
 |---|---|---|
 | `danho-detailpage-workflow` | 전체 제작 흐름 오케스트레이션 | 다음 실행 단계 판단 |
 | `danho-detailpage-planning` | 상세페이지 기획 및 카피 작성 | `PLANNING.md`, `DESIGN.md`, `config.json` |
-| `danho-detailpage-coding` | 텍스트 HTML 빌드 및 이미지 반영 | `v1-textonly.html`, `v2.html`, `sections/` |
-| `danho-imageprompt-helper` | 이미지 프롬프트 및 Codex 네이티브 이미지 생성 | `banners.md`, `photos.md`, `assets/generated/*.png` |
+| `danho-detailpage-coding` | 세로형 하이브리드 HTML 빌드 및 이미지 반영 | `v1-textonly.html`, `vN-hybrid.html`, `sections/` |
+| `danho-imageprompt-helper` | 통 이미지/지원 이미지 프롬프트 및 Codex 네이티브 이미지 생성 | `banners.md`, `photos.md`, `assets/generated/*.png` |
 
 ---
 
@@ -43,7 +43,7 @@ danho-detailpage-maker-codex/
 project:
   name: danho-detailpage-maker-codex
   type: codex_plugin
-  version: "0.1.0"
+  version: "0.2.0"
   language: ko
   domain: korean_ecommerce_detail_page
   purpose:
@@ -165,7 +165,7 @@ skills:
     path: skills/danho-detailpage-coding/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
-    role: DESIGN.md 기반 정적 HTML 생성 및 image-plan.md 기반 이미지 반영
+    role: DESIGN.md 기반 세로형 정적 HTML 생성 및 image-plan.md 기반 하이브리드 이미지 반영
     implicit_invocation: true
     phases:
       phase_a:
@@ -186,9 +186,13 @@ skills:
         output:
           - image-plan.md
         cases:
-          - REPLACE
-          - SUPPORT
-          - NONE
+          - FULL_IMAGE
+          - HTML_MIXED
+          - HTML_ONLY
+        legacy_case_mapping:
+          FULL_IMAGE: REPLACE
+          HTML_MIXED: SUPPORT
+          HTML_ONLY: NONE
         requires_user_agreement: true
       phase_b:
         name: image_replacement_build
@@ -224,6 +228,10 @@ skills:
       - references/design-md-presets/
       - references/text-image-deduplication.md
       - references/image-plan-template.md
+      - references/mobile-hybrid-layout.md
+      - references/html-first-detailpage-build.md
+      - references/detailpage-typography.md
+      - references/color-system.md
       - references/layout-rules.md
       - references/static-design.md
       - references/output-checklist.md
@@ -232,7 +240,7 @@ skills:
     path: skills/danho-imageprompt-helper/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
-    role: v1-textonly.html과 image-plan.md 기반 이미지 프롬프트 작성 및 Codex 네이티브 이미지 생성
+    role: HTML과 image-plan.md 기반 통 이미지/지원 이미지 프롬프트 작성 및 Codex 네이티브 이미지 생성
     implicit_invocation: true
     required_inputs:
       - DESIGN.md
@@ -253,12 +261,17 @@ skills:
       engine: Codex native image generation
       output_directory: assets/generated/
       manifest: assets/generated/manifest.md
+      product_reference_policy:
+        default: assets/inbox images are PRODUCT_REFERENCE
+        direct_use_requires: USER_IMAGE_DIRECT in image-plan.md
+        generated_outputs: assets/generated/
     references:
       - references/prompt-guide.md
       - references/native-image-generation.md
+      - references/product-reference-images.md
 
 workflow:
-  version: v3_text_first
+  version: v4_hybrid_detail
   copy_source_of_truth: build/project-name-v1-textonly.html
   strict_sequence:
     - order: 1
@@ -270,38 +283,49 @@ workflow:
       action: 텍스트만으로 완전한 v1 HTML 생성
     - order: 3
       artifact: image-plan.md
-      action: 섹션별 REPLACE, SUPPORT, NONE 결정
+      action: 섹션별 FULL_IMAGE, HTML_MIXED, HTML_ONLY 결정
       stop_for_user_agreement: true
     - order: 4
       skill: danho-imageprompt-helper
-      action: 이미지 프롬프트 작성 후 Codex 네이티브 이미지 생성
+      action: 이미지 프롬프트 작성 후 Codex 네이티브 이미지 생성 큐를 병렬 배치로 처리
     - order: 5
       skill: danho-detailpage-coding
       phase: phase_b
       action: image-plan.md에 따라 v2 HTML 생성
 
 image_cases:
-  REPLACE:
-    meaning: 이미지가 HTML 텍스트 섹션을 대체
+  FULL_IMAGE:
+    legacy_name: REPLACE
+    meaning: 이미지 모델이 만든 완성 통 이미지가 HTML 레이아웃을 대체
     html_text_handling: remove_original_section
-    image_policy: HTML 카피를 그대로 이미지 안에 포함 가능
+    image_policy: 짧은 한글 카피와 디자인 요소를 이미지 안에 포함 가능
     duplicate_copy_allowed: false
     typical_sections:
       - hook
-      - hero
-      - short_empathy
-      - visual_cta
-  SUPPORT:
-    meaning: HTML 텍스트는 유지하고 텍스트 없는 비주얼만 추가
-    html_text_handling: keep_original_section_and_add_visual
+      - scene-problem
+      - blocker
+      - answer
+      - no-damage
+      - daily-use
+      - control
+      - final-cta
+  HTML_MIXED:
+    legacy_name: SUPPORT
+    meaning: HTML 텍스트는 유지하고 섹션 안 또는 인접 위치에 지원 이미지를 결합
+    html_text_handling: keep_original_section_and_add_visual_or_component
     image_policy: no text, no Korean caption, no overlay text
     duplicate_copy_allowed: false
     typical_sections:
-      - features
-      - materials
-      - usage
-      - story
-  NONE:
+      - fit-check
+      - install-flow
+      - fit-adjust
+      - material
+      - compare
+      - review-proof
+      - options
+      - faq
+  HTML_ONLY:
+    legacy_name: NONE
     meaning: 이미지 없이 HTML 텍스트만 유지
     html_text_handling: keep_original_section
     image_policy: no image
@@ -360,9 +384,15 @@ validation_rules:
   - DESIGN.md를 디자인 토큰의 단일 원본으로 사용한다
   - v1-textonly.html에는 모든 카피가 포함되어야 한다
   - image-plan.md 작성 후 사용자 합의 전 이미지 생성을 진행하지 않는다
-  - REPLACE 섹션은 v2 HTML에서 원본 section을 제거한다
-  - SUPPORT 이미지는 텍스트를 포함하면 안 된다
+  - FULL_IMAGE 섹션은 최종 HTML에서 완성 통 이미지 1장으로 처리한다
+  - HTML_MIXED 지원 이미지는 텍스트를 포함하면 안 된다
   - 같은 한국어 카피가 HTML과 인접 이미지에 동시에 남으면 안 된다
+  - 섹션을 고정 9:16으로 강제하지 않고 자연 높이의 세로형 모바일 리듬을 사용한다
+  - 모바일 우선은 413px 고정 폭이 아니라 360-430px phone width에서 읽히는 반응형 타이포그래피를 의미한다
+  - 기획 후 바로 이미지 생성으로 넘어가지 않고 HTML 기반 상세페이지 레이아웃을 먼저 만든다
+  - 사용자가 제공한 제품 이미지는 기본적으로 생성 레퍼런스이며, `USER_IMAGE_DIRECT`로 명시된 경우에만 원본을 최종 HTML에 직접 사용한다
+  - HTML 섹션에도 이미지, 말풍선, quote-card, 비교 카드, 가격 패널을 결합할 수 있다
+  - 컬러는 Key, Main, Sub, Exception 역할 토큰으로 제한한다
   - 최종 HTML은 JavaScript, animation, transition, hover 효과를 피한다
 ```
 
@@ -372,7 +402,7 @@ validation_rules:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<aiProjectContext name="danho-detailpage-maker-codex" type="codex_plugin" workflowVersion="v3_text_first">
+<aiProjectContext name="danho-detailpage-maker-codex" type="codex_plugin" workflowVersion="v4_hybrid_detail">
   <purpose>
     <item>한국 이커머스 상세페이지 기획</item>
     <item>DESIGN.md 기반 정적 HTML 코딩</item>
@@ -443,9 +473,9 @@ validation_rules:
       <phase id="image_plan" name="section_image_decision">
         <input>build/project-name-v1-textonly.html</input>
         <output>image-plan.md</output>
-        <case>REPLACE</case>
-        <case>SUPPORT</case>
-        <case>NONE</case>
+        <case>FULL_IMAGE</case>
+        <case>HTML_MIXED</case>
+        <case>HTML_ONLY</case>
         <requiresUserAgreement>true</requiresUserAgreement>
       </phase>
 
@@ -483,6 +513,7 @@ validation_rules:
       <output>assets/generated/*.png</output>
       <output>assets/generated/manifest.md</output>
       <nativeGeneration default="true">Codex native image generation</nativeGeneration>
+      <parallelGeneration default="true">Generate approved independent image queue in batches after prompts and filenames are locked.</parallelGeneration>
       <script path="scripts/generate_banner.py" mode="legacy_fallback" requiresExplicitUserRequest="true"/>
       <constraint>replace_prompts_use_exact_html_copy</constraint>
       <constraint>support_prompts_must_include_no_text_policy</constraint>
@@ -497,10 +528,10 @@ validation_rules:
       <action>Build text-only HTML with all copy included.</action>
     </step>
     <step order="3" artifact="image-plan.md" requiresUserAgreement="true">
-      <action>Decide REPLACE, SUPPORT, NONE for each section.</action>
+      <action>Decide FULL_IMAGE, HTML_MIXED, HTML_ONLY for each section.</action>
     </step>
     <step order="4" skill="danho-imageprompt-helper">
-      <action>Create image prompts and generate images through Codex native image generation.</action>
+      <action>Create image prompts and generate approved images through Codex native image generation in parallel batches.</action>
     </step>
     <step order="5" skill="danho-detailpage-coding" phase="phase_b">
       <action>Create final v2 HTML with duplicate copy removed.</action>
@@ -508,17 +539,17 @@ validation_rules:
   </workflow>
 
   <imageCases>
-    <case id="REPLACE">
-      <meaning>image_replaces_original_html_section</meaning>
+    <case id="FULL_IMAGE" legacy="REPLACE">
+      <meaning>designed_image_replaces_original_html_section</meaning>
       <htmlTextHandling>remove_original_section</htmlTextHandling>
-      <imageTextPolicy>use_exact_copy_from_v1_textonly_html</imageTextPolicy>
+      <imageTextPolicy>short_korean_copy_allowed_verify_visually</imageTextPolicy>
     </case>
-    <case id="SUPPORT">
-      <meaning>image_supports_existing_html_text</meaning>
-      <htmlTextHandling>keep_section_and_add_image</htmlTextHandling>
+    <case id="HTML_MIXED" legacy="SUPPORT">
+      <meaning>support_image_and_components_inside_editable_html_section</meaning>
+      <htmlTextHandling>keep_section_and_add_image_or_component</htmlTextHandling>
       <imageTextPolicy>no_text_no_korean_caption_no_overlay_text</imageTextPolicy>
     </case>
-    <case id="NONE">
+    <case id="HTML_ONLY" legacy="NONE">
       <meaning>no_image_needed</meaning>
       <htmlTextHandling>keep_section</htmlTextHandling>
       <imageTextPolicy>no_image</imageTextPolicy>
@@ -535,8 +566,14 @@ validation_rules:
 2. 제품 정보가 부족하면 `danho-detailpage-planning` 단계에서 정보 요청을 먼저 한다.
 3. `PLANNING.md` 단계에서는 이미지 전용 섹션을 만들지 않고 `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, `NONE` 후보만 표시한다.
 4. `danho-detailpage-coding` Phase A는 이미지 없이도 의미 전달이 완전한 `v1-textonly.html`을 만든다.
-5. `image-plan.md`는 v1 HTML을 본 뒤 작성하며, 사용자 합의 없이 이미지 생성 단계로 넘어가지 않는다.
-6. `danho-imageprompt-helper`는 `PLANNING.md`가 아니라 `v1-textonly.html`에서 REPLACE 카피를 그대로 추출한다.
+5. `image-plan.md`는 HTML을 본 뒤 작성하며, 사용자 합의 없이 이미지 생성 단계로 넘어가지 않는다.
+6. `danho-imageprompt-helper`는 `PLANNING.md`가 아니라 HTML과 image-plan을 기준으로 FULL_IMAGE/HTML_MIXED 프롬프트를 만든다.
 7. 이미지 생성은 기본적으로 Codex 네이티브 이미지 생성 기능을 사용한다. `generate_banner.py`는 사용자가 명시적으로 API fallback을 요청한 경우에만 사용한다.
-8. Phase B에서는 `REPLACE` 원본 HTML 섹션을 제거하고, `SUPPORT` 이미지는 텍스트 없는 비주얼만 추가한다.
-9. 최종 검증에서 같은 한국어 카피가 HTML과 이미지에 동시에 남아 있으면 실패로 본다.
+8. 이미지 프롬프트와 파일명이 확정되면 독립 이미지는 한 장씩 순차 생성하지 말고 병렬 배치로 생성한다.
+9. Phase B에서는 `FULL_IMAGE` 원본 HTML 섹션을 제거하고, `HTML_MIXED` 이미지는 텍스트 없는 비주얼로 HTML 안/주변에 결합한다.
+10. 고정 비율로 섹션을 해결하지 말고 세로형 스토리보드 구조 자체를 설계한다.
+11. 모바일 우선은 413px 고정이 아니라 360-430px 폭에서 읽히는 폰트 크기, 줄간격, 여백을 적용하는 것이다.
+12. `assets/inbox/` 사용자 제품 이미지는 기본적으로 `PRODUCT_REFERENCE`로 취급하고, 생성 이미지의 제품 일관성을 유지하는 입력으로 사용한다.
+13. 원본 사용자 이미지를 최종 HTML에 직접 쓰려면 `image-plan.md`에 `USER_IMAGE_DIRECT`가 명시되어야 한다.
+14. HTML 요소 컬러는 Key/Main/Sub/Exception 시스템으로 제한한다.
+15. 최종 검증에서 같은 한국어 카피가 HTML과 이미지에 동시에 남아 있으면 실패로 본다.

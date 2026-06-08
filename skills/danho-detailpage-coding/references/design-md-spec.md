@@ -47,39 +47,39 @@ colors:                  # 시맨틱 컬러 토큰
 typography:              # 타이포그래피 토큰
   display:
     fontFamily: Paperlogy
-    fontSize: 6.25rem    # 100px (1rem = 16px)
+    fontSize: clamp(2.5rem, 10vw, 4rem) # 40-64px
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: 4.25rem    # 68px
+    fontSize: clamp(2.25rem, 9vw, 3.4rem) # 36-54px
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: 3.25rem    # 52px
+    fontSize: clamp(1.75rem, 7vw, 2.75rem) # 28-44px
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: 2.625rem   # 42px
+    fontSize: clamp(1.25rem, 5vw, 1.875rem) # 20-30px
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: 2.25rem    # 36px
+    fontSize: clamp(1.0625rem, 4vw, 1.375rem) # 17-22px
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
-    fontSize: 2rem       # 32px (본문 기본)
+    fontSize: clamp(1rem, 3.7vw, 1.125rem) # 16-18px body
     fontWeight: 500
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: 1.75rem    # 28px
+    fontSize: clamp(.875rem, 3.2vw, 1rem) # 14-16px
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: 1.5rem     # 24px
+    fontSize: .8125rem   # 13px
     fontWeight: 500
 
 rounded:                 # 라운드 토큰
@@ -96,7 +96,7 @@ spacing:                 # 간격 토큰 (8px 그리드)
   lg: 40px
   xl: 64px
   2xl: 96px
-  section: 120px         # 섹션 세로 패딩
+  section: clamp(56px, 14vw, 112px) # mobile-readable section padding
 
 elevation:               # 그림자 토큰
   sm: "0 2px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)"

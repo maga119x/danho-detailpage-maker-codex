@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Image Prompt Helper"
-  short_description: "Create prompts and native images from v1 HTML."
-  default_prompt: "Use $danho-imageprompt-helper to create prompts and Codex-native images from v1-textonly HTML."
+  short_description: "Create prompts and native images for hybrid sections."
+  default_prompt: "Use $danho-imageprompt-helper to create designed full-section images and support visuals."
 
 policy:
   allow_implicit_invocation: true

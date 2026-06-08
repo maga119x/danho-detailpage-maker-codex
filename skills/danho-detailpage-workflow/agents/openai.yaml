@@ -1,6 +1,6 @@
 interface:
   display_name: "Danho Detailpage Workflow"
-  short_description: "Run the v3 Korean detail-page pipeline."
+  short_description: "Run the Korean hybrid detail-page pipeline."
   default_prompt: "Use $danho-detailpage-workflow to run the detail-page workflow in order."
 
 policy:

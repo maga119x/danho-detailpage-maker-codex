@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Detailpage Coding"
-  short_description: "Build text-first static detail-page HTML."
-  default_prompt: "Use $danho-detailpage-coding to build the text-only HTML phase."
+  short_description: "Build and revise hybrid static detail-page HTML."
+  default_prompt: "Use $danho-detailpage-coding to build or revise a mobile-first hybrid 상세페이지 HTML."
 
 policy:
   allow_implicit_invocation: true

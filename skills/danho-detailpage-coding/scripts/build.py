@@ -102,7 +102,7 @@ BASE_CSS = """
     body {
         font-family: var(--font-body-md-family, 'Paperlogy'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         font-weight: var(--font-body-md-weight, 500);
-        font-size: var(--font-body-md-size, 2rem);
+        font-size: var(--font-body-md-size, clamp(1rem, 3.7vw, 1.125rem));
         line-height: var(--font-body-md-line-height, 1.6);
         background: var(--color-bg);
         color: var(--color-text);
@@ -128,9 +128,39 @@ BASE_CSS = """
     }
 
     /* ===== CONTENT SECTIONS ===== */
-    .content-section {
-        padding: var(--space-section, 120px) 5%;   /* 좌우 padding 5% (이전 10%) — 콘텐츠 영역 확장 */
+    .content-section,
+    .detail-section {
+        padding: var(--space-section, clamp(56px, 14vw, 112px)) clamp(18px, 5vw, 44px);
         background: var(--color-bg);
+    }
+
+    .section-copy,
+    .copy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+        margin: 0 auto clamp(24px, 7vw, 40px);
+    }
+
+    .section-visual,
+    .visual {
+        width: 100%;
+        margin: clamp(22px, 6vw, 36px) auto;
+    }
+
+    .section-visual img,
+    .visual img {
+        width: 100%;
+        border-radius: var(--rounded-lg, 16px);
+    }
+
+    .lead {
+        max-width: 34em;
+        font-size: var(--font-body-lg-size, clamp(1.0625rem, 4vw, 1.375rem));
+        line-height: 1.62;
+        color: var(--color-text-secondary);
     }
 
     .section-var-1 { background: var(--color-bg-var-1); }
@@ -159,33 +189,34 @@ BASE_CSS = """
     /* ===== TYPOGRAPHY UTILITIES ===== */
     .section-title {
         font-family: var(--font-h2-family, 'Paperlogy');
-        font-size: var(--font-h2-size, 3.25rem);
+        font-size: var(--font-h2-size, clamp(1.75rem, 7vw, 2.75rem));
         font-weight: var(--font-h2-weight, 800);
         line-height: var(--font-h2-line-height, 1.3);
-        margin-bottom: var(--space-lg, 40px);
+        margin-bottom: var(--space-lg, clamp(20px, 6vw, 36px));
         text-align: center;
     }
 
     .section-subtitle {
         font-family: var(--font-h3-family, 'Paperlogy');
-        font-size: var(--font-h3-size, 2.625rem);
+        font-size: var(--font-h3-size, clamp(1.25rem, 5vw, 1.875rem));
         font-weight: var(--font-h3-weight, 700);
         margin-bottom: var(--space-sm, 16px);
         text-align: center;
     }
 
     .section-desc {
-        font-size: var(--font-body-lg-size, 2.25rem);
+        font-size: var(--font-body-lg-size, clamp(1.0625rem, 4vw, 1.375rem));
         color: var(--color-text-secondary);
         text-align: center;
-        margin-bottom: var(--space-lg, 40px);
+        margin-bottom: var(--space-lg, clamp(22px, 6vw, 36px));
+        line-height: 1.62;
     }
 
     .section-intro {
-        font-size: var(--font-body-md-size, 2rem);
+        font-size: var(--font-body-md-size, clamp(1rem, 3.7vw, 1.125rem));
         color: var(--color-text-secondary);
         text-align: center;
-        margin-bottom: var(--space-lg, 40px);
+        margin-bottom: var(--space-lg, clamp(22px, 6vw, 36px));
         line-height: 1.7;
     }
 
@@ -247,7 +278,7 @@ BASE_CSS = """
         margin-top: 4px;
     }
     .check-text {
-        font-size: var(--font-body-sm-size, 1.75rem);
+        font-size: var(--font-body-sm-size, clamp(.9375rem, 3.4vw, 1rem));
         color: var(--color-text-secondary);
         line-height: 1.6;
     }
@@ -266,35 +297,35 @@ BASE_CSS = """
         max-width: 100%;
     }
     .stack-card {
-        padding: 36px 40px;
+        padding: clamp(22px, 6vw, 34px) clamp(18px, 5vw, 34px);
         text-align: center;        /* 카드 내부 가운데 정렬 — 페이지 전체 정렬과 일관 */
     }
     /* 카드 내부 폰트는 본문 기본 사이즈보다 한 단계(0.5rem) 작게 — 본문과 카드의 시각 위계 */
     .stack-card .badge {
         display: inline-block;
         margin-bottom: 16px;
-        font-size: 1rem;                                              /* caption(1.5rem)에서 0.5rem ↓ */
+        font-size: .8125rem;
     }
     .stack-card .section-subtitle {
         margin-bottom: 12px;
-        font-size: 2.125rem;                                          /* h3(2.625rem)에서 0.5rem ↓ */
+        font-size: clamp(1.125rem, 4.4vw, 1.45rem);
     }
     .stack-card p {
         line-height: 1.7;
         margin: 0 auto;
         max-width: 60ch;           /* 본문이 너무 넓게 퍼지지 않게 가독성 보호 */
-        font-size: 1.5rem;                                            /* body-md(2rem)에서 0.5rem ↓ */
+        font-size: clamp(.9375rem, 3.4vw, 1.0625rem);
     }
     /* 일반 .card 내부도 동일 위계로 0.5rem ↓ (grid-2/grid-3 안 카드 포함) */
     .card .section-subtitle {
-        font-size: 2.125rem;
+        font-size: clamp(1.125rem, 4.4vw, 1.45rem);
     }
     .card p {
-        font-size: 1.5rem;
+        font-size: clamp(.9375rem, 3.4vw, 1.0625rem);
         line-height: 1.7;
     }
     .card .badge {
-        font-size: 1rem;
+        font-size: .8125rem;
     }
     /* 카드 상단 풀-블리드 이미지 (카드+이미지 결합 패턴) */
     .stack-card.has-image {
@@ -360,14 +391,14 @@ BASE_CSS = """
         text-align: center;
     }
     .stat-label {
-        font-size: var(--font-body-sm-size, 1.75rem);
+        font-size: var(--font-body-sm-size, clamp(.875rem, 3.2vw, 1rem));
         color: var(--color-text-muted);
     }
 
     /* ===== CTA SECTION ===== */
     .cta-section {
         background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-var-2) 100%);
-        padding: 100px 5%;                           /* 좌우 5% — content-section과 일관 */
+        padding: clamp(64px, 16vw, 112px) clamp(18px, 5vw, 44px);
         text-align: center;
     }
     .cta-section > * {
@@ -393,11 +424,11 @@ BASE_CSS = """
     }
     .price-value {
         font-family: Paperlogy;
-        font-size: clamp(4rem, 9vw, 6.5rem);
+        font-size: clamp(2.75rem, 12vw, 4.75rem);
         font-weight: 800;
         line-height: 1.1;
         color: var(--color-text);
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
         white-space: nowrap;
     }
     .price-unit {
@@ -408,7 +439,7 @@ BASE_CSS = """
     }
     .price-meta {
         font-family: Paperlogy;
-        font-size: var(--font-body-md-size, 2rem);
+        font-size: var(--font-body-md-size, clamp(1rem, 3.7vw, 1.125rem));
         color: var(--color-text-secondary);
         text-align: center;
         white-space: nowrap;
@@ -417,19 +448,33 @@ BASE_CSS = """
     /* ===== FOOTER ===== */
     .footer-section {
         background: var(--color-bg-var-2);
-        padding: 80px 5%;                            /* 좌우 5% — 일관 */
+        padding: clamp(56px, 14vw, 88px) clamp(18px, 5vw, 44px);
         text-align: center;
     }
     .footer-brand {
-        font-size: var(--font-h1-size, 4.25rem);
+        font-size: var(--font-h1-size, clamp(2rem, 8vw, 3.25rem));
         font-weight: 800;
         letter-spacing: 6px;
         color: var(--color-text-muted);
         margin-bottom: 20px;
     }
     .footer-tagline {
-        font-size: var(--font-body-md-size, 2rem);
+        font-size: var(--font-body-md-size, clamp(1rem, 3.7vw, 1.125rem));
         color: var(--color-text-dim);
+    }
+
+    @media (max-width: 540px) {
+        .grid-2 > *,
+        .grid-3 > * {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        .price-meta {
+            white-space: normal;
+        }
+        .footer-brand {
+            letter-spacing: 3px;
+        }
     }
 """
 
