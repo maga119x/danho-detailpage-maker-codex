@@ -35,7 +35,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 5. Run `danho-detailpage-copywriter` only after PM planning pass. Create `COPY_REVIEW.md`, revise visible copy, and pass Korean naturalness, spoken Korean, grammar/style, source independence, and conversion-force gates.
 6. Run PM pre-coding review after copywriter changes and before HTML. Fix broken sequence, abrupt transitions, weak visual mass, repeated headline rhythm, or conversion-flow issues.
 7. Build Phase A HTML first. The HTML must be a complete ecommerce detail-page layout before final image generation.
-8. Create `image-plan.md` from the rendered Phase A HTML. Decide `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` per section after reviewing actual layout.
+8. Create `image-plan.md` from the rendered Phase A HTML. Decide `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` per section after reviewing actual layout. The plan must include mandatory generated `FULL_IMAGE` rows for the opening hero and final static CTA/closing section.
 9. Generate approved images with the built-in Codex `image_gen.imagegen` native path only. Prepare the full queue first, then generate one independent native image per approved asset.
 10. Build Phase B final HTML with generated or approved images, split section files, and validate mobile rendering.
 11. Run a final PM-level flow and visual QA pass before delivery.
@@ -48,6 +48,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 - Do not expose direct numeric prices, sales channel names, internal labels, source filenames, placeholder warnings, `NEEDS_PROOF`, or review replacement markers in visible copy or images.
 - Every newly planned page needs a review/testimonial section. If real reviews are missing, use replacement-ready neutral review cards and keep replacement notes internal.
 - Detail pages are static ecommerce content. Do not create HTML buttons, link buttons, `.cta-button`, rounded CTA controls, or button-like generated graphics.
+- Every newly produced detail page must include generated designed `FULL_IMAGE` sections for the opening hero and final static CTA/closing impression.
 - Mandatory `FULL_IMAGE` sections must remain designed full-section images. If Korean typography fails, regenerate or mark the item blocked; do not silently downgrade to textless image plus HTML overlay.
 - Image count has no cap. Do not force a fixed full-image/HTML split. Use as many `FULL_IMAGE` and `HTML_MIXED` support images as story, proof, option, care, comparison, review, sparse-section length, and final decision support require.
 - Low-copy option, care/storage, value, reassurance, transition, result, and final decision sections must not remain sparse centered text-only blocks. Add meaningful product/lifestyle/proof imagery or merge with adjacent detail/proof content.
@@ -58,6 +59,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 
 - Image paths exist and are recorded in `assets/generated/manifest.md`.
 - Section count and image roles/counts match `image-plan.md`, with no image-count cap or forced split.
+- The first final section is a generated full-image hero and the final selling section is a generated full-image static CTA/closing impression.
 - The first two mobile screens pass the opening story bridge: hero promise leads into the same buyer moment, repeated friction, or immediate question.
 - Adjacent sections read as one purchase journey, not independent slides.
 - If `REFERENCE_DESIGN_ANALYSIS.md` exists, the final page adapts its essence without cloning the reference.

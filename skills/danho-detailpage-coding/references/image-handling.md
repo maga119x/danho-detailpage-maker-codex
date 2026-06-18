@@ -50,6 +50,13 @@ Use when the image model creates the complete section design: background, produc
 The original section role must exist in the HTML-first layout before replacement.
 If `image-plan.md` or the user marks the section as `FULL_IMAGE`, this replacement is mandatory. Do not downgrade it to `IMAGE_STORY`, `HTML_MIXED`, or textless HTML overlay just because Korean typography is difficult.
 
+Every newly produced detail page must include at least:
+
+- opening hero as generated `FULL_IMAGE`
+- final static CTA/closing impression as generated `FULL_IMAGE`
+
+If mutable facts are needed near the final CTA, keep those facts in adjacent editable HTML and preserve the generated full-image closing screen.
+
 ```html
 <section id="answer" class="full-image-section">
   <img class="full-section-image" src="../assets/generated/ai-section-designs/04_answer.png" alt="...">
@@ -66,7 +73,7 @@ Good candidates:
 - tactile use moment
 - final CTA
 
-The first section of a final hybrid detail page should be `REPLACE`/`FULL_IMAGE` when a designed hero exists. If the first section remains HTML, there must be an explicit reason in `image-plan.md` such as missing hero image or required mutable facts.
+The first section of a final hybrid detail page must be `REPLACE`/`FULL_IMAGE`. The final selling section must also be `REPLACE`/`FULL_IMAGE`. A missing hero or final closing full-image row is an image-plan failure, not an HTML coding choice.
 
 ## Image-Story Sections
 
@@ -162,7 +169,8 @@ Use `../assets/inbox/file.png` only for sections explicitly marked `USER_IMAGE_D
 - If provenance is `SESSION_JSONL_NATIVE_OUTPUT`, check that the manifest records the session path or call id and that the copied file was decoded from `image_generation_end.result`.
 - If provenance is `USER_SUPPLIED_NATIVE_OUTPUT`, check that it is the actual saved/generated image file, not a screenshot of the Codex conversation showing the thumbnail.
 - Check no broken images in a real browser.
-- Check the first final section is a full-image hero when a designed hero image exists.
+- Check the first final section is a generated full-image hero.
+- Check the final selling section is a generated full-image static CTA/closing impression with no button-like graphics.
 - Check no mandatory `FULL_IMAGE` was accepted as `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay because of Korean typography errors.
 - Check the HTML-first layout existed before `FULL_IMAGE` replacement.
 - Check low-copy screens are not left as empty-looking HTML cards; use `FULL_IMAGE`, `IMAGE_STORY`, `HTML_MIXED` support images, or merge.

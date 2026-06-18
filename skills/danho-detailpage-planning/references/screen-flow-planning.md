@@ -57,6 +57,19 @@ Use these fields:
 
 When planning badges/kickers, do not use the internal `screen_role` or section category as visible copy. A badge must become a buyer-facing micro message, proof cue, or action cue. If it adds no meaning beyond the headline, omit it.
 
+## Mandatory Full-Image Gate
+
+Every newly produced Danho detail page must plan generated designed full-image sections. This is a production requirement, not a stylistic option.
+
+Minimum contract:
+
+- Screen 01 hero: `REPLACE_CANDIDATE` / future `FULL_IMAGE`
+- Final static CTA or closing impression: `REPLACE_CANDIDATE` / future `FULL_IMAGE`
+
+If the final CTA also needs mutable legal, price, option, or compatibility facts, split those facts into an adjacent editable HTML section. Do not use mutable facts as a reason to omit the generated full-image closing screen.
+
+Fail the plan when the screen-flow table or section table has no mandatory full-image hero and no mandatory full-image final closing screen.
+
 ## Screen Flow Table Template
 
 ```markdown
@@ -140,7 +153,8 @@ The page may be long. The failure mode to avoid is not length; it is putting too
 
 ## Rhythm Rules
 
-- For final hybrid output, plan screen 01 as an image-dominant hero by default. If a designed hero image can exist, the final page should not begin with an ordinary HTML text hero.
+- For final hybrid output, plan screen 01 as a mandatory generated full-image hero. The final page must not begin with an ordinary HTML text hero.
+- Plan the final selling screen as a mandatory generated full-image static CTA/closing impression. It must not be a button UI; use product/result typography, option-area cue text, dividers, or non-clickable labels.
 - Screen 02 must answer why screen 01 matters in the buyer's real life. If it starts a new topic, revise the opening pair before planning later screens.
 - The first 3 screens must answer product identity, core buyer benefit, and the first purchase condition or difference.
 - Do not place two `high` tempo screens back to back unless the second is FAQ/policy at the end.
@@ -158,7 +172,8 @@ Before marking image candidates, reject a section plan when:
 - a low-copy action/result/transition screen is planned as HTML-only
 - a low-copy option, care/storage, value, reassurance, or final decision screen is planned as centered text-only, one note box, or 1-2 small cards with no product/lifestyle/proof image
 - the planned vertical length comes from blank padding, empty dark space, or a decorative background rather than meaningful image/proof/content
-- the first screen is not image-dominant even though the page is intended to become a hybrid image/HTML detail page
+- the first screen is not a mandatory generated full-image hero
+- the final selling screen is not a mandatory generated full-image static CTA/closing impression
 
 Fixes:
 
@@ -213,5 +228,6 @@ Before coding, reject the plan if:
 - claims are not paired with a visual or proof type
 - low-content sections are left as centered text-only, note-only, or tiny card-only screens instead of `SPARSE_SECTION_IMAGE_REQUIRED` image support or merge
 - there is no review/testimonial screen
+- there is no mandatory generated full-image hero and final generated full-image closing screen
 - options, compatibility, FAQ, or policy are missing for products that need them
 - the expected screen count is too short for the product complexity

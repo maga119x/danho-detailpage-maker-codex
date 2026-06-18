@@ -10,8 +10,8 @@ Build the HTML detail-page layout before image generation. Generated section ima
 
 Do:
 
-- In a final hybrid page, start with a full-image hero when a designed hero image exists. The first screen is the commercial first impression; do not make it a normal HTML text block when a full hero visual is available.
-- End a final hybrid page with a full-image CTA when a designed final CTA image exists. The last screen is the closing purchase impression; do not make it a normal HTML CTA block unless mutable legal, pricing, or option content must remain editable.
+- In a final hybrid page, start with a generated designed full-image hero. The first screen is the commercial first impression; do not make it a normal HTML text block.
+- End a final hybrid page with a generated designed full-image static CTA/closing impression. The last screen is the closing purchase impression; do not make it a normal HTML CTA block. If mutable legal, pricing, option, or compatibility content must remain editable, split that content into a neighboring HTML section.
 - Use natural-height sections with enough top/bottom breathing room.
 - Split one dense content point into multiple screens when needed: scene/result, question, mechanism/detail, proof, caveat/action.
 - Keep sections vertically oriented: headline, large image, then proof or action element.
@@ -40,6 +40,13 @@ Do not:
 ## Hybrid Image Quantity
 
 When the user asks for hybrid, do not target a fixed split, fixed percentage, or maximum image count.
+
+Minimum generated full-image contract:
+
+- opening hero `FULL_IMAGE`
+- final static CTA/closing `FULL_IMAGE`
+
+These two full-image sections are mandatory for every newly produced detail page.
 
 Use the number of images needed for the purchase journey:
 
@@ -156,7 +163,7 @@ Render at 393px and optionally 413px mobile width and verify:
 - headings are large enough to sell but not so large that they wrap awkwardly
 - all images loaded
 - generated images have native image-generation provenance in the manifest
-- first and final sections are full-image sections when their designed images exist
+- first and final selling sections are generated full-image sections
 - image roles and counts match the approved plan
 - no arbitrary image-count cap, fixed percentage, or forced full-image/HTML split was applied
 - pseudo-elements such as speech-bubble tails and quote marks render intentionally

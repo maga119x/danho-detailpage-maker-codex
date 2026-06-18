@@ -12,9 +12,10 @@ Do not generate final design images before the HTML layout exists.
 4. Make the HTML look like a finished ecommerce detail page with placeholders or support-image slots.
 5. Render and inspect the HTML at mobile widths.
 6. Create `image-plan.md` from the inspected HTML.
-7. Generate designed section images only for approved `FULL_IMAGE` sections.
-8. Replace those HTML sections with generated images in Phase B.
-9. Keep factual sections as editable `HTML_MIXED` or `HTML_ONLY`.
+7. Confirm `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final static CTA/closing section.
+8. Generate designed section images for every approved `FULL_IMAGE` section.
+9. Replace those HTML sections with generated images in Phase B.
+10. Keep factual sections as editable `HTML_MIXED` or `HTML_ONLY`.
 
 ## Phase A Quality Bar
 

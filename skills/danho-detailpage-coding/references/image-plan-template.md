@@ -11,7 +11,7 @@ Create this after the first HTML pass or when revising a visual direction.
 
 | Type | Count | Meaning |
 |---|---:|---|
-| FULL_IMAGE | [as needed] | Complete generated section image replaces HTML layout |
+| FULL_IMAGE | at least 2 | Complete generated section image replaces HTML layout; mandatory hero + final closing |
 | HTML_MIXED | [as needed] | Editable HTML section with support image/components |
 | HTML_ONLY | [as needed] | Editable HTML with no image because imagery is not needed |
 | Total | [section count] | Must match section count; image count has no upper cap |
@@ -20,9 +20,10 @@ Create this after the first HTML pass or when revising a visual direction.
 
 | # | section id | screen_role | visual_mass | type | output image | reference assets | source mode | HTML handling | reason |
 |---:|---|---|---|---|---|---|---|---|---|
-| 01 | hook | impact | image-dominant | FULL_IMAGE | ai-section-designs/01_hook.png | assets/inbox/product-front.png | GENERATE_WITH_REFERENCE | one image section | first impression |
+| 01 | hook | impact | image-dominant | FULL_IMAGE | ai-section-designs/01_hook.png | assets/inbox/product-front.png | GENERATE_WITH_REFERENCE | one image section | mandatory hero full image |
 | 02 | fit-check | info | card-dominant | HTML_MIXED | fit-check-magnet-test.png | assets/inbox/product-front.png | GENERATE_WITH_REFERENCE | keep HTML + image | exact conditions |
 | 03 | package | info | card-dominant | HTML_MIXED | assets/inbox/package.jpg | assets/inbox/package.jpg | USER_IMAGE_DIRECT | keep HTML + original image | original package photo is production-ready |
+| 99 | final-cta | final CTA | image-dominant | FULL_IMAGE | ai-section-designs/99_final-cta.png | assets/inbox/product-front.png | GENERATE_WITH_REFERENCE | one image section | mandatory static closing image, no button UI |
 
 If `REFERENCE_DESIGN_ANALYSIS.md` exists, do not list reference design files as product `reference assets`. Add a separate note such as `style anchors from REFERENCE_DESIGN_ANALYSIS.md` in the reason or prompt notes.
 
@@ -32,6 +33,13 @@ Use generated complete ecommerce section images. Image may contain short Korean 
 
 `FULL_IMAGE` means a built-in `image_gen.imagegen` native output, not an HTML section exported as a bitmap. Do not plan browser screenshots, HTML/CSS/SVG/canvas drawings, CLI/API imagegen fallback, PIL/local composites, or placeholder graphics as full-image assets.
 
+Every new detail page must include mandatory generated full-image sections:
+
+- `01` hero/hook full-image section
+- final static CTA/closing full-image section
+
+These rows must be present in `image-plan.md`. If mutable legal, price, option, compatibility, or FAQ copy must remain editable, keep that copy in a neighboring `HTML_MIXED`/`HTML_ONLY` section and still generate the separate final closing `FULL_IMAGE`.
+
 ## HTML-Mixed Sections
 
 Keep editable HTML. Add support image, checklist, quote card, comparison rows, current-price guidance panel, or FAQ bubbles.
@@ -40,6 +48,8 @@ Keep editable HTML. Add support image, checklist, quote card, comparison rows, c
 
 - [ ] Section ids match HTML.
 - [ ] Screen roles and visual mass match the HTML storyboard.
+- [ ] `FULL_IMAGE` count is at least 2 and includes the opening hero plus final static CTA/closing section.
+- [ ] The mandatory hero and final closing rows have stable output filenames under `assets/generated/ai-section-designs/`.
 - [ ] Dense content was split before image planning; images are not used to hide over-compressed sections.
 - [ ] Every `SPARSE_SECTION_IMAGE_REQUIRED` section is assigned `FULL_IMAGE`, `HTML_MIXED` with a large support image, or merge handling; none remain `HTML_ONLY` because the copy is short.
 - [ ] `FULL_IMAGE` and `HTML_MIXED` counts cover every section that needs story, proof, option, care, comparison, review, sparse-section, or opening-continuity visual support.
@@ -60,7 +70,7 @@ Keep editable HTML. Add support image, checklist, quote card, comparison rows, c
 
 Use `FULL_IMAGE` for emotional or visual-impact sections:
 
-- hook
+- mandatory hook/opening hero
 - scene problem
 - blocker
 - answer
@@ -68,7 +78,7 @@ Use `FULL_IMAGE` for emotional or visual-impact sections:
 - daily use
 - control moment
 - low-copy result/value/reassurance/transition section that needs a complete designed impression
-- final CTA
+- mandatory final static CTA/closing impression
 
 Use `HTML_MIXED` for editable and precise sections:
 

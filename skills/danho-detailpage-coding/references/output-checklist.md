@@ -20,8 +20,9 @@ Run this before delivering a Danho detail page.
 - [ ] No generated image asset is a browser screenshot, exported HTML section, HTML/CSS/SVG/canvas drawing, CLI/API imagegen fallback, PIL/local composite, or placeholder bitmap.
 - [ ] If Codex showed a generated preview, saved-path exposure, `%USERPROFILE%/.codex/generated_images/` recovery, and `%USERPROFILE%/.codex/sessions/**/*.jsonl` `image_generation_end` recovery were checked before using `generated_export_blocked` or `native_preview_path_unavailable`.
 - [ ] `codex-clipboard-*.png` or other screenshots of the conversation UI are not used as final generated assets; they are diagnostic evidence only unless the user supplies the actual generated image file.
-- [ ] In the final hybrid HTML, the first section is a full-image hero when a designed hero image exists.
-- [ ] In the final hybrid HTML, the bottom/final section is a full-image CTA when a designed final CTA image exists.
+- [ ] `image-plan.md` includes at least two mandatory `FULL_IMAGE` rows: opening hero and final static CTA/closing.
+- [ ] In the final hybrid HTML, the first section is a generated full-image hero.
+- [ ] In the final hybrid HTML, the bottom/final selling section is a generated full-image static CTA/closing impression.
 - [ ] No section uses `<button>`, `.cta-button`, link-button styling, purchase buttons, or button-like rounded CTA graphics; CTA is static copy/cue only.
 - [ ] Designed full-section images use one `<section class="full-image-section"><img ...></section>`.
 - [ ] Mandatory `FULL_IMAGE` sections were not downgraded to `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay because Korean typography was difficult.

@@ -81,6 +81,7 @@ Fail and revise when:
 - screen 02 feels abrupt after screen 01, starts a generic problem/spec topic, or does not reuse the hero's buyer moment, object/action anchor, emotion, or visual motif
 - badge/kicker text is taxonomy rather than buyer meaning
 - a dense section has multiple buyer questions in one viewport
+- the plan or image plan lacks mandatory generated full-image sections for the opening hero and final static CTA/closing impression
 - a sparse transition, result, option, care/storage, value, reassurance, or final decision section has no image or visual dominance
 - a section has only centered text, one note box, or 1-2 small cards with wide empty padding and no meaningful product/lifestyle/proof visual
 - sparse sections are stretched with blank height, empty dark/pale bands, or decorative background instead of real image/proof/content
@@ -100,6 +101,7 @@ The planning loop can pass only when:
 - each screen carries one dominant purchase judgment
 - adjacent sections have a clear question/answer or emotional transition
 - proof, review, options, FAQ, safety/care, and final CTA appear where the buyer needs them
+- screen 01 hero and the final selling screen are marked for mandatory generated full-image treatment
 - visual mass varies by role instead of repeating the same layout skeleton
 - any supplied reference design is translated into original Danho design tokens and section rhythm, not cloned
 - no low-content section remains text-only, note-only, or tiny-card-only; `SPARSE_SECTION_IMAGE_REQUIRED` sections have image support, full-image treatment, or merge handling

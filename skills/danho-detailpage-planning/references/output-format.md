@@ -161,6 +161,11 @@ Every detail page must include a review/testimonial section. If real reviews are
 
 Plan screen-sized sections before writing the final section table. One content point may become several screens when it contains scene, claim, mechanism, proof, caveat, option, or action.
 
+Every new page must include mandatory designed full-image candidates:
+
+- `01 hook`: mandatory `REPLACE_CANDIDATE` for generated full-image hero
+- final CTA/closing section: mandatory `REPLACE_CANDIDATE` for generated full-image static closing image
+
 | screen | section id | screen_role | visual_mass | surface_role | tempo | main claim / scan answer | evidence or visual | layout_pattern | sparse_image_gate | editable_risk |
 |---:|---|---|---|---|---|---|---|---|---|---|
 | 01 | hook | impact | image-dominant | dark-proof | low |  |  | comparison-hook / result-first-hero | pass | low |
@@ -174,6 +179,7 @@ Plan screen-sized sections before writing the final section table. One content p
 |---:|---|---|---|---|---|---|---|---|---|---|---|---|
 | 01 | hook | 첫인상 | 어떤 상황/베네핏인지 즉시 이해 | 감각 | 시작 | impact | image-dominant | low | photo/comparison | final aspiration | pass | REPLACE_CANDIDATE |
 | 02 | vivid-problem | 실제 장면 | 어떤 불편을 줄이는지 이해 | 공감 | hook의 약속을 생활 상황으로 구체화 | result | image-dominant | low | photo | problem scene | pass | SUPPORT_CANDIDATE |
+| 99 | final-cta | 마무리 | 마지막으로 무엇을 확인할지 이해 | 행동 | 옵션/FAQ 이후 결정 cue | final CTA | image-dominant | low | none | static closing image, no button | pass | REPLACE_CANDIDATE |
 
 ## 3. 단계 분할
 
@@ -210,7 +216,7 @@ Plan screen-sized sections before writing the final section table. One content p
 
 | 후보 | 개수 | 의미 |
 |---|---:|---|
-| REPLACE_CANDIDATE |  | 통 이미지 후보 |
+| REPLACE_CANDIDATE | at least 2 | 통 이미지 후보; mandatory hero + final closing 포함 |
 | SUPPORT_CANDIDATE |  | HTML+이미지 혼합 후보 |
 | NONE |  | HTML 중심 후보 |
 

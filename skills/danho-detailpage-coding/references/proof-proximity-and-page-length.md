@@ -54,7 +54,8 @@ Fail the layout if:
 - the whole page has fewer than 10 screens for a normal product
 - a technical/high-consideration product has fewer than 18 screens
 - a reward/option-heavy product has fewer than 22 screens
-- the final hybrid page starts with an HTML text hero even though a designed full-image hero exists
+- the final hybrid page starts with an HTML text hero instead of the mandatory generated full-image hero
+- the final hybrid page ends without the mandatory generated full-image static CTA/closing impression
 - the first 3 screens are mostly text
 - a key feature gets only one text card and no result/proof/use screen
 - a low-copy result/transition section is left as a sparse HTML block without image dominance

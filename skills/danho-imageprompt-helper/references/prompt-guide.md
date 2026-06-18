@@ -8,6 +8,13 @@ This guide is tuned for Korean ecommerce 상세페이지 section images, not gen
 
 Do not impose a maximum image count, fixed percentage, or fixed full-section/HTML split. Prompt every approved `FULL_IMAGE` and `HTML_MIXED` asset needed for the page's story, proof, option, care/storage, comparison, review, sparse-section, and final decision roles. If that results in many images, keep the queue and generate them in manageable independent native batches.
 
+Every newly produced detail page must include generated designed `FULL_IMAGE` assets for:
+
+- opening hero
+- final static CTA/closing impression
+
+If `image-plan.md` lacks either required full-image row, revise the plan before writing prompts. Do not replace the missing mandatory image with HTML, a support photo, or a textless overlay workaround.
+
 ## Reference Design Style Anchors
 
 When `REFERENCE_DESIGN_ANALYSIS.md` exists, use it as an abstract style guide, not as an image to copy.
@@ -45,6 +52,8 @@ Do not rely on vague adjectives such as `premium`, `modern`, or `high quality` a
 Use this for `FULL_IMAGE` or designed `REPLACE` sections where the image model creates the complete section: background, product scene, Korean typography, cards, icons, and layout.
 
 If a section is marked `FULL_IMAGE`, this is mandatory production work. Do not convert it to a textless support image or HTML overlay to avoid Korean typography risk. Incorrect Korean text means regenerate or revise the native full-section image.
+
+The opening hero and final static CTA/closing are mandatory `FULL_IMAGE` sections on every new page. The final closing image must not look like a clickable button or app UI; use static typography, product/result composition, option-area cue text, dividers, or simple non-clickable labels.
 
 ### Base Template
 
@@ -314,6 +323,7 @@ Before calling `image_gen.imagegen`, check:
 - Does the prompt separate scene, layout, style, text, and constraints?
 - Is Korean text short enough to verify?
 - If the item is mandatory `FULL_IMAGE`, does the prompt still request a complete designed section with exact image-rendered Korean text?
+- Does the queue include the mandatory opening hero `FULL_IMAGE` and final static CTA/closing `FULL_IMAGE`?
 - If this is section 01 or 02, does the prompt preserve the opening story bridge with a shared scene/action/motif and a distinct buyer judgment?
 - If the item is `SPARSE_SECTION_IMAGE_REQUIRED`, does the prompt create enough product/lifestyle/proof visual substance to lengthen the section without blank padding?
 - Does the image queue include every approved visual asset, without dropping items for an assumed count limit or fixed split?

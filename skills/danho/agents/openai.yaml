@@ -1,7 +1,7 @@
 interface:
   display_name: "단호한상세페이지"
-  short_description: "상세페이지 초기화, 레퍼런스 분석, 제작 시작"
-  default_prompt: "Use $danho to initialize AGENT.MD, analyze reference design files when supplied, and start the full Danho Korean ecommerce 상세페이지 workflow."
+  short_description: "상세페이지 초기화, 레퍼런스 분석, 필수 풀 이미지 제작"
+  default_prompt: "Use $danho to initialize AGENT.MD, analyze reference design files when supplied, and start the full Danho Korean ecommerce 상세페이지 workflow with mandatory generated full-image hero and final closing sections."
 
 policy:
   allow_implicit_invocation: true

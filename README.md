@@ -11,6 +11,7 @@ This plugin helps Codex plan, review, write, design, and build mobile-first Kore
 - Korean buyer-first copy review with naturalness, grammar/style, source-independence, and conversion-force gates
 - Static mobile-first HTML detail-page builds
 - `image-plan.md` driven `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` decisions
+- Mandatory designed `FULL_IMAGE` hero and final static CTA/closing section generation
 - Built-in Codex `image_gen.imagegen` native image generation workflow
 - No arbitrary image-count cap for detail-page images
 - Reference detail-page design analysis through `REFERENCE_DESIGN_ANALYSIS.md`
@@ -121,7 +122,7 @@ build/sections/
 5. Run copy review and patch visible Korean copy.
 6. Run PM pre-coding review.
 7. Build Phase A HTML before image generation.
-8. Create `image-plan.md`.
+8. Create `image-plan.md` with mandatory generated `FULL_IMAGE` rows for the opening hero and final static CTA/closing.
 9. Generate approved images through Codex native `image_gen.imagegen`.
 10. Build Phase B final HTML and split sections.
 11. Run final mobile and PM-level validation.
@@ -133,6 +134,7 @@ build/sections/
 - Do not create button UI, link buttons, or button-like CTA graphics.
 - Do not skip PM review, copy review, or Phase A HTML.
 - Do not jump from planning directly to image generation.
+- Do not omit the mandatory designed full-image hero and final static CTA/closing section.
 - Do not copy a supplied reference design page; extract layout rhythm and design essence only.
 - Do not cap image count or force a fixed full-image/HTML split.
 - Do not use browser screenshots, SVG/canvas, PIL composites, API scripts, or CLI imagegen fallbacks as generated-image substitutes.

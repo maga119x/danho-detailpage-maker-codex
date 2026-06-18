@@ -39,19 +39,20 @@ Ask concise follow-up questions only when missing information affects factual ac
 9. Build a 3-second mobile scan plan: what the buyer can understand from the first 1-2 lines of each section.
 10. Build the opening story bridge before the mobile screen-flow plan: screen 01 states the promise/result, screen 02 continues the same buyer moment and shows why that promise matters. Mark this gate `OPENING_STORY_BRIDGE_REQUIRED`.
 11. Build a mobile screen-flow plan before the section table. Read `references/screen-flow-planning.md`.
-12. Split major content points into multiple screen-sized sections. One benefit, mechanism, proof set, option system, or review block may require 3-6 sections.
-13. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
-14. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
-15. Write `PLANNING.md` with all visible copy in text form, and keep production notes separate from buyer-facing copy.
-16. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create neutral replacement-ready dummy review cards and mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not pretend that a reviewer is speaking in the headline.
-17. Run the spoken Korean gate on visible copy before copywriter review: no strategy-term leak, no English skeleton, no abstract noun subject, no long breath.
-18. Run the native Korean pre-gate before copywriter review: remove obvious DaleSeo-style AI markers such as translationese, noun-heavy Korean, repeated S2 patterns, and page-wide identical endings.
-19. Run the production-readiness gate: no sales channel names, no visible placeholder warnings, no `NEEDS_PROOF`/candidate labels/source filenames in buyer-facing copy.
-20. Mark each section as `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, or `NONE`.
-21. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Revise `PLANNING.md` and repeat PM review until section order, screen roles, buyer-question continuity, proof/review placement, visual mass, density, and conversion path pass.
-22. Record the PM planning loop in `PLANNING.md` with final status `pass`.
-23. Run `danho-detailpage-copywriter` to create `COPY_REVIEW.md`, score every section, and patch awkward, timid, translated, feature-first, or AI-marker-heavy visible copy until it passes.
-24. Create `config.json`.
+12. Apply `DESIGNED_FULL_IMAGE_REQUIRED`: every newly produced detail page must reserve generated designed full-image sections for at least screen 01 hero and the final non-button CTA/closing screen. Mark both as `REPLACE_CANDIDATE`; these are mandatory production images, not optional nice-to-have images.
+13. Split major content points into multiple screen-sized sections. One benefit, mechanism, proof set, option system, or review block may require 3-6 sections.
+14. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
+15. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
+16. Write `PLANNING.md` with all visible copy in text form, and keep production notes separate from buyer-facing copy.
+17. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create neutral replacement-ready dummy review cards and mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not pretend that a reviewer is speaking in the headline.
+18. Run the spoken Korean gate on visible copy before copywriter review: no strategy-term leak, no English skeleton, no abstract noun subject, no long breath.
+19. Run the native Korean pre-gate before copywriter review: remove obvious DaleSeo-style AI markers such as translationese, noun-heavy Korean, repeated S2 patterns, and page-wide identical endings.
+20. Run the production-readiness gate: no sales channel names, no visible placeholder warnings, no `NEEDS_PROOF`/candidate labels/source filenames in buyer-facing copy.
+21. Mark each section as `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, or `NONE`.
+22. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Revise `PLANNING.md` and repeat PM review until section order, screen roles, buyer-question continuity, proof/review placement, visual mass, density, and conversion path pass.
+23. Record the PM planning loop in `PLANNING.md` with final status `pass`.
+24. Run `danho-detailpage-copywriter` to create `COPY_REVIEW.md`, score every section, and patch awkward, timid, translated, feature-first, or AI-marker-heavy visible copy until it passes.
+25. Create `config.json`.
 
 ## Reference Design Routine
 
@@ -85,6 +86,7 @@ The PM planning loop must fail and revise when:
 - proof, review, options, FAQ, safety/care, or final CTA is missing or placed too late for the product risk
 - every screen uses the same visual mass or `headline -> paragraph -> card/image` skeleton
 - supplied reference design files are copied too literally, ignored entirely, or used without `REFERENCE_DESIGN_ANALYSIS.md`
+- screen 01 hero or the final closing/CTA screen is not marked as mandatory `REPLACE_CANDIDATE` for a generated designed full-section image
 - a low-content option, care/storage, value, reassurance, result, or transition section is planned as centered text-only, one note box, or 1-2 small cards without a real image role
 - headline rhythm risk is already visible before copywriter review
 - image candidates do not match section roles, such as dense specs marked as full-image candidates or emotional scenes left with no visual plan
@@ -123,6 +125,7 @@ Rules:
 - Combine similar daily-use moments instead of scattering them.
 - Include each section's persuasion role or connection reason in the section table.
 - Include visual roles for sections, not generic image placeholders.
+- Plan mandatory designed full-image sections as part of the conversion flow, not as decoration. At minimum, screen 01 must become a generated full-image hero and the last selling screen must become a generated full-image static CTA/closing impression. If legal, option, price, or compatibility facts must remain editable, split those facts into an adjacent HTML section and still keep a separate non-button full-image closing screen.
 - Plan at least one demonstration-oriented visual for the core problem and one for the core solution when the category allows it. Product flatlays alone are not enough for high-friction products.
 - Build value confidence without defensive price apology. Use value stack, avoided extra purchase, reduced hassle, included components/services, or common-alternative contrast. Do not expose direct numeric prices in visible copy.
 - Do not mention the sales channel in visible copy. The buyer is already on the selling page; channel names and channel-specific notes belong in internal facts only.
@@ -182,6 +185,7 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 
 Use:
 
+- `REPLACE_CANDIDATE` for the mandatory screen 01 hero and final static CTA/closing screen.
 - `REPLACE_CANDIDATE` for short emotional hooks, scene-defining moments, strong typography, and final CTA.
 - `REPLACE_CANDIDATE` for low-content result, value, reassurance, or transition sections when the whole screen should become a designed image section.
 - `SUPPORT_CANDIDATE` for factual sections that need a product photo or lifestyle visual while keeping HTML text, especially low-copy option, care/storage, value, and fit sections that would otherwise look sparse.

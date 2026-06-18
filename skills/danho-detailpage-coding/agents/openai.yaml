@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Detailpage Coding"
-  short_description: "Build and revise hybrid static detail-page HTML."
-  default_prompt: "Use $danho-detailpage-coding to build or revise a mobile-first hybrid 상세페이지 HTML."
+  short_description: "Build hybrid HTML with required full images."
+  default_prompt: "Use $danho-detailpage-coding to build or revise a mobile-first hybrid 상세페이지 HTML with mandatory generated full-image hero and final closing sections."
 
 policy:
   allow_implicit_invocation: true

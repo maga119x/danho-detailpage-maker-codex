@@ -25,14 +25,15 @@ Before creating a new product project in a newly opened work directory, ensure t
 4. Run `danho-detailpage-copywriter` only after the PM planning loop passes. Create `COPY_REVIEW.md`, score every section, run the native Korean humanizer/grammar/style gates, and patch visible copy into natural Korean buyer-first language until the score gate passes.
 5. Run `danho-detailpage-pm-reviewer` again before Phase A when `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md` exist. Confirm the copywriter revision did not break section sequence, buyer-question continuity, headline rhythm, visual mass, or conversion structure.
 6. Run `danho-detailpage-coding` Phase A after PM flow issues are resolved. Phase A must create the HTML-based detail-page layout from the PM-reviewed mobile screen-flow plan before final image generation.
-7. Create or update `image-plan.md` after visually reviewing the Phase A HTML.
+7. Create or update `image-plan.md` after visually reviewing the Phase A HTML. The plan must include generated designed `FULL_IMAGE` rows for at least the opening hero and final static CTA/closing section.
 8. Run `danho-imageprompt-helper` when the user wants prompts or generated section images. After prompts and filenames are fixed, generate images through the built-in `image_gen.imagegen` native tool, one independent call per asset.
 9. Run `danho-detailpage-coding` Phase B or revision mode when actual images exist and the page needs final HTML.
 10. Run `danho-detailpage-pm-reviewer` again before final delivery if the rendered hybrid page has repetitive headline endings, standalone-looking sections, weak transitions, or identical section skeletons.
 
 ## Current Production Rules
 
-- Prefer a hybrid final page: use designed full-section images for high-impact story moments, and HTML+image mixed sections for editable factual content.
+- A hybrid final page must include generated designed full-section images. Minimum contract: opening hero `FULL_IMAGE` and final static CTA/closing `FULL_IMAGE`.
+- Use additional designed full-section images for high-impact story moments, and HTML+image mixed sections for editable factual content.
 - Planning copy is not final until the copywriter review passes. Do not code awkward draft copy just because `PLANNING.md` exists.
 - Planning structure is not final until the PM planning loop passes. Do not run copywriter review on a newly planned page while section order, screen roles, buyer-question continuity, proof/review placement, visual mass, or density failures remain unresolved.
 - Supplied product plans are strategy briefs, not final copy. Do not code pages that still preserve awkward source slogans or memo sentences as visible copy.
@@ -67,8 +68,8 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Use ethical persuasion only: no fake specific reviews, fake scarcity, fake authority, or unsupported numbers. Replacement-ready dummy review cards are allowed only without fabricated specifics and with internal replacement logs.
 - Always establish the HTML detail-page layout first. Do not jump from planning directly to image generation.
 - `PLANNING.md` must include a mobile screen-flow plan for newly planned pages. Do not code a plan that treats every content point as one dense section.
-- In final hybrid HTML, the first visible section should be a full-image hero when a designed hero image exists. Do not leave the opening screen as a normal HTML text hero unless no appropriate hero image exists.
-- In final hybrid HTML, the bottom/final section should be a full-image CTA when a designed final CTA image exists. Do not leave the last screen as a plain HTML CTA unless legal, pricing, or option content must remain editable.
+- In final hybrid HTML, the first visible section must be a generated designed full-image hero. Do not leave the opening screen as a normal HTML text hero.
+- In final hybrid HTML, the bottom/final selling section must be a generated designed full-image static CTA/closing impression. Do not leave the last selling screen as a plain HTML CTA. If legal, pricing, option, or compatibility content must remain editable, split that content into an adjacent HTML section and still keep the full-image closing screen.
 - Detail pages are static ecommerce content, not app screens. Do not create `<button>` controls, `.cta-button` components, link buttons, or button-like rounded rectangles anywhere in HTML or generated section images. Use static CTA copy, option-area cues, product/result typography, dividers, labels, or composition instead.
 - When a section is marked `FULL_IMAGE`, it is mandatory. Korean typography errors must trigger native regeneration/revision or `FULL_IMAGE_TEXT_QA_BLOCKED`; do not downgrade to `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay without explicit user approval.
 - `SPARSE_SECTION_IMAGE_REQUIRED`: do not deliver low-content sections as centered text-only blocks, single note boxes, or tiny 1-2 card grids surrounded by empty padding. If a section has only a kicker/headline/short lead, one note, or 1-2 small cards, either merge it with adjacent proof/detail content or make it image-dominant with `FULL_IMAGE`, `IMAGE_STORY`, or a large `HTML_MIXED` product/lifestyle/proof support image.
@@ -91,6 +92,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Image generation must use the built-in Codex `image_gen.imagegen` native tool only as the required GPT Image 2.0 (`gpt-image-2`) path. Do not use API scripts, CLI imagegen fallback, browser-rendered images, HTML/CSS/SVG/canvas drawings, other image models, or placeholder graphics as generated-image substitutes.
 - Do not search for API keys, model runners, plugins, or local generation scripts before using `image_gen.imagegen`. If that tool is present, native image generation is available.
 - Do not generate images ad hoc. Prepare the full image queue first, then issue one independent native `image_gen.imagegen` call per approved asset.
+- Do not generate a page when the image queue lacks the mandatory opening hero and final static CTA/closing `FULL_IMAGE` assets. Revise `image-plan.md` first.
 - Do not cap image quantity or force a fixed full-image/HTML split. Generate as many `FULL_IMAGE` and `HTML_MIXED` support images as the approved image plan needs for story continuity, proof, options, care/storage, comparison, reviews, sparse-section length, and final decision support.
 
 ## Outputs
@@ -116,8 +118,9 @@ Always validate:
 - Reference design brand, logo, text, product images, prices, exact layout, or proprietary composition do not appear in final HTML or generated images.
 - Image paths exist.
 - Section count and image roles/counts match the plan, with no arbitrary image-count cap, fixed percentage, or forced full-image/HTML split.
-- The first final section is a full-image hero when a designed hero image exists.
-- The bottom/final section is a full-image CTA when a designed final CTA image exists, but it must not contain button UI or button-like CTA graphics.
+- `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final static CTA/closing section.
+- The first final section is a generated full-image hero.
+- The bottom/final selling section is a generated full-image static CTA/closing section, but it must not contain button UI or button-like CTA graphics.
 - No HTML or generated image contains visual buttons, link buttons, or button-shaped CTA labels.
 - No mandatory `FULL_IMAGE` section was accepted as a textless/HTML-overlay fallback due to Korean typography risk.
 - The first 3 mobile screens show product identity, core benefit/result, and difference or fit condition.

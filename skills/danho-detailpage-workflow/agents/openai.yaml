@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Detailpage Workflow"
-  short_description: "Run the Korean detail-page pipeline with references."
-  default_prompt: "Use $danho-detailpage-workflow to initialize AGENT.MD, analyze reference designs when supplied, and run the detail-page workflow in order."
+  short_description: "Run the full detail-page pipeline."
+  default_prompt: "Use $danho-detailpage-workflow to initialize AGENT.MD, analyze reference designs when supplied, and run the detail-page workflow with mandatory generated full-image hero and final closing sections."
 
 policy:
   allow_implicit_invocation: true

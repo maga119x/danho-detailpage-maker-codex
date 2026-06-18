@@ -187,6 +187,7 @@ Use parallel generation after the planning and prompt stages are complete.
 Required preconditions:
 
 - `image-plan.md` is approved.
+- `image-plan.md` includes mandatory `FULL_IMAGE` rows for opening hero and final static CTA/closing.
 - `prompts/banners.md` and `prompts/photos.md` are complete.
 - every row has a final filename.
 - the shared color system and product description are locked.
@@ -227,6 +228,7 @@ Operational rules:
 | file | type | source | prompt_file | references | status | batch | notes |
 |---|---|---|---|---|---|---|---|
 | ai-section-designs/01_hook.png | FULL_IMAGE | Codex built-in image_gen / gpt-image-2 | prompts/banners.md#hook | assets/inbox/product-front.png | accepted | C1 | source `ig_xxx.png` or session call id `ig_xxx`; Korean text checked; product consistent |
+| ai-section-designs/99_final-cta.png | FULL_IMAGE | Codex built-in image_gen / gpt-image-2 | prompts/banners.md#final-cta | assets/inbox/product-front.png | accepted | C2 | mandatory final closing; no button UI; Korean text checked |
 | magnetic-install.png | HTML_MIXED | Codex built-in image_gen / gpt-image-2 | prompts/photos.md#install-flow | assets/inbox/product-front.png | accepted | A1 | source `ig_yyy.png`; no text |
 ```
 

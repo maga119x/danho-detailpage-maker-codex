@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Image Prompt Helper"
-  short_description: "Create native image prompts with style anchors."
-  default_prompt: "Use $danho-imageprompt-helper to create prompts from image-plan and reference design anchors, then generate section images only through built-in Codex image_gen.imagegen GPT Image 2.0."
+  short_description: "Generate mandatory full-section image assets."
+  default_prompt: "Use $danho-imageprompt-helper to verify mandatory hero/final FULL_IMAGE rows, create prompts from image-plan and reference design anchors, then generate section images only through built-in Codex image_gen.imagegen GPT Image 2.0."
 
 policy:
   allow_implicit_invocation: true

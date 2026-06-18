@@ -11,7 +11,7 @@
 
 핵심 방식은 `v11 planning_pm_loop_korean_first_channel_hidden_review_required_workflow`다. 사용자가 제품 기획, 프롬프트, 메모, 초안 카피를 제공하면 먼저 소스 브리프 정규화를 진행해 사실/전략/증거/초안문구/비주얼/리스크를 분리하고, 소스 문장은 visible copy로 그대로 보존하지 않는다. 그 다음 전략어를 바로 노출 카피로 옮기지 않고, 고객 입말 전략으로 한 번 바꾼다. 공감 설득, 전환 욕망, 가치 프레임, 증거 비주얼 같은 내부 개념은 `PLANNING.md` 안에서만 사고 도구로 쓰고, visible copy에는 실제 한국 소비자 속마음이나 판매자 설명처럼 말할 수 있는 문장만 남긴다. 첫 `PLANNING.md` 초안이 완성되면 copywriter로 넘어가기 전에 `danho-detailpage-pm-reviewer`로 `계획 -> PM 검토 -> 계획 수정 -> 재검토` 루프를 실행해 섹션 순서, 모바일 화면 흐름, 구매 질문 연결, 헤드라인 리듬 위험, 비주얼 무게 중심, 증거/리뷰/CTA 배치를 고친다. 이 루프가 `pass`를 기록한 뒤에만 `COPY_REVIEW.md`에서 자연스러운 한국어, 소비자 베네핏, 번역투 제거, 높임말 일관성, 윤리적 설득 원칙, 소스 독립성, 한국어 표현 폴리싱, 전환력뿐 아니라 `spoken_korean_gate`와 production readiness를 검수한다. 문장별로 Kakao 테스트, 소리 내 읽기 테스트, 실제 판매자 발화 테스트, 전략어 누출 테스트, 영어식 문장 골격 테스트를 통과해야 한다. 가격은 프로모션과 채널 할인으로 변동될 수 있으므로 내부 정보/config에만 보관하고, 상세페이지 visible copy/HTML/이미지에는 숫자 가격을 넣지 않는다. 판매채널명은 이미 해당 채널 안에 있는 상세페이지에서 다시 노출하지 않고, 현재 혜택은 필요할 때 옵션 영역 기준으로만 안내한다. 모든 신규 상세페이지에는 리뷰/후기 섹션을 포함하며, 실제 리뷰가 없으면 교체용 더미 리뷰 카드를 만들고 교체 표시는 내부 로그에만 남긴다. 이후 Phase A HTML을 만들기 전에 `danho-detailpage-pm-reviewer`로 copywriter 수정 후에도 흐름이 유지되는지 다시 확인한다. 그 다음 HTML에서는 모바일 세로형 스토리 구조를 만들고, `image-plan.md`에서 각 섹션을 `FULL_IMAGE`, `HTML_MIXED`, `HTML_ONLY`로 확정한다. 내용이 적은 옵션/보관/가치/전환/마무리 섹션은 `SPARSE_SECTION_IMAGE_REQUIRED`로 분류해 통 이미지, 이미지 스토리, 큰 지원 이미지, 또는 병합으로 처리하며 빈 여백만으로 길이를 늘리지 않는다. 특히 첫 2개 화면은 `OPENING_STORY_BRIDGE_REQUIRED` 게이트로 관리해, 1번 화면의 약속/결과가 2번 화면의 같은 생활 장면, 반복 불편, 감정, 다음 질문으로 이어지지 않으면 기획과 코딩 모두 실패로 본다.
 
-이미지 장수에는 상한이나 고정 비율을 두지 않는다. `FULL_IMAGE`와 `HTML_MIXED` 지원 이미지는 스토리 연결, 증거 밀도, 옵션/보관/비교/리뷰/FAQ 보강, sparse 섹션 길이, 최종 결정 지원에 필요한 만큼 사용하며, 고정 split이나 생성 호출 절약을 위해 이미지를 줄이지 않는다.
+이미지 장수에는 상한이나 고정 비율을 두지 않는다. 모든 신규 상세페이지는 최소한 1번 히어로와 마지막 정적 CTA/클로징 화면을 Codex 네이티브 생성 기반 `FULL_IMAGE`로 구성해야 한다. `FULL_IMAGE`와 `HTML_MIXED` 지원 이미지는 스토리 연결, 증거 밀도, 옵션/보관/비교/리뷰/FAQ 보강, sparse 섹션 길이, 최종 결정 지원에 필요한 만큼 사용하며, 고정 split이나 생성 호출 절약을 위해 이미지를 줄이지 않는다.
 
 사용자가 레퍼런스용 상세페이지 디자인 파일을 첨부하면 `assets/reference-designs/`에 보관하고 `REFERENCE_DESIGN_ANALYSIS.md`를 만든다. 여기서는 섹션 리듬, 시각 무게, 여백, 타이포 대비, 카드/구분선/비교/후기 패턴, 이미지 크롭 같은 디자인 에센스만 추출하며, 레퍼런스의 브랜드, 문구, 로고, 제품 이미지, 가격, 정확한 레이아웃, 고유 구성을 복제하지 않는다.
 
@@ -490,7 +490,7 @@ workflow:
       action: PM 검토를 통과한 화면 흐름으로 텍스트만으로 완전한 v1 HTML 생성
     - order: 6
       artifact: image-plan.md
-      action: 섹션별 FULL_IMAGE, HTML_MIXED, HTML_ONLY 결정
+      action: 섹션별 FULL_IMAGE, HTML_MIXED, HTML_ONLY 결정. 1번 히어로와 마지막 정적 CTA/클로징은 mandatory FULL_IMAGE로 포함
       stop_for_user_agreement: true
     - order: 7
       skill: danho-imageprompt-helper
@@ -503,6 +503,9 @@ workflow:
 image_cases:
   FULL_IMAGE:
     meaning: 이미지 모델이 만든 완성 통 이미지가 HTML 레이아웃을 대체
+    mandatory_minimum:
+      - opening_hero
+      - final_static_cta_or_closing
     html_text_handling: remove_original_section
     image_policy: 짧은 한글 카피와 디자인 요소를 이미지 안에 포함 가능
     duplicate_copy_allowed: false
@@ -889,7 +892,7 @@ validation_rules:
       <action>Build text-only HTML with all copy included from the PM-reviewed flow.</action>
     </step>
     <step order="6" artifact="image-plan.md" requiresUserAgreement="true">
-      <action>Decide FULL_IMAGE, HTML_MIXED, HTML_ONLY for each section without any image-count cap or forced full-image/HTML split.</action>
+      <action>Decide FULL_IMAGE, HTML_MIXED, HTML_ONLY for each section without any image-count cap or forced full-image/HTML split; include mandatory FULL_IMAGE rows for opening hero and final static CTA/closing.</action>
     </step>
     <step order="7" skill="danho-imageprompt-helper">
       <action>Create image prompts and generate every approved image through the built-in image_gen.imagegen GPT Image 2.0 / gpt-image-2 native path in prepared independent batches.</action>
@@ -902,6 +905,7 @@ validation_rules:
   <imageCases>
     <case id="FULL_IMAGE">
       <meaning>designed_image_replaces_original_html_section</meaning>
+      <mandatoryMinimum>opening_hero_and_final_static_cta_or_closing</mandatoryMinimum>
       <htmlTextHandling>remove_original_section</htmlTextHandling>
       <imageTextPolicy>short_korean_copy_allowed_verify_visually</imageTextPolicy>
     </case>
@@ -936,10 +940,10 @@ validation_rules:
 11. `COPY_REVIEW.md`는 섹션별 점수표, 페이지 수준 정체/베네핏/구매 행동 이해도, 소스 문구 감사, 표현 폴리싱 감사, Production Readiness Audit, 재작성 루프, 최종 통과 사유를 포함해야 하며 점수 기준을 통과하기 전에는 코딩하지 않는다.
 11. `danho-detailpage-pm-reviewer`는 Phase A 전에 `PLANNING.md`, `COPY_REVIEW.md`, `DESIGN.md`를 기준으로 copywriter 수정 후에도 섹션 순서, 모바일 화면 흐름, 구매 질문 연결, 헤드라인 리듬 위험, 비주얼 무게 중심, 전환 구조가 유지되는지 재검토한다.
 12. `danho-detailpage-coding` Phase A는 PM 리뷰를 통과한 흐름으로 이미지 없이도 의미 전달이 완전한 `v1-textonly.html`을 만든다.
-13. `image-plan.md`는 HTML을 본 뒤 작성하며, 사용자 합의 없이 이미지 생성 단계로 넘어가지 않는다.
+13. `image-plan.md`는 HTML을 본 뒤 작성하며, 사용자 합의 없이 이미지 생성 단계로 넘어가지 않는다. 모든 신규 상세페이지의 `image-plan.md`에는 1번 히어로와 마지막 정적 CTA/클로징을 mandatory `FULL_IMAGE`로 포함해야 한다.
 14. `danho-imageprompt-helper`는 `PLANNING.md`가 아니라 HTML과 image-plan을 기준으로 FULL_IMAGE/HTML_MIXED 프롬프트를 만든다.
 15. 이미지 생성은 Codex 내장 `image_gen.imagegen` 네이티브 경로(GPT Image 2.0 / gpt-image-2)만 사용한다. 해당 도구가 active tool list에 있으면 생성 가능으로 판단하며, `model` 파라미터가 없다는 이유로 차단하지 않는다. Codex UI에 preview가 보이면 생성 성공으로 보고, 먼저 노출된 saved path를 확인한 뒤 `%USERPROFILE%/.codex/generated_images/*/ig_*.png`, `%USERPROFILE%/.codex/sessions/**/*.jsonl`의 `image_generation_end.result`, `collect_codex_generated_images.py --diagnose` 순서로 복구한다. `codex-clipboard-*.png` 같은 대화 화면 캡처는 preview 존재 증거일 뿐 최종 생성 에셋으로 쓰지 않는다. API, CLI fallback, GPT Image 1/1.5 등 다른 이미지 모델, 브라우저 렌더 캡처, HTML/CSS/SVG/canvas/PIL 드로잉으로 대체하지 않는다.
-16. `FULL_IMAGE`로 지정된 섹션은 필수 풀 이미지 섹션이다. 한글 타이포 오류가 있으면 Codex 네이티브 이미지로 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록해야 하며, 텍스트 없는 이미지 + HTML 오버레이, `IMAGE_STORY`, `HTML_MIXED`로 조용히 낮춰 납품하지 않는다.
+16. `FULL_IMAGE`로 지정된 섹션은 필수 풀 이미지 섹션이다. 특히 1번 히어로와 마지막 정적 CTA/클로징 `FULL_IMAGE`는 모든 신규 상세페이지에서 반드시 생성한다. 한글 타이포 오류가 있으면 Codex 네이티브 이미지로 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록해야 하며, 텍스트 없는 이미지 + HTML 오버레이, `IMAGE_STORY`, `HTML_MIXED`로 조용히 낮춰 납품하지 않는다.
 17. 내용이 적은 섹션은 `SPARSE_SECTION_IMAGE_REQUIRED`로 처리한다. kicker/headline/짧은 lead, note box 1개, 작은 카드 1-2개뿐인 옵션/보관/가치/전환/마무리 섹션은 통 이미지, 이미지 스토리, 큰 HTML_MIXED 지원 이미지, 또는 병합으로 해결해야 하며 빈 패딩이나 빈 배경으로 길이를 늘리지 않는다.
 18. 첫 2개 화면은 `OPENING_STORY_BRIDGE_REQUIRED`로 검수한다. 1번 화면이 약속/결과/상품 정체성을 만들면 2번 화면은 같은 구매자 상황, 물건/행동, 장소, 감정, 시각 모티프를 이어 받아 생활 장면이나 반복 불편으로 구체화해야 한다. 갑작스러운 일반 문제 제기나 스펙 설명으로 넘어가면 실패다.
 19. 이미지 프롬프트와 파일명이 확정되면 독립 이미지는 한 장씩 순차 생성하지 말고 병렬 배치로 생성한다.

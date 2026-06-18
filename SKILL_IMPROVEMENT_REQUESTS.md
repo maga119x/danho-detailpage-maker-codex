@@ -1131,3 +1131,28 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 - 추출 대상은 섹션 리듬, 시각 무게, 여백, 타이포 대비, 카드/비교/후기/구분선 패턴, 이미지 크롭, 전환 방식이다.
 - 복제 금지 대상은 브랜드, 로고, 문구, 가격, 제품 이미지, 모델 사진, 정확한 섹션 순서, 정확한 픽셀 레이아웃, 고유 구성이다.
 - 이미지 프롬프트에는 `REFERENCE_DESIGN_ANALYSIS.md`의 style anchor만 반영하고, 레퍼런스 파일을 제품 원본으로 취급하지 않는다.
+
+### 39. 필수 디자인 풀 이미지 섹션 생성 누락 방지
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+상세페이지에는 디자인된 풀 이미지 섹션을 구성하고 해당 디자인 이미지를 생성하는 것이 필수인데, 테스트에서 제작되지 않았다. 원인을 분석하고 해결한다.
+
+**원인 분석**:
+- 기존 규칙은 `FULL_IMAGE`로 지정된 섹션을 다운그레이드하지 말라는 사후 규칙은 강했지만, 애초에 신규 상세페이지가 반드시 `FULL_IMAGE`를 계획하고 생성해야 한다는 최소 계약이 약했다.
+- `첫 섹션은 디자인된 히어로 이미지가 있으면 full-image` 같은 조건부 문구가 남아 있어, 테스트 시 HTML 텍스트 히어로나 평범한 CTA로 빠질 수 있었다.
+- `image-plan.md`에 필수 `FULL_IMAGE` 행이 없어도 imageprompt-helper가 계속 진행할 수 있어, 생성 단계에서 누락을 차단하지 못했다.
+
+**반영 내용**:
+- 모든 신규 상세페이지에 `DESIGNED_FULL_IMAGE_REQUIRED` 게이트를 추가했다.
+- 최소 계약을 `1번 히어로 FULL_IMAGE + 마지막 정적 CTA/클로징 FULL_IMAGE`로 정의했다.
+- `planning`, `pm-reviewer`, `coding`, `workflow`, `imageprompt-helper` 스킬에 필수 full-image 누락 실패 조건을 추가했다.
+- `screen-flow-planning.md`, `output-format.md`, `image-plan-template.md`, `mobile-hybrid-layout.md`, `image-handling.md`, `output-checklist.md`, `prompt-guide.md`, `native-image-generation.md`, `html-first-detailpage-build.md`, `proof-proximity-and-page-length.md`, `section-library.md`, `AGENT.MD.template.md`, `README.md`, `PROJECT_STRUCTURE_AI_CONTEXT.md`에 같은 기준을 반영했다.
+- 플러그인 버전을 `0.1.2`로 올리고 manifest 설명에 mandatory designed full-image sections를 추가했다.
+
+**운영 규칙**:
+- 신규 상세페이지의 `image-plan.md`에는 반드시 opening hero와 final static CTA/closing `FULL_IMAGE` 행이 있어야 한다.
+- 두 필수 행이 없으면 이미지 생성으로 넘어가지 말고 `image-plan.md`를 수정한다.
+- 마지막 CTA에 옵션/가격/법적/호환성처럼 editable 정보가 필요하면, 그 정보는 인접 HTML 섹션으로 분리하고 별도의 정적 클로징 `FULL_IMAGE`는 유지한다.
+- 필수 `FULL_IMAGE`의 한글 타이포가 실패하면 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록한다. HTML 오버레이, textless image, `HTML_MIXED`로 조용히 낮추지 않는다.
