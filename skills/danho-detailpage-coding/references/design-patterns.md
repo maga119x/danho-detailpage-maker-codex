@@ -108,8 +108,8 @@ Use instead of dense tables on mobile.
 Use for a complete generated section. The HTML around it should be minimal.
 
 ```html
-<section id="final-cta" class="full-image-section">
-  <img class="full-section-image" src="../assets/generated/ai-section-designs/16_final-cta.png" alt="...">
+<section id="final-closing" class="full-image-section">
+  <img class="full-section-image" src="../assets/generated/ai-section-designs/16_final-closing.png" alt="...">
 </section>
 ```
 

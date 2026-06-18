@@ -6,7 +6,7 @@ Use this when rewriting visible Korean copy for ecommerce detail pages. Prefer p
 
 - Hooks and benefit copy: friendly polite `해요체`.
 - Specs, limits, compatibility, delivery, warranty, and FAQ facts: clear 안내형 `합니다체`.
-- CTA: direct but not pushy.
+- Closing copy: quiet, result-oriented, and never purchase-action-oriented.
 - Avoid cute language unless the brand already uses it.
 
 ## Reliable Patterns
@@ -20,7 +20,7 @@ Use this when rewriting visible Korean copy for ecommerce detail pages. Prefer p
 | Anxiety reduction | `{걱정}이 부담이라면 {확인/방법}부터 보세요.` |
 | Limit | `{불가 조건}에는 사용할 수 없습니다.` |
 | Option choice | `{사용 상황}이 많다면 {옵션}을 선택해 주세요.` |
-| Final CTA | `{조건}에 맞는다면 지금 옵션을 선택해 주세요.` |
+| Final closing | `{제품명}으로 {반복 상황}이 조금 더 편해집니다.` |
 
 ## Feature To Benefit Conversions
 
@@ -57,7 +57,7 @@ Use this when source planning text sounds strategic but awkward as visible copy.
 | 첫 중식도를 위한 스타터 세트입니다 | acceptable as product definition, weak as headline | 첫 중식도라면 관리용품까지 챙겨보세요. |
 | 장비감 | internal strategy label | 손에 잡히는 묵직한 사용감 |
 | 세트 완성도 | internal strategy label | 처음에 필요한 게 함께 들어 있음 |
-| 가격 합리화 | internal planning label | 숫자 가격을 쓰지 말고 구성 가치와 옵션 영역 확인으로 설명 |
+| 가격 합리화 | internal planning label | 숫자 가격을 쓰지 말고 구성 가치, 반복 사용 가치, 별도 구매를 줄이는 구조로 설명 |
 
 ## Expression Polish Repairs
 
@@ -93,11 +93,11 @@ Use this when source planning text sounds strategic but awkward as visible copy.
 - Relief: `{걱정}은 줄이고, {행동}은 더 쉽게`
 - Choice: `{사용 상황}에 맞춰 옵션을 선택하세요`
 
-## CTA Shapes
+## Final Closing Shapes
 
-- `우리 집 문에 맞는지 확인하고 옵션을 선택해 주세요.`
-- `현재 혜택은 옵션 영역에서 확인해 주세요.`
-- `{조건}에 맞는다면 오늘부터 간단하게 사용해 보세요.`
+- `{제품명}으로 {반복 상황}이 조금 더 편해집니다.`
+- `{사용 장면}마다 {핵심 결과}를 자연스럽게 느낄 수 있어요.`
+- `{브랜드/제품명}, {조용한 보증 톤 또는 사용 후 여운}.`
 
 ## Avoid
 

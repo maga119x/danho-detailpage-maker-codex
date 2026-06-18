@@ -29,7 +29,7 @@ Do not ask the user for these unless the brand explicitly depends on a special v
 - Avoid spec-sheet words in selling copy: `본품`, `관리 구성`, `최종 상품 스펙`, `강재`. Use buyer language unless it is a formal spec table.
 - Avoid clipped headlines that end before the thought is complete. A headline can be short, but it should still land as a complete idea.
 - Keep repeated terms under control across a whole page. Korean shoppers notice repeated `확인해 주세요`, `처음`, and `관리와 보관`.
-- Do not put numeric prices in visible detail-page copy. Use current-price guidance that points to the purchase channel or option area.
+- Do not put numeric prices in visible detail-page copy. Keep mutable price/promotion facts in editable factual/options sections, never in the final closing.
 - Separate production notes from copy. Image filenames, candidate labels, missing-asset notes, and pre-publication checks are not buyer-facing language.
 - Omit subjects when Korean would naturally omit them.
 - Read the sentence aloud mentally. If it sounds like a report, rewrite.
@@ -55,7 +55,7 @@ Do not ask the user for these unless the brand explicitly depends on a special v
 - Install/use: action verbs and simple sequence.
 - Proof/comparison: calm factual tone.
 - FAQ/spec: formal enough to avoid ambiguity.
-- Final CTA: confident but not pushy.
+- Final closing: confident, quiet, result-oriented, and not purchase-action-oriented.
 
 ## Final Self-Check
 

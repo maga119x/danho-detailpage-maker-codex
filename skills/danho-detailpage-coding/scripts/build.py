@@ -395,19 +395,19 @@ BASE_CSS = """
         color: var(--color-text-muted);
     }
 
-    /* ===== CTA SECTION ===== */
-    .cta-section {
+    /* ===== CLOSING SECTION ===== */
+    .closing-section {
         background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-var-2) 100%);
         padding: clamp(64px, 16vw, 112px) clamp(18px, 5vw, 44px);
         text-align: center;
     }
-    .cta-section > * {
+    .closing-section > * {
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* ===== STATIC CTA CUE (상세페이지는 버튼 UI를 만들지 않음) ===== */
-    .cta-cue {
+    /* ===== STATIC CLOSING NOTE (구매 행동 문구가 아닌 마감 인상) ===== */
+    .closing-note {
         display: block;
         text-decoration: none;
     }

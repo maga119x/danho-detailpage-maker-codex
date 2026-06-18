@@ -11,7 +11,7 @@ Do not impose a maximum image count, fixed percentage, or fixed full-section/HTM
 Every newly produced detail page must include generated designed `FULL_IMAGE` assets for:
 
 - opening hero
-- final static CTA/closing impression
+- final product/result closing impression
 
 If `image-plan.md` lacks either required full-image row, revise the plan before writing prompts. Do not replace the missing mandatory image with HTML, a support photo, or a textless overlay workaround.
 
@@ -35,8 +35,8 @@ Do not describe the reference file as the product source of truth. Product refer
 
 For every final prompt, write the brief in this order:
 
-1. `Output purpose`: full-section detail-page artwork, support product photo, proof visual, comparison visual, or CTA artwork.
-2. `Buyer screen role`: hook, problem, answer, proof, fit check, use scene, review support, options support, FAQ support, or final CTA.
+1. `Output purpose`: full-section detail-page artwork, support product photo, proof visual, comparison visual, or closing artwork.
+2. `Buyer screen role`: hook, problem, answer, proof, fit check, use scene, review support, options support, FAQ support, or final closing.
 3. `Main purchase judgment`: the one thing the buyer should understand from this image.
 4. `Product / scene`: product identity, action, environment, props, and what must stay visually clear.
 5. `Layout`: vertical mobile crop, hierarchy zones, negative space, safe margins, and where product/text/cards sit.
@@ -53,7 +53,7 @@ Use this for `FULL_IMAGE` or designed `REPLACE` sections where the image model c
 
 If a section is marked `FULL_IMAGE`, this is mandatory production work. Do not convert it to a textless support image or HTML overlay to avoid Korean typography risk. Incorrect Korean text means regenerate or revise the native full-section image.
 
-The opening hero and final static CTA/closing are mandatory `FULL_IMAGE` sections on every new page. The final closing image must not look like a clickable button or app UI; use static typography, product/result composition, option-area cue text, dividers, or simple non-clickable labels.
+The opening hero and final product/result closing are mandatory `FULL_IMAGE` sections on every new page. The final closing image must not look like a clickable button, app UI, or purchase prompt. Use product/result composition, use scene, brand tone, quiet reassurance, dividers, or simple non-clickable labels. Do not include `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
 
 ### Base Template
 
@@ -62,7 +62,7 @@ Create a complete Korean ecommerce product detail page section image, include co
 
 Output purpose:
 - full-section mobile detail-page artwork for [section id]
-- screen role: [hook/problem/answer/proof/review/final CTA]
+- screen role: [hook/problem/answer/proof/review/final closing]
 - main purchase judgment: [one clear buyer conclusion]
 
 Product and scene:
@@ -117,7 +117,7 @@ Use full-section design images for:
 - emotional daily-use result
 - comparison or value frame with very short labels
 - low-copy result, value, reassurance, or transition section that would otherwise become a sparse text-only HTML block
-- final CTA with short action text
+- final product/result closing with no purchase-action text
 
 Do not use full-section images for dense specs, price tables, option matrices, compatibility rules, long FAQ, policy text, or any mutable facts. Keep those in HTML.
 
@@ -175,7 +175,7 @@ Use these patterns to avoid generic stock-like images.
 | options | components laid out cleanly, editable option facts left to HTML; use as a large support visual when option copy is short | fixed prices or mutable availability |
 | care/value | storage, cleaning, durability, or value scene that gives a short section enough visual length | empty lifestyle mood or text-only note box |
 | FAQ | one visual clarification for a common doubt | text-heavy answer image |
-| final CTA | product/result + one static closing or option-area cue + confident ending | two competing CTA messages, buttons, link-button shapes, rounded CTA controls |
+| final closing | product/result + quiet reassurance or brand tone + confident ending | CTA messages, option/order prompts, benefit-check prompts, buttons, link-button shapes, rounded CTA controls |
 
 ## Opening Pair Prompting
 
@@ -212,10 +212,10 @@ For full-section images:
 - Use 1-2 short Korean lines by default.
 - Put exact lines in quotes.
 - Say `render only these exact lines, verbatim, no extra characters`.
-- Specify text placement and typographic role: headline, short badge, proof label, or CTA.
+- Specify text placement and typographic role: headline, short badge, proof label, or closing phrase.
 - Keep large safe margins and high contrast.
 - Avoid small body copy, FAQ copy, direct prices, option terms, long compatibility caveats, or policy text.
-- Do not ask for button UI, purchase buttons, link-button shapes, rounded CTA controls, or button-like labels. Use static typography, non-clickable labels, dividers, product composition, and option-area cue text instead.
+- Do not ask for button UI, purchase buttons, link-button shapes, rounded CTA controls, button-like labels, option/order prompts, or final-section purchase-action text. Use static typography, non-clickable labels, dividers, product composition, and quiet reassurance instead.
 
 For support images:
 
@@ -323,14 +323,14 @@ Before calling `image_gen.imagegen`, check:
 - Does the prompt separate scene, layout, style, text, and constraints?
 - Is Korean text short enough to verify?
 - If the item is mandatory `FULL_IMAGE`, does the prompt still request a complete designed section with exact image-rendered Korean text?
-- Does the queue include the mandatory opening hero `FULL_IMAGE` and final static CTA/closing `FULL_IMAGE`?
+- Does the queue include the mandatory opening hero `FULL_IMAGE` and final product/result closing `FULL_IMAGE`?
 - If this is section 01 or 02, does the prompt preserve the opening story bridge with a shared scene/action/motif and a distinct buyer judgment?
 - If the item is `SPARSE_SECTION_IMAGE_REQUIRED`, does the prompt create enough product/lifestyle/proof visual substance to lengthen the section without blank padding?
 - Does the image queue include every approved visual asset, without dropping items for an assumed count limit or fixed split?
 - If `REFERENCE_DESIGN_ANALYSIS.md` exists, does the prompt adapt only transferable style anchors and explicitly avoid copying the reference page?
 - Are mutable facts, direct numeric prices, channel names, and long instructions kept out?
 - Does the prompt avoid fake reviews, fake proof, fake badges, and unsupported authority?
-- Does the prompt explicitly avoid button UI and button-like CTA graphics?
+- Does the prompt explicitly avoid button UI, button-like CTA graphics, and final-section purchase-action text?
 
 ## Manifest Notes
 

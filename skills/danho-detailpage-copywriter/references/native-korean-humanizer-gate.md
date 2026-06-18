@@ -15,7 +15,7 @@ Run these three checks in order:
 
 1. `humanizer`: detect AI-like Korean writing patterns and rewrite while preserving meaning.
 2. `grammar-checker`: catch spelling, spacing, grammar, and punctuation errors after the humanizer rewrite.
-3. `style-guide`: check tone, terminology, list rhythm, CTA labels, number/unit style, and section-level consistency.
+3. `style-guide`: check tone, terminology, list rhythm, informational cues, number/unit style, and section-level consistency.
 
 Do not run `style-guide` before `humanizer`. The source style-guide notes that humanizer may add intentional variation across a whole text, while style-guide should keep each paragraph/list/section internally consistent.
 
@@ -71,7 +71,7 @@ After rewriting for naturalness, check:
 - Spelling: `되요 -> 돼요`, `됬어요 -> 됐어요`, `왠만하면 -> 웬만하면`, `어떻게/어떡해`
 - Spacing: `할수있다 -> 할 수 있다`, `궁금한점 -> 궁금한 점`, `연락주세요 -> 연락 주세요`
 - Particles: `사과을`, `책를`, wrong `이/가`, `은/는`, `와/과`
-- Endings: malformed `-습니다`, wrong `-아요/-어요`, awkward CTA request endings
+- Endings: malformed `-습니다`, wrong `-아요/-어요`, awkward request or action-prompt endings
 - Punctuation: excessive exclamation marks, unnecessary commas, mixed quotes
 
 Mark grammar issues by confidence:
@@ -91,7 +91,7 @@ Use these style defaults:
 - Page rhythm: deliberate variation across sections is good; robotic uniformity is bad.
 - Terminology: choose one term for the same buyer action. Do not drift between `손질`, `다듬기`, `썰기`, and `준비` unless the action differs.
 - Lists/cards: keep item length, ending, and structure consistent within one card group.
-- CTA cues: actions must differ. Avoid `보기/보기`; use distinct static cues such as `구성 확인`, `옵션 기준`, or `관리 기준`.
+- Informational cues: keep them factual and non-purchase-oriented. Avoid repeated `보기/보기`, and do not use final closing copy for option/order prompts, benefit-check prompts, or purchase-action wording.
 - Numbers/prices: do not expose direct numeric prices in visible detail-page copy.
 - Emphasis: avoid visible production labels, markdown-ish labels, and excessive punctuation.
 

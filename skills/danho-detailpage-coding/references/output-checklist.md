@@ -20,10 +20,11 @@ Run this before delivering a Danho detail page.
 - [ ] No generated image asset is a browser screenshot, exported HTML section, HTML/CSS/SVG/canvas drawing, CLI/API imagegen fallback, PIL/local composite, or placeholder bitmap.
 - [ ] If Codex showed a generated preview, saved-path exposure, `%USERPROFILE%/.codex/generated_images/` recovery, and `%USERPROFILE%/.codex/sessions/**/*.jsonl` `image_generation_end` recovery were checked before using `generated_export_blocked` or `native_preview_path_unavailable`.
 - [ ] `codex-clipboard-*.png` or other screenshots of the conversation UI are not used as final generated assets; they are diagnostic evidence only unless the user supplies the actual generated image file.
-- [ ] `image-plan.md` includes at least two mandatory `FULL_IMAGE` rows: opening hero and final static CTA/closing.
+- [ ] `image-plan.md` includes at least two mandatory `FULL_IMAGE` rows: opening hero and final product/result closing.
 - [ ] In the final hybrid HTML, the first section is a generated full-image hero.
-- [ ] In the final hybrid HTML, the bottom/final selling section is a generated full-image static CTA/closing impression.
-- [ ] No section uses `<button>`, `.cta-button`, link-button styling, purchase buttons, or button-like rounded CTA graphics; CTA is static copy/cue only.
+- [ ] In the final hybrid HTML, the bottom/final selling section is a generated full-image product/result closing impression.
+- [ ] No section uses `<button>`, `.cta-button`, link-button styling, purchase buttons, or button-like rounded CTA graphics.
+- [ ] The final closing contains no CTA button, button-equivalent text, option/order prompt, benefit-check prompt, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
 - [ ] Designed full-section images use one `<section class="full-image-section"><img ...></section>`.
 - [ ] Mandatory `FULL_IMAGE` sections were not downgraded to `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay because Korean typography was difficult.
 - [ ] If generated Korean typography failed in a mandatory `FULL_IMAGE`, the item was regenerated/revised through native `image_gen.imagegen` or marked `FULL_IMAGE_TEXT_QA_BLOCKED`; it was not silently shipped as a fallback.
@@ -37,7 +38,7 @@ Run this before delivering a Danho detail page.
 - [ ] Generated images preserve the product silhouette, color, material, and distinctive details from reference assets.
 - [ ] Generated Korean typography is visually checked.
 - [ ] Long facts, limitations, and FAQ remain editable HTML.
-- [ ] Direct numeric prices are not embedded in visible HTML or generated images; mutable benefits are handled through option/order-area cues only when needed.
+- [ ] Direct numeric prices are not embedded in visible HTML or generated images; mutable benefits stay out of the final closing and are handled only in editable factual/options sections when needed.
 - [ ] Visible HTML and generated images do not mention sales channel names such as `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, or `채널별 구성`.
 - [ ] Review/testimonial section exists.
 - [ ] If real reviews are unavailable, review-related HTML is framed as review-check criteria or neutral placeholder-safe cards, not fabricated testimonials.
@@ -76,7 +77,7 @@ Run this before delivering a Danho detail page.
 - [ ] Body copy is readable at phone widths, normally 16-18px.
 - [ ] Lead copy is 17-22px and not oversized.
 - [ ] Section headlines are strong but controlled, normally 28-44px.
-- [ ] Ordinary visible text is 16px or larger, including labels, badges, captions, reviews, comparison rows, CTA text, and card copy.
+- [ ] Ordinary visible text is 16px or larger, including labels, badges, captions, reviews, comparison rows, closing text, and card copy.
 - [ ] 14-15px is used only for exceptional legal/spec footnotes or non-persuasive metadata, never for selling-flow copy.
 - [ ] Card body text is not oversized, normally 16-17px.
 - [ ] Typography uses responsive min/max values such as `clamp()`.

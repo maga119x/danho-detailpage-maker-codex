@@ -25,14 +25,14 @@ Before creating a new product project in a newly opened work directory, ensure t
 4. Run `danho-detailpage-copywriter` only after the PM planning loop passes. Create `COPY_REVIEW.md`, score every section, run the native Korean humanizer/grammar/style gates, and patch visible copy into natural Korean buyer-first language until the score gate passes.
 5. Run `danho-detailpage-pm-reviewer` again before Phase A when `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md` exist. Confirm the copywriter revision did not break section sequence, buyer-question continuity, headline rhythm, visual mass, or conversion structure.
 6. Run `danho-detailpage-coding` Phase A after PM flow issues are resolved. Phase A must create the HTML-based detail-page layout from the PM-reviewed mobile screen-flow plan before final image generation.
-7. Create or update `image-plan.md` after visually reviewing the Phase A HTML. The plan must include generated designed `FULL_IMAGE` rows for at least the opening hero and final static CTA/closing section.
+7. Create or update `image-plan.md` after visually reviewing the Phase A HTML. The plan must include generated designed `FULL_IMAGE` rows for at least the opening hero and final product/result closing section.
 8. Run `danho-imageprompt-helper` when the user wants prompts or generated section images. After prompts and filenames are fixed, generate images through the built-in `image_gen.imagegen` native tool, one independent call per asset.
 9. Run `danho-detailpage-coding` Phase B or revision mode when actual images exist and the page needs final HTML.
 10. Run `danho-detailpage-pm-reviewer` again before final delivery if the rendered hybrid page has repetitive headline endings, standalone-looking sections, weak transitions, or identical section skeletons.
 
 ## Current Production Rules
 
-- A hybrid final page must include generated designed full-section images. Minimum contract: opening hero `FULL_IMAGE` and final static CTA/closing `FULL_IMAGE`.
+- A hybrid final page must include generated designed full-section images. Minimum contract: opening hero `FULL_IMAGE` and final product/result closing `FULL_IMAGE`.
 - Use additional designed full-section images for high-impact story moments, and HTML+image mixed sections for editable factual content.
 - Planning copy is not final until the copywriter review passes. Do not code awkward draft copy just because `PLANNING.md` exists.
 - Planning structure is not final until the PM planning loop passes. Do not run copywriter review on a newly planned page while section order, screen roles, buyer-question continuity, proof/review placement, visual mass, or density failures remain unresolved.
@@ -42,11 +42,11 @@ Before creating a new product project in a newly opened work directory, ensure t
 - When the task is skill improvement or validation, ordinary 8.0 copy review is not enough. Do not accept the skill change unless both fixed test products pass strict mode with every section average at least 9.2.
 - If source planning text exists, `COPY_REVIEW.md` must include a source phrase audit and every section must score at least 8.0 for source independence.
 - `COPY_REVIEW.md` must include expression polish checks for newly planned pages. Do not code when incomplete headlines, wrong `체감/느껴짐` collocations, spec-sheet terms, direct numeric prices, repeated safety phrasing, or production notes remain in visible copy.
-- Do not code when CTA cues have indistinct repeated actions, repeated action terms drift across sections, parallel cards/lists break rhythm, FAQ answers do not answer the question directly, or the final CTA lacks a clear static decision cue.
+- Do not code when the final closing contains purchase-action text, repeated action terms drift across sections, parallel cards/lists break rhythm, or FAQ answers do not answer the question directly.
 - Empathy-heavy or Wadiz-style pages must include an empathy conversion map, benefit modules, section visual roles, and proof-gap log in `PLANNING.md`.
 - `PLANNING.md` must include conversion desire architecture for newly planned pages: target desire, before/after shift, value frame, and proof visual plan.
 - `PLANNING.md` must include Korean customer-verbatim strategy and tone coordinates for newly planned pages. Do not code pages whose visible copy still exposes strategy terms or English marketing skeletons.
-- For empathy-heavy or Wadiz-style pages, do not code when problem, solution, benefit, or CTA sections score below 8.0 for empathy depth or purchase desire.
+- For empathy-heavy or Wadiz-style pages, do not code when problem, solution, benefit, or final closing sections score below 8.0 for empathy depth or purchase desire.
 - Do not code when selling sections are natural but lack conversion force: no target desire, no before/after shift, timid value framing, scattered caveats, or only decorative product visuals for claims that need proof.
 - Do not code when visible copy contains strategy terms such as `장비감`, `전환`, `메커니즘`, `동선`, `흐름을 줄이다`, `선택을 줄이다`, `구매 저항`, or `가격 방어`.
 - Do not code when visible copy fails spoken Korean tests: Kakao, read-aloud, seller, strategy-leak, and sentence-skeleton.
@@ -69,8 +69,8 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Always establish the HTML detail-page layout first. Do not jump from planning directly to image generation.
 - `PLANNING.md` must include a mobile screen-flow plan for newly planned pages. Do not code a plan that treats every content point as one dense section.
 - In final hybrid HTML, the first visible section must be a generated designed full-image hero. Do not leave the opening screen as a normal HTML text hero.
-- In final hybrid HTML, the bottom/final selling section must be a generated designed full-image static CTA/closing impression. Do not leave the last selling screen as a plain HTML CTA. If legal, pricing, option, or compatibility content must remain editable, split that content into an adjacent HTML section and still keep the full-image closing screen.
-- Detail pages are static ecommerce content, not app screens. Do not create `<button>` controls, `.cta-button` components, link buttons, or button-like rounded rectangles anywhere in HTML or generated section images. Use static CTA copy, option-area cues, product/result typography, dividers, labels, or composition instead.
+- In final hybrid HTML, the bottom/final selling section must be a generated designed full-image product/result closing impression. Do not leave the last selling screen as a plain HTML action block. If legal, pricing, option, or compatibility content must remain editable, split that content into an adjacent HTML section and still keep the full-image closing screen without purchase-action text.
+- Detail pages are static ecommerce content, not app screens. Do not create `<button>` controls, `.cta-button` components, link buttons, button-like rounded rectangles, or final-section button-equivalent text anywhere in HTML or generated section images. Use product/result typography, dividers, labels, composition, or quiet reassurance instead.
 - When a section is marked `FULL_IMAGE`, it is mandatory. Korean typography errors must trigger native regeneration/revision or `FULL_IMAGE_TEXT_QA_BLOCKED`; do not downgrade to `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay without explicit user approval.
 - `SPARSE_SECTION_IMAGE_REQUIRED`: do not deliver low-content sections as centered text-only blocks, single note boxes, or tiny 1-2 card grids surrounded by empty padding. If a section has only a kicker/headline/short lead, one note, or 1-2 small cards, either merge it with adjacent proof/detail content or make it image-dominant with `FULL_IMAGE`, `IMAGE_STORY`, or a large `HTML_MIXED` product/lifestyle/proof support image.
 - Option, care/storage, value, reassurance, and final decision sections are not exempt from the sparse-section rule. When their copy is short, use product scale photos, lifestyle scenes, component/option visuals, care-use photos, or proof imagery to create real vertical length.
@@ -83,8 +83,8 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Do not force every section to a fixed 9:16 or 3:4 ratio. Use vertical mobile rhythm with sufficient section height, large images, and natural content flow.
 - Mobile-first means responsive readable typography for phone widths, not coding the page as a fixed 413px canvas.
 - Treat HTML sections as designed sections, not text-only blocks. Add product photos, lifestyle images, badges, quote cards, speech bubbles, or comparison cards when they improve persuasion.
-- Reject simple generic web pages. The result must read as an ecommerce product detail page with hero, problem, review/testimonial, proof, comparison, options, FAQ, and CTA modules.
-- Do not expose direct numeric prices in final detail-page HTML or generated section images. Use option/order-area cues only when needed because promotions can change.
+- Reject simple generic web pages. The result must read as an ecommerce product detail page with hero, problem, review/testimonial, proof, comparison, options, FAQ, and a product/result closing module.
+- Do not expose direct numeric prices in final detail-page HTML or generated section images. Do not add final-section option/order-area cues because the shopping mall purchase UI already handles the action.
 - Do not expose sales channel names in final detail-page HTML or generated section images.
 - Do not expose internal planning labels such as "설치 방식" or "모바일 구매 판단 요약" in the final page. Convert them into consumer-facing selling copy.
 - Do not expose production notes such as source image filenames, `제공 이미지`, `추가 확인 필요`, `상세페이지 공개 전`, or candidate labels. Keep these in planning/proof logs only.
@@ -92,7 +92,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Image generation must use the built-in Codex `image_gen.imagegen` native tool only as the required GPT Image 2.0 (`gpt-image-2`) path. Do not use API scripts, CLI imagegen fallback, browser-rendered images, HTML/CSS/SVG/canvas drawings, other image models, or placeholder graphics as generated-image substitutes.
 - Do not search for API keys, model runners, plugins, or local generation scripts before using `image_gen.imagegen`. If that tool is present, native image generation is available.
 - Do not generate images ad hoc. Prepare the full image queue first, then issue one independent native `image_gen.imagegen` call per approved asset.
-- Do not generate a page when the image queue lacks the mandatory opening hero and final static CTA/closing `FULL_IMAGE` assets. Revise `image-plan.md` first.
+- Do not generate a page when the image queue lacks the mandatory opening hero and final product/result closing `FULL_IMAGE` assets. Revise `image-plan.md` first.
 - Do not cap image quantity or force a fixed full-image/HTML split. Generate as many `FULL_IMAGE` and `HTML_MIXED` support images as the approved image plan needs for story continuity, proof, options, care/storage, comparison, reviews, sparse-section length, and final decision support.
 
 ## Outputs
@@ -118,10 +118,10 @@ Always validate:
 - Reference design brand, logo, text, product images, prices, exact layout, or proprietary composition do not appear in final HTML or generated images.
 - Image paths exist.
 - Section count and image roles/counts match the plan, with no arbitrary image-count cap, fixed percentage, or forced full-image/HTML split.
-- `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final static CTA/closing section.
+- `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing section.
 - The first final section is a generated full-image hero.
-- The bottom/final selling section is a generated full-image static CTA/closing section, but it must not contain button UI or button-like CTA graphics.
-- No HTML or generated image contains visual buttons, link buttons, or button-shaped CTA labels.
+- The bottom/final selling section is a generated full-image product/result closing section, and it contains no CTA button, button-like CTA graphics, option/order prompt, benefit-check prompt, or button-equivalent text.
+- No HTML or generated image contains visual buttons, link buttons, button-shaped labels, or final-section purchase-action text.
 - No mandatory `FULL_IMAGE` section was accepted as a textless/HTML-overlay fallback due to Korean typography risk.
 - The first 3 mobile screens show product identity, core benefit/result, and difference or fit condition.
 - The first 2 mobile screens pass the opening story bridge: screen 02 follows screen 01 with a concrete lived moment, not an abrupt new topic.
@@ -153,7 +153,7 @@ Always validate:
 - A review/testimonial section exists in planning and final HTML.
 - Value framing explains why the offer is worth checking without exposing direct numeric prices.
 - Core problem and solution claims have proof-oriented visual directions when the category can be demonstrated visually.
-- CTA cues are distinct, repeated action terms are consistent, parallel cards/lists keep rhythm, FAQ answers are direct, and the final CTA has a clear non-button closing/option cue.
+- Mid-page informational cues are clear, repeated action terms are consistent, parallel cards/lists keep rhythm, FAQ answers are direct, and the final closing contains no purchase-action text.
 - A `SKILL_TEST_REPORT.md` is created when improving or validating the planning/copywriter skills with a test detail page.
 
 ## Skill Improvement Validation

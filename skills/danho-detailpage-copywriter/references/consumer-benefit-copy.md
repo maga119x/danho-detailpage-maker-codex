@@ -112,6 +112,6 @@ Avoid these unless the product facts make them unusually true and natural:
 - Fit check: turn restrictions into a helpful buying checklist.
 - Comparison: compare buyer effort, damage risk, and daily convenience.
 - Review/proof: include a review/testimonial section. Use real reviews when supplied; otherwise use neutral replacement-ready dummy review cards with internal replacement notes only.
-- CTA: summarize fit, benefit, and purchase action.
-- Options/current-price guidance: make the next buying step obvious without embedding numeric prices or sales-channel names in the detail page.
+- Final closing: summarize the product/result impression without purchase-action text.
+- Options/value information: make fit, components, and mutable facts understandable without embedding numeric prices, sales-channel names, or final-section action prompts.
 - FAQ: answer the worry directly before adding explanation.

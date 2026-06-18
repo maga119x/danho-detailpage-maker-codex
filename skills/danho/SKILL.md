@@ -32,7 +32,7 @@ Default behavior:
 2. If the user provides product information, start the full workflow from planning.
 3. If a project already has artifacts, diagnose the current stage and continue from the next required step.
 4. If the user supplies reference 상세페이지 design files, route them through `REFERENCE_DESIGN_ANALYSIS.md` before `DESIGN.md`; do not copy the reference page directly.
-5. Preserve all current Danho workflow gates: PM planning loop before copywriter review, copywriter review before Phase A, PM pre-coding review before HTML, HTML before image generation, mandatory generated full-image hero and final static CTA/closing sections, and built-in Codex `image_gen.imagegen` GPT Image 2.0 native generation only.
+5. Preserve all current Danho workflow gates: PM planning loop before copywriter review, copywriter review before Phase A, PM pre-coding review before HTML, HTML before image generation, mandatory generated full-image hero and final product/result closing sections with no purchase-action text, and built-in Codex `image_gen.imagegen` GPT Image 2.0 native generation only.
 6. Ask only for factual blockers. Infer non-critical ecommerce context from the supplied product details.
 
 Do not duplicate or override the workflow rules here. This skill is a short entry point for the full workflow.

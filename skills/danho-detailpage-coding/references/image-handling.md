@@ -53,9 +53,9 @@ If `image-plan.md` or the user marks the section as `FULL_IMAGE`, this replaceme
 Every newly produced detail page must include at least:
 
 - opening hero as generated `FULL_IMAGE`
-- final static CTA/closing impression as generated `FULL_IMAGE`
+- final product/result closing impression as generated `FULL_IMAGE`
 
-If mutable facts are needed near the final CTA, keep those facts in adjacent editable HTML and preserve the generated full-image closing screen.
+If mutable facts are needed near the final area, keep those facts in adjacent editable HTML and preserve the generated full-image closing screen. The closing image itself must not contain option/order prompts, benefit-check prompts, or purchase-action text.
 
 ```html
 <section id="answer" class="full-image-section">
@@ -71,7 +71,7 @@ Good candidates:
 - lifestyle proof
 - low-copy result, value, reassurance, or transition screen that needs a complete designed impression
 - tactile use moment
-- final CTA
+- final product/result closing
 
 The first section of a final hybrid detail page must be `REPLACE`/`FULL_IMAGE`. The final selling section must also be `REPLACE`/`FULL_IMAGE`. A missing hero or final closing full-image row is an image-plan failure, not an HTML coding choice.
 
@@ -149,7 +149,7 @@ Do not resolve sparse sections with empty padding, blank dark bands, decorative 
 - Full-section `REPLACE` images may contain short Korean typography.
 - Mandatory `FULL_IMAGE`/`REPLACE` images must contain the planned short Korean typography when the plan requires it. If the generated text is wrong, regenerate or revise the native image; do not move the same copy to HTML as a silent fallback.
 - Support images must contain no text, captions, signage, or labels.
-- Long Korean sentences, compatibility, limitations, and FAQ should remain HTML. Direct numeric prices should not appear in generated images or visible HTML; direct users to the purchase channel for current sale price.
+- Long Korean sentences, compatibility, limitations, and FAQ should remain HTML. Direct numeric prices should not appear in generated images or visible HTML. Do not add final-section prompts that direct users to option/order/benefit checks; the shopping mall purchase UI handles those actions.
 - If generated Korean text is wrong in a non-mandatory image-story/support visual, shorten/retry or move the copy back to HTML. If it is mandatory `FULL_IMAGE`, shorten/retry/regenerate and keep the role unchanged unless the user explicitly approves a role change.
 
 ## Paths
@@ -170,7 +170,7 @@ Use `../assets/inbox/file.png` only for sections explicitly marked `USER_IMAGE_D
 - If provenance is `USER_SUPPLIED_NATIVE_OUTPUT`, check that it is the actual saved/generated image file, not a screenshot of the Codex conversation showing the thumbnail.
 - Check no broken images in a real browser.
 - Check the first final section is a generated full-image hero.
-- Check the final selling section is a generated full-image static CTA/closing impression with no button-like graphics.
+- Check the final selling section is a generated full-image product/result closing impression with no button-like graphics, option/order prompts, benefit-check prompts, or purchase-action text.
 - Check no mandatory `FULL_IMAGE` was accepted as `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay because of Korean typography errors.
 - Check the HTML-first layout existed before `FULL_IMAGE` replacement.
 - Check low-copy screens are not left as empty-looking HTML cards; use `FULL_IMAGE`, `IMAGE_STORY`, `HTML_MIXED` support images, or merge.

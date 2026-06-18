@@ -12,7 +12,7 @@ Do not generate final design images before the HTML layout exists.
 4. Make the HTML look like a finished ecommerce detail page with placeholders or support-image slots.
 5. Render and inspect the HTML at mobile widths.
 6. Create `image-plan.md` from the inspected HTML.
-7. Confirm `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final static CTA/closing section.
+7. Confirm `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing section.
 8. Generate designed section images for every approved `FULL_IMAGE` section.
 9. Replace those HTML sections with generated images in Phase B.
 10. Keep factual sections as editable `HTML_MIXED` or `HTML_ONLY`.
@@ -28,7 +28,7 @@ It must already include:
 - enough screen depth for the product complexity; do not compress multiple purchase judgments into one viewport
 - strong product hero or hook area
 - large visual slots where imagery will persuade
-- proof components such as quote cards, checklists, comparison rows, FAQ bubbles, current-price guidance panels
+- proof components such as quote cards, checklists, comparison rows, FAQ bubbles, fit/option information panels, and value-support panels
 - a review/testimonial section; use supplied reviews or neutral replacement-ready dummy review cards without visible replacement warnings
 - mobile-readable typography
 - role-based color system

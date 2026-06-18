@@ -24,7 +24,7 @@ Do not use API scripts, `OPENAI_API_KEY`, curl, browser-rendered screenshots, HT
 - If the user provides the actual saved generated image file after the preview appears, copy it into `assets/generated/` and mark the source as `USER_SUPPLIED_NATIVE_OUTPUT`. If the user provides only a screenshot of the conversation or a `codex-clipboard-*.png` capture, use it as diagnostic evidence only; do not treat a conversation screenshot as the generated asset.
 - Use one native image call per final asset or variant. "Batch" means preparing the queue first and then issuing independent native calls, not using CLI batch scripts.
 - Do not reduce the image queue because of an assumed maximum image count, generation-call limit, or fixed full-image/HTML ratio. Generate every approved `FULL_IMAGE` and `HTML_MIXED` asset needed for story continuity, sparse-section length, proof, options, care/storage, comparison, reviews, and final decision support.
-- Every newly produced detail page must generate at least two designed `FULL_IMAGE` assets: opening hero and final static CTA/closing. If `image-plan.md` lacks these rows, stop prompt generation and send the plan back for revision.
+- Every newly produced detail page must generate at least two designed `FULL_IMAGE` assets: opening hero and final product/result closing. If `image-plan.md` lacks these rows, stop prompt generation and send the plan back for revision.
 
 ## Recovering Generated Files
 
@@ -79,11 +79,11 @@ python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
 Use for `FULL_IMAGE` or hybrid full-image sections.
 
 - The image model creates the whole ecommerce section: background, product scene, Korean typography, cards, icons, and layout.
-- The mandatory minimum is opening hero plus final static CTA/closing. These are generated full-section images, not optional support photos.
+- The mandatory minimum is opening hero plus final product/result closing. These are generated full-section images, not optional support photos.
 - When `image-plan.md`, the user, or the workflow marks a section as `FULL_IMAGE`, the designed full-section image is mandatory. Do not downgrade it to `IMAGE_STORY`, textless support imagery, or HTML overlay merely to avoid Korean typography risk.
-- Use for hook, emotional scene, problem, answer, no-damage proof, daily-use scene, control moment, and final CTA.
-- Keep text short. Long Korean copy, direct prices, FAQ, and conditions should not be generated into images. Current sale prices belong in the purchase channel/option area, not fixed section artwork.
-- Do not generate buttons, link-button shapes, purchase buttons, rounded CTA controls, or button-like labels in any 상세페이지 image. Final CTA artwork should use static typography, product/result composition, option-area cue text, dividers, or simple non-clickable labels.
+- Use for hook, emotional scene, problem, answer, no-damage proof, daily-use scene, control moment, and final product closing.
+- Keep text short. Long Korean copy, direct prices, FAQ, and conditions should not be generated into images. Mutable price/promotion facts belong in editable factual/options sections, not fixed section artwork or the final closing image.
+- Do not generate buttons, link-button shapes, purchase buttons, rounded CTA controls, button-like labels, or final-section purchase-action text in any 상세페이지 image. Final closing artwork should use product/result composition, use scene, brand tone, dividers, quiet reassurance, or simple non-clickable labels. Do not include `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
 - Save under `assets/generated/ai-section-designs/` when generating multiple section images.
 
 ### Support Image
@@ -103,8 +103,8 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 - For full-section images, include: `complete Korean ecommerce product detail page section image`, `include content and design`, `not a plain photo`.
 - For complex full-section images, use the structured section-brief order from `references/prompt-guide.md`: output purpose, screen role, buyer judgment, product/scene, layout, style, color, text contract, and constraints.
 - For support images, end with: `no text, no Korean caption, no overlay text, no signage with letters, pure visual`.
-- Match the screen role from `image-plan.md`. Full-section images should usually be image-dominant or type-dominant impact/result/CTA screens; dense facts, prices, options, specs, compatibility, FAQ, and policy stay in HTML.
-- Before writing prompts, confirm `image-plan.md` includes mandatory `FULL_IMAGE` rows for the opening hero and final static CTA/closing. If either is missing, do not compensate with support photos or HTML; revise `image-plan.md`.
+- Match the screen role from `image-plan.md`. Full-section images should usually be image-dominant or type-dominant impact/result/closing screens; dense facts, prices, options, specs, compatibility, FAQ, and policy stay in HTML.
+- Before writing prompts, confirm `image-plan.md` includes mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing. If either is missing, do not compensate with support photos or HTML; revise `image-plan.md`.
 - If `REFERENCE_DESIGN_ANALYSIS.md` exists, use its visual system and layout grammar as style anchors only. Do not ask the image model to copy the reference page, brand, exact section layout, logos, text, product image, badges, prices, models, or proprietary composition.
 - For section 01 and section 02 assets, preserve opening story continuity. Section 01 may show the promise/result; section 02 should use the same product, setting, action, color motif, or buyer emotion to deepen the scene, not restart the page with an unrelated image.
 - Cover every `SPARSE_SECTION_IMAGE_REQUIRED` row in `image-plan.md`. Generate either a complete full-section image or a large textless support image; do not leave the section as sparse HTML because the copy is short.
@@ -119,7 +119,7 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 ## Workflow
 
 1. Read image roles, section ids, and any `SPARSE_SECTION_IMAGE_REQUIRED` gates.
-2. Verify the mandatory full-image contract: opening hero `FULL_IMAGE` and final static CTA/closing `FULL_IMAGE` exist with stable output filenames. If missing, return to `danho-detailpage-coding` / `image-plan.md` revision before generating.
+2. Verify the mandatory full-image contract: opening hero `FULL_IMAGE` and final product/result closing `FULL_IMAGE` exist with stable output filenames. If missing, return to `danho-detailpage-coding` / `image-plan.md` revision before generating.
 3. Check whether section 01 and section 02 need opening story continuity. If both are generated, write prompts as a pair with shared product/scene anchors and distinct buyer judgments.
 4. Classify user-provided images as `PRODUCT_REFERENCE`, `DIRECT_USE`, or `STYLE_REFERENCE`. Reference 상세페이지 design files belong to `STYLE_REFERENCE` and should already have `REFERENCE_DESIGN_ANALYSIS.md`.
 5. If `REFERENCE_DESIGN_ANALYSIS.md` exists, add a short `Reference Design Style Anchors` block to `prompts/banners.md` and `prompts/photos.md`.

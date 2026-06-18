@@ -23,7 +23,7 @@
 
 ### 1. 호버 효과의 문제점
 - 호버 시에만 보이는 효과는 **정적 상태에서 디자인이 허전해 보임**
-- 카드, CTA cue 등이 평범하고 밋밋하게 보이는 원인
+- 카드, 마감 노트 등이 평범하고 밋밋하게 보이는 원인
 
 ### 2. 이커머스 상세페이지 특성
 - 사용자는 **스크롤하며 읽는 콘텐츠** → 인터랙션 불필요
@@ -131,11 +131,11 @@
 }
 ```
 
-### 정적 CTA cue 컴포넌트
+### 정적 마감 노트 컴포넌트
 
 ```css
-/* ✅ REQUIRED - Static CTA cue (버튼처럼 보이지 않는 마감 문구) */
-.cta-cue {
+/* ✅ REQUIRED - Static closing note (구매 행동 문구가 아닌 마감 인상) */
+.closing-note {
     display: block;
     color: #1a1a1a;
     font-weight: 700;
@@ -205,7 +205,7 @@
 | 뱃지 | `--shadow-sm` | optional | subtle |
 | 입력 필드 | inset shadow | 1px solid | none |
 | 섹션 구분 | `--shadow-sm` | bottom only | none |
-| CTA 박스 | `--shadow-lg` | accent color | diagonal |
+| 마감 인상 박스 | `--shadow-lg` | accent color | diagonal |
 
 ---
 
@@ -221,4 +221,4 @@ HTML 제출 전 확인 사항:
 - [ ] 모든 디자인 요소가 기본 상태에서 완성되어 보임
 - [ ] 카드에 기본 상태 `box-shadow`, `border` 적용됨
 - [ ] 버튼 UI, `.cta-button`, 링크 버튼, 버튼처럼 보이는 둥근 CTA 그래픽이 없음
-- [ ] CTA 영역은 정적 문구, 제품 이미지, 구분선, 옵션 cue로 마무리됨
+- [ ] 마지막 영역은 상품/결과 마감 문구, 제품 이미지, 구분선으로 마무리되며 옵션/혜택/주문 cue를 포함하지 않음

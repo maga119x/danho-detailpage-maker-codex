@@ -11,7 +11,7 @@ Build the HTML detail-page layout before image generation. Generated section ima
 Do:
 
 - In a final hybrid page, start with a generated designed full-image hero. The first screen is the commercial first impression; do not make it a normal HTML text block.
-- End a final hybrid page with a generated designed full-image static CTA/closing impression. The last screen is the closing purchase impression; do not make it a normal HTML CTA block. If mutable legal, pricing, option, or compatibility content must remain editable, split that content into a neighboring HTML section.
+- End a final hybrid page with a generated designed full-image product/result closing impression. The last screen is the closing product impression, not a CTA or purchase prompt. If mutable legal, pricing, option, or compatibility content must remain editable, split that content into a neighboring HTML section.
 - Use natural-height sections with enough top/bottom breathing room.
 - Split one dense content point into multiple screens when needed: scene/result, question, mechanism/detail, proof, caveat/action.
 - Keep sections vertically oriented: headline, large image, then proof or action element.
@@ -44,13 +44,13 @@ When the user asks for hybrid, do not target a fixed split, fixed percentage, or
 Minimum generated full-image contract:
 
 - opening hero `FULL_IMAGE`
-- final static CTA/closing `FULL_IMAGE`
+- final product/result closing `FULL_IMAGE`
 
 These two full-image sections are mandatory for every newly produced detail page.
 
 Use the number of images needed for the purchase journey:
 
-- designed `FULL_IMAGE` sections for impact, story, proof, and final decision moments
+- designed `FULL_IMAGE` sections for impact, story, proof, and final product/result moments
 - `HTML_MIXED` support images for editable factual sections that need visual proof or visual length
 - `HTML_ONLY` only when text, cards, tables, or FAQ are genuinely enough
 
@@ -65,7 +65,7 @@ Use full-section images for:
 - no-damage / rental reassurance
 - daily-use lifestyle moment
 - foot-control or tactile use moment
-- final CTA
+- final product/result closing
 
 Use image-story sections for:
 
@@ -141,7 +141,7 @@ For sparse sections, the acceptable added length is meaningful content: generate
 
 ## Text Alignment
 
-Use centered text as the default for section-level selling copy: kicker, headline, lead, hero, image-story overlays, and CTA blocks.
+Use centered text as the default for section-level selling copy: kicker, headline, lead, hero, image-story overlays, and closing blocks.
 
 Use left alignment inside structured information components:
 

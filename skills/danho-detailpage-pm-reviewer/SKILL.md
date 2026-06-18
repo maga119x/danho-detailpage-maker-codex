@@ -22,7 +22,7 @@ Review whether the page sells as one connected journey:
 Use after `PLANNING.md` and `DESIGN.md` exist, before `COPY_REVIEW.md`.
 
 1. Read `PLANNING.md` and `DESIGN.md`. If `REFERENCE_DESIGN_ANALYSIS.md` exists, read it too. Do not wait for copywriter review.
-2. Extract the planned section sequence, opening story bridge table, mobile screen-flow table, scan answers, connection reasons, headline/lead drafts, proof/review/options/FAQ/CTA placement, visual mass, and image candidates.
+2. Extract the planned section sequence, opening story bridge table, mobile screen-flow table, scan answers, connection reasons, headline/lead drafts, proof/review/options/FAQ/final-closing placement, visual mass, and image candidates.
 3. Build a planning-loop table with:
    - `screen`
    - `planned role`
@@ -32,7 +32,7 @@ Use after `PLANNING.md` and `DESIGN.md` exist, before `COPY_REVIEW.md`.
    - `density / split risk`
    - `planned visual mass`
    - `PM verdict`
-4. Patch `PLANNING.md` when the workflow is continuing. Revise order, split or merge sections, rewrite scan answers and connection reasons, adjust visual roles, and move proof/review/CTA modules before copywriter review.
+4. Patch `PLANNING.md` when the workflow is continuing. Revise order, split or merge sections, rewrite scan answers and connection reasons, adjust visual roles, and move proof/review/final-closing modules before copywriter review.
 5. Update `## 9. PM 기획 검토 루프` in `PLANNING.md` with each round's finding, applied revision, affected sections, and status.
 6. Repeat review and patching until the planning loop records `pass`. Do not hand off to copywriter while PM findings remain `revise`.
 
@@ -81,7 +81,8 @@ Fail and revise when:
 - screen 02 feels abrupt after screen 01, starts a generic problem/spec topic, or does not reuse the hero's buyer moment, object/action anchor, emotion, or visual motif
 - badge/kicker text is taxonomy rather than buyer meaning
 - a dense section has multiple buyer questions in one viewport
-- the plan or image plan lacks mandatory generated full-image sections for the opening hero and final static CTA/closing impression
+- the plan or image plan lacks mandatory generated full-image sections for the opening hero and final product/result closing impression
+- the final closing contains CTA-button text, option/order prompts, benefit-check prompts, or button-equivalent purchase-action wording
 - a sparse transition, result, option, care/storage, value, reassurance, or final decision section has no image or visual dominance
 - a section has only centered text, one note box, or 1-2 small cards with wide empty padding and no meaningful product/lifestyle/proof visual
 - sparse sections are stretched with blank height, empty dark/pale bands, or decorative background instead of real image/proof/content
@@ -100,7 +101,7 @@ The planning loop can pass only when:
 - the first 2 screens form a clear opening bridge: hero promise/result -> lived buyer moment, repeated friction, or immediate next question
 - each screen carries one dominant purchase judgment
 - adjacent sections have a clear question/answer or emotional transition
-- proof, review, options, FAQ, safety/care, and final CTA appear where the buyer needs them
+- proof, review, options, FAQ, safety/care, and final product closing appear where the buyer needs them
 - screen 01 hero and the final selling screen are marked for mandatory generated full-image treatment
 - visual mass varies by role instead of repeating the same layout skeleton
 - any supplied reference design is translated into original Danho design tokens and section rhythm, not cloned

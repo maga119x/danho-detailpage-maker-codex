@@ -53,9 +53,9 @@ Required:
 - fit/condition section
 - install or use-confidence section
 - proof/review section
-- options/current-price guidance section when product data exists
+- options/value information section when product data exists
 - FAQ or objection handling
-- final CTA
+- final product/result closing
 
 If the output looks like a generic website with centered text and cards, revise the HTML before image generation.
 

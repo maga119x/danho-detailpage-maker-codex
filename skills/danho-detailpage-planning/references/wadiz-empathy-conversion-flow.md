@@ -106,7 +106,7 @@ Use:
 - `solution demo`: product action or before/after behavior.
 - `detail proof`: material, size, component, texture, mechanism.
 - `trust proof`: review/testimonial section, supplied review, certificate, test, manufacturing proof.
-- `buying info`: options, package, option-area benefit cue, size, compatibility.
+- `buying info`: options, package, size, compatibility, and mutable facts kept in editable factual/options sections.
 - `final aspiration`: buyer's improved moment after purchase.
 
 Do not use decorative images that do not carry persuasion.
@@ -117,7 +117,7 @@ Do not rely only on product flatlays for high-friction products. Plan demonstrat
 - Selling sections should be confident within supplied facts.
 - Concentrate limits, usage cautions, compatibility, and safety caveats in factual sections.
 - Repeating `확인해 주세요` across benefit sections makes the page feel uncertain. Keep it for purchase blockers and factual tables.
-- Do not defend the price before the buyer asks. Build value first, then direct the buyer to the purchase channel for current price and promotion details.
+- Do not defend the price before the buyer asks. Build value first; if mutable price or promotion facts are needed, keep them in editable factual/options sections and out of the final closing.
 
 ## Ethical Limits
 

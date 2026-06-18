@@ -34,12 +34,12 @@ Ask concise follow-up questions only when missing information affects factual ac
 4. Choose the planning mode: `Draft Planning` for rough product concepts, `Final Planning` when facts are fixed for design/coding.
 5. Build a conversion desire architecture as internal strategy only.
 6. Convert the strategy into Korean customer-verbatim strategy: buyer thoughts, seller explanations, and good/bad tone pairs written as actual Korean speech.
-7. Build a Wadiz-style empathy conversion map before writing sections: vivid problem, existing friction, origin/why, solution, benefit modules, proof, buying action.
+7. Build a Wadiz-style empathy conversion map before writing sections: vivid problem, existing friction, origin/why, solution, benefit modules, proof, and final product/result impression.
 8. Build a persuasion flow before writing sections.
 9. Build a 3-second mobile scan plan: what the buyer can understand from the first 1-2 lines of each section.
 10. Build the opening story bridge before the mobile screen-flow plan: screen 01 states the promise/result, screen 02 continues the same buyer moment and shows why that promise matters. Mark this gate `OPENING_STORY_BRIDGE_REQUIRED`.
 11. Build a mobile screen-flow plan before the section table. Read `references/screen-flow-planning.md`.
-12. Apply `DESIGNED_FULL_IMAGE_REQUIRED`: every newly produced detail page must reserve generated designed full-image sections for at least screen 01 hero and the final non-button CTA/closing screen. Mark both as `REPLACE_CANDIDATE`; these are mandatory production images, not optional nice-to-have images.
+12. Apply `DESIGNED_FULL_IMAGE_REQUIRED`: every newly produced detail page must reserve generated designed full-image sections for at least screen 01 hero and the final product/result closing screen. Mark both as `REPLACE_CANDIDATE`; these are mandatory production images, not optional nice-to-have images.
 13. Split major content points into multiple screen-sized sections. One benefit, mechanism, proof set, option system, or review block may require 3-6 sections.
 14. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
 15. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
@@ -83,21 +83,22 @@ The PM planning loop must fail and revise when:
 - the first 2 screens do not form a story bridge: screen 02 must zoom into the same buyer moment, repeated friction, or immediate next question created by screen 01
 - two adjacent sections can be swapped without changing meaning
 - a section contains three or more independent buyer questions, proof points, or use cases
-- proof, review, options, FAQ, safety/care, or final CTA is missing or placed too late for the product risk
+- proof, review, options, FAQ, safety/care, or final product closing is missing or placed too late for the product risk
 - every screen uses the same visual mass or `headline -> paragraph -> card/image` skeleton
 - supplied reference design files are copied too literally, ignored entirely, or used without `REFERENCE_DESIGN_ANALYSIS.md`
-- screen 01 hero or the final closing/CTA screen is not marked as mandatory `REPLACE_CANDIDATE` for a generated designed full-section image
+- screen 01 hero or the final product/result closing screen is not marked as mandatory `REPLACE_CANDIDATE` for a generated designed full-section image
+- the final product/result closing screen contains purchase-action text, option/order prompts, benefit-check prompts, or button-equivalent wording
 - a low-content option, care/storage, value, reassurance, result, or transition section is planned as centered text-only, one note box, or 1-2 small cards without a real image role
 - headline rhythm risk is already visible before copywriter review
 - image candidates do not match section roles, such as dense specs marked as full-image candidates or emotional scenes left with no visual plan
 
-On each loop, patch the plan rather than only writing comments. Revise section order, split/merge screens, rewrite scan answers and connection reasons, adjust visual roles, and move proof/review/CTA modules where needed. Only proceed to copywriter when `PLANNING.md` contains a PM planning loop row with `status: pass`.
+On each loop, patch the plan rather than only writing comments. Revise section order, split/merge screens, rewrite scan answers and connection reasons, adjust visual roles, and move proof/review/final-closing modules where needed. Only proceed to copywriter when `PLANNING.md` contains a PM planning loop row with `status: pass`.
 
 ## Persuasion Flow
 
 Prefer a connected decision journey:
 
-`hook → real-life moment → buying anxiety → product answer → fit check → install/use confidence → damage/removal confidence → daily use → compatibility/detail → comparison → proof/review → options → FAQ → final CTA`
+`hook → real-life moment → buying anxiety → product answer → fit check → install/use confidence → damage/removal confidence → daily use → compatibility/detail → comparison → proof/review → options → FAQ → final product closing`
 
 Rules:
 
@@ -112,7 +113,7 @@ Rules:
 - Before visible copy, read `../danho-detailpage-copywriter/references/korean-first-expression-gate.md` and convert internal strategy into buyer/seller speech. Strategy terms must stay internal.
 - Start from a vivid buyer problem and existing workaround friction before explaining product features, unless the product is a commodity where immediate specs are more important.
 - Frame the problem as a mismatch with the current tool, habit, setup, product gap, or missing information. Do not make the buyer feel incompetent.
-- Make hero, problem, core solution, key benefit, value, and final CTA carry a clear before/after shift.
+- Make hero, problem, core solution, key benefit, value, and final product closing carry a clear before/after shift.
 - Split major benefits into modules: buyer scene -> pain/emotion -> product mechanism -> buyer gain -> proof/limit -> visual cue.
 - Convert every key feature into `before friction -> product mechanism -> after-state`. A clean feature list without a change in the buyer's life is not enough.
 - Express the strategy in Korean buyer verbatims before drafting copy. Example: write `좋은 칼 하나 있으면 요리할 맛이 달라지겠다`, not `self-image 강화`.
@@ -125,7 +126,7 @@ Rules:
 - Combine similar daily-use moments instead of scattering them.
 - Include each section's persuasion role or connection reason in the section table.
 - Include visual roles for sections, not generic image placeholders.
-- Plan mandatory designed full-image sections as part of the conversion flow, not as decoration. At minimum, screen 01 must become a generated full-image hero and the last selling screen must become a generated full-image static CTA/closing impression. If legal, option, price, or compatibility facts must remain editable, split those facts into an adjacent HTML section and still keep a separate non-button full-image closing screen.
+- Plan mandatory designed full-image sections as part of the conversion flow, not as decoration. At minimum, screen 01 must become a generated full-image hero and the last selling screen must become a generated full-image product/result closing impression. If legal, option, price, or compatibility facts must remain editable, split those facts into an adjacent HTML section and still keep a separate full-image closing screen with no purchase-action text.
 - Plan at least one demonstration-oriented visual for the core problem and one for the core solution when the category allows it. Product flatlays alone are not enough for high-friction products.
 - Build value confidence without defensive price apology. Use value stack, avoided extra purchase, reduced hassle, included components/services, or common-alternative contrast. Do not expose direct numeric prices in visible copy.
 - Do not mention the sales channel in visible copy. The buyer is already on the selling page; channel names and channel-specific notes belong in internal facts only.
@@ -157,13 +158,13 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 - Use natural Korean ecommerce language for visible copy. Example: `구매 전, 이 부분만 꼭 확인해 주세요!` instead of a report-like instruction.
 - Visible copy must not expose production notes, source asset filenames, image-candidate labels, pre-publication instructions, or unchecked internal lists. Put those in visual instructions, planning notes, or proof logs only.
 - Avoid spec-sheet wording in visible copy unless the section is a formal spec table. Prefer buyer terms such as `칼`, `관리용품`, `상품 정보`, and `칼날 소재` over `본품`, `관리 구성`, `최종 상품 스펙`, and `강재`.
-- Control repetition at the planning stage: do not repeat the same hero/CTA headline, the same `처음/첫` angle, or the same `관리와 보관` message.
+- Control repetition at the planning stage: do not repeat the same hero/final-closing headline, the same `처음/첫` angle, or the same `관리와 보관` message.
 - Choose repeated action terms deliberately and keep them consistent across related sections. Do not call the same action `손질` in one module and `다듬기` in another unless the nuance is intentional.
 - Keep parallel problem cards, usage labels, and comparison rows rhythmically consistent. Do not mix short fragments with one long complete sentence in the same set.
-- CTA cues must have distinct jobs and wording. Avoid adjacent static cues that both end with a generic `보기`; one cue can point to contents/options while another confirms fit, care, or order-area checking.
-- Final CTA sections must include a clear static closing cue or option/order-area cue, not a button label. Do not plan visual buttons, link buttons, or button-like rounded rectangles for 상세페이지 sections.
+- Mid-page informational cues may clarify fit, contents, care, or usage criteria, but they must not look like purchase actions.
+- Final product closing sections must not include CTA buttons, button-equivalent text, option/order-area prompts, benefit-check prompts, or action words such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`. End with product/result confidence, use scene, brand tone, or quiet reassurance instead.
 - FAQ answers must answer the actual question first. For yes/no questions, start with `네` or `아니요`, then add conditions, limits, or where to confirm.
-- Do not write direct numeric prices in visible detail-page copy, generated image text, CTA labels, comparison tables, or final HTML sections. Promotions and channel discounts can change; use in-page option/order-area cues such as `현재 혜택은 옵션 영역에서 확인해 주세요` only when the buyer needs that cue.
+- Do not write direct numeric prices in visible detail-page copy, generated image text, comparison tables, or final HTML sections. Promotions and channel discounts can change. Do not add final-section price, option, or benefit-check prompts; the shopping mall purchase area already handles them.
 - Do not write sales channel names or phrases such as `판매 채널`, `스마트스토어`, `쿠팡`, `자사몰`, `채널별 구성`, or repeated `구매 페이지에서 확인해 주세요` in visible copy. Keep them in `config.json`, internal facts, or proof logs.
 - Every page must include a review/testimonial section. If real reviews are not supplied, write neutral replacement-ready dummy review cards and mark the section internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Do not expose `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `NEEDS_PROOF`, or similar warnings in visible copy.
 - Review-section headlines must be check-oriented, not pseudo-testimonial. Prefer `실제 사용자 후기를 확인해 보세요` or `구매 전, 실제 사용 후기를 살펴보세요` when supplied real reviews exist. When reviews are replacement-ready placeholders, do not claim `실제 사용자`; use a neutral headline such as `사용 후기를 확인해 보세요` or `사용 후기로 확인할 포인트`.
@@ -174,7 +175,7 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 - Provide a copy context so the copywriter does not have to guess relationship, honorific, and medium from scratch.
 - Keep specs, internal price facts, components, compatibility, and limits exact even when rewriting copy. Internal price facts may appear in basic info, config, planning notes, or proof logs, but not in visible copy.
 - If a section cannot pass a quick scan test, rewrite the headline and first body line before continuing.
-- If a section cannot pass micro-polish checks for CTA clarity, action-term consistency, parallel rhythm, direct FAQ answers, or final CTA presence, rewrite before copywriter review.
+- If a section cannot pass micro-polish checks for final-section CTA removal, action-term consistency, parallel rhythm, or direct FAQ answers, rewrite before copywriter review.
 - If a section is natural but does not create desire, add a before/after shift, self-identification cue, value-confidence reason, or proof visual before continuing.
 - If a visible sentence fails the Kakao/read-aloud/seller tests, rewrite the sentence before continuing.
 - If a visible sentence would fail humanizer, grammar, or style-guide checks, rewrite it before copywriter review and still leave it for strict copywriter scoring.
@@ -185,8 +186,8 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 
 Use:
 
-- `REPLACE_CANDIDATE` for the mandatory screen 01 hero and final static CTA/closing screen.
-- `REPLACE_CANDIDATE` for short emotional hooks, scene-defining moments, strong typography, and final CTA.
+- `REPLACE_CANDIDATE` for the mandatory screen 01 hero and final product/result closing screen.
+- `REPLACE_CANDIDATE` for short emotional hooks, scene-defining moments, strong typography, and final product impression.
 - `REPLACE_CANDIDATE` for low-content result, value, reassurance, or transition sections when the whole screen should become a designed image section.
 - `SUPPORT_CANDIDATE` for factual sections that need a product photo or lifestyle visual while keeping HTML text, especially low-copy option, care/storage, value, and fit sections that would otherwise look sparse.
 - `NONE` for dense editable facts, current-price guidance, specs, and FAQ unless an image materially improves comprehension. Do not use `NONE` for a low-content section just because there are no more words to write.

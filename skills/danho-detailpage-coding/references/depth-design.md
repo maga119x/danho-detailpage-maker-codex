@@ -61,7 +61,7 @@
 | 뱃지 | `--shadow-sm` | optional | subtle |
 | 입력 필드 | inset shadow | 1px solid | none |
 | 섹션 구분 | `--shadow-sm` | bottom only | none |
-| CTA 박스 | `--shadow-lg` | accent color | diagonal |
+| 마감 인상 박스 | `--shadow-lg` | accent color | diagonal |
 
 ---
 
@@ -90,10 +90,10 @@
 }
 ```
 
-### 정적 CTA cue
+### 정적 마감 노트
 
 ```css
-.cta-cue {
+.closing-note {
     display: block;
     border-top: 1px solid rgba(0,0,0,0.14);
     padding-top: 18px;
@@ -147,8 +147,8 @@
         0 1px 2px rgba(0,0,0,0.04);
 }
 
-/* Clean Minimal - 정적 CTA cue */
-.clean-minimal .cta-cue {
+/* Clean Minimal - 정적 마감 노트 */
+.clean-minimal .closing-note {
     color: #2a2a2a;
     border-top: 1px solid rgba(0,0,0,0.14);
     box-shadow: none;
@@ -175,15 +175,15 @@
         0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Dark Luxury - 골드 액센트 cue */
-.dark-luxury .cta-cue {
+/* Dark Luxury - 골드 액센트 마감 노트 */
+.dark-luxury .closing-note {
     color: #c9a962;
     border-top: 1px solid rgba(201,169,98,0.35);
     box-shadow: none;
 }
 
-/* Dark Luxury - CTA 박스 */
-.dark-luxury .cta-box {
+/* Dark Luxury - 마감 인상 박스 */
+.dark-luxury .closing-box {
     background: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
     border: 1px solid rgba(201,169,98,0.3);
     box-shadow:
@@ -207,8 +207,8 @@
         0 2px 6px rgba(139,115,85,0.06);
 }
 
-/* Warm Natural - 정적 CTA cue */
-.warm-natural .cta-cue {
+/* Warm Natural - 정적 마감 노트 */
+.warm-natural .closing-note {
     color: #8b7355;
     border-top: 1px solid rgba(139,115,85,0.22);
     box-shadow: none;
@@ -232,11 +232,12 @@
 
 **버튼 금지:**
 - [ ] `<button>`, `.cta-button`, 링크 버튼, 버튼형 rounded rectangle 사용 안 함
-- [ ] CTA는 정적 문구/구분선/제품 이미지/옵션 cue로 처리됨
+- [ ] 마지막 클로징은 정적 마감 문구/구분선/제품 이미지로 처리되며 옵션/혜택/주문 cue를 포함하지 않음
 
-**CTA 영역:**
+**마감 인상 영역:**
 - [ ] `--shadow-lg` 이상 적용됨
 - [ ] 배경 그라데이션 적용됨
+- [ ] 구매/옵션/혜택 확인 문구 없이 상품/결과 인상으로 닫힘
 
 **섹션:**
 - [ ] 섹션 구분에 subtle shadow 사용됨

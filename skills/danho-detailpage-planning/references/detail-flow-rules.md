@@ -23,7 +23,7 @@ Strong default flow:
 12. Review proof: lived experience
 13. Options/current-price guidance: buyable facts without fixed numeric prices
 14. FAQ: remaining objections
-15. Final CTA: memorable close
+15. Final closing: memorable product/result close without purchase-action text
 
 ## Opening Two-Screen Story Bridge
 
@@ -60,7 +60,7 @@ Use this flow when the product needs strong empathy, story, novelty explanation,
 12. Use guide/care/safety: how to use well and what not to do.
 13. Recommended for: concrete buyer types and situations.
 14. FAQ: direct objection handling.
-15. Final CTA: future moment + fit condition + next action.
+15. Final closing: future moment + product/result confidence, without option/order prompts or purchase-action text.
 
 Rules:
 

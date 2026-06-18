@@ -33,7 +33,7 @@ Use when image roles are not final.
 
 Use when image roles and assets exist.
 
-- Require generated designed full-section images for the opening hero and final static CTA/closing impression.
+- Require generated designed full-section images for the opening hero and final product/result closing impression.
 - Use designed full-section images for high-impact visual/story sections.
 - Use HTML+image mixed sections for editable factual sections.
 - Avoid duplicated Korean copy between nearby HTML and full-section images.
@@ -58,8 +58,8 @@ Core rules:
 - Mobile-first means readable responsive typography on phone widths, not a fixed `413px` wrapper.
 - Build screen-sized purchase judgments, not a short sequence of dense sections. One major content point may need several sections.
 - In final hybrid pages, the first visible section must be a generated designed `FULL_IMAGE` hero. Do not start the final page with an HTML text hero.
-- The bottom/final selling section must be a generated designed `FULL_IMAGE` static CTA/closing impression. Do not end a final hybrid detail page with a plain HTML CTA block. If legal, pricing, option, compatibility, or FAQ content must remain editable, split it into an adjacent HTML section and still keep the final full-image closing screen.
-- Detail pages are static image/HTML content. Do not add `<button>`, `.cta-button`, link buttons, purchase buttons, or button-like rounded rectangles anywhere. CTA sections should be typographic closing panels, product-ready compositions, option/order-area cues, or static labels, not clickable-looking controls.
+- The bottom/final selling section must be a generated designed `FULL_IMAGE` product/result closing impression. Do not end a final hybrid detail page with a plain HTML action block. If legal, pricing, option, compatibility, or FAQ content must remain editable, split it into an adjacent HTML section and still keep the final full-image closing screen without purchase-action text.
+- Detail pages are static image/HTML content. Do not add `<button>`, `.cta-button`, link buttons, purchase buttons, button-like rounded rectangles, or final-section button-equivalent text anywhere. Final closing sections should use product/result typography, use scene, brand tone, dividers, static labels, or quiet reassurance, not clickable-looking controls or purchase-action copy.
 - Each screen must have one dominant visual mass: image, type, proof, or cards. Do not give headline, paragraph, image, and cards equal weight in every section.
 - If a section has three or more independent content points, split it before styling. If a section has only a headline and a short lead with no factual component, make it image-dominant (`FULL_IMAGE` or image-story HTML) rather than a sparse text/card screen.
 - `SPARSE_SECTION_IMAGE_REQUIRED`: sections with a kicker/headline/short lead, one note box, or 1-2 small cards must not remain centered text-only or tiny card-only screens. Add a large product/lifestyle/proof/support image, convert to `FULL_IMAGE` or `IMAGE_STORY`, or merge with a neighboring proof/detail section.
@@ -72,7 +72,7 @@ Core rules:
 - Keep a vertical mobile rhythm: top copy, large image/scene, then evidence card, quote card, speech bubble, checklist, or comparison.
 - HTML sections may and often should contain images.
 - Full-section images are valid when the image model designed the whole section with background, typography, cards, and icons.
-- `image-plan.md` must contain at least two mandatory `FULL_IMAGE` rows: opening hero and final static CTA/closing. If they are missing, revise the image plan before Phase B instead of coding around the gap.
+- `image-plan.md` must contain at least two mandatory `FULL_IMAGE` rows: opening hero and final product/result closing. If they are missing, revise the image plan before Phase B instead of coding around the gap.
 - If `image-plan.md` marks a section as `FULL_IMAGE`, final coding must preserve it as a full-section image. Do not downgrade it to `IMAGE_STORY`, `HTML_MIXED`, or textless image plus HTML overlay merely because Korean typography generation failed. Send it back for native regeneration/revision or mark the item blocked.
 - Do not apply an image-count cap or fixed full-image/HTML ratio. Use as many `FULL_IMAGE` and `HTML_MIXED` support images as the story, proof, option, care, comparison, review, and sparse-section gates require. Image quantity is governed by the approved `image-plan.md` and visual QA, not by a maximum.
 - Use consumer-facing labels only; internal planning labels must not appear.
@@ -132,11 +132,11 @@ Before final response:
    - every screen has one dominant visual mass and a clear screen role
    - page length matches product complexity; normal pages should not be artificially shortened
    - the page looks like a product detail page, not a simple web page
-   - `image-plan.md` contains the mandatory opening hero and final static CTA/closing `FULL_IMAGE` rows
+   - `image-plan.md` contains the mandatory opening hero and final product/result closing `FULL_IMAGE` rows
    - the first visible section is a generated full-image hero
    - full-image/HTML split matches `image-plan.md`
-   - the bottom/final selling section is a generated full-image static CTA/closing impression, without buttons or button-like graphics
-   - no `<button>`, `.cta-button`, link-button, or button-shaped CTA control appears in HTML or generated images
+   - the bottom/final selling section is a generated full-image product/result closing impression, without buttons, button-like graphics, option/order prompts, benefit-check prompts, or purchase-action text
+   - no `<button>`, `.cta-button`, link-button, button-shaped CTA control, or final-section button-equivalent text appears in HTML or generated images
    - no `SPARSE_SECTION_IMAGE_REQUIRED` screen remains as centered text-only, note-only, or tiny card-only HTML
    - sparse option/care/value/result/transition screens use a large image, full-section image, image-story, or merge; blank padding alone is not accepted
    - quote/speech-bubble pseudo-elements render correctly

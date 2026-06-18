@@ -17,7 +17,7 @@ Reject copy that is technically understandable but has:
 - sentence endings that are grammatical but contextually wrong
 - repeated sentence-ending rhythm that makes the page feel AI-written
 - inconsistent table endings
-- duplicated CTA actions
+- duplicated purchase-action cues
 - inconsistent action vocabulary
 - list/card rhythm breaks
 - FAQ answers that do not answer the question directly
@@ -63,11 +63,11 @@ Use simpler buyer language unless the section is a formal spec table.
 
 Before passing copy, scan repeated wording across the full page:
 
-- Do not repeat the same headline structure in hero and final CTA.
+- Do not repeat the same headline structure in hero and final product/result closing.
 - Avoid repeating `처음 사는/처음 쓰는/첫` across adjacent sections. Change the angle: first purchase anxiety, set composition, long-term care, final action.
 - Avoid repeating `관리와 보관` in multiple headlines. Use one section for set composition and one section for care habits.
 - Avoid overusing one verb or noun such as `손질`; rotate naturally with `썰기`, `다듬기`, `준비`, `요리`, `옮기기`.
-- Avoid repeated `확인해 주세요`; vary with `챙겨보세요`, `참고해 주세요`, `살펴보세요`, `선택하세요` when appropriate.
+- Avoid repeated `확인해 주세요`; vary with `챙겨보세요`, `참고해 주세요`, or `살펴보세요` when appropriate. Do not use the final closing for purchase-action prompts.
 - If the same action appears in multiple sections, choose one vocabulary family and keep it consistent. Do not call the same cooking task `손질` in one section and `다듬기` in another unless the nuance is intentionally different.
 - Do not duplicate a label and its description ending. Rewrite `재료 옮기기: 팬으로 옮기기` as `재료 옮기기: 넓은 칼날에 모아 팬으로 한 번에`.
 
@@ -75,19 +75,19 @@ Before passing copy, scan repeated wording across the full page:
 
 - Run the sentence-ending fit gate from `korean-sentence-ending-gate.md` before approving copy. Do not treat endings as a final surface decoration.
 - For each fragile line, compare plausible endings and include `none fits` as a valid outcome. If no ending fits, rewrite the sentence or convert it to a phrase.
-- Check that CTA/request endings, FAQ endings, safety endings, and headline endings use the right degree of force and formality for the section.
+- Check that request endings, FAQ endings, safety endings, informational cue endings, and headline endings use the right degree of force and formality for the section.
 - Do not let adjacent headlines/leads all end with the same pattern such as `~합니다`, `~됩니다`, `~좋습니다`, `~확인합니다`, or `~해 주세요`.
-- CTA cues must have distinct actions. Avoid adjacent static cues that both end with the same generic verb such as `보기`. Make one cue about contents/options and another about fit, guide confirmation, care, or order-area checking.
+- Informational cues must stay factual and non-purchase-oriented. Avoid adjacent cues that both end with the same generic verb such as `보기`, and never use the final closing for option/order, benefit-check, or purchase-action wording.
 - Card lists should keep the same rhythm and ending when they are parallel. If three cards end with `~고`, the fourth should not suddenly become a long complete sentence.
 - Short usage labels should have similar length and structure. Replace an outlier such as `캠핑 요리 재료 준비` with `캠핑 요리 준비` when neighboring labels are compact.
 - Use consumer-facing spec labels such as `상세 사양` or `상품 상세 정보`, not vague labels like `확인할 정보`.
-- Final CTA sections must include a clear static closing cue or option/order-area cue, not button copy.
+- Final product/result closing sections must not include button copy, option/order prompts, benefit-check prompts, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`. Close with product/result confidence, a use scene, brand tone, or quiet reassurance.
 
 ## Price And Safety Gate
 
 - Do not show direct numeric prices in detail-page visible copy, generated images, or designed HTML sections. Promotions and channel discounts change often, and embedded prices make maintenance harder.
 - Keep price facts in internal inputs, config, planning notes, or proof logs only.
-- Use price-safe wording only when needed, and keep it inside the page context: `현재 혜택은 옵션 영역에서 확인해 주세요`, `프로모션과 옵션에 따라 달라질 수 있어요`, `세트 구성과 혜택을 함께 확인해 주세요`.
+- Use price-safe wording only when needed, and keep it in editable factual/options sections, never in the final closing. Avoid repeated purchase-area prompts.
 - Do not name sales channels or write `판매 채널`, `스마트스토어`, `쿠팡`, `자사몰`, `채널별 구성`, or repeated `구매 페이지에서 확인해 주세요` in visible copy.
 - Put safety disclaimers in one consolidated safety/care section. Repeating defensive phrases such as `단정하지 않습니다` in FAQ and body copy increases anxiety.
 - Keep safety copy calm and practical: `낯설다면 천천히 사용해 주세요`, `뼈나 냉동식품을 자를 수 있는지는 제품 설명서를 확인해 주세요`.
@@ -125,7 +125,7 @@ Visible copy passes only when:
 - no sales channel name or repeated `구매 페이지` cue appears in visible copy
 - a review/testimonial section exists, with placeholder status kept internal when real reviews are missing
 - safety disclaimers are controlled
-- CTA cues are distinct and final CTA has a non-button closing/option cue
+- final product/result closing contains no CTA button, button-equivalent text, option/order prompt, benefit-check prompt, or purchase-action wording
 - repeated action terms are intentionally consistent
 - parallel card/list copy keeps the same rhythm
 - FAQ answers respond directly before adding explanation

@@ -27,7 +27,7 @@ Create or update `COPY_REVIEW.md`, score every visible section, then patch the v
 2. Extract all visible copy from `PLANNING.md`: headlines, subcopy, bullets, badges, CTA, FAQ, reviews, and option text.
 3. If source planning text exists, compare visible copy against it. Treat copied slogans, memo sentences, and section titles as suspect even if supplied by the user.
 4. Separate `strategy_note`, `customer_verbatim_strategy`, and `display_copy`. Internal labels, English marketing concepts, and section-role explanations must not become visible copy.
-5. Diagnose AI-slop: translated phrasing, strategy-term leak, English sentence skeleton, abstract object subject, noun-chain Korean, generic hype, feature-first wording, polite-but-powerless copy, timid value framing, defensive price apology, sales-channel leakage, missing review section, staged review headlines, visible placeholder warnings, scattered caveats, decorative-only visual planning, stiff report tone, fake urgency, unsupported proof, honorific mismatch, sentence-ending mismatch, repeated ending rhythm, noun-heavy Korean, incomplete headlines, unnatural collocations, repeated phrases, CTA-action duplication, inconsistent action vocabulary, list rhythm breaks, FAQ non-answers, missing final static CTA cue, spec-sheet/internal terms, production notes in buyer-facing copy, source-brief smell, and source-copy overpreservation.
+5. Diagnose AI-slop: translated phrasing, strategy-term leak, English sentence skeleton, abstract object subject, noun-chain Korean, generic hype, feature-first wording, polite-but-powerless copy, timid value framing, defensive price apology, sales-channel leakage, missing review section, staged review headlines, visible placeholder warnings, scattered caveats, decorative-only visual planning, stiff report tone, fake urgency, unsupported proof, honorific mismatch, sentence-ending mismatch, repeated ending rhythm, noun-heavy Korean, incomplete headlines, unnatural collocations, repeated phrases, final-section purchase-action text, inconsistent action vocabulary, list rhythm breaks, FAQ non-answers, spec-sheet/internal terms, production notes in buyer-facing copy, source-brief smell, and source-copy overpreservation.
 6. Rewrite in passes:
    - Source normalization pass: preserve facts and strategy, but rewrite source phrases into buyer-facing Korean. Do not keep the source sentence structure unless it is explicitly approved and natural.
    - Korean-first strategy pass: convert strategy notes into customer/seller verbatims before touching display copy. Do not translate strategy terms directly.
@@ -38,7 +38,7 @@ Create or update `COPY_REVIEW.md`, score every visible section, then patch the v
    - Conversion force pass: add target desire, before/after shift, self-identification, confident value framing, and proof visual direction where the copy is natural but weak.
    - Korean sentence skeleton pass: rewrite object-subject, abstract noun, nominal-ending, and long modifier structures into short spoken Korean.
    - Sentence-ending fit pass: read `references/korean-sentence-ending-gate.md`; classify each visible sentence by function, compare plausible endings, allow `none fits`, and rewrite when the current ending does not fit the context.
-   - Korean polish pass: remove incomplete headline endings, wrong `체감/느껴짐` collocations, spec-sheet terms, repeated words, duplicated CTA actions, inconsistent action vocabulary, broken list rhythm, FAQ non-answers, missing final static CTA cue, direct price mentions in visible copy, safety-disclaimer overexposure, and production notes.
+   - Korean polish pass: remove incomplete headline endings, wrong `체감/느껴짐` collocations, spec-sheet terms, repeated words, duplicated action cues, inconsistent action vocabulary, broken list rhythm, FAQ non-answers, final-section purchase prompts such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`, direct price mentions in visible copy, safety-disclaimer overexposure, and production notes.
    - Native Korean quality pass: read `references/native-korean-humanizer-gate.md`; apply the full DaleSeo-inspired pipeline of AI-marker detection, grammar check, and style consistency. Remove all S1 markers and repeated S2 markers before scoring.
    - Production page pass: remove sales channel names, remove buyer-facing placeholder/warning copy, require a review/testimonial section, and move replacement notes to internal logs only.
    - Spoken Korean gate: run Kakao, read-aloud, seller, strategy leak, and skeleton tests on every visible sentence.
@@ -72,14 +72,14 @@ This pass adapts all three DaleSeo Korean skills:
 
 - `humanizer`: detect S1/S2/S3 AI-writing markers, then rewrite while preserving meaning.
 - `grammar-checker`: verify spelling, spacing, particles, endings, and punctuation after rewriting.
-- `style-guide`: verify paragraph-level tone, terminology, list rhythm, CTA labels, number/unit style, and section consistency.
+- `style-guide`: verify paragraph-level tone, terminology, list rhythm, informational cues, number/unit style, and section consistency.
 
 For ecommerce visible copy, hard-fail these source-inspired markers:
 
 - S1-like markers: `~에 있어서`, `가지고 있다`, `~되어진다`, abstract subject + generic verb, English idiom literal translation, AI conclusion formulas, unsupported hype, and visible strategy terms.
 - Repeated S2-like markers: `~에 대해`, `~를 통해`, `~와 관련하여`, `~에 기반하여`, `~할 수 있다`, `~을 위해`, `~것이다`, `~라는 점에서`, excessive commas, repeated `해당/본`, `~적 N` chains, same-length sentence rhythm, repeated three-item structure, and page-wide identical endings.
 - Grammar markers: `되요`, `됬어요`, wrong particles, malformed endings, excessive exclamation marks, and visible punctuation copied from English templates.
-- Style markers: random `해요/합니다` mixing inside one paragraph, drifting action terms, mismatched card/list endings, duplicated CTA actions, inconsistent quote/emphasis use, and visible production labels.
+- Style markers: random `해요/합니다` mixing inside one paragraph, drifting action terms, mismatched card/list endings, duplicated action cues, inconsistent quote/emphasis use, and visible production labels.
 
 The goal is not generic polished Korean. The final copy should sound like a Korean ecommerce seller speaking naturally to a cautious buyer, with enough human rhythm that it does not read like an LLM output.
 
@@ -91,11 +91,11 @@ The goal is not generic polished Korean. The final copy should sound like a Kore
 - Write benefits the buyer can feel in a real situation, not abstract product merits.
 - Strategy terms are allowed only in planning notes. Visible copy must not expose terms such as `장비감`, `전환`, `before/after`, `메커니즘`, `가치 프레임`, `동선`, `흐름을 줄이다`, `선택을 줄이다`, `구매 저항`, or `가격 방어`.
 - Turn every abstract strategy into Korean speech before writing visible copy. Example: `value stack` -> `칼만이 아니라 같이 필요한 것까지 들어 있어요`.
-- Make the buyer's before/after transformation explicit in the sections that sell: hero, problem, core solution, benefit, value, and final CTA.
+- Make the buyer's before/after transformation explicit in the sections that sell: hero, problem, core solution, benefit, value, and final product closing.
 - Make the first two sections carry a connected story. The hero names the promise/result; the second section should continue with the buyer's actual moment, repeated friction, emotion, or next question. Do not solve this with sentence polish alone.
 - Identify the buyer's desired after-state or self-image by category. Do not use shallow demographic stereotypes as desire.
 - Protect the buyer's self-esteem: frame the problem as current setup, tool, process, product gap, or missing information, not buyer incompetence.
-- Build value confidence before sending the buyer to the purchase channel. Because direct numeric prices are not allowed, use value stack, avoided extra purchase, reduced hassle, bundled service/component value, or common-alternative contrast.
+- Build value confidence inside the detail page. Because direct numeric prices are not allowed and the shopping mall already has a purchase UI, use value stack, avoided extra purchase, reduced hassle, bundled service/component value, or common-alternative contrast instead of sending the buyer to another action cue.
 - Do not send the buyer to a named sales channel from inside the detail page. The buyer is already in the selling context. Channel names and channel-specific notes belong in internal data, not visible copy.
 - Prefer natural Korean ecommerce phrasing: `확인해 주세요`, `사용할 수 있어요`, `걱정을 줄였어요`, `간단하게 설치할 수 있어요`.
 - Use `~합니다` mainly for specs, policy, warranty, FAQ facts, and legal-safe claims.
@@ -115,10 +115,10 @@ The goal is not generic polished Korean. The final copy should sound like a Kore
 - Control repetition across the full page. If the same phrase appears in multiple sections, change the angle instead of repeating the wording.
 - Keep repeated action vocabulary intentional. If one task is called `손질` in the benefit module, do not call the same task `다듬기` in a usage module unless the meaning changes.
 - Keep parallel cards and short usage labels rhythmically consistent. A four-card list should not mix three short `~고` fragments with one long complete sentence.
-- CTA cues must do different jobs. Avoid adjacent static cues with the same generic ending such as `보기/보기`; use distinct meanings such as `구성 확인`, `옵션 기준`, or `관리 기준`.
-- Final CTA sections must include a clear static closing cue or option/order-area cue, not a button label. Do not request, write, or preserve button UI for 상세페이지 copy.
+- Mid-page informational cues may clarify fit, contents, care, or usage criteria, but they must not look like purchase actions.
+- Final closing sections must not include CTA buttons, button-equivalent text, or purchase-action cues such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`. End with product/result confidence, use scene, brand tone, or a quiet reassurance instead.
 - FAQ answers must answer the exact question first. For yes/no questions, answer `네` or `아니요` before adding conditions or where to confirm.
-- Do not put direct prices in visible detail-page copy, generated images, or designed HTML sections. Prices change through promotions; keep numeric prices in internal facts/config only, and use generic option/order-area cues only when needed.
+- Do not put direct prices in visible detail-page copy, generated images, or designed HTML sections. Prices change through promotions; keep numeric prices in internal facts/config only. Do not add final-section price, option, or benefit-check prompts; the shopping mall purchase area already handles them.
 - Do not use the no-direct-price rule as a substitute for value persuasion. Repeating `구매 페이지에서 확인해 주세요` or naming a channel is not a value section; explain included value, saved hassle, or option choice instead.
 - Do not write sales channel names or phrases such as `판매 채널`, `스마트스토어`, `쿠팡`, `자사몰`, `채널별 구성`, or repeated `구매 페이지에서 확인해 주세요` in visible copy.
 - Every detail page must have a visible review/testimonial section. If real reviews are supplied, rewrite them naturally without adding facts. If none are supplied, create neutral replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
@@ -148,7 +148,7 @@ Pass only when:
 - No individual section average is below 8.0.
 - No core criterion score is below 7.0.
 - The page-level checks for `what is it`, `what benefit do I get`, and `how do I buy/check fit` are each at least 8.0.
-- For empathy-heavy or Wadiz-style pages, problem, solution, benefit, and CTA sections score at least 8.0 for empathy depth and purchase desire.
+- For empathy-heavy or Wadiz-style pages, problem, solution, benefit, and final closing sections score at least 8.0 for empathy depth and purchase desire.
 - Selling sections score at least 8.0 for conversion force: target desire, before/after shift, value confidence, or proof visual direction.
 - Source-independence score is at least 8.0 when a source plan or draft copy exists.
 - Expression-polish score is at least 8.0 in every visible section.
@@ -156,7 +156,7 @@ Pass only when:
 - Direct price mentions, repeated safety disclaimers, and production notes are removed from visible copy or moved to planner/proof logs.
 - Sales channel names, repeated `구매 페이지` cues, and buyer-facing placeholder warnings are removed from visible copy.
 - A review/testimonial section exists. If reviews are placeholders, internal replacement status is recorded and no fabricated specifics are visible.
-- CTA-action duplication, action-term inconsistency, broken parallel list rhythm, FAQ non-answers, and missing final static CTA cues are resolved.
+- Action-term inconsistency, broken parallel list rhythm, FAQ non-answers, and final-section purchase-action text are resolved.
 - Value sections explain why the offer is worth checking without exposing a direct numeric price.
 - Core problem and solution claims have proof-oriented visual directions when the category can be demonstrated.
 - Every visible sentence passes the Kakao/read-aloud/seller/strategy-leak/skeleton tests.
@@ -208,11 +208,11 @@ If a score fails, rewrite the visible copy and rescore. Do not mark `status: pas
 - The same safety disclaimer or key phrase is repeated enough to create anxiety or AI-written texture.
 - Caveats or `확인해 주세요` language are scattered through selling sections instead of concentrated in factual sections.
 - Core visual directions are mostly decorative product shots when the claim needs a problem, mechanism, before/after, value-stack, or trust-proof visual.
-- Adjacent CTA cues have indistinct actions or repeat the same generic verb.
+- Mid-page informational cues have indistinct meanings or repeat the same generic verb.
 - The same buyer action is named inconsistently across sections without a clear reason.
 - Parallel cards, bullets, or short usage labels break rhythm in a way that feels AI-written.
 - A FAQ answer dodges the question instead of answering directly first.
-- The final CTA section lacks a clear non-button closing or option-area cue.
+- The final closing section contains CTA-button text, option/order-area prompts, benefit-check prompts, or any button-equivalent purchase action.
 - Production notes such as supplied image filenames, candidate labels, or pre-publication instructions appear as buyer-facing copy.
 - Visible copy copies source brief phrases that were not explicitly approved final copy.
 - Visible copy contains source-brief smell such as quoted concepts, memo-like assertions, or strategy labels dressed as headlines.

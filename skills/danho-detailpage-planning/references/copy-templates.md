@@ -114,27 +114,28 @@ A: {direct_answer}. {proof_point}. {additional_reassurance}.
 - 선물 포장: "선물용 포장 되나요?"
 - 교환/반품: "마음에 안 들면 반품 가능한가요?"
 
-## CTA Templates
+## Final Closing Templates
 
-### Urgency CTA
-Use only when the promotion, deadline, stock limit, or benefit is factual.
+Final closing copy is not a CTA. The shopping mall UI already provides purchase buttons, option selectors, and benefit displays. End the detail page with product/result confidence, a use scene, brand tone, or quiet reassurance.
 
-```
-{promotion_type} · {benefit}
-필요한 순간이 자주 있다면 지금 선택해 주세요.
-```
+Do not include `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, `주문`, bracketed button-like labels, or option/order-area prompts.
 
-### Value CTA
+### Result Closing
 ```
 {product_name}
-현재 혜택은 옵션 영역에서 확인
-{shipping_info} · {return_policy}
+{buyer_daily_result}이 조금 더 편해집니다.
 ```
 
-### Gift CTA
+### Scene Closing
 ```
-🎁 소중한 분께 선물하시나요?
-{gift_benefit}
+{repeated_situation}마다
+{product_core_result}을 자연스럽게 느낄 수 있어요.
+```
+
+### Brand Tone Closing
+```
+{brand_or_product_name}
+{quiet_reassurance_or_philosophy}
 ```
 
 ## Specs Table Template
@@ -146,7 +147,7 @@ Use only when the promotion, deadline, stock limit, or benefit is factual.
 | 소재 | {materials} |
 | 규격 | {dimensions} |
 | 구성품 | {included_items} |
-| 현재 혜택 | 옵션 영역에서 확인 |
+| 혜택/프로모션 | 상세페이지 외부의 쇼핑몰 구매 영역에서 관리 |
 
 ## Brand Tagline Templates
 
@@ -171,7 +172,7 @@ Use only when the promotion, deadline, stock limit, or benefit is factual.
 - "자석이 붙는 문이라면 설치는 간단해요."
 - "손이 부족한 순간에는 이렇게 편해져요."
 - "걱정되는 부분은 여기서 확인해 주세요."
-- "구매 전 마지막으로 구성과 조건을 확인해 주세요."
+- "마지막에는 상품이 만들어줄 생활 장면을 한 번 더 보여주세요."
 
 ## Founder/Team Templates
 

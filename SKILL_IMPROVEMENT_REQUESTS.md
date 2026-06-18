@@ -1146,13 +1146,37 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 
 **반영 내용**:
 - 모든 신규 상세페이지에 `DESIGNED_FULL_IMAGE_REQUIRED` 게이트를 추가했다.
-- 최소 계약을 `1번 히어로 FULL_IMAGE + 마지막 정적 CTA/클로징 FULL_IMAGE`로 정의했다.
+- 최소 계약을 `1번 히어로 FULL_IMAGE + 마지막 상품/결과 클로징 FULL_IMAGE`로 정의했다.
 - `planning`, `pm-reviewer`, `coding`, `workflow`, `imageprompt-helper` 스킬에 필수 full-image 누락 실패 조건을 추가했다.
 - `screen-flow-planning.md`, `output-format.md`, `image-plan-template.md`, `mobile-hybrid-layout.md`, `image-handling.md`, `output-checklist.md`, `prompt-guide.md`, `native-image-generation.md`, `html-first-detailpage-build.md`, `proof-proximity-and-page-length.md`, `section-library.md`, `AGENT.MD.template.md`, `README.md`, `PROJECT_STRUCTURE_AI_CONTEXT.md`에 같은 기준을 반영했다.
 - 플러그인 버전을 `0.1.2`로 올리고 manifest 설명에 mandatory designed full-image sections를 추가했다.
 
 **운영 규칙**:
-- 신규 상세페이지의 `image-plan.md`에는 반드시 opening hero와 final static CTA/closing `FULL_IMAGE` 행이 있어야 한다.
+- 신규 상세페이지의 `image-plan.md`에는 반드시 opening hero와 final product/result closing `FULL_IMAGE` 행이 있어야 한다.
 - 두 필수 행이 없으면 이미지 생성으로 넘어가지 말고 `image-plan.md`를 수정한다.
-- 마지막 CTA에 옵션/가격/법적/호환성처럼 editable 정보가 필요하면, 그 정보는 인접 HTML 섹션으로 분리하고 별도의 정적 클로징 `FULL_IMAGE`는 유지한다.
+- 마지막 클로징 근처에 옵션/가격/법적/호환성처럼 editable 정보가 필요하면, 그 정보는 인접 HTML 섹션으로 분리하고 별도의 상품/결과 클로징 `FULL_IMAGE`는 유지한다.
 - 필수 `FULL_IMAGE`의 한글 타이포가 실패하면 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록한다. HTML 오버레이, textless image, `HTML_MIXED`로 조용히 낮추지 않는다.
+
+### 40. 마지막 CTA 버튼/구매 행동 문구 제거
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+쇼핑몰 상세페이지에 들어갈 디자인이므로 마지막 CTA 버튼이나 그에 상응하는 텍스트는 의미가 없다. 마지막 영역에서 구매 행동 문구를 빼고, 스킬 전반에 반영한다.
+
+**원인 분석**:
+- 기존 규칙은 버튼 UI는 금지했지만, `final static CTA/closing`, `CTA cue`, `옵션 확인`, `혜택 확인` 같은 비버튼형 구매 행동 문구를 마지막 섹션에 남길 여지가 있었다.
+- 쇼핑몰의 구매 버튼, 옵션 선택, 혜택/쿠폰 표시는 상세페이지 외부의 구매 UI가 담당하므로, 상세페이지 마지막 디자인이 같은 역할을 반복하면 부자연스럽다.
+- `cta-cue` 컴포넌트명과 프리셋 토큰이 남아 있어 새 프로젝트에서 CTA처럼 보이는 마감 요소가 다시 생성될 수 있었다.
+
+**반영 내용**:
+- 최종 필수 `FULL_IMAGE`를 `final product/result closing`으로 재정의했다.
+- 마지막 클로징에는 CTA 버튼, button-equivalent text, 옵션/주문 prompt, 혜택 확인 prompt, `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, `주문` 문구를 넣지 않도록 했다.
+- `cta-cue`, `cta-section`, `final-cta` 예시를 `closing-note`, `closing-section`, `final-closing`으로 교체했다.
+- `planning`, `copywriter`, `pm-reviewer`, `coding`, `workflow`, `imageprompt-helper`, `AGENT.MD` 템플릿, README, manifest, `PROJECT_STRUCTURE_AI_CONTEXT.md`에 같은 기준을 반영했다.
+- 플러그인 버전을 `0.1.3`으로 올렸다.
+
+**운영 규칙**:
+- 마지막 화면은 구매 유도가 아니라 제품명, 사용 후 장면, 조용한 결과 확신, 브랜드 톤으로 닫는다.
+- 가격/혜택/옵션/호환성처럼 바뀌거나 편집 가능해야 하는 정보는 인접 HTML 정보 섹션에만 둔다.
+- 마지막 클로징 `FULL_IMAGE`는 유지하되, 구매 행동을 유도하는 버튼/라벨/문구는 생성하지 않는다.

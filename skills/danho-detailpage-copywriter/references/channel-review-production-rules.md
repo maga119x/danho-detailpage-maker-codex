@@ -8,16 +8,9 @@ The buyer is already reading the detail page inside a sales channel. Do not wast
 
 - Do not write visible copy such as `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, or `채널별 구성`.
 - Do not write repeated prompts such as `구매 페이지에서 확인해 주세요`; this sounds like the detail page is somewhere else.
-- When a mutable price, option, coupon, shipping benefit, or promotion must be referenced, use generic in-page language:
-  - `현재 혜택은 옵션 영역에서 확인해 주세요`
-  - `구성은 옵션에서 한 번 더 확인해 주세요`
-  - `옵션을 선택하고 혜택을 확인해 주세요`
-- Prefer static CTA/option cues over price-location disclaimers:
-  - `옵션은 구매 영역에서 확인`
-  - `구성은 옵션에서 한 번 더 확인`
-  - `내게 맞는 용량부터 선택`
-  - `혜택은 옵션 영역 기준`
-- Do not turn these cues into buttons, link buttons, or button-like rounded rectangles in 상세페이지 copy or design.
+- When a mutable price, option, coupon, shipping benefit, or promotion must be referenced, keep it in editable factual/options sections. Do not put it in the final closing.
+- Do not write option/order prompts, benefit-check prompts, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문` in the final closing.
+- Do not turn informational cues into buttons, link buttons, or button-like rounded rectangles in 상세페이지 copy or design.
 
 Keep sales-channel names, internal price, promotion assumptions, and channel-specific notes in `config.json`, planning notes, or proof logs only.
 

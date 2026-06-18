@@ -79,7 +79,7 @@ Apply the DaleSeo-inspired order: grammar after humanizer, style after grammar.
 | punctuation |  |  | certain_error / recommendation / style_suggestion | pass/revise |
 | paragraph tone consistency |  |  | ecommerce: section-internal consistency, page-level variation allowed | pass/revise |
 | terminology consistency |  |  | same buyer action uses same term family | pass/revise |
-| list/card/CTA consistency |  |  | parallel rhythm and distinct CTA actions | pass/revise |
+| list/card/decision-cue consistency |  |  | parallel rhythm and distinct non-purchase informational cues | pass/revise |
 
 ## Sentence Gate Log
 
@@ -93,7 +93,7 @@ Use this for Korean sentence endings after the Korean-first expression audit.
 
 | visible_sentence | function | current_ending | candidate_endings | decision | rewrite | status |
 |---|---|---|---|---|---|---|
-|  | statement / suggestion / warning / FAQ / CTA / review-check |  |  | keep / replace / none_fits |  | pass/revise |
+|  | statement / suggestion / warning / FAQ / informational cue / review-check |  |  | keep / replace / none_fits |  | pass/revise |
 
 ## Conversion Architecture Audit
 
@@ -123,11 +123,11 @@ Use this when the user supplied an existing plan, prompt, memo, or draft copy.
 | wrong collocation / `체감` misuse |  |  | pass/revise |
 | spec-sheet or internal term |  |  | pass/revise |
 | repeated phrase or word |  |  | pass/revise |
-| CTA action duplication |  |  | pass/revise |
+| purchase-action cue duplication |  |  | pass/revise |
 | action vocabulary inconsistency |  |  | pass/revise |
 | parallel list/card rhythm break |  |  | pass/revise |
 | FAQ non-answer |  |  | pass/revise |
-| missing final static CTA cue |  |  | pass/revise |
+| final closing uses purchase-action text |  |  | pass/revise |
 | direct price in visible copy |  |  | pass/revise |
 | safety-disclaimer overexposure |  |  | pass/revise |
 | production note in visible copy |  |  | pass/revise |
@@ -168,7 +168,7 @@ For skill-improvement validation, mark `pass` only when each section average is 
 | What is this product? |  |  |  |
 | Do the first two sections connect as one opening story? |  |  |  |
 | What benefit does the buyer get? |  |  |  |
-| What should the buyer check or do to buy? |  |  |  |
+| What should the buyer understand before using the store purchase area? |  |  |  |
 | Why would the buyer want it now? |  |  |  |
 | What before/after change makes the page persuasive? |  |  |  |
 | Why does the value feel worth checking without fixed visible price? |  |  |  |
@@ -212,14 +212,14 @@ For skill-improvement validation, mark `pass` only when each section average is 
 - [ ] Every section has spoken Korean gate score at least 8.0.
 - [ ] If source planning text exists, every section has source independence score at least 8.0.
 - [ ] Source slogans, memo sentences, and section titles are not copied as visible copy unless explicitly approved and natural.
-- [ ] Page-level product identity, buyer benefit, and purchase/check action each score at least 8.0.
+- [ ] Page-level product identity, buyer benefit, and purchase-readiness information each score at least 8.0.
 - [ ] The first two sections pass the opening story bridge audit.
-- [ ] Empathy-heavy pages score at least 8.0 for empathy depth and purchase desire in problem, solution, benefit, and CTA sections.
+- [ ] Empathy-heavy pages score at least 8.0 for empathy depth and purchase desire in problem, solution, benefit, and closing sections.
 - [ ] Selling sections score at least 8.0 for conversion force.
 - [ ] The first 1-2 visible lines of each section can be understood by a skimming mobile shopper.
 - [ ] The buyer's situation, action, worry, or desired outcome is the main subject of selling copy.
 - [ ] The buyer's desired after-state or self-image is explicit without relying on demographic stereotypes.
-- [ ] Hero, problem, core solution, key benefit, value, and final CTA show a clear before/after shift.
+- [ ] Hero, problem, core solution, key benefit, value, and final product/result closing show a clear before/after shift.
 - [ ] Value framing is confident and explains why the offer is worth checking without direct numeric prices.
 - [ ] Core claims have proof-oriented visual directions or are softened/marked when proof is missing.
 - [ ] Seller/brand/product-centered wording is used only for factual proof, specs, or limits.
@@ -234,15 +234,15 @@ For skill-improvement validation, mark `pass` only when each section average is 
 - [ ] Visible copy passes the sentence-ending fit gate, including `none_fits` rewrites when no natural ending exists.
 - [ ] Native Korean humanizer audit passes: S1 marker count is 0, repeated S2 marker count is 0, naturalness grade is A for final copy, meaning preservation passes, and over-rewrite guard passes.
 - [ ] Grammar audit passes after humanizer rewrite, with no certain spelling, spacing, particle, ending, or punctuation error.
-- [ ] Style audit passes after grammar check: section-internal tone is consistent, repeated terms are deliberate, lists/cards are parallel, and CTA actions are distinct.
+- [ ] Style audit passes after grammar check: section-internal tone is consistent, repeated terms are deliberate, lists/cards are parallel, and informational cues do not become purchase-action prompts.
 - [ ] Incomplete headlines, wrong `체감/느껴짐` collocations, and spec-sheet terms are removed.
-- [ ] CTA cues have distinct actions and the final CTA includes a visible non-button closing/option cue.
+- [ ] Final closing contains no CTA button, button-equivalent text, option/order prompt, benefit-check prompt, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
 - [ ] Repeated buyer actions use consistent terms across sections unless the nuance intentionally changes.
 - [ ] Parallel cards, bullets, and short usage labels keep a consistent rhythm.
 - [ ] FAQ answers respond directly to the question before adding explanation or confirmation steps.
 - [ ] No direct numeric price appears in visible detail-page copy, generated-image text, or final HTML text.
 - [ ] Visible copy does not mention sales channel names such as `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, or `채널별 구성`.
-- [ ] Current mutable benefits are directed to the option/order area only when needed, without repeated `구매 페이지에서 확인` phrasing.
+- [ ] Mutable benefits stay out of the final closing; if they must be mentioned, they appear only in an editable factual/options section without repeated `구매 페이지에서 확인` phrasing.
 - [ ] A review/testimonial section exists.
 - [ ] If review cards are placeholders, they have no fabricated names, ages, dates, locations, stars, review counts, purchase counts, or `실제 구매자` claims.
 - [ ] Placeholder or replacement warnings are internal only; visible copy does not contain `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.

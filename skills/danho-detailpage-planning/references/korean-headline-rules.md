@@ -17,7 +17,7 @@
 
 - ❌ 헤드라인 끝 **마침표(.)**
 - ❌ 부제(sub-headline) 끝 **마침표** — 부제도 카피의 일부
-- ❌ CTA 문구/옵션 cue 끝 **마침표**
+- ❌ 마감 문구/옵션 cue 끝 **마침표**
 - ❌ 섹션 제목(h2/h3) 끝 **마침표**
 - ❌ 슬로건/태그라인 끝 **마침표**
 - ❌ 배지(badge) 라벨 끝 **마침표**
@@ -83,7 +83,7 @@
 | `<h2 class="section-title">` | ❌ 금지 |
 | `<h3 class="section-subtitle">` | ❌ 금지 (카드 안 짧은 제목) |
 | `<span class="badge">` | ❌ 금지 |
-| `.cta-cue`, `.option-cue` 같은 정적 CTA 문구 | ❌ 금지 |
+| `.closing-note`, `.option-cue` 같은 정적 마감/정보 문구 | ❌ 금지 |
 | `<p class="section-intro">` (짧은 도입 한 줄) | ❌ 금지 |
 | `<p class="section-desc">` (1줄짜리 슬로건성) | 케이스별. 마무리 슬로건이면 ❌ |
 | `<p class="section-desc">` (2~3줄 설명) | ✅ 일반 문장이면 마침표 OK |
@@ -99,7 +99,7 @@
 기획서 작성 후 또는 코딩 후 마지막으로 한 번 훑기:
 
 - [ ] 모든 `h1`, `h2`, `h3` 끝에 `.` 가 없다
-- [ ] CTA 문구/옵션 cue 끝에 `.` 가 없다
+- [ ] 마감 문구/옵션 cue 끝에 `.` 가 없다
 - [ ] 슬로건성 `section-desc` 끝에 `.` 가 없다 (e.g. "단순하게.", "오래오래.")
 - [ ] 부제(`section-intro`) 끝에 `.` 가 없다
 - [ ] `<span class="block accent">`처럼 헤드라인의 두 번째 줄 끝에도 `.` 가 없다
@@ -113,7 +113,7 @@ grep -E 'block accent">.*\.</span>' build/*.html
 grep -E 'section-title">.*\.</' build/*.html
 grep -E 'hero-headline">.*\.</' build/*.html
 grep -E 'section-subtitle">.*\.</' build/*.html
-grep -E '(cta-cue|option-cue)">.*\.</' build/*.html
+grep -E '(closing-note|option-cue)">.*\.</' build/*.html
 ```
 출력이 비어 있어야 합격.
 

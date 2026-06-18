@@ -85,7 +85,7 @@ Write strategy as actual Korean buyer thoughts or seller speech before drafting 
 | 문제 인식 |  |  |
 | 구매 명분 |  |  |
 | 가치 납득 |  |  |
-| 마지막 행동 |  |  |
+| 마지막 인상 |  |  |
 
 ## 1-2-4. 톤 좌표
 
@@ -104,7 +104,7 @@ Write strategy as actual Korean buyer thoughts or seller speech before drafting 
 | 이것이 무엇인가 | 1-3번 섹션 안 |  |
 | 나에게 어떤 베네핏이 있는가 | 1-3번 섹션 안 |  |
 | 구매 전 무엇을 확인해야 하는가 | 1-3번 섹션 안 |  |
-| 구매하려면 무엇을 선택/확인해야 하는가 | 옵션/CTA 전후 |  |
+| 구매 전 막히는 조건은 무엇인가 | 초반 조건/옵션/FAQ 전후 |  |
 
 ## 1-3-1. 오프닝 스토리 브릿지
 
@@ -128,7 +128,7 @@ The first two screens must feel like one connected opening story, not a hero fol
 | 탄생/진정성 | "이 문제를 알고 만든 제품이구나" |  | NEEDS_PROOF if unsupported |
 | 핵심 해결 | "이렇게 바뀌는구나" |  |  |
 | 신뢰/안심 | "믿고 사도 되겠다" |  | real proof only |
-| 구매 행동 | "무엇을 확인하고 사면 되는지 알겠다" |  |  |
+| 마지막 인상 | "이 제품을 쓰는 장면이 선명해졌다" |  |  |
 
 ## 1-5. 핵심 베네핏 모듈
 
@@ -164,7 +164,7 @@ Plan screen-sized sections before writing the final section table. One content p
 Every new page must include mandatory designed full-image candidates:
 
 - `01 hook`: mandatory `REPLACE_CANDIDATE` for generated full-image hero
-- final CTA/closing section: mandatory `REPLACE_CANDIDATE` for generated full-image static closing image
+- final product/result closing section: mandatory `REPLACE_CANDIDATE` for generated full-image closing image with no purchase-action text
 
 | screen | section id | screen_role | visual_mass | surface_role | tempo | main claim / scan answer | evidence or visual | layout_pattern | sparse_image_gate | editable_risk |
 |---:|---|---|---|---|---|---|---|---|---|---|
@@ -179,7 +179,7 @@ Every new page must include mandatory designed full-image candidates:
 |---:|---|---|---|---|---|---|---|---|---|---|---|---|
 | 01 | hook | 첫인상 | 어떤 상황/베네핏인지 즉시 이해 | 감각 | 시작 | impact | image-dominant | low | photo/comparison | final aspiration | pass | REPLACE_CANDIDATE |
 | 02 | vivid-problem | 실제 장면 | 어떤 불편을 줄이는지 이해 | 공감 | hook의 약속을 생활 상황으로 구체화 | result | image-dominant | low | photo | problem scene | pass | SUPPORT_CANDIDATE |
-| 99 | final-cta | 마무리 | 마지막으로 무엇을 확인할지 이해 | 행동 | 옵션/FAQ 이후 결정 cue | final CTA | image-dominant | low | none | static closing image, no button | pass | REPLACE_CANDIDATE |
+| 99 | final-closing | 마무리 | 제품을 쓰는 마지막 장면이 남음 | 인상 | 옵션/FAQ 이후 제품 결과를 조용히 정리 | final closing | image-dominant | low | none | product/result closing image, no CTA text | pass | REPLACE_CANDIDATE |
 
 ## 3. 단계 분할
 
@@ -255,7 +255,7 @@ Run this after the first complete `PLANNING.md` draft and before copywriter revi
 - 01-02번 화면이 약속 -> 생활 장면/불편/질문으로 자연스럽게 이어진다:
 - 섹션 순서가 구매 질문 흐름으로 이어진다:
 - 한 화면에 여러 구매 판단이 압축되지 않았다:
-- 증거/리뷰/옵션/FAQ/CTA 위치가 자연스럽다:
+- 증거/리뷰/옵션/FAQ/마감 위치가 자연스럽다:
 - 비주얼 무게 중심과 이미지 후보가 섹션 역할에 맞다:
 - 헤드라인 리듬 위험이 구조 단계에서 줄었다:
 ```
@@ -296,16 +296,16 @@ Run this after the first complete `PLANNING.md` draft and before copywriter revi
 - Keep internal labels in tables only. Visible copy must be consumer-facing.
 - Keep production notes separate from visible copy. Source filenames, image-candidate labels, `제공 이미지`, `추가 확인 필요`, and pre-publication instructions belong in visual instructions, planning notes, or proof logs only.
 - Avoid spec-sheet terms in visible copy unless they are inside a formal spec table. Prefer `칼`, `관리용품`, `상품 정보`, and `칼날 소재` over `본품`, `관리 구성`, `최종 상품 스펙`, and `강재`.
-- Control repeated phrases across the page. Hero and final CTA must not use the same headline, and repeated `처음/첫`, `관리와 보관`, or `확인해 주세요` wording should be varied by section role.
+- Control repeated phrases across the page. Hero and final closing must not use the same headline, and repeated `처음/첫`, `관리와 보관`, or `확인해 주세요` wording should be varied by section role.
 - Keep repeated action vocabulary consistent across related sections. Decide whether the page uses `손질`, `다듬기`, `썰기`, `준비`, or another term for each repeated action and do not drift between them.
 - Keep parallel problem cards, usage labels, and comparison rows in the same rhythm and approximate length.
-- Adjacent CTA cues must have distinct actions. Avoid pairs like `세트 구성 보기 / 관리용품까지 보기`; write one static cue for contents/options and one for fit, guide confirmation, care confirmation, or order-area checking.
-- The final CTA section must include a clear static closing cue or option/order-area cue, not button labels. Do not plan button UI, link buttons, or button-like rounded rectangles in 상세페이지 content.
+- Mid-page informational cues may clarify fit, contents, care, or usage criteria, but they must not look like purchase actions.
+- The final product/result closing section must not include CTA buttons, button labels, option/order-area prompts, benefit-check prompts, or button-equivalent text such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
 - FAQ answers must answer directly before giving confirmation instructions. A yes/no question should begin with `네` or `아니요` unless the fact is truly unknown.
 - Use consumer-facing spec labels such as `상세 사양` or `상품 상세 정보`, not vague labels such as `확인할 정보`.
-- Do not put direct numeric prices in visible copy, image text, CTA labels, comparison tables, or final HTML sections. Keep price as internal data only because promotions and channel discounts can change.
+- Do not put direct numeric prices in visible copy, image text, comparison tables, or final HTML sections. Keep price as internal data only because promotions and channel discounts can change.
 - Do not mention sales channels in visible copy. Avoid `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, `채널별 구성`, and repeated `구매 페이지에서 확인해 주세요`; the buyer is already on the selling page.
-- When buying action needs a mutable-price or promotion cue, write in-page option/order language such as `현재 혜택은 옵션 영역에서 확인해 주세요`, `구성은 옵션에서 한 번 더 확인해 주세요`, or `옵션을 선택하고 혜택을 확인해 주세요`.
+- Do not add final-section mutable-price, promotion, option, or order prompts. The shopping mall purchase UI already handles price, option, benefit, cart, and order actions.
 - Price-safe value sections must still build value confidence through included value, avoided extra purchases, reduced hassle, or common-alternative comparison. Do not use the no-direct-price rule as a reason to leave value vague.
 - Include a visible review/testimonial section even when no reviews are supplied. For missing reviews, create neutral replacement-ready dummy reviews without names, stars, dates, review counts, or `실제 구매자` claims.
 - Keep review replacement markers internal only. Visible copy must not say `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.

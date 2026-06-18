@@ -12,7 +12,7 @@ Natural Korean is only the baseline. A detail page must make the buyer understan
 4. why the product mechanism makes that change believable
 5. why the value feels confident, not apologetic
 6. what proof or visual demonstration supports the claim
-7. what to check or do next
+7. what to understand before using the store purchase area
 
 If a section is grammatically clean but does not move one of these decisions, revise it.
 
@@ -46,7 +46,7 @@ Only the verbatim bridge may become visible copy. Strategy labels must stay in p
 
 ## Before/After Rule
 
-At minimum, hero, problem, core solution, key benefit, value, and final CTA should carry a before/after shift.
+At minimum, hero, problem, core solution, key benefit, value, and final product/result closing should carry a before/after shift.
 
 - Before: what currently feels annoying, slow, uncertain, embarrassing, risky, wasteful, or incomplete.
 - External cause: the current tool, habit, setup, product gap, environment, or missing information. Do not blame the buyer's ability.
@@ -67,7 +67,7 @@ Because direct numeric prices are not allowed in visible detail-page copy, justi
 - reduced hassle: fewer decisions, fewer steps, fewer accessories to buy later
 - durability or repeat-use logic, when supported
 - comparison with the common alternative, without attacking competitors
-- mutable benefit cue: `현재 혜택은 옵션 영역에서 확인해 주세요`
+- mutable benefit facts: keep them in editable factual/options sections only; do not use the final closing for price, option, benefit-check, or purchase-action prompts
 
 Fail if the value section only says where to check price. It must explain why the offer is worth checking.
 Also fail if visible copy names the sales channel (`스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`) or repeatedly says `구매 페이지에서 확인`; the buyer is already on the selling page.
@@ -100,6 +100,6 @@ Do not let product flatlays replace proof. Product shots are useful, but at leas
 - The page repeats features but never states the buyer's desired after-state.
 - The copy is polite and accurate but feels timid, apologetic, or noncommittal.
 - The value section defends against price instead of building value confidence.
-- Buying action is delayed to `check the purchase page` or a named channel without giving a reason to want the offer.
+- Purchase readiness is reduced to `check the purchase page`, a named channel, or a final-section action prompt without giving a reason to want the offer.
 - Caveats, safety notes, or `check details` language appear in multiple selling sections.
 - Visual directions are mostly decorative product shots instead of problem/solution proof.

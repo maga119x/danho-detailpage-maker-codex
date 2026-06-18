@@ -8,7 +8,7 @@ One content point is often too much for one section and too dense for one mobile
 
 Do not compress a major benefit into one section like:
 
-`problem + product answer + mechanism + proof + caveat + CTA`
+`problem + product answer + mechanism + proof + caveat + final product impression`
 
 Split it into multiple screen units:
 
@@ -16,7 +16,7 @@ Split it into multiple screen units:
 2. short claim or question
 3. product mechanism or detail
 4. proof, comparison, review, or measurement
-5. caveat, fit check, or next action when needed
+5. caveat, fit check, or closing impression when needed
 
 This intentionally makes the page longer. Long is not a problem when each screen answers one purchase question clearly. A short dense page is harder to understand and usually looks less commercial.
 
@@ -64,9 +64,9 @@ Every newly produced Danho detail page must plan generated designed full-image s
 Minimum contract:
 
 - Screen 01 hero: `REPLACE_CANDIDATE` / future `FULL_IMAGE`
-- Final static CTA or closing impression: `REPLACE_CANDIDATE` / future `FULL_IMAGE`
+- Final product/result closing impression: `REPLACE_CANDIDATE` / future `FULL_IMAGE`
 
-If the final CTA also needs mutable legal, price, option, or compatibility facts, split those facts into an adjacent editable HTML section. Do not use mutable facts as a reason to omit the generated full-image closing screen.
+If the final area also needs mutable legal, price, option, or compatibility facts, split those facts into an adjacent editable HTML section. Do not use mutable facts as a reason to omit the generated full-image closing screen, and do not put purchase-action text in that final image.
 
 Fail the plan when the screen-flow table or section table has no mandatory full-image hero and no mandatory full-image final closing screen.
 
@@ -154,13 +154,13 @@ The page may be long. The failure mode to avoid is not length; it is putting too
 ## Rhythm Rules
 
 - For final hybrid output, plan screen 01 as a mandatory generated full-image hero. The final page must not begin with an ordinary HTML text hero.
-- Plan the final selling screen as a mandatory generated full-image static CTA/closing impression. It must not be a button UI; use product/result typography, option-area cue text, dividers, or non-clickable labels.
+- Plan the final selling screen as a mandatory generated full-image product/result closing impression. It must not be a button UI and must not include option/order prompts, benefit-check prompts, or action words such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `장바구니`, or `주문`.
 - Screen 02 must answer why screen 01 matters in the buyer's real life. If it starts a new topic, revise the opening pair before planning later screens.
 - The first 3 screens must answer product identity, core buyer benefit, and the first purchase condition or difference.
 - Do not place two `high` tempo screens back to back unless the second is FAQ/policy at the end.
 - Do not place three similar card sections back to back. Insert a result image, question transition, proof board, or type-dominant declaration.
 - A strong claim must be close to proof. If proof is more than one screen away, split or reorder.
-- Use dark sections for authority, result reversal, proof, or CTA. Do not use dark only for decoration.
+- Use dark sections for authority, result reversal, proof, or final impression. Do not use dark only for decoration.
 - Use `policy-quiet` for long factual/legal text so it does not compete with selling screens.
 
 ## Density And Image Role Gate
@@ -173,7 +173,8 @@ Before marking image candidates, reject a section plan when:
 - a low-copy option, care/storage, value, reassurance, or final decision screen is planned as centered text-only, one note box, or 1-2 small cards with no product/lifestyle/proof image
 - the planned vertical length comes from blank padding, empty dark space, or a decorative background rather than meaningful image/proof/content
 - the first screen is not a mandatory generated full-image hero
-- the final selling screen is not a mandatory generated full-image static CTA/closing impression
+- the final selling screen is not a mandatory generated full-image product/result closing impression
+- the final selling screen contains purchase-action text or option/order prompts
 
 Fixes:
 

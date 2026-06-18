@@ -106,7 +106,7 @@ components:
     padding: 24px
     border: "1px solid {colors.border}"
     elevation: "{elevation.sm}"
-  cta-cue:
+  closing-note:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.bg}"
     typography: "{typography.body-lg}"
@@ -140,10 +140,10 @@ Paperlogy. 본문 32px. 헤드라인 굵기는 다른 테마와 동일하지만 
 은은한 그림자. clean-minimal과 유사한 강도.
 
 ## Shapes
-라운드 16~20px (clean-minimal보다 더 둥글게). CTA는 xl(28px)로 더 둥근 느낌.
+라운드 16~20px (clean-minimal보다 더 둥글게). 마지막 마감은 버튼형 pill이 아니라 `closing-note`와 넓은 여백으로 정리.
 
 ## Components
-- `cta-cue`: 버튼이 아닌 정적 마감 문구. 베이지 핑크 포인트 텍스트 또는 얇은 구분선과 함께 사용
+- `closing-note`: 구매 행동 문구가 아닌 상품/결과 마감 문구. 베이지 핑크 포인트 텍스트 또는 얇은 구분선과 함께 사용
 - `badge`: 블러시 핑크 배경
 - 배경 변화: `bg` → `bg-var-1` → `bg-var-3`(블러시) 순환
 

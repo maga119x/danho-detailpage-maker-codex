@@ -106,7 +106,7 @@ components:
     padding: 24px
     border: "1px solid {colors.border}"
     elevation: "{elevation.sm}"
-  cta-cue:
+  closing-note:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.bg}"
     typography: "{typography.body-lg}"
@@ -140,10 +140,10 @@ Paperlogy. 본문 32px. 헤드라인에 그린 그라데이션.
 부드러운 그린 톤 그림자. 강하지 않게.
 
 ## Shapes
-라운드 14~18px. CTA는 xl로 둥글게 (음식의 부드러움 강조).
+라운드 14~18px. 마지막 마감은 버튼형 라운드가 아니라 `closing-note`와 식품 결과 장면으로 부드럽게 처리.
 
 ## Components
-- `cta-cue`: 버튼이 아닌 정적 마감 문구. 깊은 그린 포인트 텍스트 또는 얇은 구분선과 함께 사용
+- `closing-note`: 구매 행동 문구가 아닌 상품/결과 마감 문구. 깊은 그린 포인트 텍스트 또는 얇은 구분선과 함께 사용
 - `badge`: 옅은 그린 배경 + 진한 그린 텍스트
 - 배경 변화: 화이트 ↔ `bg-var-1`(옅은 그린) ↔ `bg-var-2`(미디엄 그린)
 

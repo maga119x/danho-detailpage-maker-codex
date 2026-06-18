@@ -69,10 +69,10 @@ animation: any;
 }
 ```
 
-### 정적 CTA cue
+### 정적 마감 노트
 
 ```css
-.cta-cue {
+.closing-note {
     display: block;
     color: var(--color-primary);
     font-weight: 700;
@@ -880,13 +880,13 @@ LENOVO CARES              ← 레이블이 왼쪽 정렬됨
 
 ---
 
-## CTA Cues & Badges
+## Closing Notes & Badges
 
 **⚠️ 정적 디자인: 호버 효과 없이 기본 상태에서 완성된 스타일**
 
-### Static CTA Cue
+### Static Closing Note
 ```css
-.cta-cue {
+.closing-note {
     display: block;
     color: #1a1a1a;
     border-top: 1px solid rgba(0,0,0,0.14);
@@ -925,9 +925,9 @@ LENOVO CARES              ← 레이블이 왼쪽 정렬됨
 }
 ```
 
-### Dark Luxury Theme Cue
+### Dark Luxury Theme Closing Note
 ```css
-.dark-luxury .cta-cue {
+.dark-luxury .closing-note {
     color: #d4b574;
     border-top-color: rgba(212, 181, 116, 0.45);
 }
