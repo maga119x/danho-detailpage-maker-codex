@@ -66,6 +66,7 @@ python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
 ## Inputs
 
 - `DESIGN.md`
+- Optional `REFERENCE_DESIGN_ANALYSIS.md`
 - HTML source, usually `build/*-v1-textonly.html` or the current final HTML
 - `image-plan.md` or a user-approved section list
 - Existing assets in `assets/inbox/`, if any
@@ -101,6 +102,7 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 - For complex full-section images, use the structured section-brief order from `references/prompt-guide.md`: output purpose, screen role, buyer judgment, product/scene, layout, style, color, text contract, and constraints.
 - For support images, end with: `no text, no Korean caption, no overlay text, no signage with letters, pure visual`.
 - Match the screen role from `image-plan.md`. Full-section images should usually be image-dominant or type-dominant impact/result/CTA screens; dense facts, prices, options, specs, compatibility, FAQ, and policy stay in HTML.
+- If `REFERENCE_DESIGN_ANALYSIS.md` exists, use its visual system and layout grammar as style anchors only. Do not ask the image model to copy the reference page, brand, exact section layout, logos, text, product image, badges, prices, models, or proprietary composition.
 - For section 01 and section 02 assets, preserve opening story continuity. Section 01 may show the promise/result; section 02 should use the same product, setting, action, color motif, or buyer emotion to deepen the scene, not restart the page with an unrelated image.
 - Cover every `SPARSE_SECTION_IMAGE_REQUIRED` row in `image-plan.md`. Generate either a complete full-section image or a large textless support image; do not leave the section as sparse HTML because the copy is short.
 - If the page needs many images, keep them in the queue. Image count has no upper cap; only remove or merge an image when the section role is genuinely redundant or the approved plan changes.
@@ -115,12 +117,13 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 
 1. Read image roles, section ids, and any `SPARSE_SECTION_IMAGE_REQUIRED` gates.
 2. Check whether section 01 and section 02 need opening story continuity. If both are generated, write prompts as a pair with shared product/scene anchors and distinct buyer judgments.
-3. Classify user-provided images as `PRODUCT_REFERENCE`, `DIRECT_USE`, or `STYLE_REFERENCE`.
-4. Write `prompts/banners.md` for full-section or typography images.
-5. Write `prompts/photos.md` for textless support images.
-6. Generate the approved image queue with `image_gen.imagegen`, using product references when available through the built-in context.
-7. Recover the generated output from an exposed saved path, `%USERPROFILE%/.codex/generated_images/`, or `%USERPROFILE%/.codex/sessions/**/*.jsonl`; copy it to `assets/generated/`, and record `assets/generated/manifest.md`.
-8. Hand off to `danho-detailpage-coding` for final HTML, noting which sparse sections were resolved by full-section image, support image, or merge.
+3. Classify user-provided images as `PRODUCT_REFERENCE`, `DIRECT_USE`, or `STYLE_REFERENCE`. Reference 상세페이지 design files belong to `STYLE_REFERENCE` and should already have `REFERENCE_DESIGN_ANALYSIS.md`.
+4. If `REFERENCE_DESIGN_ANALYSIS.md` exists, add a short `Reference Design Style Anchors` block to `prompts/banners.md` and `prompts/photos.md`.
+5. Write `prompts/banners.md` for full-section or typography images.
+6. Write `prompts/photos.md` for textless support images.
+7. Generate the approved image queue with `image_gen.imagegen`, using product references when available through the built-in context.
+8. Recover the generated output from an exposed saved path, `%USERPROFILE%/.codex/generated_images/`, or `%USERPROFILE%/.codex/sessions/**/*.jsonl`; copy it to `assets/generated/`, and record `assets/generated/manifest.md`.
+9. Hand off to `danho-detailpage-coding` for final HTML, noting which sparse sections were resolved by full-section image, support image, or merge.
 
 ## Parallel Generation
 

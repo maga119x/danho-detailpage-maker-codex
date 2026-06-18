@@ -24,6 +24,8 @@ Create this after the first HTML pass or when revising a visual direction.
 | 02 | fit-check | info | card-dominant | HTML_MIXED | fit-check-magnet-test.png | assets/inbox/product-front.png | GENERATE_WITH_REFERENCE | keep HTML + image | exact conditions |
 | 03 | package | info | card-dominant | HTML_MIXED | assets/inbox/package.jpg | assets/inbox/package.jpg | USER_IMAGE_DIRECT | keep HTML + original image | original package photo is production-ready |
 
+If `REFERENCE_DESIGN_ANALYSIS.md` exists, do not list reference design files as product `reference assets`. Add a separate note such as `style anchors from REFERENCE_DESIGN_ANALYSIS.md` in the reason or prompt notes.
+
 ## Full-Image Sections
 
 Use generated complete ecommerce section images. Image may contain short Korean typography.
@@ -51,6 +53,7 @@ Keep editable HTML. Add support image, checklist, quote card, comparison rows, c
 - [ ] Generated Korean typography is visually checked.
 - [ ] User-provided product images are used as references unless explicitly marked `USER_IMAGE_DIRECT`.
 - [ ] Generated product images preserve the product identity from reference assets.
+- [ ] Reference design files are used only through `REFERENCE_DESIGN_ANALYSIS.md` style anchors, not as product references or direct final assets.
 ```
 
 ## Decision Rules

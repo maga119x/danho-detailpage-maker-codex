@@ -1,7 +1,7 @@
 {
   "name": "danho-detailpage-maker-codex",
-  "version": "0.1.0",
-  "description": "Codex plugin for Korean ecommerce detail-page planning, pragmatic benefit-first Korean copy review, hybrid HTML/image publishing, native image generation, and mobile-first design QA.",
+  "version": "0.1.1",
+  "description": "Codex plugin for Korean ecommerce detail-page planning, reference design essence extraction, pragmatic benefit-first Korean copy review, hybrid HTML/image publishing, native image generation, and mobile-first design QA.",
   "author": {
     "name": "Danho"
   },
@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "\ub2e8\ud638\ud55c \uc0c1\uc138\ud398\uc774\uc9c0 \uba54\uc774\ucee4",
     "shortDescription": "Hybrid Korean ecommerce detail pages in Codex.",
-    "longDescription": "Plan Korean ecommerce product detail pages, run a planning-to-PM-review revision loop before copywriter review, infer speaker/listener/tone context, review visible copy for natural Korean buyer-first benefits with ethical persuasion principles, build mobile-first hybrid HTML/image pages from PLANNING.md, COPY_REVIEW.md, and DESIGN.md, generate full-section and support images through the built-in Codex image_gen.imagegen GPT Image 2.0 (gpt-image-2) native path, use prepared independent image batches after image-plan approval, and validate copy, color, layout, and duplicate image/HTML text.",
+    "longDescription": "Plan Korean ecommerce product detail pages, extract reusable design/layout essence from supplied reference detail-page design files, run a planning-to-PM-review revision loop before copywriter review, infer speaker/listener/tone context, review visible copy for natural Korean buyer-first benefits with ethical persuasion principles, build mobile-first hybrid HTML/image pages from PLANNING.md, COPY_REVIEW.md, REFERENCE_DESIGN_ANALYSIS.md, and DESIGN.md, generate full-section and support images through the built-in Codex image_gen.imagegen GPT Image 2.0 (gpt-image-2) native path, use prepared independent image batches after image-plan approval, and validate copy, color, layout, and duplicate image/HTML text.",
     "developerName": "Danho",
     "category": "Productivity",
     "capabilities": [

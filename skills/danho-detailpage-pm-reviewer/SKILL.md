@@ -1,6 +1,6 @@
 ---
 name: danho-detailpage-pm-reviewer
-description: Review and revise Korean ecommerce detail-page flow like a senior 20-year 상세페이지 PM. Use during the planning-to-PM review revision loop before copywriter review, before Phase A HTML coding to review PLANNING.md/COPY_REVIEW.md/DESIGN.md section flow, buyer-question continuity, mobile screen roles, headline rhythm risk, visual mass, density, and conversion structure, and after HTML exists when the rendered page needs expert-level flow, hierarchy, continuity, and final-delivery critique.
+description: Review and revise Korean ecommerce detail-page flow like a senior 20-year 상세페이지 PM. Use during the planning-to-PM review revision loop before copywriter review, before Phase A HTML coding to review PLANNING.md/COPY_REVIEW.md/DESIGN.md/REFERENCE_DESIGN_ANALYSIS.md section flow, buyer-question continuity, mobile screen roles, headline rhythm risk, visual mass, density, reference-design essence application, and conversion structure, and after HTML exists when the rendered page needs expert-level flow, hierarchy, continuity, and final-delivery critique.
 ---
 
 # Danho Detailpage PM Reviewer
@@ -21,7 +21,7 @@ Review whether the page sells as one connected journey:
 
 Use after `PLANNING.md` and `DESIGN.md` exist, before `COPY_REVIEW.md`.
 
-1. Read `PLANNING.md` and `DESIGN.md`. Do not wait for copywriter review.
+1. Read `PLANNING.md` and `DESIGN.md`. If `REFERENCE_DESIGN_ANALYSIS.md` exists, read it too. Do not wait for copywriter review.
 2. Extract the planned section sequence, opening story bridge table, mobile screen-flow table, scan answers, connection reasons, headline/lead drafts, proof/review/options/FAQ/CTA placement, visual mass, and image candidates.
 3. Build a planning-loop table with:
    - `screen`
@@ -40,7 +40,7 @@ Use after `PLANNING.md` and `DESIGN.md` exist, before `COPY_REVIEW.md`.
 
 Use before Phase A after copywriter review.
 
-1. Read `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md`.
+1. Read `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md`. If `REFERENCE_DESIGN_ANALYSIS.md` exists, read it too.
 2. Extract the planned section sequence: section ids, screen roles, buyer questions, headline/lead copy, visual role, proof/value/review/FAQ placement, and image candidates.
 3. Build a section-flow table with:
    - `screen`
@@ -86,6 +86,8 @@ Fail and revise when:
 - sparse sections are stretched with blank height, empty dark/pale bands, or decorative background instead of real image/proof/content
 - every section uses the same `badge -> h2 -> paragraph -> image/card` skeleton
 - adjacent image sections reuse the same asset crop in a way that makes different claims look templated
+- supplied reference design essence is ignored, copied too literally, or applied in a way that breaks the new product's buyer journey
+- final planning or HTML copies reference brand/logo/text/price/product imagery/exact layout/proprietary composition
 - review sections pretend to be real testimonials when only review-check criteria or placeholder-safe copy exists
 - final HTML exposes internal labels, sales channels, price numbers, proof markers, or review replacement notes
 
@@ -99,6 +101,7 @@ The planning loop can pass only when:
 - adjacent sections have a clear question/answer or emotional transition
 - proof, review, options, FAQ, safety/care, and final CTA appear where the buyer needs them
 - visual mass varies by role instead of repeating the same layout skeleton
+- any supplied reference design is translated into original Danho design tokens and section rhythm, not cloned
 - no low-content section remains text-only, note-only, or tiny-card-only; `SPARSE_SECTION_IMAGE_REQUIRED` sections have image support, full-image treatment, or merge handling
 - image candidates match editable risk and section role
 - headline rhythm risk is reduced before copywriter review

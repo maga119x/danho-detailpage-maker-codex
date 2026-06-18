@@ -50,6 +50,18 @@ Use this when the user supplied an existing plan, prompt, memo, or draft copy.
 |---|---|---|---|---|
 |  | fixed fact / strategy / evidence / draft copy / visual direction / risk | yes/no |  | yes/no |
 
+## 1-2-1A. 레퍼런스 디자인 에센스
+
+Use this when the user supplied reference 상세페이지 design files. The full analysis belongs in `REFERENCE_DESIGN_ANALYSIS.md`.
+
+| 항목 | 적용 방향 | 복제 금지 |
+|---|---|---|
+| 섹션 리듬 |  | 브랜드/문구/정확한 섹션 복제 금지 |
+| 시각 무게 |  | 제품 이미지/모델 사진 복제 금지 |
+| 타이포 대비 |  | 폰트/카피 그대로 복제 금지 |
+| 컴포넌트/카드 |  | 고유 카드 구성 그대로 복제 금지 |
+| 이미지 크롭 |  | 정확한 배경/구도 복제 금지 |
+
 ## 1-2-2. 고객 마음 정리
 
 | 항목 | 내용 | visible copy 반영 위치 |

@@ -1,6 +1,6 @@
 ---
 name: danho-detailpage-coding
-description: Build or revise static HTML/CSS for Korean ecommerce 상세페이지 projects from PLANNING.md, DESIGN.md, image-plan.md, and generated assets. Use for HTML-first detail-page layout, mobile-readable typography, final hybrid image/HTML pages, section splitting, color-system cleanup, image replacement, and visual validation.
+description: Build or revise static HTML/CSS for Korean ecommerce 상세페이지 projects from PLANNING.md, DESIGN.md, optional REFERENCE_DESIGN_ANALYSIS.md, image-plan.md, and generated assets. Use for HTML-first detail-page layout, adapting extracted reference-design layout essence without cloning, mobile-readable typography, final hybrid image/HTML pages, section splitting, color-system cleanup, image replacement, and visual validation.
 ---
 
 # Danho Detailpage Coding
@@ -11,6 +11,7 @@ Create static, mobile-first ecommerce detail pages. Build the HTML layout first,
 
 - `PLANNING.md`
 - `DESIGN.md`
+- Optional `REFERENCE_DESIGN_ANALYSIS.md`
 - `config.json`
 - Optional `image-plan.md`
 - Optional `assets/generated/` or `assets/inbox/`
@@ -45,6 +46,7 @@ Read `references/html-first-detailpage-build.md` before starting a new page.
 Read `references/mobile-screen-storyboarding.md` before translating `PLANNING.md` into HTML.
 Read `references/proof-proximity-and-page-length.md` when deciding whether to split or merge sections.
 Read `references/commercial-layout-components.md` when choosing the HTML pattern for each screen.
+Read `../danho-detailpage-planning/references/reference-design-analysis.md` when `REFERENCE_DESIGN_ANALYSIS.md` or supplied reference design files exist.
 Read `references/mobile-hybrid-layout.md` before major layout work.
 Read `references/detailpage-typography.md` before writing CSS.
 Use `../danho-detailpage-pm-reviewer/SKILL.md` before copywriter review for the PM planning loop, before Phase A when `PLANNING.md`/`COPY_REVIEW.md` section flow needs PM-level sequence review, and again after HTML exists when the rendered page feels fragmented, repetitive, AI-like, or when headline rhythm needs PM-level review.
@@ -64,6 +66,7 @@ Core rules:
 - Do not make a sparse section look longer by adding empty padding, oversized top/bottom gaps, or blank dark backgrounds. The vertical length must come from meaningful image, product, proof, review, comparison, option, or care content.
 - Use tempo rhythm: low-density result/question screens, medium explanation/proof screens, and high-density info screens. Do not stack dense info screens before the buyer understands the main benefit.
 - Keep strong claims near proof. If a claim and its proof are more than one mobile screen apart, split or reorder.
+- If `REFERENCE_DESIGN_ANALYSIS.md` exists, adapt its transferable layout grammar: section rhythm, visual mass, spacing behavior, component style, typography contrast, image crop behavior, and transition patterns. Do not copy the reference page's brand, exact section order, exact pixel layout, product imagery, Korean copy, logos, badges, prices, or proprietary composition.
 - Preserve the opening story bridge in HTML. Section 02 must look and read like the next beat after the hero: same buyer situation, object/action, emotional cue, or visual motif. Do not let the first two sections become two unrelated designed blocks.
 - Keep a vertical mobile rhythm: top copy, large image/scene, then evidence card, quote card, speech bubble, checklist, or comparison.
 - HTML sections may and often should contain images.

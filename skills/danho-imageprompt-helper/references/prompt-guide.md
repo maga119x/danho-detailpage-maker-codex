@@ -8,6 +8,22 @@ This guide is tuned for Korean ecommerce 상세페이지 section images, not gen
 
 Do not impose a maximum image count, fixed percentage, or fixed full-section/HTML split. Prompt every approved `FULL_IMAGE` and `HTML_MIXED` asset needed for the page's story, proof, option, care/storage, comparison, review, sparse-section, and final decision roles. If that results in many images, keep the queue and generate them in manageable independent native batches.
 
+## Reference Design Style Anchors
+
+When `REFERENCE_DESIGN_ANALYSIS.md` exists, use it as an abstract style guide, not as an image to copy.
+
+Add a concise block to prompts:
+
+```text
+Reference design essence to adapt:
+- [section rhythm / visual mass / spacing behavior]
+- [typography contrast / card style / divider behavior]
+- [image crop and composition behavior]
+Use these as style anchors only. Do not copy the reference page, brand, logo, exact layout, Korean text, product imagery, badges, prices, models, or proprietary composition.
+```
+
+Do not describe the reference file as the product source of truth. Product references preserve product identity; design references only guide layout rhythm and visual language.
+
 ## Prompt Assembly Order
 
 For every final prompt, write the brief in this order:
@@ -301,6 +317,7 @@ Before calling `image_gen.imagegen`, check:
 - If this is section 01 or 02, does the prompt preserve the opening story bridge with a shared scene/action/motif and a distinct buyer judgment?
 - If the item is `SPARSE_SECTION_IMAGE_REQUIRED`, does the prompt create enough product/lifestyle/proof visual substance to lengthen the section without blank padding?
 - Does the image queue include every approved visual asset, without dropping items for an assumed count limit or fixed split?
+- If `REFERENCE_DESIGN_ANALYSIS.md` exists, does the prompt adapt only transferable style anchors and explicitly avoid copying the reference page?
 - Are mutable facts, direct numeric prices, channel names, and long instructions kept out?
 - Does the prompt avoid fake reviews, fake proof, fake badges, and unsupported authority?
 - Does the prompt explicitly avoid button UI and button-like CTA graphics?

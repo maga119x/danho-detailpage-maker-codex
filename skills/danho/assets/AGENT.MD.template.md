@@ -15,9 +15,11 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
   - `PLANNING.md`
   - `DESIGN.md`
   - `COPY_REVIEW.md`
+  - `REFERENCE_DESIGN_ANALYSIS.md` when reference design files are supplied
   - `config.json`
   - `image-plan.md`
   - `prompts/`
+  - `assets/reference-designs/`
   - `assets/inbox/`
   - `assets/generated/`
   - `build/`
@@ -27,20 +29,22 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 ## Required Workflow
 
 1. Normalize the product brief before planning. Separate facts, assumptions, proof gaps, source wording, visual needs, and risks.
-2. Create `PLANNING.md`, `DESIGN.md`, and `config.json` with `danho-detailpage-planning`.
-3. Run PM planning review before copywriter review. Repeat `planning -> PM review -> planning revision` until the PM planning loop records `pass`.
-4. Run `danho-detailpage-copywriter` only after PM planning pass. Create `COPY_REVIEW.md`, revise visible copy, and pass Korean naturalness, spoken Korean, grammar/style, source independence, and conversion-force gates.
-5. Run PM pre-coding review after copywriter changes and before HTML. Fix broken sequence, abrupt transitions, weak visual mass, repeated headline rhythm, or conversion-flow issues.
-6. Build Phase A HTML first. The HTML must be a complete ecommerce detail-page layout before final image generation.
-7. Create `image-plan.md` from the rendered Phase A HTML. Decide `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` per section after reviewing actual layout.
-8. Generate approved images with the built-in Codex `image_gen.imagegen` native path only. Prepare the full queue first, then generate one independent native image per approved asset.
-9. Build Phase B final HTML with generated or approved images, split section files, and validate mobile rendering.
-10. Run a final PM-level flow and visual QA pass before delivery.
+2. If reference 상세페이지 design files are supplied, store them under `assets/reference-designs/`, create `REFERENCE_DESIGN_ANALYSIS.md`, and extract transferable design/layout essence before finalizing `DESIGN.md`.
+3. Create `PLANNING.md`, `DESIGN.md`, and `config.json` with `danho-detailpage-planning`.
+4. Run PM planning review before copywriter review. Repeat `planning -> PM review -> planning revision` until the PM planning loop records `pass`.
+5. Run `danho-detailpage-copywriter` only after PM planning pass. Create `COPY_REVIEW.md`, revise visible copy, and pass Korean naturalness, spoken Korean, grammar/style, source independence, and conversion-force gates.
+6. Run PM pre-coding review after copywriter changes and before HTML. Fix broken sequence, abrupt transitions, weak visual mass, repeated headline rhythm, or conversion-flow issues.
+7. Build Phase A HTML first. The HTML must be a complete ecommerce detail-page layout before final image generation.
+8. Create `image-plan.md` from the rendered Phase A HTML. Decide `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` per section after reviewing actual layout.
+9. Generate approved images with the built-in Codex `image_gen.imagegen` native path only. Prepare the full queue first, then generate one independent native image per approved asset.
+10. Build Phase B final HTML with generated or approved images, split section files, and validate mobile rendering.
+11. Run a final PM-level flow and visual QA pass before delivery.
 
 ## Hard Rules
 
 - Do not skip PM review, copywriter review, or Phase A HTML.
 - Do not jump from planning directly to image generation.
+- Do not copy a supplied reference design page. Extract section rhythm, visual mass, spacing, typography contrast, component behavior, and crop style only; never reuse its brand, logo, copy, product image, price, exact layout, or proprietary composition.
 - Do not expose direct numeric prices, sales channel names, internal labels, source filenames, placeholder warnings, `NEEDS_PROOF`, or review replacement markers in visible copy or images.
 - Every newly planned page needs a review/testimonial section. If real reviews are missing, use replacement-ready neutral review cards and keep replacement notes internal.
 - Detail pages are static ecommerce content. Do not create HTML buttons, link buttons, `.cta-button`, rounded CTA controls, or button-like generated graphics.
@@ -56,6 +60,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 - Section count and image roles/counts match `image-plan.md`, with no image-count cap or forced split.
 - The first two mobile screens pass the opening story bridge: hero promise leads into the same buyer moment, repeated friction, or immediate question.
 - Adjacent sections read as one purchase journey, not independent slides.
+- If `REFERENCE_DESIGN_ANALYSIS.md` exists, the final page adapts its essence without cloning the reference.
 - Headline endings and visual structures vary across the page.
 - No horizontal overflow on mobile.
 - Body copy remains readable at phone widths.

@@ -1,6 +1,6 @@
 ---
 name: danho-detailpage-planning
-description: Plan Korean ecommerce product detail pages and draft persuasive Korean 상세페이지 copy. Use when Codex needs to create or revise PLANNING.md, run the planning-to-PM review revision loop, decide page flow, define Korean customer-verbatim strategy, define section roles, draft buyer-first spoken Korean copy, mark image conversion candidates, or prepare DESIGN.md for a Danho detail-page project before copywriter review.
+description: Plan Korean ecommerce product detail pages and draft persuasive Korean 상세페이지 copy. Use when Codex needs to create or revise PLANNING.md, analyze attached reference 상세페이지 design files into reusable design/layout essence, run the planning-to-PM review revision loop, decide page flow, define Korean customer-verbatim strategy, define section roles, draft buyer-first spoken Korean copy, mark image conversion candidates, or prepare DESIGN.md for a Danho detail-page project before copywriter review.
 ---
 
 # Danho Detailpage Planning
@@ -15,7 +15,7 @@ Do not write the plan until these factual blockers are clear enough:
 - Internal price, options, components, usage limits
 - Pain points and selling points
 - Category
-- Existing images or desired image direction, if any
+- Existing product images, reference 상세페이지 design files, or desired image direction, if any
 
 Infer non-critical planning context when it is not supplied:
 
@@ -28,29 +28,47 @@ Ask concise follow-up questions only when missing information affects factual ac
 
 ## Workflow
 
-1. Choose a design preset and create `DESIGN.md`.
-2. If the user supplied a plan, prompt, memo, or draft copy, run source brief normalization before writing any visible copy.
-3. Choose the planning mode: `Draft Planning` for rough product concepts, `Final Planning` when facts are fixed for design/coding.
-4. Build a conversion desire architecture as internal strategy only.
-5. Convert the strategy into Korean customer-verbatim strategy: buyer thoughts, seller explanations, and good/bad tone pairs written as actual Korean speech.
-6. Build a Wadiz-style empathy conversion map before writing sections: vivid problem, existing friction, origin/why, solution, benefit modules, proof, buying action.
-7. Build a persuasion flow before writing sections.
-8. Build a 3-second mobile scan plan: what the buyer can understand from the first 1-2 lines of each section.
-9. Build the opening story bridge before the mobile screen-flow plan: screen 01 states the promise/result, screen 02 continues the same buyer moment and shows why that promise matters. Mark this gate `OPENING_STORY_BRIDGE_REQUIRED`.
-10. Build a mobile screen-flow plan before the section table. Read `references/screen-flow-planning.md`.
-11. Split major content points into multiple screen-sized sections. One benefit, mechanism, proof set, option system, or review block may require 3-6 sections.
-12. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
-13. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
-14. Write `PLANNING.md` with all visible copy in text form, and keep production notes separate from buyer-facing copy.
-15. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create neutral replacement-ready dummy review cards and mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not pretend that a reviewer is speaking in the headline.
-16. Run the spoken Korean gate on visible copy before copywriter review: no strategy-term leak, no English skeleton, no abstract noun subject, no long breath.
-17. Run the native Korean pre-gate before copywriter review: remove obvious DaleSeo-style AI markers such as translationese, noun-heavy Korean, repeated S2 patterns, and page-wide identical endings.
-18. Run the production-readiness gate: no sales channel names, no visible placeholder warnings, no `NEEDS_PROOF`/candidate labels/source filenames in buyer-facing copy.
-19. Mark each section as `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, or `NONE`.
-20. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Revise `PLANNING.md` and repeat PM review until section order, screen roles, buyer-question continuity, proof/review placement, visual mass, density, and conversion path pass.
-21. Record the PM planning loop in `PLANNING.md` with final status `pass`.
-22. Run `danho-detailpage-copywriter` to create `COPY_REVIEW.md`, score every section, and patch awkward, timid, translated, feature-first, or AI-marker-heavy visible copy until it passes.
-23. Create `config.json`.
+1. If the user supplied reference 상세페이지 design files, read `references/reference-design-analysis.md`, prepare files under `assets/reference-designs/`, create `REFERENCE_DESIGN_ANALYSIS.md`, and extract only transferable design/layout essence before choosing the final design direction.
+2. Choose a design preset and create `DESIGN.md`. If `REFERENCE_DESIGN_ANALYSIS.md` exists, adapt the preset with its design tokens, section rhythm, and component rules without copying the reference page.
+3. If the user supplied a plan, prompt, memo, or draft copy, run source brief normalization before writing any visible copy.
+4. Choose the planning mode: `Draft Planning` for rough product concepts, `Final Planning` when facts are fixed for design/coding.
+5. Build a conversion desire architecture as internal strategy only.
+6. Convert the strategy into Korean customer-verbatim strategy: buyer thoughts, seller explanations, and good/bad tone pairs written as actual Korean speech.
+7. Build a Wadiz-style empathy conversion map before writing sections: vivid problem, existing friction, origin/why, solution, benefit modules, proof, buying action.
+8. Build a persuasion flow before writing sections.
+9. Build a 3-second mobile scan plan: what the buyer can understand from the first 1-2 lines of each section.
+10. Build the opening story bridge before the mobile screen-flow plan: screen 01 states the promise/result, screen 02 continues the same buyer moment and shows why that promise matters. Mark this gate `OPENING_STORY_BRIDGE_REQUIRED`.
+11. Build a mobile screen-flow plan before the section table. Read `references/screen-flow-planning.md`.
+12. Split major content points into multiple screen-sized sections. One benefit, mechanism, proof set, option system, or review block may require 3-6 sections.
+13. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
+14. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
+15. Write `PLANNING.md` with all visible copy in text form, and keep production notes separate from buyer-facing copy.
+16. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create neutral replacement-ready dummy review cards and mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not pretend that a reviewer is speaking in the headline.
+17. Run the spoken Korean gate on visible copy before copywriter review: no strategy-term leak, no English skeleton, no abstract noun subject, no long breath.
+18. Run the native Korean pre-gate before copywriter review: remove obvious DaleSeo-style AI markers such as translationese, noun-heavy Korean, repeated S2 patterns, and page-wide identical endings.
+19. Run the production-readiness gate: no sales channel names, no visible placeholder warnings, no `NEEDS_PROOF`/candidate labels/source filenames in buyer-facing copy.
+20. Mark each section as `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, or `NONE`.
+21. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Revise `PLANNING.md` and repeat PM review until section order, screen roles, buyer-question continuity, proof/review placement, visual mass, density, and conversion path pass.
+22. Record the PM planning loop in `PLANNING.md` with final status `pass`.
+23. Run `danho-detailpage-copywriter` to create `COPY_REVIEW.md`, score every section, and patch awkward, timid, translated, feature-first, or AI-marker-heavy visible copy until it passes.
+24. Create `config.json`.
+
+## Reference Design Routine
+
+When the user supplies a reference 상세페이지 design file:
+
+1. Store it under `assets/reference-designs/`, not `assets/inbox/`.
+2. For long PNG/JPG/WebP captures, optionally run:
+
+```powershell
+python <planning-skill-dir>/scripts/prepare_reference_designs.py --project <project-dir> <reference-files...>
+```
+
+3. Inspect the original and useful slices visually.
+4. Create `REFERENCE_DESIGN_ANALYSIS.md` using `references/reference-design-analysis.md`.
+5. Apply only transferable design essence to `DESIGN.md` and the mobile screen-flow plan.
+
+Do not copy the reference page's brand, logo, exact Korean text, prices, product images, model photos, badges, exact section order, exact pixel layout, or proprietary composition. If the reference's flow conflicts with the new product's buyer journey, follow the new product's buyer journey.
 
 ## PM Planning Loop Gate
 
@@ -66,6 +84,7 @@ The PM planning loop must fail and revise when:
 - a section contains three or more independent buyer questions, proof points, or use cases
 - proof, review, options, FAQ, safety/care, or final CTA is missing or placed too late for the product risk
 - every screen uses the same visual mass or `headline -> paragraph -> card/image` skeleton
+- supplied reference design files are copied too literally, ignored entirely, or used without `REFERENCE_DESIGN_ANALYSIS.md`
 - a low-content option, care/storage, value, reassurance, result, or transition section is planned as centered text-only, one note box, or 1-2 small cards without a real image role
 - headline rhythm risk is already visible before copywriter review
 - image candidates do not match section roles, such as dense specs marked as full-image candidates or emotional scenes left with no visual plan
@@ -173,6 +192,7 @@ Do not plan toward a fixed image count, maximum count, or full-image/HTML ratio.
 ## References
 
 - `references/output-format.md` for `PLANNING.md` structure
+- `references/reference-design-analysis.md` for extracting design/layout essence from supplied reference 상세페이지 design files before `DESIGN.md`
 - `references/detail-flow-rules.md` for current section flow and internal-label rules
 - `references/screen-flow-planning.md` for mobile screen-flow planning, content expansion, visual mass, tempo, and category presets
 - `references/source-brief-normalization.md` for turning supplied plans/prompts into strategy without copying awkward phrases

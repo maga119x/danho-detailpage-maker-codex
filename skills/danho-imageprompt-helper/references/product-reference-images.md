@@ -2,6 +2,8 @@
 
 Use this whenever the user provides product photos, package shots, sketches, mockups, or brand assets.
 
+If the user provides a reference 상세페이지 design file, long screenshot, or visual page sample for design inspiration, do not store it as a product reference. Store it under `assets/reference-designs/`, create `REFERENCE_DESIGN_ANALYSIS.md`, and use it as `STYLE_REFERENCE` only.
+
 ## Core Rule
 
 User-provided product images are product identity references by default.
@@ -22,10 +24,26 @@ Default behavior:
 |---|---|---|
 | `PRODUCT_REFERENCE` | user image used to preserve product shape, color, material, logo, package | reference input only |
 | `DIRECT_USE` | user image is already production-ready and should appear as-is | final HTML allowed |
-| `STYLE_REFERENCE` | mood, background, or composition reference | reference input only |
+| `STYLE_REFERENCE` | mood, background, composition, or reference 상세페이지 design essence | reference input only |
 | `GENERATED_OUTPUT` | image model result created from prompts/references | normal final HTML image |
 
 If the user only says "I attached product images", classify them as `PRODUCT_REFERENCE`, not `DIRECT_USE`.
+
+If the user says "이 상세페이지 디자인을 참고해줘", classify the file as `STYLE_REFERENCE`, not `PRODUCT_REFERENCE`, unless it also contains the product being sold and the user explicitly says it is a product reference.
+
+## Design Reference Separation
+
+Reference design files must not be used directly in final HTML or passed as the product identity source. Use them only through extracted style anchors:
+
+- section rhythm
+- visual mass
+- spacing behavior
+- typography contrast
+- component style
+- image crop behavior
+- transition pattern
+
+Do not reuse the reference page's brand, logo, exact layout, Korean copy, product photos, models, badges, prices, or proprietary composition.
 
 ## Product Consistency Lock
 

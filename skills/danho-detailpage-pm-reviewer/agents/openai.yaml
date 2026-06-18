@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho PM Reviewer"
-  short_description: "Review planning loops, pre-coding flow, and rendered detail pages."
-  default_prompt: "Use $danho-detailpage-pm-reviewer to run the planning review loop, review section flow before Phase A, or critique rendered HTML before final delivery."
+  short_description: "Review flow, visual hierarchy, and reference design use."
+  default_prompt: "Use $danho-detailpage-pm-reviewer to review planning flow, reference-design essence application, Phase A readiness, or rendered HTML before delivery."
 
 policy:
   allow_implicit_invocation: true

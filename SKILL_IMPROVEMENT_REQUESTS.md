@@ -1105,3 +1105,29 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 - `AGENT.MD`는 `projects/MMDDHHmm_product-name/` 안이 아니라 작업 루트에 둔다.
 - 기존 `AGENT.MD`는 사용자가 명시적으로 요청하지 않으면 덮어쓰지 않는다.
 - `AGENT.MD`는 로컬 부트스트랩 체크리스트이며, 설치된 `danho-detailpage-workflow` 스킬이 더 최신이거나 구체적이면 스킬을 우선한다.
+
+### 38. 레퍼런스 상세페이지 디자인 에센스 추출 루틴
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+사용자가 레퍼런스용 상세페이지 디자인 파일을 첨부하면 해당 디자인의 디자인 및 레이아웃 에센스를 추출해서 제작하는 상세페이지 디자인에 참고 사용할 수 있도록 하는 루틴을 추가한다.
+
+**원인 분석**:
+- 기존 워크플로우는 제품 이미지 레퍼런스와 생성 이미지 레퍼런스는 다뤘지만, 상세페이지 디자인 파일을 레이아웃/시각 문법 참고자료로 분석하는 별도 단계가 없었다.
+- 레퍼런스 디자인을 그대로 복제하면 브랜드/문구/사진/고유 구성을 침해하거나 새 제품의 구매 여정을 망칠 수 있다.
+- 따라서 레퍼런스 파일을 원본 에셋이 아니라 `design essence` 입력으로 분리하고, 분석 산출물을 `DESIGN.md`, 모바일 화면 흐름, HTML, 이미지 프롬프트에 연결해야 한다.
+
+**반영 내용**:
+- `skills/danho-detailpage-planning/references/reference-design-analysis.md`를 추가해 `REFERENCE_DESIGN_ANALYSIS.md` 산출물 템플릿과 분석 기준을 정의했다.
+- `skills/danho-detailpage-planning/scripts/prepare_reference_designs.py`를 추가해 reference design 파일을 `assets/reference-designs/`로 복사하고 긴 이미지를 slice할 수 있게 했다.
+- `danho`, `workflow`, `planning`, `pm-reviewer`, `coding`, `imageprompt-helper` 스킬에 레퍼런스 디자인 분석 루틴을 연결했다.
+- `output-format.md`, `image-plan-template.md`, `image-handling.md`, `prompt-guide.md`, `product-reference-images.md`, `output-checklist.md`, `AGENT.MD.template.md`, `README.md`, `PROJECT_STRUCTURE_AI_CONTEXT.md`에 관련 규칙을 반영했다.
+- 플러그인 버전을 `0.1.1`로 올리고 manifest 설명에 reference design essence extraction을 추가했다.
+
+**운영 규칙**:
+- 레퍼런스 상세페이지 디자인 파일은 `assets/reference-designs/`에 보관하고 `assets/inbox/` 제품 이미지와 섞지 않는다.
+- 레퍼런스 디자인이 있으면 `REFERENCE_DESIGN_ANALYSIS.md`를 먼저 작성한다.
+- 추출 대상은 섹션 리듬, 시각 무게, 여백, 타이포 대비, 카드/비교/후기/구분선 패턴, 이미지 크롭, 전환 방식이다.
+- 복제 금지 대상은 브랜드, 로고, 문구, 가격, 제품 이미지, 모델 사진, 정확한 섹션 순서, 정확한 픽셀 레이아웃, 고유 구성이다.
+- 이미지 프롬프트에는 `REFERENCE_DESIGN_ANALYSIS.md`의 style anchor만 반영하고, 레퍼런스 파일을 제품 원본으로 취급하지 않는다.

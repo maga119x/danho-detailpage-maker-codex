@@ -13,6 +13,7 @@ This plugin helps Codex plan, review, write, design, and build mobile-first Kore
 - `image-plan.md` driven `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` decisions
 - Built-in Codex `image_gen.imagegen` native image generation workflow
 - No arbitrary image-count cap for detail-page images
+- Reference detail-page design analysis through `REFERENCE_DESIGN_ANALYSIS.md`
 - Workspace initialization with `AGENT.MD`
 
 ## Requirements
@@ -100,9 +101,11 @@ Typical project artifacts:
 PLANNING.md
 DESIGN.md
 COPY_REVIEW.md
+REFERENCE_DESIGN_ANALYSIS.md
 config.json
 image-plan.md
 prompts/
+assets/reference-designs/
 assets/inbox/
 assets/generated/
 build/
@@ -112,15 +115,16 @@ build/sections/
 ## Workflow Summary
 
 1. Normalize the product brief into facts, assumptions, proof gaps, visual needs, and risks.
-2. Create `PLANNING.md`, `DESIGN.md`, and `config.json`.
-3. Run a PM planning review loop until the plan passes.
-4. Run copy review and patch visible Korean copy.
-5. Run PM pre-coding review.
-6. Build Phase A HTML before image generation.
-7. Create `image-plan.md`.
-8. Generate approved images through Codex native `image_gen.imagegen`.
-9. Build Phase B final HTML and split sections.
-10. Run final mobile and PM-level validation.
+2. If reference detail-page design files are supplied, extract transferable design/layout essence into `REFERENCE_DESIGN_ANALYSIS.md`.
+3. Create `PLANNING.md`, `DESIGN.md`, and `config.json`.
+4. Run a PM planning review loop until the plan passes.
+5. Run copy review and patch visible Korean copy.
+6. Run PM pre-coding review.
+7. Build Phase A HTML before image generation.
+8. Create `image-plan.md`.
+9. Generate approved images through Codex native `image_gen.imagegen`.
+10. Build Phase B final HTML and split sections.
+11. Run final mobile and PM-level validation.
 
 ## Important Production Rules
 
@@ -129,6 +133,7 @@ build/sections/
 - Do not create button UI, link buttons, or button-like CTA graphics.
 - Do not skip PM review, copy review, or Phase A HTML.
 - Do not jump from planning directly to image generation.
+- Do not copy a supplied reference design page; extract layout rhythm and design essence only.
 - Do not cap image count or force a fixed full-image/HTML split.
 - Do not use browser screenshots, SVG/canvas, PIL composites, API scripts, or CLI imagegen fallbacks as generated-image substitutes.
 

@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Detailpage Planning"
-  short_description: "Plan Korean e-commerce detail pages before PM review."
-  default_prompt: "Use $danho-detailpage-planning to create PLANNING.md and DESIGN.md, then prepare the plan for the PM review revision loop."
+  short_description: "Plan pages and extract reference design essence."
+  default_prompt: "Use $danho-detailpage-planning to analyze any reference design files, create PLANNING.md and DESIGN.md, then prepare the plan for the PM review revision loop."
 
 policy:
   allow_implicit_invocation: true

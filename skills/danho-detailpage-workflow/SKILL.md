@@ -1,6 +1,6 @@
 ---
 name: danho-detailpage-workflow
-description: Orchestrate the Danho Korean ecommerce detail-page workflow in Codex. Use when the user asks to initialize a new Danho work directory with AGENT.MD, create, continue, revise, or diagnose a product 상세페이지 project across planning, PM planning-review revision loops, copywriter review, HTML coding, image planning, native image generation, hybrid image/HTML layout, and final validation.
+description: Orchestrate the Danho Korean ecommerce detail-page workflow in Codex. Use when the user asks to initialize a new Danho work directory with AGENT.MD, create, continue, revise, or diagnose a product 상세페이지 project across reference design essence extraction, planning, PM planning-review revision loops, copywriter review, HTML coding, image planning, native image generation, hybrid image/HTML layout, and final validation.
 ---
 
 # Danho Detailpage Workflow
@@ -19,15 +19,16 @@ Before creating a new product project in a newly opened work directory, ensure t
 ## Sequence
 
 0. Initialize `AGENT.MD` first when this is a clean Danho work directory.
-1. Run `danho-detailpage-planning` when product facts, target, pain points, or page structure are missing. This creates the first `PLANNING.md` / `DESIGN.md` draft.
-2. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Review `PLANNING.md` and `DESIGN.md`, patch the plan, and repeat `planning -> PM review -> planning revision` until the PM planning loop records `pass`.
-3. Run `danho-detailpage-copywriter` only after the PM planning loop passes. Create `COPY_REVIEW.md`, score every section, run the native Korean humanizer/grammar/style gates, and patch visible copy into natural Korean buyer-first language until the score gate passes.
-4. Run `danho-detailpage-pm-reviewer` again before Phase A when `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md` exist. Confirm the copywriter revision did not break section sequence, buyer-question continuity, headline rhythm, visual mass, or conversion structure.
-5. Run `danho-detailpage-coding` Phase A after PM flow issues are resolved. Phase A must create the HTML-based detail-page layout from the PM-reviewed mobile screen-flow plan before final image generation.
-6. Create or update `image-plan.md` after visually reviewing the Phase A HTML.
-7. Run `danho-imageprompt-helper` when the user wants prompts or generated section images. After prompts and filenames are fixed, generate images through the built-in `image_gen.imagegen` native tool, one independent call per asset.
-8. Run `danho-detailpage-coding` Phase B or revision mode when actual images exist and the page needs final HTML.
-9. Run `danho-detailpage-pm-reviewer` again before final delivery if the rendered hybrid page has repetitive headline endings, standalone-looking sections, weak transitions, or identical section skeletons.
+1. If the user supplied reference 상세페이지 design files, prepare them under `assets/reference-designs/` and create `REFERENCE_DESIGN_ANALYSIS.md` before finalizing `DESIGN.md`. Extract transferable layout/design essence only; do not copy the reference page.
+2. Run `danho-detailpage-planning` when product facts, target, pain points, or page structure are missing. This creates the first `PLANNING.md` / `DESIGN.md` draft and uses `REFERENCE_DESIGN_ANALYSIS.md` when present.
+3. Run `danho-detailpage-pm-reviewer` in planning-loop mode before copywriter review. Review `PLANNING.md` and `DESIGN.md`, patch the plan, and repeat `planning -> PM review -> planning revision` until the PM planning loop records `pass`.
+4. Run `danho-detailpage-copywriter` only after the PM planning loop passes. Create `COPY_REVIEW.md`, score every section, run the native Korean humanizer/grammar/style gates, and patch visible copy into natural Korean buyer-first language until the score gate passes.
+5. Run `danho-detailpage-pm-reviewer` again before Phase A when `PLANNING.md`, `COPY_REVIEW.md`, and `DESIGN.md` exist. Confirm the copywriter revision did not break section sequence, buyer-question continuity, headline rhythm, visual mass, or conversion structure.
+6. Run `danho-detailpage-coding` Phase A after PM flow issues are resolved. Phase A must create the HTML-based detail-page layout from the PM-reviewed mobile screen-flow plan before final image generation.
+7. Create or update `image-plan.md` after visually reviewing the Phase A HTML.
+8. Run `danho-imageprompt-helper` when the user wants prompts or generated section images. After prompts and filenames are fixed, generate images through the built-in `image_gen.imagegen` native tool, one independent call per asset.
+9. Run `danho-detailpage-coding` Phase B or revision mode when actual images exist and the page needs final HTML.
+10. Run `danho-detailpage-pm-reviewer` again before final delivery if the rendered hybrid page has repetitive headline endings, standalone-looking sections, weak transitions, or identical section skeletons.
 
 ## Current Production Rules
 
@@ -62,6 +63,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Headline shape must vary as well. A page where nearly every h1/h2 is manually split as `A<br>B` still feels templated even after the sentence endings are fixed.
 - Adjacent sections must answer or raise the next buyer question. If two neighboring sections can be swapped without changing meaning, revise the headline, lead, or order.
 - Do not stop to ask broad tone/persona questions when reasonable ecommerce defaults can be inferred. Ask only for factual blockers.
+- When reference 상세페이지 design files are supplied, create `REFERENCE_DESIGN_ANALYSIS.md` and use it as design guidance. Do not clone the reference page, copy its brand/copy/logo/product images, or let it override the new product's buyer journey.
 - Use ethical persuasion only: no fake specific reviews, fake scarcity, fake authority, or unsupported numbers. Replacement-ready dummy review cards are allowed only without fabricated specifics and with internal replacement logs.
 - Always establish the HTML detail-page layout first. Do not jump from planning directly to image generation.
 - `PLANNING.md` must include a mobile screen-flow plan for newly planned pages. Do not code a plan that treats every content point as one dense section.
@@ -96,6 +98,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 Create projects under `projects/MMDDHHmm_project-name/` with:
 
 - workspace root `AGENT.MD` for new initialized work directories
+- optional `REFERENCE_DESIGN_ANALYSIS.md` and `assets/reference-designs/` when reference design files are supplied
 - `PLANNING.md`
 - `DESIGN.md`
 - `config.json`
@@ -109,6 +112,8 @@ Create projects under `projects/MMDDHHmm_project-name/` with:
 
 Always validate:
 
+- If reference design files were supplied, `REFERENCE_DESIGN_ANALYSIS.md` exists and final output adapts its essence without cloning.
+- Reference design brand, logo, text, product images, prices, exact layout, or proprietary composition do not appear in final HTML or generated images.
 - Image paths exist.
 - Section count and image roles/counts match the plan, with no arbitrary image-count cap, fixed percentage, or forced full-image/HTML split.
 - The first final section is a full-image hero when a designed hero image exists.

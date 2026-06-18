@@ -11,6 +11,7 @@ Run this before delivering a Danho detail page.
 - [ ] Every section has a unique id and an identifying HTML comment.
 - [ ] Section split succeeds with `split_sections.py`.
 - [ ] Phase A HTML looks like an ecommerce detail page before image generation.
+- [ ] If `REFERENCE_DESIGN_ANALYSIS.md` exists, Phase A/Phase B visibly adapt its layout essence without copying the reference page.
 
 ## Hybrid Image/HTML
 
@@ -63,6 +64,7 @@ Run this before delivering a Danho detail page.
 - [ ] Strong claims have proof in the same screen or the next screen.
 - [ ] HTML sections use vertical mobile rhythm: copy, large image, evidence/control.
 - [ ] The page is not a generic landing page or simple centered web page.
+- [ ] Reference design files are not cloned: no copied brand/logo/text/price/product image/exact layout/proprietary composition appears in final HTML or generated images.
 - [ ] No section looks like empty height was added just to meet a ratio.
 - [ ] Repeated sections do not all use the same layout.
 - [ ] Cards are not nested inside cards.

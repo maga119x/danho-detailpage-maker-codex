@@ -13,6 +13,8 @@
 
 이미지 장수에는 상한이나 고정 비율을 두지 않는다. `FULL_IMAGE`와 `HTML_MIXED` 지원 이미지는 스토리 연결, 증거 밀도, 옵션/보관/비교/리뷰/FAQ 보강, sparse 섹션 길이, 최종 결정 지원에 필요한 만큼 사용하며, 고정 split이나 생성 호출 절약을 위해 이미지를 줄이지 않는다.
 
+사용자가 레퍼런스용 상세페이지 디자인 파일을 첨부하면 `assets/reference-designs/`에 보관하고 `REFERENCE_DESIGN_ANALYSIS.md`를 만든다. 여기서는 섹션 리듬, 시각 무게, 여백, 타이포 대비, 카드/구분선/비교/후기 패턴, 이미지 크롭 같은 디자인 에센스만 추출하며, 레퍼런스의 브랜드, 문구, 로고, 제품 이미지, 가격, 정확한 레이아웃, 고유 구성을 복제하지 않는다.
+
 ### Root Layout
 
 ```text
@@ -183,9 +185,11 @@ skills:
         - material_or_ingredients
         - product_story
         - existing_images
+        - reference_detailpage_design_files
     outputs:
       - projects/MMDDHHmm_project-name/PLANNING.md
       - projects/MMDDHHmm_project-name/DESIGN.md
+      - projects/MMDDHHmm_project-name/REFERENCE_DESIGN_ANALYSIS.md
       - projects/MMDDHHmm_project-name/config.json
     references:
       - references/korean-headline-rules.md
@@ -196,6 +200,7 @@ skills:
       - references/persuasion-framework.md
       - references/output-format.md
       - references/source-brief-normalization.md
+      - references/reference-design-analysis.md
       - references/wadiz-empathy-conversion-flow.md
       - references/conversion-desire-architecture.md
       - references/copy-templates.md
@@ -211,12 +216,17 @@ skills:
       source_brief_normalization_required_when_source_plan_exists: true
       empathy_conversion_map_required_for_persuasion_pages: true
       conversion_desire_architecture_required: true
+      reference_design_analysis_required_when_reference_design_files_exist: true
       benefit_modules_required_for_feature_rich_products: true
       ask_only_for_factual_blockers: true
       image_slots_are_forbidden_in_planning: true
       only_mark_image_candidates: true
       sparse_section_image_required: true
       image_count_has_no_cap: true
+    scripts:
+      prepare_reference_designs.py:
+        path: skills/danho-detailpage-planning/scripts/prepare_reference_designs.py
+        role: copy reference design files into assets/reference-designs and slice tall images for visual analysis
 
   danho-detailpage-copywriter:
     path: skills/danho-detailpage-copywriter/
@@ -456,6 +466,10 @@ workflow:
       skill: danho
       mode: workspace_init
       action: 새 작업 디렉토리 루트에 AGENT.MD가 없으면 먼저 생성하고, 기존 파일은 덮어쓰지 않는다
+    - order: 0.5
+      skill: danho-detailpage-planning
+      mode: reference_design_analysis
+      action: 레퍼런스 상세페이지 디자인 파일이 있으면 assets/reference-designs/에 정리하고 REFERENCE_DESIGN_ANALYSIS.md로 디자인/레이아웃 에센스를 추출한다
     - order: 1
       skill: danho-detailpage-planning
       action: 제품 정보로 PLANNING.md, DESIGN.md 생성
@@ -531,6 +545,7 @@ expected_project_output:
     - PLANNING.md
     - DESIGN.md
     - COPY_REVIEW.md
+    - REFERENCE_DESIGN_ANALYSIS.md
     - config.json
     - image-plan.md
   directories:
@@ -538,6 +553,10 @@ expected_project_output:
       - banners.md
       - photos.md
     assets:
+      reference-designs:
+        - originals/
+        - slices/
+        - manifest.md
       inbox: []
       generated:
         - "*.png"
@@ -610,6 +629,8 @@ validation_rules:
   - DESIGN.md를 디자인 토큰의 단일 원본으로 사용한다
   - v1-textonly.html에는 모든 카피가 포함되어야 한다
   - image-plan.md 작성 후 사용자 합의 전 이미지 생성을 진행하지 않는다
+  - 레퍼런스 상세페이지 디자인 파일이 있으면 `REFERENCE_DESIGN_ANALYSIS.md`를 먼저 만들고, 디자인 에센스만 DESIGN.md/HTML/이미지 프롬프트에 반영한다
+  - 레퍼런스 디자인의 브랜드, 로고, 문구, 제품 이미지, 가격, 정확한 레이아웃, 고유 구성을 복제하지 않는다
   - 이미지 장수에는 상한을 두지 않고, 고정 split이나 비율을 맞추기 위해 필요한 이미지를 줄이지 않는다
   - 이미지 생성은 Codex 내장 image_gen.imagegen GPT Image 2.0 / gpt-image-2 네이티브 경로만 사용한다
   - API 키, curl, 로컬 이미지 생성 스크립트, 브라우저 렌더 캡처, HTML/CSS/SVG/canvas/PIL 드로잉은 생성 이미지 대체물로 사용하지 않는다
@@ -848,6 +869,9 @@ validation_rules:
   <workflow>
     <step order="0" skill="danho" mode="workspace_init">
       <action>Create AGENT.MD in the current workspace root when it is missing; never overwrite an existing AGENT.MD unless explicitly requested.</action>
+    </step>
+    <step order="0.5" skill="danho-detailpage-planning" mode="reference_design_analysis">
+      <action>When reference detail-page design files are supplied, store them under assets/reference-designs and create REFERENCE_DESIGN_ANALYSIS.md with transferable design/layout essence only.</action>
     </step>
     <step order="1" skill="danho-detailpage-planning">
       <action>Create PLANNING.md, DESIGN.md, config.json.</action>

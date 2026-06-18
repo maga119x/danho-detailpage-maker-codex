@@ -16,6 +16,8 @@ Images come after HTML layout planning. Do not skip directly from `PLANNING.md` 
 
 User-provided product images are not automatically final page images. Treat `assets/inbox/` product photos as generation references unless `image-plan.md` marks `USER_IMAGE_DIRECT`.
 
+User-provided reference 상세페이지 design files are different from product images. Store them under `assets/reference-designs/`, analyze them into `REFERENCE_DESIGN_ANALYSIS.md`, and use only their transferable layout/style essence. Do not use reference design files directly in final HTML or as product reference assets.
+
 ## Generation Provenance Gate
 
 `FULL_IMAGE`, `REPLACE`, `IMAGE_STORY`, and generated `SUPPORT` assets must come from the built-in Codex `image_gen.imagegen` GPT Image 2.0 (`gpt-image-2`) native path through `danho-imageprompt-helper`.
