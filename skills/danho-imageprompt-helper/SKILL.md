@@ -85,6 +85,7 @@ If Python is unavailable, perform the same recovery manually:
 Use for `FULL_IMAGE` or hybrid full-image sections.
 
 - The image model creates the whole ecommerce section: background, product scene, Korean typography, cards, icons, and layout.
+- Treat text as designed layout objects, not prose. Break text into locked assets such as kicker, headline, subhead, badge, feature label, stat card, callout label, comparison header, caption, proof label, or closing phrase.
 - The mandatory minimum is opening hero plus final product/result closing. These are generated full-section images, not optional support photos.
 - When `image-plan.md`, the user, or the workflow marks a section as `FULL_IMAGE`, the designed full-section image is mandatory. Do not downgrade it to `IMAGE_STORY`, textless support imagery, or HTML overlay merely to avoid Korean typography risk.
 - Use for hook, emotional scene, problem, answer, no-damage proof, daily-use scene, control moment, and final product closing.
@@ -108,6 +109,8 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 - If the user provides product images, treat them as product references by default. Generate new images from those references instead of simply inserting the original files.
 - For full-section images, include: `complete Korean ecommerce product detail page section image`, `include content and design`, `not a plain photo`.
 - For complex full-section images, use the structured section-brief order from `references/prompt-guide.md`: output purpose, screen role, buyer judgment, product/scene, layout, style, color, text contract, and constraints.
+- For typography or infographic full-section images, use the five locked prompt slots from `references/prompt-guide.md`: `IMAGE JOB`, `EXACT TEXT ASSETS`, `LAYOUT GRAMMAR`, `TYPOGRAPHY SYSTEM`, and `CONSTRAINTS`.
+- Do not ask the model to "add the following copy prettily" or "make an infographic." Decompose the design into exact text assets, title blocks, stat cards, icon rows, comparison strips, step flows, callout labels, leader lines, reading flow, and whitespace.
 - For support images, end with: `no text, no Korean caption, no overlay text, no signage with letters, pure visual`.
 - Match the screen role from `image-plan.md`. Full-section images should usually be image-dominant or type-dominant impact/result/closing screens; dense facts, prices, options, specs, compatibility, FAQ, and policy stay in HTML.
 - Before writing prompts, confirm `image-plan.md` includes mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing. If either is missing, do not compensate with support photos or HTML; revise `image-plan.md`.
@@ -117,7 +120,9 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 - If the page needs many images, keep them in the queue. Image count has no upper cap; only remove or merge an image when the section role is genuinely redundant or the approved plan changes.
 - Do not use generated images to cram several purchase judgments into one artwork. If the prompt needs many claims, split the section before generation.
 - Use the page color system: Key/Main/Sub/Exception. Do not request many unrelated accent colors.
-- For Korean typography, specify exact short lines and verify the output visually.
+- For Korean typography, specify exact short text assets, their typographic role, placement, visual weight, and safe margins, then verify the output visually.
+- For infographic-heavy images, specify the reading flow and at least one concrete primitive: title block, stat cards, comparison strip, step flow, icon row, radial callouts, ingredient cards, before/after split, or leader-line callouts.
+- For typography-heavy images, ask for generous whitespace, usually around 40% negative space when possible, to prevent cramped or cropped text.
 - For mandatory `FULL_IMAGE` sections, Korean typography QA is a generation/revision gate. If Korean text is wrong, cropped, random, or omitted, regenerate or revise through native `image_gen.imagegen` with shorter exact text. Do not solve it by removing the image text and moving the copy to HTML unless the user explicitly changes the section role.
 - For product references, lock product silhouette, proportions, material, finish, color, and visible marks before describing the new scene.
 - If text generation fails repeatedly on a mandatory `FULL_IMAGE`, mark the item `FULL_IMAGE_TEXT_QA_BLOCKED` or ask for role approval instead of silently shipping a downgraded section.
@@ -129,7 +134,7 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 3. Check whether section 01 and section 02 need opening story continuity. If both are generated, write prompts as a pair with shared product/scene anchors and distinct buyer judgments.
 4. Classify user-provided images as `PRODUCT_REFERENCE`, `DIRECT_USE`, or `STYLE_REFERENCE`. Reference 상세페이지 design files belong to `STYLE_REFERENCE` and should already have `REFERENCE_DESIGN_ANALYSIS.md`.
 5. If `REFERENCE_DESIGN_ANALYSIS.md` exists, add a short `Reference Design Style Anchors` block to `prompts/banners.md` and `prompts/photos.md`.
-6. Write `prompts/banners.md` for full-section or typography images.
+6. Write `prompts/banners.md` for full-section or typography images, using locked text assets, layout grammar, infographic primitives, reading flow, typography system, whitespace, and constraints.
 7. Write `prompts/photos.md` for textless support images.
 8. Generate the approved image queue with `image_gen.imagegen`, using product references when available through the built-in context.
 9. Recover the generated output from an exposed saved path, `%USERPROFILE%/.codex/generated_images/`, or `%USERPROFILE%/.codex/sessions/**/*.jsonl`; copy it to `assets/generated/`, and record `assets/generated/manifest.md`.

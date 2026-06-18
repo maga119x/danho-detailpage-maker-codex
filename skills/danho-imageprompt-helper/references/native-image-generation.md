@@ -136,18 +136,22 @@ Prompt must include:
 - `complete Korean ecommerce product detail page section image`
 - `include content and design`
 - `not a plain photo`
-- structured section brief: output purpose, buyer screen role, one purchase judgment, product/scene, layout, style, color, exact text contract, and constraints
+- structured section brief: output purpose, buyer screen role, one purchase judgment, product/scene, layout grammar, style, color, exact text assets, typography system, and constraints
 - reference image instruction when `assets/inbox/` product images exist
 - product/scene description
-- exact short Korean text lines, if any
+- exact short Korean text assets by role, if any: kicker, headline, subhead, badge, feature label, stat card, callout label, comparison header, caption, proof label, or closing phrase
+- infographic primitives when the section uses designed information graphics: title block, stat cards, icon row, comparison strip, step flow, callout labels, leader lines, ingredient cards, or before/after split
+- reading flow and whitespace instructions, especially for typography-heavy images
 - restrained page color system
 - vertical mobile ecommerce composition
 
 Verify:
 
 - Korean text is correct enough to use.
+- No extra words, duplicate text, invented Korean, or random English appeared.
 - Layout looks like a designed detail-page section, not a raw photo.
 - Text is not cropped.
+- Infographic modules follow the planned reading flow without crowding or overlap.
 - It matches the section's persuasion role.
 - If the section is marked `FULL_IMAGE`, these checks are mandatory. A failed Korean text check requires native regeneration/revision, not a role downgrade.
 
@@ -173,10 +177,11 @@ Verify:
 
 If the image model repeatedly produces wrong Korean:
 
-1. Shorten the Korean line and retry.
-2. Reduce to one headline fragment and retry.
-3. Increase text size, simplify background, and retry.
-4. If a mandatory `FULL_IMAGE` still fails, mark `FULL_IMAGE_TEXT_QA_BLOCKED` and do not ship that section as textless HTML overlay unless the user explicitly changes the role.
+1. Remove nonessential text assets and retry.
+2. Reduce to one headline fragment or one headline plus one short label and retry.
+3. Increase text size, simplify background, and increase whitespace.
+4. Reduce infographic modules that compete with the text, such as extra cards or callouts.
+5. If a mandatory `FULL_IMAGE` still fails, mark `FULL_IMAGE_TEXT_QA_BLOCKED` and do not ship that section as textless HTML overlay unless the user explicitly changes the role.
 
 For non-mandatory image-story/support visuals, textless imagery plus HTML copy can be acceptable. For mandatory `FULL_IMAGE`, avoiding Korean typography by removing it from the image is a failure, not a fallback.
 

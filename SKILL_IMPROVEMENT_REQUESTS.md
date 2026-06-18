@@ -1206,3 +1206,30 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 - 모바일 가독성 검수는 같은 원본을 438px 폭으로 축소한 preview에서 본다. 393px/438px 직접 viewport reflow는 보조 stress check일 뿐 1차 검수가 아니다.
 - 정적 HTML은 `file://`로 열려야 하며, 상대 경로를 사용한다.
 - Playwright, Python, Node/npm, dev server, bundler, local HTTP server가 없어도 작업이 멈추면 안 된다.
+
+### 42. GPT Image 2 디자인 이미지 프롬프트 문법 강화
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+상세페이지의 디자인된 이미지 생성 시 사용할 프롬프트 가이드를 조사해왔고, 첨부한 내용을 바탕으로 디자인 이미지 생성 프롬프트를 개선한다.
+
+**원인 분석**:
+- 기존 프롬프트 가이드는 full-section 이미지, 제품 레퍼런스, 한글 타이포 QA 원칙은 강했지만, GPT Image 2가 텍스트와 인포그래픽을 그래픽 요소로 인식하도록 만드는 문법은 부족했다.
+- `프리미엄 인포그래픽처럼`, `장점을 예쁘게 넣어줘` 같은 추상 프롬프트로 해석될 여지가 있어, 텍스트가 임의 생성되거나 카드/라벨/비교표가 흐트러질 수 있었다.
+- 상세페이지용 디자인 이미지는 카피 자체보다 제목, 서브헤드, 배지, 라벨, 수치 카드, 캡션, 리더라인, 비교표 같은 편집디자인 객체를 정확히 배치해야 한다.
+
+**반영 내용**:
+- `prompt-guide.md`에 `Designed Typography And Infographic Method`를 추가했다.
+- `FULL_IMAGE` 기본 템플릿을 `IMAGE JOB`, `EXACT TEXT ASSETS`, `LAYOUT GRAMMAR`, `TYPOGRAPHY SYSTEM`, `STYLE`, `CONSTRAINTS` 구조로 재작성했다.
+- 인포그래픽 primitive로 title block, stat cards, comparison strip, step flow, icon row, radial callouts, ingredient cards, before/after split을 명시했다.
+- 한글 타이포 계약을 `짧은 줄` 중심에서 `역할별 locked text asset` 중심으로 강화했다.
+- `danho-imageprompt-helper/SKILL.md`와 `native-image-generation.md`의 Prompt Rules, 생성 체크리스트, retry ladder에 같은 기준을 반영했다.
+- README 기능 목록과 plugin manifest 설명에 locked typography/infographic image prompting을 추가하고 플러그인 버전을 `0.1.5`로 올렸다.
+
+**운영 규칙**:
+- 디자인된 `FULL_IMAGE` 프롬프트는 텍스트를 문장이 아니라 `EXACT TEXT ASSETS`로 분해한다.
+- 각 텍스트 자산은 kicker, headline, subhead, badge, feature label, stat card, callout label, comparison header, caption, proof label, closing phrase처럼 역할을 붙인다.
+- 인포그래픽은 정보가 아니라 기하학으로 지시한다. 카드 수, 그리드, 분할, 리더라인, 비교 스트립, step flow, 읽는 순서를 명시한다.
+- 타이포가 많은 이미지는 충분한 safe margin과 가능한 40% 수준의 negative space를 프롬프트에 넣는다.
+- 생성 실패 시에는 텍스트 자산 수를 줄이고, 글자 크기와 여백을 늘리며, 경쟁하는 카드/콜아웃을 줄여 재생성한다.

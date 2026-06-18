@@ -13,6 +13,8 @@
 
 이미지 장수에는 상한이나 고정 비율을 두지 않는다. 모든 신규 상세페이지는 최소한 1번 히어로와 마지막 상품/결과 클로징 화면을 Codex 네이티브 생성 기반 `FULL_IMAGE`로 구성해야 한다. `FULL_IMAGE`와 `HTML_MIXED` 지원 이미지는 스토리 연결, 증거 밀도, 옵션/보관/비교/리뷰/FAQ 보강, sparse 섹션 길이, 최종 결정 지원에 필요한 만큼 사용하며, 고정 split이나 생성 호출 절약을 위해 이미지를 줄이지 않는다.
 
+디자인된 `FULL_IMAGE` 프롬프트는 텍스트를 문장이 아니라 locked layout asset으로 다룬다. `IMAGE JOB`, `EXACT TEXT ASSETS`, `LAYOUT GRAMMAR`, `TYPOGRAPHY SYSTEM`, `CONSTRAINTS` 슬롯을 사용하고, headline/subhead/badge/label/stat card/callout/comparison header/caption 같은 역할, title block/stat cards/comparison strip/step flow/icon row/radial callouts 같은 인포그래픽 primitive, 읽는 순서, safe margin, negative space를 명시한다.
+
 사용자가 레퍼런스용 상세페이지 디자인 파일을 첨부하면 `assets/reference-designs/`에 보관하고 `REFERENCE_DESIGN_ANALYSIS.md`를 만든다. 여기서는 섹션 리듬, 시각 무게, 여백, 타이포 대비, 카드/구분선/비교/후기 패턴, 이미지 크롭 같은 디자인 에센스만 추출하며, 레퍼런스의 브랜드, 문구, 로고, 제품 이미지, 가격, 정확한 레이아웃, 고유 구성을 복제하지 않는다.
 
 ### Root Layout
@@ -441,6 +443,40 @@ skills:
         default: assets/inbox images are PRODUCT_REFERENCE
         direct_use_requires: USER_IMAGE_DIRECT in image-plan.md
         generated_outputs: assets/generated/
+      full_image_prompting_policy:
+        required_slots:
+          - IMAGE JOB
+          - EXACT TEXT ASSETS
+          - LAYOUT GRAMMAR
+          - TYPOGRAPHY SYSTEM
+          - CONSTRAINTS
+        text_asset_roles:
+          - kicker
+          - headline
+          - subhead
+          - badge
+          - feature_label
+          - stat_card
+          - callout_label
+          - comparison_header
+          - caption
+          - proof_label
+          - closing_phrase
+        infographic_primitives:
+          - title_block
+          - stat_cards
+          - comparison_strip
+          - step_flow
+          - icon_row
+          - radial_callouts
+          - ingredient_cards
+          - before_after_split
+          - leader_lines
+        layout_rules:
+          - specify_reading_flow
+          - specify_safe_margins
+          - use_generous_negative_space_for_typography
+          - no_extra_words_or_duplicate_text
       generated_output_recovery:
         source_root: "%USERPROFILE%/.codex/generated_images/<session-id>/ig_*.png"
         session_jsonl_root: "%USERPROFILE%/.codex/sessions/**/*.jsonl"
@@ -494,7 +530,7 @@ workflow:
       stop_for_user_agreement: true
     - order: 7
       skill: danho-imageprompt-helper
-      action: 이미지 프롬프트 작성 후 Codex 네이티브 이미지 생성 큐를 병렬 배치로 처리
+      action: locked text assets, layout grammar, infographic primitives, reading flow, whitespace를 포함한 이미지 프롬프트 작성 후 Codex 네이티브 이미지 생성 큐를 병렬 배치로 처리
     - order: 8
       skill: danho-detailpage-coding
       phase: phase_b
@@ -507,7 +543,7 @@ image_cases:
       - opening_hero
       - final_product_result_closing
     html_text_handling: remove_original_section
-    image_policy: 짧은 한글 카피와 디자인 요소를 이미지 안에 포함 가능
+    image_policy: 짧은 한글 카피는 역할별 locked text asset으로 지정하고, 인포그래픽 primitive와 읽는 순서를 함께 프롬프트에 포함
     duplicate_copy_allowed: false
     typical_sections:
       - hook
@@ -858,7 +894,9 @@ validation_rules:
       <modelRule>use only built-in image_gen.imagegen as GPT Image 2.0 / gpt-image-2; do not use API, CLI, GPT Image 1, GPT Image 1.5, or other image generators</modelRule>
       <mismatchRule>if runtime explicitly reports image_gen.imagegen is not GPT Image 2.0 / gpt-image-2, stop with native_model_mismatch</mismatchRule>
       <parallelGeneration default="true">Generate every approved independent image queue item in batches after prompts and filenames are locked; do not drop images because of an assumed count limit.</parallelGeneration>
+      <promptingPolicy>For designed FULL_IMAGE prompts, use IMAGE JOB, EXACT TEXT ASSETS, LAYOUT GRAMMAR, TYPOGRAPHY SYSTEM, and CONSTRAINTS. Treat Korean text as locked layout assets and specify infographic primitives, reading flow, safe margins, and whitespace.</promptingPolicy>
       <constraint>replace_prompts_use_exact_html_copy</constraint>
+      <constraint>full_image_prompts_use_locked_text_assets_layout_grammar_infographic_primitives</constraint>
       <constraint>support_prompts_must_include_no_text_policy</constraint>
       <constraint>codex_native_generation_only</constraint>
       <constraint>recover_codex_generated_images_before_export_blocked</constraint>
@@ -896,7 +934,7 @@ validation_rules:
       <action>Decide FULL_IMAGE, HTML_MIXED, HTML_ONLY for each section without any image-count cap or forced full-image/HTML split; include mandatory FULL_IMAGE rows for opening hero and final product/result closing.</action>
     </step>
     <step order="7" skill="danho-imageprompt-helper">
-      <action>Create image prompts and generate every approved image through the built-in image_gen.imagegen GPT Image 2.0 / gpt-image-2 native path in prepared independent batches.</action>
+      <action>Create image prompts with locked text assets, layout grammar, infographic primitives, reading flow, whitespace, and constraints, then generate every approved image through the built-in image_gen.imagegen GPT Image 2.0 / gpt-image-2 native path in prepared independent batches.</action>
     </step>
     <step order="8" skill="danho-detailpage-coding" phase="phase_b">
       <action>Create final v2 HTML with duplicate copy removed.</action>
@@ -908,7 +946,7 @@ validation_rules:
       <meaning>designed_image_replaces_original_html_section</meaning>
       <mandatoryMinimum>opening_hero_and_final_product_result_closing</mandatoryMinimum>
       <htmlTextHandling>remove_original_section</htmlTextHandling>
-      <imageTextPolicy>short_korean_copy_allowed_verify_visually</imageTextPolicy>
+      <imageTextPolicy>short_korean_copy_as_locked_text_assets_verify_visually_no_extra_or_duplicate_text</imageTextPolicy>
     </case>
     <case id="HTML_MIXED">
       <meaning>support_image_and_components_inside_editable_html_section</meaning>
@@ -943,15 +981,16 @@ validation_rules:
 12. `danho-detailpage-coding` Phase A는 PM 리뷰를 통과한 흐름으로 이미지 없이도 의미 전달이 완전한 `v1-textonly.html`을 만든다.
 13. `image-plan.md`는 HTML을 본 뒤 작성하며, 사용자 합의 없이 이미지 생성 단계로 넘어가지 않는다. 모든 신규 상세페이지의 `image-plan.md`에는 1번 히어로와 마지막 상품/결과 클로징을 mandatory `FULL_IMAGE`로 포함해야 한다.
 14. `danho-imageprompt-helper`는 `PLANNING.md`가 아니라 HTML과 image-plan을 기준으로 FULL_IMAGE/HTML_MIXED 프롬프트를 만든다.
-15. 이미지 생성은 Codex 내장 `image_gen.imagegen` 네이티브 경로(GPT Image 2.0 / gpt-image-2)만 사용한다. 해당 도구가 active tool list에 있으면 생성 가능으로 판단하며, `model` 파라미터가 없다는 이유로 차단하지 않는다. Codex UI에 preview가 보이면 생성 성공으로 보고, 먼저 노출된 saved path를 확인한 뒤 `%USERPROFILE%/.codex/generated_images/*/ig_*.png`, `%USERPROFILE%/.codex/sessions/**/*.jsonl`의 `image_generation_end.result`, `collect_codex_generated_images.py --diagnose` 순서로 복구한다. `codex-clipboard-*.png` 같은 대화 화면 캡처는 preview 존재 증거일 뿐 최종 생성 에셋으로 쓰지 않는다. API, CLI fallback, GPT Image 1/1.5 등 다른 이미지 모델, 브라우저 렌더 캡처, HTML/CSS/SVG/canvas/PIL 드로잉으로 대체하지 않는다.
-16. `FULL_IMAGE`로 지정된 섹션은 필수 풀 이미지 섹션이다. 특히 1번 히어로와 마지막 상품/결과 클로징 `FULL_IMAGE`는 모든 신규 상세페이지에서 반드시 생성한다. 한글 타이포 오류가 있으면 Codex 네이티브 이미지로 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록해야 하며, 텍스트 없는 이미지 + HTML 오버레이, `IMAGE_STORY`, `HTML_MIXED`로 조용히 낮춰 납품하지 않는다. 마지막 클로징에는 CTA 버튼, 옵션/주문/혜택 확인 문구, 구매 행동 문구를 넣지 않는다.
-17. 내용이 적은 섹션은 `SPARSE_SECTION_IMAGE_REQUIRED`로 처리한다. kicker/headline/짧은 lead, note box 1개, 작은 카드 1-2개뿐인 옵션/보관/가치/전환/마무리 섹션은 통 이미지, 이미지 스토리, 큰 HTML_MIXED 지원 이미지, 또는 병합으로 해결해야 하며 빈 패딩이나 빈 배경으로 길이를 늘리지 않는다.
-18. 첫 2개 화면은 `OPENING_STORY_BRIDGE_REQUIRED`로 검수한다. 1번 화면이 약속/결과/상품 정체성을 만들면 2번 화면은 같은 구매자 상황, 물건/행동, 장소, 감정, 시각 모티프를 이어 받아 생활 장면이나 반복 불편으로 구체화해야 한다. 갑작스러운 일반 문제 제기나 스펙 설명으로 넘어가면 실패다.
-19. 이미지 프롬프트와 파일명이 확정되면 독립 이미지는 한 장씩 순차 생성하지 말고 병렬 배치로 생성한다.
-20. Phase B에서는 `FULL_IMAGE` 원본 HTML 섹션을 제거하고, `HTML_MIXED` 이미지는 텍스트 없는 비주얼로 HTML 안/주변에 결합한다.
-21. 고정 비율로 섹션을 해결하지 말고 세로형 스토리보드 구조 자체를 설계한다.
-22. 모바일 상세페이지 QA는 860px 원본 폭에서 만든 상세페이지를 438px phone preview로 축소했을 때 읽히는 폰트 크기, 줄간격, 여백을 적용하는 것이다. 393px/438px 직접 viewport 렌더링은 보조 stress check일 뿐 1차 검수가 아니다. 정적 HTML은 `file://`에서 열려야 하며 Node/npm/dev server/Playwright/Python/로컬 HTTP 서버를 필수로 요구하지 않는다.
-23. `assets/inbox/` 사용자 제품 이미지는 기본적으로 `PRODUCT_REFERENCE`로 취급하고, 생성 이미지의 제품 일관성을 유지하는 입력으로 사용한다.
-24. 원본 사용자 이미지를 최종 HTML에 직접 쓰려면 `image-plan.md`에 `USER_IMAGE_DIRECT`가 명시되어야 한다.
-25. HTML 요소 컬러는 Key/Main/Sub/Exception 시스템으로 제한한다.
-26. 최종 검증에서 같은 한국어 카피가 HTML과 이미지에 동시에 남아 있으면 실패로 본다.
+15. 디자인된 `FULL_IMAGE` 프롬프트는 `IMAGE JOB`, `EXACT TEXT ASSETS`, `LAYOUT GRAMMAR`, `TYPOGRAPHY SYSTEM`, `CONSTRAINTS` 구조로 작성한다. 한글 문구는 headline/subhead/badge/label/stat card/callout/comparison header/caption 같은 locked text asset으로 지정하고, 인포그래픽 primitive, 리더라인, 읽는 순서, safe margin, negative space를 함께 명시한다.
+16. 이미지 생성은 Codex 내장 `image_gen.imagegen` 네이티브 경로(GPT Image 2.0 / gpt-image-2)만 사용한다. 해당 도구가 active tool list에 있으면 생성 가능으로 판단하며, `model` 파라미터가 없다는 이유로 차단하지 않는다. Codex UI에 preview가 보이면 생성 성공으로 보고, 먼저 노출된 saved path를 확인한 뒤 `%USERPROFILE%/.codex/generated_images/*/ig_*.png`, `%USERPROFILE%/.codex/sessions/**/*.jsonl`의 `image_generation_end.result`, `collect_codex_generated_images.py --diagnose` 순서로 복구한다. `codex-clipboard-*.png` 같은 대화 화면 캡처는 preview 존재 증거일 뿐 최종 생성 에셋으로 쓰지 않는다. API, CLI fallback, GPT Image 1/1.5 등 다른 이미지 모델, 브라우저 렌더 캡처, HTML/CSS/SVG/canvas/PIL 드로잉으로 대체하지 않는다.
+17. `FULL_IMAGE`로 지정된 섹션은 필수 풀 이미지 섹션이다. 특히 1번 히어로와 마지막 상품/결과 클로징 `FULL_IMAGE`는 모든 신규 상세페이지에서 반드시 생성한다. 한글 타이포 오류가 있으면 Codex 네이티브 이미지로 재생성/수정하거나 `FULL_IMAGE_TEXT_QA_BLOCKED`로 기록해야 하며, 텍스트 없는 이미지 + HTML 오버레이, `IMAGE_STORY`, `HTML_MIXED`로 조용히 낮춰 납품하지 않는다. 마지막 클로징에는 CTA 버튼, 옵션/주문/혜택 확인 문구, 구매 행동 문구를 넣지 않는다.
+18. 내용이 적은 섹션은 `SPARSE_SECTION_IMAGE_REQUIRED`로 처리한다. kicker/headline/짧은 lead, note box 1개, 작은 카드 1-2개뿐인 옵션/보관/가치/전환/마무리 섹션은 통 이미지, 이미지 스토리, 큰 HTML_MIXED 지원 이미지, 또는 병합으로 해결해야 하며 빈 패딩이나 빈 배경으로 길이를 늘리지 않는다.
+19. 첫 2개 화면은 `OPENING_STORY_BRIDGE_REQUIRED`로 검수한다. 1번 화면이 약속/결과/상품 정체성을 만들면 2번 화면은 같은 구매자 상황, 물건/행동, 장소, 감정, 시각 모티프를 이어 받아 생활 장면이나 반복 불편으로 구체화해야 한다. 갑작스러운 일반 문제 제기나 스펙 설명으로 넘어가면 실패다.
+20. 이미지 프롬프트와 파일명이 확정되면 독립 이미지는 한 장씩 순차 생성하지 말고 병렬 배치로 생성한다.
+21. Phase B에서는 `FULL_IMAGE` 원본 HTML 섹션을 제거하고, `HTML_MIXED` 이미지는 텍스트 없는 비주얼로 HTML 안/주변에 결합한다.
+22. 고정 비율로 섹션을 해결하지 말고 세로형 스토리보드 구조 자체를 설계한다.
+23. 모바일 상세페이지 QA는 860px 원본 폭에서 만든 상세페이지를 438px phone preview로 축소했을 때 읽히는 폰트 크기, 줄간격, 여백을 적용하는 것이다. 393px/438px 직접 viewport 렌더링은 보조 stress check일 뿐 1차 검수가 아니다. 정적 HTML은 `file://`에서 열려야 하며 Node/npm/dev server/Playwright/Python/로컬 HTTP 서버를 필수로 요구하지 않는다.
+24. `assets/inbox/` 사용자 제품 이미지는 기본적으로 `PRODUCT_REFERENCE`로 취급하고, 생성 이미지의 제품 일관성을 유지하는 입력으로 사용한다.
+25. 원본 사용자 이미지를 최종 HTML에 직접 쓰려면 `image-plan.md`에 `USER_IMAGE_DIRECT`가 명시되어야 한다.
+26. HTML 요소 컬러는 Key/Main/Sub/Exception 시스템으로 제한한다.
+27. 최종 검증에서 같은 한국어 카피가 HTML과 이미지에 동시에 남아 있으면 실패로 본다.

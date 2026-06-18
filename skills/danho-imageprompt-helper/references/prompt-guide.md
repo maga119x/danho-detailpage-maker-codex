@@ -42,10 +42,105 @@ For every final prompt, write the brief in this order:
 5. `Layout`: vertical mobile crop, hierarchy zones, negative space, safe margins, and where product/text/cards sit.
 6. `Style`: commercial photo, editorial detail-page design, premium catalog, clean infographic, tactile proof scene, etc.
 7. `Color / lighting`: use the page Key/Main/Sub/Exception system and avoid unrelated accent colors.
-8. `Text contract`: exact short lines only for full-section images; no text for support images.
+8. `Text contract`: exact short text assets only for full-section images; no text for support images.
 9. `Preserve / avoid`: product consistency, no random text, no extra labels, no fake marks, no watermarks.
 
 Do not rely on vague adjectives such as `premium`, `modern`, or `high quality` alone. Pair them with concrete visual facts: surface material, lighting direction, camera angle, product placement, typography style, card count, spacing, and background behavior.
+
+## Designed Typography And Infographic Method
+
+For designed `FULL_IMAGE` sections, text is not a paragraph to be "written nicely." Treat every text item as a locked layout object.
+
+Use this five-slot prompt structure when the image contains Korean typography, icons, cards, labels, or infographic modules:
+
+1. `IMAGE JOB`: what kind of ecommerce section the model is making.
+2. `EXACT TEXT ASSETS`: the exact text strings, grouped by role.
+3. `LAYOUT GRAMMAR`: grid, zones, alignment, reading flow, and whitespace.
+4. `TYPOGRAPHY SYSTEM`: visual role for each text level.
+5. `CONSTRAINTS`: no extra words, no duplicate text, product lock, and clutter limits.
+
+### Exact Text Assets
+
+Do not write copy as a sentence list such as "include these product benefits." Break it into explicit assets:
+
+```text
+EXACT TEXT ASSETS:
+- Kicker: "[small category or proof cue]"
+- Headline: "[largest Korean headline]"
+- Subhead: "[one short supporting line]"
+- Feature label 1: "[short label]"
+- Feature label 2: "[short label]"
+- Feature label 3: "[short label]"
+- Stat card 1 number: "[short number or fragment]"
+- Stat card 1 label: "[short label]"
+- Caption: "[optional short caption]"
+
+Render only these exact strings. No extra words. No duplicate text. No invented Korean or English.
+```
+
+Stable full-section typography usually means one headline, one subhead, three to five labels, and at most one or two captions. Dense body copy, long FAQ text, direct prices, compatibility caveats, policy text, and mutable option facts stay in HTML.
+
+Do not use `CTA` as a text role in generated 상세페이지 images. Use `closing phrase`, `static reassurance label`, `proof label`, or `section label` instead, and keep all button-like purchase prompts out of final closing artwork.
+
+### Layout Grammar
+
+Infographic prompts should describe geometry before decoration. Specify the layout modules and relationships:
+
+```text
+LAYOUT GRAMMAR:
+- vertical mobile-first detail-page section, 860px-wide source composition, tall portrait crop
+- top title block with generous safe margins
+- centered hero product occupying the main visual mass
+- three feature cards below the product in a clean row or stacked rhythm
+- two radial callout labels with thin leader lines pointing to the product
+- bottom comparison strip with two simple columns
+- reading flow: top kicker -> headline -> hero product -> callout labels -> bottom proof strip
+- at least 40% negative space; no crowded text or overlapping modules
+```
+
+Use exact module primitives instead of vague "make it infographic":
+
+| primitive | best use | prompt phrase |
+|---|---|---|
+| title block | hero, answer, final impression | `top title block with headline and subhead` |
+| stat cards | measurable-looking benefit without fake proof | `three stacked stat cards with large numbers and short labels` |
+| comparison strip | ordinary vs improved, before/after | `bottom horizontal comparison strip with two columns` |
+| step flow | use method or routine sequence | `simple three-step flow with numbered circles and short captions` |
+| icon row | compact benefit grouping | `bottom icon row with three short feature labels` |
+| radial callouts | product parts, ingredients, mechanism | `thin leader lines from labels to visible product parts` |
+| ingredient cards | food, beauty, supplement ingredients | `three ingredient cards with macro visual and short label` |
+| before/after split | visible state change | `matched left-right split layout with minimal labels` |
+
+### Typography System
+
+Font names are less reliable than typographic roles. Specify the job of each level:
+
+```text
+TYPOGRAPHY SYSTEM:
+- headline: large bold clean Korean sans-serif, highest contrast
+- subhead: medium-weight modern sans-serif, shorter line length
+- labels: compact sans-serif tags, readable at mobile preview size
+- numbers: tall condensed sans-serif, large and clear
+- captions: small clean sans-serif, only if necessary
+- keep all typography inside safe margins; no cropped letters
+```
+
+For product categories, adapt the typography role:
+
+- beauty/fashion: headline may use a restrained serif accent plus clean sans labels
+- tech/electronics: clean sans headline plus condensed numerals
+- food/living: rounded or humanist sans, warm but still high contrast
+- premium proof: thin serif accent only for a small supporting phrase, not dense copy
+
+### Iterative Revision Prompt
+
+When a generated design is close but typography or spacing fails, revise only one or two variables:
+
+```text
+Keep the same product, layout, color system, and visual style.
+Change only the typography: make the headline 20% larger, reduce feature labels from five to three, and increase spacing between the hero product and bottom comparison strip.
+No other changes. No extra words. No duplicate text.
+```
 
 ## Full-Section Ecommerce Design
 
@@ -60,37 +155,55 @@ The opening hero and final product/result closing are mandatory `FULL_IMAGE` sec
 ```text
 Create a complete Korean ecommerce product detail page section image, include content and design, not a plain photo.
 
-Output purpose:
+IMAGE JOB:
 - full-section mobile detail-page artwork for [section id]
 - screen role: [hook/problem/answer/proof/review/final closing]
 - main purchase judgment: [one clear buyer conclusion]
 
-Product and scene:
+PRODUCT AND SCENE:
 - [product name and visible identity]
 - [action/use/result scene]
 - [props/background only if they support the buying point]
 
-Layout:
-- vertical mobile ecommerce composition
+EXACT TEXT ASSETS:
+- render only these exact text assets as locked layout objects, verbatim, no extra characters:
+- Kicker: "[optional short category/proof cue]"
+- Headline: "[short Korean headline]"
+- Subhead: "[optional short Korean support line]"
+- Feature label 1: "[short label]"
+- Feature label 2: "[short label]"
+- Feature label 3: "[short label]"
+- Caption or proof label: "[optional short label]"
+- no extra words, no duplicate text, no invented Korean, no random English
+
+LAYOUT GRAMMAR:
+- vertical mobile ecommerce composition, 860px-wide source designed to stay readable when scaled down to a 438px phone preview
 - strong first-glance hierarchy: [product / headline / proof card / result scene]
+- reading flow: [top kicker -> headline -> product -> proof cards/callouts -> bottom closing cue]
 - safe margins on all edges; no cropped typography
-- [product position], [text position], [supporting card/icon position]
+- use generous whitespace, at least 40% negative space where possible
+- [product position], [text block position], [supporting card/icon/callout position]
+- infographic primitives: [title block / stat cards / callout labels with leader lines / comparison strip / icon row / step flow]
 - designed section, not a website screenshot and not a raw product photo
 
-Korean text:
-- render only these exact lines, verbatim, no extra characters:
-  "[short line 1]"
-  "[short line 2]"
-- typography: clean bold Korean sans-serif, high contrast, generous line spacing
+TYPOGRAPHY SYSTEM:
+- headline: large bold clean Korean sans-serif, high contrast
+- subhead: medium-weight modern Korean sans-serif, shorter line length
+- labels: compact readable sans-serif tags
+- numbers, if used: tall condensed sans-serif and large enough for mobile preview
+- captions: small clean sans-serif only when necessary
+- keep all text inside safe margins; no tiny body copy
 
-Style:
+STYLE:
 - [clean commercial / premium editorial / warm lifestyle / proof-board]
 - restrained color system: Key [color], Main [color], Sub [color], Exception [color only if needed]
 - product photography integrated with simple cards or proof cues
 
-Constraints:
+CONSTRAINTS:
 - no random Korean, no extra English, no lorem ipsum
 - no direct numeric prices, no sales channel names
+- no long paragraphs, no crowded layout, no overlapping cards
+- no button UI, no CTA button shape, no purchase-action text
 - no watermarks, no fake logos, no distorted product
 ```
 
@@ -209,10 +322,10 @@ GPT Image 2.0 is stronger with text than older image models, but 상세페이지
 
 For full-section images:
 
-- Use 1-2 short Korean lines by default.
-- Put exact lines in quotes.
-- Say `render only these exact lines, verbatim, no extra characters`.
-- Specify text placement and typographic role: headline, short badge, proof label, or closing phrase.
+- Use 1-2 dominant Korean lines by default, plus only the few labels needed for the infographic module.
+- Put every text asset in quotes and group it by role: kicker, headline, subhead, badge, feature label, stat card, callout label, comparison header, caption, proof label, or closing phrase.
+- Say `render only these exact text assets, verbatim, no extra characters, no duplicate text`.
+- Specify text placement and typographic role for each asset instead of asking for "nice typography."
 - Keep large safe margins and high contrast.
 - Avoid small body copy, FAQ copy, direct prices, option terms, long compatibility caveats, or policy text.
 - Do not ask for button UI, purchase buttons, link-button shapes, rounded CTA controls, button-like labels, option/order prompts, or final-section purchase-action text. Use static typography, non-clickable labels, dividers, product composition, and quiet reassurance instead.
@@ -266,7 +379,10 @@ Full-section image prompts must behave like a mobile art-direction brief:
 - one dominant visual mass: product, result scene, type, proof card, or comparison
 - 2-4 supporting elements maximum
 - clear top/middle/bottom reading order
+- explicit reading flow using arrows or ordered phrases
+- explicit infographic primitives: title block, stat cards, comparison strip, step flow, icon row, radial callouts, ingredient cards, or before/after split
 - negative space where HTML may need to sit near the image
+- at least 40% negative space for typography-heavy or infographic-heavy sections when possible
 - product appears within the first visual glance unless the screen intentionally delays reveal
 - no repeated layout skeleton across consecutive generated sections
 - no button UI or button-like rounded rectangles in any generated 상세페이지 section
@@ -321,6 +437,9 @@ Before calling `image_gen.imagegen`, check:
 - Are product identity and preservation instructions explicit?
 - Is the layout described as a mobile section, not a vague poster?
 - Does the prompt separate scene, layout, style, text, and constraints?
+- Does the prompt use `EXACT TEXT ASSETS` instead of asking the model to write copy?
+- Are infographic primitives and reading flow specified as geometry?
+- Is whitespace or negative space stated clearly enough to prevent cramped typography?
 - Is Korean text short enough to verify?
 - If the item is mandatory `FULL_IMAGE`, does the prompt still request a complete designed section with exact image-rendered Korean text?
 - Does the queue include the mandatory opening hero `FULL_IMAGE` and final product/result closing `FULL_IMAGE`?

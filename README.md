@@ -12,6 +12,7 @@ This plugin helps Codex plan, review, write, design, and build mobile-first Kore
 - Static mobile-first HTML detail-page builds
 - `image-plan.md` driven `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` decisions
 - Mandatory designed `FULL_IMAGE` hero and final product/result closing section generation
+- Locked text-asset, layout-grammar, and infographic-primitive prompting for designed images
 - Built-in Codex `image_gen.imagegen` native image generation workflow
 - No arbitrary image-count cap for detail-page images
 - Reference detail-page design analysis through `REFERENCE_DESIGN_ANALYSIS.md`
