@@ -23,11 +23,11 @@ Use this scale unless the user provides a stronger brand system.
 
 ```css
 :root {
-  --font-display: clamp(5rem, 10vw, 8rem);       /* source 80-128px -> 438px preview about 41-65px */
-  --font-h1: clamp(4.5rem, 9vw, 6.75rem);        /* source 72-108px -> 438px preview about 37-55px */
-  --font-h2: clamp(3.5rem, 7vw, 5.5rem);         /* source 56-88px -> 438px preview about 29-45px */
-  --font-h3: clamp(2.5rem, 5vw, 3.75rem);        /* source 40-60px -> 438px preview about 20-31px */
-  --font-body-lg: clamp(2.25rem, 4vw, 2.75rem);  /* source 36-44px -> 438px preview about 18-22px */
+  --font-display: clamp(4rem, 8vw, 6rem);        /* source 64-96px -> 438px preview about 33-49px */
+  --font-h1: clamp(3.5rem, 7vw, 5.25rem);        /* source 56-84px -> 438px preview about 29-43px */
+  --font-h2: clamp(2.875rem, 5.6vw, 4.25rem);    /* source 46-68px -> 438px preview about 23-35px */
+  --font-h3: clamp(2.25rem, 4.2vw, 3rem);        /* source 36-48px -> 438px preview about 18-24px */
+  --font-body-lg: clamp(2rem, 3.6vw, 2.375rem);  /* source 32-38px -> 438px preview about 16-19px */
   --font-body: clamp(2rem, 3.7vw, 2.25rem);      /* source 32-36px -> 438px preview about 16-18px */
   --font-small: clamp(1.875rem, 3.4vw, 2.125rem); /* source 30-34px -> 438px preview about 15-17px */
   --font-caption: clamp(1.875rem, 3.2vw, 2rem);  /* source 30-32px -> 438px preview about 15-16px */
@@ -38,9 +38,9 @@ Use this scale unless the user provides a stronger brand system.
 Korean ecommerce detail pages should usually use:
 
 - body: 32-36px at 860px source, about 16-18px at 438px preview
-- lead copy: 36-44px at source, about 18-22px at preview
-- section headline: 56-88px at source, about 29-45px at preview
-- hero headline: 72-108px at source, occasionally larger only for very short words
+- lead copy and other headline-adjacent text: 32-38px at source, about 16-19px at preview
+- section headline: 46-68px at source, about 23-35px at preview
+- hero headline: 56-84px at source; only the shortest opening display headline may use 64-96px
 - card text: 30-34px at source, about 15-17px at preview
 - badges/captions inside the selling flow: source size that scales to 15-16px or larger
 - micro legal/spec footnotes: source size that scales to 13-15px only when the content is intentionally secondary
@@ -49,6 +49,8 @@ Avoid:
 
 - body text that scales above about 20px in the 438px preview for normal paragraphs
 - card body text that scales above about 18px in the preview
+- FAQ answers, card paragraphs, long leads, closing reassurance, or option guidance set in display, h1, or h2 sizing
+- three-line Korean headlines that fill most of the section height before the visual/proof appears
 - normal labels, badges, reviews, comparison text, or closing text that scales below 16px
 - micro copy that scales below about 13px
 - negative letter spacing

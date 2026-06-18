@@ -90,7 +90,8 @@ Fail and revise when:
 - adjacent image sections reuse the same asset crop in a way that makes different claims look templated
 - supplied reference design essence is ignored, copied too literally, or applied in a way that breaks the new product's buyer journey
 - final planning or HTML copies reference brand/logo/text/price/product imagery/exact layout/proprietary composition
-- review sections pretend to be real testimonials when only review-check criteria or placeholder-safe copy exists
+- review sections are missing, reduced to a proof checklist, or lack shopping-mall review-card structure such as nickname/handle, star rating, highlighted quote, and detailed review copy
+- mock review sections claim real-review or verified-buyer status when no real reviews were supplied
 - final HTML exposes internal labels, sales channels, price numbers, proof markers, or review replacement notes
 
 ## Planning Loop Pass Gate

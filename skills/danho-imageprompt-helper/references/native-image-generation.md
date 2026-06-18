@@ -179,7 +179,7 @@ If the image model repeatedly produces wrong Korean:
 
 1. Remove nonessential text assets and retry.
 2. Reduce to one headline fragment or one headline plus one short label and retry.
-3. Increase text size, simplify background, and increase whitespace.
+3. Simplify background and increase whitespace. Enlarge only labels that are unreadably small; if the main headline or subhead dominates the section, reduce it by 15-20% and keep proof/FAQ-like copy one step smaller.
 4. Reduce infographic modules that compete with the text, such as extra cards or callouts.
 5. If a mandatory `FULL_IMAGE` still fails, mark `FULL_IMAGE_TEXT_QA_BLOCKED` and do not ship that section as textless HTML overlay unless the user explicitly changes the role.
 

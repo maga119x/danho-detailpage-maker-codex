@@ -229,18 +229,18 @@ Purpose: turn reviews into readable proof, not a wall of text.
 
 Use for:
 
-- every page, with supplied reviews or neutral replacement-ready dummy cards
+- every page, with supplied reviews or replacement-ready mock review cards
 
 Layout:
 
 - review proof intro
-- review card or capture
-- one highlighted sentence per review
+- review card, speech bubble, or capture
+- generic nickname/handle, star rating, one highlighted sentence, and 2-4 lines of detailed review copy per card
 - optional user image/product result image
 
 Avoid:
 
-- fabricated names, stars, dates, counts, or "actual buyer" claims when reviews are placeholders
+- verified-buyer badges, real names, dates, locations, review counts, purchase counts, order numbers, or "actual buyer" claims when reviews are mockups
 - long unhighlighted review blocks
 
 ## 11. Recommended-For Cards

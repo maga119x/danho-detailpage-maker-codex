@@ -26,7 +26,7 @@ Before section scoring, check the whole page:
 | What should I understand before buying? | Fit, option, component, limits, and value information are easy to find before the final closing. |
 | Why should I want it? | The page names the buyer's before-state, desired after-state, and value reason without relying on generic hype. |
 | What proves the change? | Core claims have proof facts, visual proof direction, or safe wording when proof is missing. |
-| Does the page feel upload-ready? | It includes a review/testimonial section, uses a check-oriented review headline, and does not expose channel names, placeholder warnings, internal labels, or production notes. |
+| Does the page feel upload-ready? | It includes a review/testimonial section with shopping-mall review-card structure, uses a check-oriented review headline, and does not expose channel names, placeholder warnings, internal labels, or production notes. |
 | Does the Korean sound human? | No S1 AI-writing marker remains, repeated S2 markers are gone, grammar is clean, and section-level tone/terminology/list rhythm is consistent. |
 
 Each page-level question must score at least 8/10. If not, rewrite the early flow before polishing sentences.
@@ -59,7 +59,7 @@ Score each visible section from 0-10.
 - Pass: section average >= 8.0 and no criterion < 7.0.
 - Revise: section average < 8.0, any criterion < 7.0, or the first 1-2 lines fail the scan test.
 - Revise: the opening bridge fails. If section 02 feels abrupt, expand it with a concrete buyer scene, repeated friction, emotion, or next question before polishing later sections.
-- Hard fail: unsupported proof, fake specific review, fake scarcity, staged review headline, wrong real-review claim, internal planning label, sales-channel name, visible placeholder warning, missing review/testimonial section, or product/seller-centered selling copy.
+- Hard fail: unsupported proof, fake verified-review claim, fake scarcity, staged review headline, wrong real-review claim, internal planning label, sales-channel name, visible placeholder warning, missing review/testimonial section, mock review section without nickname/star/detail structure, or product/seller-centered selling copy.
 - Hard fail: visible strategy terms, English-style sentence skeletons, or copy that cannot be read aloud naturally.
 - For empathy-heavy pages, `empathy_depth` and `purchase_desire` must each be at least 8.0 in the problem, solution, benefit, and closing sections.
 - `spoken_korean_gate` must be at least 8.0 in every visible section.
@@ -100,8 +100,8 @@ Use this gate only when improving or validating the planning/copywriter skills t
 - If desire is weak: show the buyer's improved after-state or make the next decision easier.
 - If conversion force is weak: add a target desire, before/after contrast, current-alternative friction, value-stack reason, proof visual, or clearer next decision point.
 - If value framing is defensive: remove apology, show included value or avoided extra hassle, and use option/order-area language without numeric price or sales-channel names.
-- If the review section is missing: add supplied review cards or neutral replacement-ready dummy review cards, and keep replacement status internal.
-- If the review headline sounds staged: replace `먼저 써본 사람이 말해요`-style wording with `실제 사용자 후기를 확인해 보세요` when real reviews are supplied, or `사용 후기로 확인할 포인트` when cards are replacement-ready.
+- If the review section is missing: add supplied review cards or replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and 2-4 lines of detailed benefit-based copy. Keep replacement status internal.
+- If the review headline sounds staged: replace `먼저 써본 사람이 말해요`-style wording with `실제 사용자 후기를 확인해 보세요` when real reviews are supplied, or `사용 후기로 확인할 포인트` / `구매 전 많이 보는 후기를 모았습니다` when cards are replacement-ready mockups.
 - If placeholder warnings are visible: remove `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `NEEDS_PROOF`, and similar wording from visible copy; move replacement notes to internal logs.
 - If caveats are scattered: move non-blocking limits to specs, safety/care, compatibility, or FAQ.
 - If visual proof is weak: specify a problem scene, mechanism demo, before/after, value-stack, or trust-proof visual.

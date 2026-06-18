@@ -29,7 +29,7 @@ It must already include:
 - strong product hero or hook area
 - large visual slots where imagery will persuade
 - proof components such as quote cards, checklists, comparison rows, FAQ bubbles, fit/option information panels, and value-support panels
-- a review/testimonial section; use supplied reviews or neutral replacement-ready dummy review cards without visible replacement warnings
+- a review/testimonial section; use supplied reviews or replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed review copy, without visible replacement warnings
 - mobile-readable typography
 - role-based color system
 

@@ -140,16 +140,16 @@ Use this when the user supplied an existing plan, prompt, memo, or draft copy.
 | repeated purchase-page cue |  |  | pass/revise |
 | missing review/testimonial section |  |  | pass/revise |
 | staged review headline or wrong real-review claim |  |  | pass/revise |
-| dummy review with fabricated specifics |  |  | pass/revise |
+| mock review missing nickname/star/detail structure or inventing verified specifics |  |  | pass/revise |
 | placeholder or replacement warning visible to buyer |  |  | pass/revise |
 
 ## Review Replacement Log
 
 Use this when no real reviews were supplied. Keep this log internal; do not expose these markers in visible copy.
 
-| review_card | source_status | visible_copy_type | replacement_required | notes |
-|---|---|---|---|---|
-|  | supplied / placeholder | real_review / replacement_ready_dummy | yes/no |  |
+| review_card | source_status | visible_copy_type | nickname_or_handle | rating_visual | replacement_required | notes |
+|---|---|---|---|---|---|---|
+|  | supplied / mock | real_review / replacement_ready_mock |  | ★★★★★ | yes/no |  |
 
 ## Section Scorecard
 
@@ -244,7 +244,8 @@ For skill-improvement validation, mark `pass` only when each section average is 
 - [ ] Visible copy does not mention sales channel names such as `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, or `채널별 구성`.
 - [ ] Mutable benefits stay out of the final closing; if they must be mentioned, they appear only in an editable factual/options section without repeated `구매 페이지에서 확인` phrasing.
 - [ ] A review/testimonial section exists.
-- [ ] If review cards are placeholders, they have no fabricated names, ages, dates, locations, stars, review counts, purchase counts, or `실제 구매자` claims.
+- [ ] If review cards are mockups, they use generic nicknames/handles, star visuals, highlighted quotes, and detailed benefit-based copy.
+- [ ] Mock review cards do not invent real names, ages, dates, locations, review counts, purchase counts, order numbers, verified-buyer badges, or `실제 구매자` claims.
 - [ ] Placeholder or replacement warnings are internal only; visible copy does not contain `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 - [ ] Safety disclaimers are consolidated.
 - [ ] Caveats, compatibility, and safety limits are concentrated in factual sections unless they are purchase blockers.

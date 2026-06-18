@@ -6,7 +6,7 @@ Use these as high-level copywriting principles. Do not quote or imitate copyrigh
 
 - Reciprocity: Give the buyer a useful checklist, install guide, or compatibility warning before asking for purchase.
 - Commitment and consistency: Let the buyer make a small fit decision early. Example: `우리 집 문에 자석이 붙나요?`
-- Social proof: Use real reviews, real usage numbers, or verified buyer feedback when supplied. A review/testimonial section is still mandatory; if real reviews are missing, use neutral replacement-ready dummy review cards without fabricated specifics and keep the replacement marker internal.
+- Social proof: Use real reviews, real usage numbers, or verified buyer feedback when supplied. A review/testimonial section is still mandatory; if real reviews are missing, use replacement-ready mock review cards with generic handles, star visuals, highlighted quotes, and benefit-based detailed copy. Keep the replacement marker internal and do not claim verified buyer status.
 - Authority: Use certifications, tests, awards, or expert claims only when supplied by the product facts.
 - Liking and unity: Mirror the buyer's actual situation in plain Korean. Do not flatter or over-identify.
 - Scarcity: Use deadlines, stock limits, or discounts only when factual.

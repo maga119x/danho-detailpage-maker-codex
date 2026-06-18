@@ -66,11 +66,13 @@ Use `references/detailpage-typography.md` for exact scale.
 Minimum rules:
 
 - body: 32-36px at 860px source, about 16-18px in the 438px scaled preview
-- lead: 36-44px at source, about 18-22px in the preview
-- h2: 56-88px at source, about 29-45px in the preview
+- lead/body-lg: 32-38px at source, about 16-19px in the preview
+- h2: 46-68px at source, about 23-35px in the preview
+- h1/hero: 56-84px at source; largest display hero only 64-96px
 - card body: 30-34px at source, about 15-17px in the preview
 - line-height: 1.55-1.75 for body
 - use `clamp()` for responsive type
+- do not use display/h1/h2 sizing for FAQ answers, card paragraphs, long leads, or closing reassurance copy
 
 ## Full-Image Sections
 
@@ -109,7 +111,8 @@ Support images can live inside the section when they tighten the argument.
 - Avoid 2-column layouts unless desktop-only or content is very short.
 - Use comparison rows instead of dense tables.
 - Use quote cards for reviews.
-- Use review/testimonial cards even when real reviews are not supplied; placeholder status must stay internal and visible cards must not contain fake specifics.
+- Use review/testimonial cards even when real reviews are not supplied. Replacement-ready mock cards must look complete with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based review copy; replacement status stays internal.
+- Mock review cards must not contain verified-buyer or sourced-specific claims such as `실제 구매자`, exact dates, locations, review counts, purchase counts, or order numbers unless supplied.
 - Use option/benefit guidance panels for options. Do not hard-code numeric prices or sales channel names in the detail page.
 - Use grids only for short labels or 1-word/2-word items.
 

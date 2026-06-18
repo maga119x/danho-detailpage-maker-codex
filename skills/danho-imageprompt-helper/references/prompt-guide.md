@@ -117,13 +117,15 @@ Font names are less reliable than typographic roles. Specify the job of each lev
 
 ```text
 TYPOGRAPHY SYSTEM:
-- headline: large bold clean Korean sans-serif, highest contrast
-- subhead: medium-weight modern sans-serif, shorter line length
+- headline: controlled bold clean Korean sans-serif, highest contrast, detail-page scale rather than oversized poster scale
+- subhead: medium-weight modern sans-serif, shorter line length, one step smaller than headline-adjacent type
 - labels: compact sans-serif tags, readable at mobile preview size
 - numbers: tall condensed sans-serif, large and clear
 - captions: small clean sans-serif, only if necessary
 - keep all typography inside safe margins; no cropped letters
 ```
+
+For Danho full-section images, the largest opening/final headline should feel about 1.5 steps smaller than an oversized hero poster headline. Subheads, proof card text, labels, FAQ-like answer copy, and closing reassurance should be one step smaller again. Do not let a three-line Korean headline consume most of the upper half of the section before the product, scene, or proof module appears.
 
 For product categories, adapt the typography role:
 
@@ -138,7 +140,7 @@ When a generated design is close but typography or spacing fails, revise only on
 
 ```text
 Keep the same product, layout, color system, and visual style.
-Change only the typography: make the headline 20% larger, reduce feature labels from five to three, and increase spacing between the hero product and bottom comparison strip.
+Change only the typography: reduce the main headline about 15-20%, reduce the subhead and proof-card text one step, keep labels readable, and increase spacing between the hero product and bottom comparison strip.
 No other changes. No extra words. No duplicate text.
 ```
 
@@ -187,12 +189,12 @@ LAYOUT GRAMMAR:
 - designed section, not a website screenshot and not a raw product photo
 
 TYPOGRAPHY SYSTEM:
-- headline: large bold clean Korean sans-serif, high contrast
-- subhead: medium-weight modern Korean sans-serif, shorter line length
+- headline: controlled bold clean Korean sans-serif, high contrast, not oversized poster typography
+- subhead: medium-weight modern Korean sans-serif, shorter line length, clearly smaller than the headline
 - labels: compact readable sans-serif tags
 - numbers, if used: tall condensed sans-serif and large enough for mobile preview
 - captions: small clean sans-serif only when necessary
-- keep all text inside safe margins; no tiny body copy
+- keep all text inside safe margins; no tiny body copy and no giant FAQ/lead/closing copy
 
 STYLE:
 - [clean commercial / premium editorial / warm lifestyle / proof-board]
@@ -284,7 +286,7 @@ Use these patterns to avoid generic stock-like images.
 | answer | product mechanism in action, before/after implied | feature list floating in space |
 | proof | close detail, material, installation, measurable-looking cue without fake numbers | unsupported certifications or fake test labels |
 | comparison | matched framing, two clear states, minimal labels if full image | many columns or dense text |
-| review | replacement-safe review mood, checking points, product-in-use context | fake names, stars, dates, or "real buyer" claims |
+| review | replacement-safe review mood, checking points, product-in-use context; keep actual review cards editable in HTML when possible | verified-buyer badges, review counts, exact dates, or "real buyer" claims in generated image text |
 | options | components laid out cleanly, editable option facts left to HTML; use as a large support visual when option copy is short | fixed prices or mutable availability |
 | care/value | storage, cleaning, durability, or value scene that gives a short section enough visual length | empty lifestyle mood or text-only note box |
 | FAQ | one visual clarification for a common doubt | text-heavy answer image |
@@ -339,7 +341,7 @@ Retry ladder for Korean text:
 
 1. Remove every nonessential word.
 2. Reduce to one headline line or two short fragments.
-3. Increase text size and simplify background.
+3. Simplify the background and increase whitespace; enlarge only labels that are too small, and reduce any overlarge main headline by 15-20%.
 4. Regenerate the native full-section image with the shorter exact text.
 5. If mandatory `FULL_IMAGE` text still fails, mark `FULL_IMAGE_TEXT_QA_BLOCKED` instead of silently shipping HTML overlay or textless imagery.
 
@@ -440,6 +442,7 @@ Before calling `image_gen.imagegen`, check:
 - Does the prompt use `EXACT TEXT ASSETS` instead of asking the model to write copy?
 - Are infographic primitives and reading flow specified as geometry?
 - Is whitespace or negative space stated clearly enough to prevent cramped typography?
+- Does the typography system avoid oversized poster-scale headlines and keep subheads/proof/FAQ-like text one step smaller?
 - Is Korean text short enough to verify?
 - If the item is mandatory `FULL_IMAGE`, does the prompt still request a complete designed section with exact image-rendered Korean text?
 - Does the queue include the mandatory opening hero `FULL_IMAGE` and final product/result closing `FULL_IMAGE`?
@@ -448,7 +451,7 @@ Before calling `image_gen.imagegen`, check:
 - Does the image queue include every approved visual asset, without dropping items for an assumed count limit or fixed split?
 - If `REFERENCE_DESIGN_ANALYSIS.md` exists, does the prompt adapt only transferable style anchors and explicitly avoid copying the reference page?
 - Are mutable facts, direct numeric prices, channel names, and long instructions kept out?
-- Does the prompt avoid fake reviews, fake proof, fake badges, and unsupported authority?
+- Does the prompt avoid verified-review claims, fake proof, fake badges, review counts, dates, and unsupported authority?
 - Does the prompt explicitly avoid button UI, button-like CTA graphics, and final-section purchase-action text?
 
 ## Manifest Notes

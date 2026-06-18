@@ -26,26 +26,26 @@ colors:
 typography:
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(5rem, 10vw, 8rem)
+    fontSize: clamp(4rem, 8vw, 6rem)
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(4.5rem, 9vw, 6.75rem)
+    fontSize: clamp(3.5rem, 7vw, 5.25rem)
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(3.5rem, 7vw, 5.5rem)
+    fontSize: clamp(2.875rem, 5.6vw, 4.25rem)
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 5vw, 3.75rem)
+    fontSize: clamp(2.25rem, 4.2vw, 3rem)
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 4vw, 2.75rem)
+    fontSize: clamp(2rem, 3.6vw, 2.375rem)
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
@@ -131,7 +131,7 @@ components:
 배경은 #f8f4ef 한지빛. 단계적으로 짙어지는 베이지. 메인 액센트는 깊은 빨강(#8b0000) — 단청에서 영감. 네이비 블루(#1a2a4a)를 두번째 강조로.
 
 ## Typography
-Paperlogy. 본문 32px. 헤드라인은 강한 굵기에 미세한 shadow (네온 X).
+Paperlogy. 본문 32px. 헤드라인은 56~84px 중심으로 과대하지 않게 쓰고, 강한 굵기에 미세한 shadow를 더한다 (네온 X).
 
 ## Layout
 860px. 배경 변화는 베이지 명도 변화 위주.

@@ -158,7 +158,7 @@ BASE_CSS = """
 
     .lead {
         max-width: 34em;
-        font-size: var(--font-body-lg-size, clamp(2.25rem, 4vw, 2.75rem));
+        font-size: var(--font-body-lg-size, clamp(2rem, 3.6vw, 2.375rem));
         line-height: 1.62;
         color: var(--color-text-secondary);
     }
@@ -189,7 +189,7 @@ BASE_CSS = """
     /* ===== TYPOGRAPHY UTILITIES ===== */
     .section-title {
         font-family: var(--font-h2-family, 'Paperlogy');
-        font-size: var(--font-h2-size, clamp(3.5rem, 7vw, 5.5rem));
+        font-size: var(--font-h2-size, clamp(2.875rem, 5.6vw, 4.25rem));
         font-weight: var(--font-h2-weight, 800);
         line-height: var(--font-h2-line-height, 1.3);
         margin-bottom: var(--space-lg, clamp(32px, 6vw, 48px));
@@ -198,14 +198,14 @@ BASE_CSS = """
 
     .section-subtitle {
         font-family: var(--font-h3-family, 'Paperlogy');
-        font-size: var(--font-h3-size, clamp(2.5rem, 5vw, 3.75rem));
+        font-size: var(--font-h3-size, clamp(2.25rem, 4.2vw, 3rem));
         font-weight: var(--font-h3-weight, 700);
         margin-bottom: var(--space-sm, 16px);
         text-align: center;
     }
 
     .section-desc {
-        font-size: var(--font-body-lg-size, clamp(2.25rem, 4vw, 2.75rem));
+        font-size: var(--font-body-lg-size, clamp(2rem, 3.6vw, 2.375rem));
         color: var(--color-text-secondary);
         text-align: center;
         margin-bottom: var(--space-lg, clamp(36px, 6vw, 56px));
@@ -308,7 +308,7 @@ BASE_CSS = """
     }
     .stack-card .section-subtitle {
         margin-bottom: 12px;
-        font-size: clamp(2.25rem, 4.4vw, 2.9rem);
+        font-size: clamp(2rem, 3.8vw, 2.5rem);
     }
     .stack-card p {
         line-height: 1.7;
@@ -318,7 +318,7 @@ BASE_CSS = """
     }
     /* 일반 .card 내부도 동일 위계로 0.5rem ↓ (grid-2/grid-3 안 카드 포함) */
     .card .section-subtitle {
-        font-size: clamp(2.25rem, 4.4vw, 2.9rem);
+        font-size: clamp(2rem, 3.8vw, 2.5rem);
     }
     .card p {
         font-size: clamp(1.875rem, 3.4vw, 2.125rem);
@@ -423,7 +423,7 @@ BASE_CSS = """
     }
     .price-value {
         font-family: Paperlogy;
-        font-size: clamp(5.5rem, 12vw, 9.5rem);
+        font-size: clamp(4rem, 8vw, 6rem);
         font-weight: 800;
         line-height: 1.1;
         color: var(--color-text);
@@ -451,7 +451,7 @@ BASE_CSS = """
         text-align: center;
     }
     .footer-brand {
-        font-size: var(--font-h1-size, clamp(4.5rem, 8vw, 6.75rem));
+        font-size: var(--font-h1-size, clamp(3.5rem, 7vw, 5.25rem));
         font-weight: 800;
         letter-spacing: 6px;
         color: var(--color-text-muted);

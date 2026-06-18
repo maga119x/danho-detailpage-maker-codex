@@ -136,7 +136,7 @@ Split:
 2. review highlight stack
 3. buyer type or use-case recommendation
 
-If real reviews are missing, keep replacement notes internal and write neutral replacement-ready cards only.
+If real reviews are missing, keep replacement notes internal and write replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based copy.
 
 ## Screen Count Guidance
 

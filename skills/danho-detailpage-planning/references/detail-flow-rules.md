@@ -69,7 +69,7 @@ Rules:
 - A long page is acceptable when each screen is easy to understand. A normal product usually needs 14-22 screens; technical or option-heavy products often need 20-40.
 - Use `references/screen-flow-planning.md` to assign screen role, visual mass, surface role, tempo, proof type, editable risk, and layout pattern before coding.
 - If no real origin story exists, use a short problem-aware bridge instead of inventing a founder story.
-- A review/testimonial section is mandatory. If no real reviews exist, use neutral replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`; do not expose this note in visible copy.
+- A review/testimonial section is mandatory. If no real reviews exist, use replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based copy. Mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`; do not expose this note in visible copy.
 - If no other trust proof exists, use precise specs, limits, care guidance, or internal `NEEDS_PROOF` notes instead of fake authority.
 - Keep the strongest safety, fit, or compatibility condition early even in emotional pages.
 - A long draft is allowed for planning, but final visible copy must be compressed before coding.

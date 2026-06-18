@@ -46,7 +46,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 - Do not jump from planning directly to image generation.
 - Do not copy a supplied reference design page. Extract section rhythm, visual mass, spacing, typography contrast, component behavior, and crop style only; never reuse its brand, logo, copy, product image, price, exact layout, or proprietary composition.
 - Do not expose direct numeric prices, sales channel names, internal labels, source filenames, placeholder warnings, `NEEDS_PROOF`, or review replacement markers in visible copy or images.
-- Every newly planned page needs a review/testimonial section. If real reviews are missing, use replacement-ready neutral review cards and keep replacement notes internal.
+- Every newly planned page needs a review/testimonial section. If real reviews are missing, use replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based copy; keep replacement notes internal.
 - Detail pages are static ecommerce content. Do not create HTML buttons, link buttons, `.cta-button`, rounded CTA controls, or button-like generated graphics.
 - Every newly produced detail page must include generated designed `FULL_IMAGE` sections for the opening hero and final product/result closing impression.
 - The final closing must not include CTA buttons, button-equivalent text, option/order prompts, benefit-check prompts, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.

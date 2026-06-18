@@ -116,7 +116,7 @@ Use this when source planning text sounds strategic but awkward as visible copy.
 
 - A review/testimonial section is mandatory in a real detail page.
 - Use real reviews when supplied.
-- If no real review exists, write neutral replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+- If no real review exists, write replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based copy. Mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 - Use check-oriented review headlines: `실제 사용자 후기를 확인해 보세요` for supplied real reviews, or `사용 후기를 확인해 보세요` / `사용 후기로 확인할 포인트` for replacement-ready cards.
 - Avoid staged review headlines such as `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, and `써본 사람은 이렇게 말합니다`.
 - Do not expose placeholder warnings such as `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, or `NEEDS_PROOF` in visible copy.

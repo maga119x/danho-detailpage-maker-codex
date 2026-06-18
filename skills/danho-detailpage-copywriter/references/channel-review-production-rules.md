@@ -22,17 +22,28 @@ Review section rules:
 
 - Include a visible review/testimonial section in `PLANNING.md` and final HTML.
 - If real reviews are supplied, rewrite them naturally without changing the meaning.
-- If real reviews are not supplied, create replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+- If real reviews are not supplied, create replacement-ready mock review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+- The review section must look like a real ecommerce review module, not a proof checklist. Use 3-5 cards or speech bubbles with nickname/handle, star rating, highlighted quote, and 2-4 lines of detailed review copy.
 - Review-section headlines should invite checking the reviews. Use `실제 사용자 후기를 확인해 보세요` or `구매 전, 실제 사용 후기를 살펴보세요` only when supplied real reviews exist.
-- For replacement-ready dummy review cards, do not claim real-review status. Use neutral headlines such as `사용 후기를 확인해 보세요` or `사용 후기로 확인할 포인트`.
+- For replacement-ready mock review cards, do not claim real-review status. Use neutral headlines such as `사용 후기를 확인해 보세요`, `사용 후기로 확인할 포인트`, or `구매 전 많이 보는 후기를 모았습니다`.
 - Avoid staged reviewer-voice headlines such as `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, or `써본 사람은 이렇게 말합니다`.
 - Do not expose placeholder warnings in visible copy. Avoid buyer-facing text such as `실제 리뷰 없음`, `더미 리뷰`, `교체 예정`, `NEEDS_PROOF`, or `업로드 전 교체`.
-- Do not use fabricated specifics in dummy reviews: no names, ages, locations, dates, star ratings, review counts, purchase counts, awards, or claims such as `실제 구매자`.
-- Dummy review cards should stay neutral and benefit-based, so they can be replaced cleanly later:
-  - `처음 써도 어렵지 않다는 점이 좋았어요.`
-  - `같이 들어 있는 구성이라 따로 찾을 일이 줄었어요.`
-  - `자주 쓰는 상황에서 손이 덜 가서 편했어요.`
+- Mock review cards may include realistic ecommerce handles and star visuals because the section must be design-complete and easy to replace later. Use generic handles such as `요리입문자`, `문앞정리러`, `살림초보`, or `출근길사용자`, and star text such as `★★★★★` or `별점 5.0`.
+- Mock review cards must not claim verification status or hard facts that were not supplied: no real names, ages, locations, exact dates, review counts, purchase counts, order numbers, "actual buyer" badges, `실제 구매자`, awards, certifications, or unsupported performance claims.
+- Mock review copy should be detailed but derived from the product's planned benefits and safe assumptions, so it can be replaced cleanly later:
+  - `처음 써도 순서가 어렵지 않았어요. 필요한 구성이 같이 있어 따로 찾는 시간이 줄었습니다.`
+  - `자주 쓰는 상황에서 손이 덜 가서 편했어요. 설명을 보고 바로 어디에 쓰는지 이해됐습니다.`
+  - `구매 전 걱정했던 부분을 후기 카드에서 먼저 확인할 수 있어 선택이 쉬웠어요.`
 - In internal notes, add a replacement log with source status and replacement requirement.
+
+Suggested mock card fields:
+
+| field | visible example | rule |
+|---|---|---|
+| nickname | `요리입문자` | generic handle only; no real person identity |
+| rating | `★★★★★` / `별점 5.0` | visual social-proof scaffold; no review count |
+| quote | `처음 써도 어렵지 않았어요` | one concise highlight |
+| body | 2-4 lines | product-benefit-based, no unsupported facts |
 
 ## No Weird Warning Copy
 

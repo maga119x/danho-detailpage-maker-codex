@@ -96,10 +96,10 @@ Before passing copy, scan repeated wording across the full page:
 
 - A review/testimonial section must exist in the final page.
 - If real reviews are supplied, keep their meaning and rewrite only for clarity.
-- If no real reviews are supplied, use neutral replacement-ready dummy review cards and flag them only in internal logs as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
-- Review-section headlines must invite review checking, not imitate a testimonial voice. Prefer `실제 사용자 후기를 확인해 보세요` when real reviews exist; use `사용 후기를 확인해 보세요` or `사용 후기로 확인할 포인트` for replacement-ready cards.
+- If no real reviews are supplied, use replacement-ready mock review cards with generic nicknames, star ratings, highlighted quotes, and detailed benefit-based copy. Flag them only in internal logs as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+- Review-section headlines must invite review checking, not imitate a testimonial voice. Prefer `실제 사용자 후기를 확인해 보세요` when real reviews exist; use `사용 후기를 확인해 보세요`, `사용 후기로 확인할 포인트`, or `구매 전 많이 보는 후기를 모았습니다` for replacement-ready mock cards.
 - Reject `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, and similar staged reviewer headlines.
-- Dummy reviews must not include names, ages, dates, locations, stars, review counts, purchase counts, or `실제 구매자`.
+- Mock reviews may include generic handles and star visuals. They must not include real names, ages, dates, locations, review counts, purchase counts, order numbers, verified-buyer badges, or `실제 구매자` unless supplied.
 - Visible copy must not expose `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 
 ## Table And FAQ Polish

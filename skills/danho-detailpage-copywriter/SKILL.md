@@ -116,15 +116,15 @@ The goal is not generic polished Korean. The final copy should sound like a Kore
 - Keep repeated action vocabulary intentional. If one task is called `손질` in the benefit module, do not call the same task `다듬기` in a usage module unless the meaning changes.
 - Keep parallel cards and short usage labels rhythmically consistent. A four-card list should not mix three short `~고` fragments with one long complete sentence.
 - Mid-page informational cues may clarify fit, contents, care, or usage criteria, but they must not look like purchase actions.
-- Final closing sections must not include CTA buttons, button-equivalent text, or purchase-action cues such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`. End with product/result confidence, use scene, brand tone, or a quiet reassurance instead.
+- Final closing sections must not include CTA buttons, button-equivalent text, purchase-action cues, or utility purchase-area guidance such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, `주문`, `옵션은 구매 영역에서 확인`, or `사이즈와 구성은 주문 전 한 번 더 확인`. End with product/result confidence, use scene, brand tone, or a quiet reassurance instead.
 - FAQ answers must answer the exact question first. For yes/no questions, answer `네` or `아니요` before adding conditions or where to confirm.
 - Do not put direct prices in visible detail-page copy, generated images, or designed HTML sections. Prices change through promotions; keep numeric prices in internal facts/config only. Do not add final-section price, option, or benefit-check prompts; the shopping mall purchase area already handles them.
 - Do not use the no-direct-price rule as a substitute for value persuasion. Repeating `구매 페이지에서 확인해 주세요` or naming a channel is not a value section; explain included value, saved hassle, or option choice instead.
 - Do not write sales channel names or phrases such as `판매 채널`, `스마트스토어`, `쿠팡`, `자사몰`, `채널별 구성`, or repeated `구매 페이지에서 확인해 주세요` in visible copy.
-- Every detail page must have a visible review/testimonial section. If real reviews are supplied, rewrite them naturally without adding facts. If none are supplied, create neutral replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
-- Review-section headlines should sound like a seller inviting the buyer to verify social proof, not like a staged testimonial voice. Use `실제 사용자 후기를 확인해 보세요`, `구매 전, 실제 사용 후기를 살펴보세요`, or similar only when real reviews are supplied. For replacement-ready placeholder cards, remove `실제 사용자` and use neutral check-oriented wording such as `사용 후기를 확인해 보세요` or `사용 후기로 확인할 포인트`.
+- Every detail page must have a visible review/testimonial section. If real reviews are supplied, rewrite them naturally without adding facts. If none are supplied, create replacement-ready mock review cards with generic nicknames, star ratings, highlighted quotes, and 2-4 lines of detailed benefit-based review copy. Mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+- Review-section headlines should sound like a seller inviting the buyer to verify social proof, not like a staged testimonial voice. Use `실제 사용자 후기를 확인해 보세요`, `구매 전, 실제 사용 후기를 살펴보세요`, or similar only when real reviews are supplied. For replacement-ready mock cards, remove `실제 사용자` and use neutral check-oriented wording such as `사용 후기를 확인해 보세요`, `사용 후기로 확인할 포인트`, or `구매 전 많이 보는 후기를 모았습니다`.
 - Reject headlines like `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, `써본 사람은 이렇게 말합니다`, or any line that makes a nonexistent reviewer seem to speak before the actual review cards.
-- Dummy review cards must not invent names, ages, locations, dates, star ratings, review counts, purchase counts, or claims such as `실제 구매자`. Keep them generic and benefit-based, and keep replacement warnings out of visible copy.
+- Mock review cards may use generic handles and star visuals to preserve the real shopping-mall review design. They must not invent real names, ages, locations, exact dates, review counts, purchase counts, order numbers, `실제 구매자`, verified-buyer badges, or unsupported proof claims. Keep replacement warnings out of visible copy.
 - Visible copy must not expose `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`, or similar production warnings.
 - Keep safety disclaimers consolidated. Do not repeat defensive phrases that make the product feel dangerous.
 - Keep caveats in factual sections. Selling sections should sound confident within verified facts, not hedged at every line.
@@ -132,8 +132,8 @@ The goal is not generic polished Korean. The final copy should sound like a Kore
 - Apply the native Korean humanizer gate before final scoring. Meaning-preserving rewrite is mandatory: fixed facts, component inclusion, compatibility, limits, and proof status must not change while removing AI markers.
 - Do not over-correct into stiff standard Korean. The grammar pass fixes clear errors; the style pass keeps ecommerce tone consistent and human, not bureaucratic.
 - Use exclamation marks sparingly for hooks and reassurance, not every sentence.
-- Never invent specific reviews, numbers, scarcity, certifications, awards, or expert authority. Replacement-ready dummy review cards are allowed only as generic placeholders without fabricated specifics and must be flagged in internal logs.
-- Social proof, scarcity, and authority are allowed only when product facts provide real evidence.
+- Never invent verified reviews, numbers, scarcity, certifications, awards, or expert authority. Replacement-ready mock review cards are allowed as visible review-section scaffolds with generic handles, star visuals, and benefit-based copy, and must be flagged in internal logs.
+- Social proof from real claims, scarcity, and authority are allowed only when product facts provide real evidence. Mock review cards provide a replaceable review-section structure; they must not add verified-buyer or actual-review claims.
 - Preserve exact specs, internal price facts, components, dimensions, compatibility, and usage limits. Internal price facts must not become visible copy unless the user explicitly overrides the no-direct-price rule.
 - Preserve source strategy, not source wording. A supplied phrase is still rejected if it sounds awkward, memo-like, or unnatural.
 - When user feedback identifies awkward lines, add those patterns to the rewrite table and remove similar phrasing across the page, not only the quoted lines.
@@ -155,7 +155,7 @@ Pass only when:
 - Internal labels, seller-centered selling copy, unsupported proof, and awkward Korean are resolved.
 - Direct price mentions, repeated safety disclaimers, and production notes are removed from visible copy or moved to planner/proof logs.
 - Sales channel names, repeated `구매 페이지` cues, and buyer-facing placeholder warnings are removed from visible copy.
-- A review/testimonial section exists. If reviews are placeholders, internal replacement status is recorded and no fabricated specifics are visible.
+- A review/testimonial section exists. If reviews are mockups, internal replacement status is recorded, generic nickname/star/review copy is visible, and no verified-buyer/status/count/date specifics are invented.
 - Action-term inconsistency, broken parallel list rhythm, FAQ non-answers, and final-section purchase-action text are resolved.
 - Value sections explain why the offer is worth checking without exposing a direct numeric price.
 - Core problem and solution claims have proof-oriented visual directions when the category can be demonstrated.
@@ -202,8 +202,8 @@ If a score fails, rewrite the visible copy and rescore. Do not mark `status: pas
 - A sales channel name or channel-specific instruction appears in visible detail-page copy.
 - The page has no review/testimonial section.
 - A review/testimonial headline uses a staged reviewer voice such as `먼저 써본 사람이 말해요` instead of inviting the buyer to check reviews.
-- A placeholder review section claims `실제 사용자`, `실제 구매자`, or any other real-review status that was not supplied.
-- A dummy review uses fabricated specifics such as names, ages, dates, stars, review counts, or `실제 구매자`.
+- A mock review section claims `실제 사용자`, `실제 구매자`, or any other real-review status that was not supplied.
+- A mock review invents verified-buyer/status/count/date specifics such as real names, ages, dates, review counts, order numbers, or `실제 구매자`.
 - Visible copy exposes placeholder or production warnings such as `실제 리뷰 없음`, `더미 리뷰`, `교체 예정`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 - The same safety disclaimer or key phrase is repeated enough to create anxiety or AI-written texture.
 - Caveats or `확인해 주세요` language are scattered through selling sections instead of concentrated in factual sections.

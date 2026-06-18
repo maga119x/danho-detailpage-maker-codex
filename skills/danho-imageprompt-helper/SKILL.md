@@ -90,7 +90,7 @@ Use for `FULL_IMAGE` or hybrid full-image sections.
 - When `image-plan.md`, the user, or the workflow marks a section as `FULL_IMAGE`, the designed full-section image is mandatory. Do not downgrade it to `IMAGE_STORY`, textless support imagery, or HTML overlay merely to avoid Korean typography risk.
 - Use for hook, emotional scene, problem, answer, no-damage proof, daily-use scene, control moment, and final product closing.
 - Keep text short. Long Korean copy, direct prices, FAQ, and conditions should not be generated into images. Mutable price/promotion facts belong in editable factual/options sections, not fixed section artwork or the final closing image.
-- Do not generate buttons, link-button shapes, purchase buttons, rounded CTA controls, button-like labels, or final-section purchase-action text in any 상세페이지 image. Final closing artwork should use product/result composition, use scene, brand tone, dividers, quiet reassurance, or simple non-clickable labels. Do not include `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
+- Do not generate buttons, link-button shapes, purchase buttons, rounded CTA controls, button-like labels, or final-section purchase-action text in any 상세페이지 image. Final closing artwork should use product/result composition, use scene, brand tone, dividers, quiet reassurance, or simple non-clickable labels. Do not include `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, `주문`, `옵션은 구매 영역에서 확인`, or `사이즈와 구성은 주문 전 한 번 더 확인`.
 - Save under `assets/generated/ai-section-designs/` when generating multiple section images.
 
 ### Support Image
@@ -99,6 +99,7 @@ Use when HTML text remains.
 
 - No text, no Korean caption, no overlay text, no signage.
 - Use for product detail, installation, compatibility, material, comparison visual, review/lifestyle proof, and FAQ support.
+- For review sections, prefer textless product-in-use or review-mood support images while keeping nickname, stars, and detailed review cards editable in HTML. Do not generate verified-buyer badges, review counts, exact dates, or "real buyer" claims into images unless supplied.
 - Use for `SPARSE_SECTION_IMAGE_REQUIRED` option, care/storage, value, reassurance, or fit sections when editable copy remains but the section needs real visual length.
 - The support image must be large enough to carry the section visually; a tiny decorative thumbnail does not satisfy the sparse-section gate.
 
@@ -121,6 +122,7 @@ Read `references/prompt-guide.md`, `references/native-image-generation.md`, and 
 - Do not use generated images to cram several purchase judgments into one artwork. If the prompt needs many claims, split the section before generation.
 - Use the page color system: Key/Main/Sub/Exception. Do not request many unrelated accent colors.
 - For Korean typography, specify exact short text assets, their typographic role, placement, visual weight, and safe margins, then verify the output visually.
+- For Korean typography size, use controlled detail-page scale rather than poster scale: the largest opening/final headline should feel about 1.5 steps smaller than oversized hero type, and subheads, labels, proof cards, FAQ-like copy, or closing reassurance should be about one step smaller than headline-adjacent type. Avoid huge three-line headlines that dominate the section before the product/proof appears.
 - For infographic-heavy images, specify the reading flow and at least one concrete primitive: title block, stat cards, comparison strip, step flow, icon row, radial callouts, ingredient cards, before/after split, or leader-line callouts.
 - For typography-heavy images, ask for generous whitespace, usually around 40% negative space when possible, to prevent cramped or cropped text.
 - For mandatory `FULL_IMAGE` sections, Korean typography QA is a generation/revision gate. If Korean text is wrong, cropped, random, or omitted, regenerate or revise through native `image_gen.imagegen` with shorter exact text. Do not solve it by removing the image text and moving the copy to HTML unless the user explicitly changes the section role.

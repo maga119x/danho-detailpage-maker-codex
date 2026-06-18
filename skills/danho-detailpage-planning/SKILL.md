@@ -44,7 +44,7 @@ Ask concise follow-up questions only when missing information affects factual ac
 14. Run the `SPARSE_SECTION_IMAGE_REQUIRED` gate: if a section has only a kicker/headline/short lead, one note, or 1-2 small cards, mark it for merge, `REPLACE_CANDIDATE`, or `SUPPORT_CANDIDATE` with a large product/lifestyle/proof visual. Do not leave it as `NONE`.
 15. Add a copy context block to `PLANNING.md`: speaker, listener, relationship, medium, honorific, tone persona, and inferred assumptions.
 16. Write `PLANNING.md` with all visible copy in text form, and keep production notes separate from buyer-facing copy.
-17. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create neutral replacement-ready dummy review cards and mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not pretend that a reviewer is speaking in the headline.
+17. Include a review/testimonial section in the plan. Use supplied reviews when available; otherwise create replacement-ready mock review cards with generic nicknames, star ratings, highlighted quotes, and detailed benefit-based review copy. Mark them only in internal notes as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Review-section headlines should invite the buyer to check reviews, not claim real-review status unless real reviews were supplied.
 18. Run the spoken Korean gate on visible copy before copywriter review: no strategy-term leak, no English skeleton, no abstract noun subject, no long breath.
 19. Run the native Korean pre-gate before copywriter review: remove obvious DaleSeo-style AI markers such as translationese, noun-heavy Korean, repeated S2 patterns, and page-wide identical endings.
 20. Run the production-readiness gate: no sales channel names, no visible placeholder warnings, no `NEEDS_PROOF`/candidate labels/source filenames in buyer-facing copy.
@@ -167,10 +167,10 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 - FAQ answers must answer the actual question first. For yes/no questions, start with `네` or `아니요`, then add conditions, limits, or where to confirm.
 - Do not write direct numeric prices in visible detail-page copy, generated image text, comparison tables, or final HTML sections. Promotions and channel discounts can change. Do not add final-section price, option, or benefit-check prompts; the shopping mall purchase area already handles them.
 - Do not write sales channel names or phrases such as `판매 채널`, `스마트스토어`, `쿠팡`, `자사몰`, `채널별 구성`, or repeated `구매 페이지에서 확인해 주세요` in visible copy. Keep them in `config.json`, internal facts, or proof logs.
-- Every page must include a review/testimonial section. If real reviews are not supplied, write neutral replacement-ready dummy review cards and mark the section internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Do not expose `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `NEEDS_PROOF`, or similar warnings in visible copy.
-- Review-section headlines must be check-oriented, not pseudo-testimonial. Prefer `실제 사용자 후기를 확인해 보세요` or `구매 전, 실제 사용 후기를 살펴보세요` when supplied real reviews exist. When reviews are replacement-ready placeholders, do not claim `실제 사용자`; use a neutral headline such as `사용 후기를 확인해 보세요` or `사용 후기로 확인할 포인트`.
+- Every page must include a review/testimonial section. If real reviews are not supplied, write replacement-ready mock review cards with generic nicknames, star ratings, highlighted quotes, and 2-4 lines of detailed benefit-based review copy. Mark the section internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`. Do not expose `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `NEEDS_PROOF`, or similar warnings in visible copy.
+- Review-section headlines must be check-oriented, not pseudo-testimonial. Prefer `실제 사용자 후기를 확인해 보세요` or `구매 전, 실제 사용 후기를 살펴보세요` when supplied real reviews exist. When reviews are replacement-ready mockups, do not claim `실제 사용자`; use a neutral headline such as `사용 후기를 확인해 보세요`, `사용 후기로 확인할 포인트`, or `구매 전 많이 보는 후기를 모았습니다`.
 - Avoid reviewer-persona headlines such as `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, or `써본 사람은 이렇게 말합니다`. They sound staged and can imply invented testimony.
-- Dummy review cards must not contain fabricated names, ages, locations, dates, star ratings, review counts, purchase counts, or claims such as `실제 구매자`. Keep them generic and benefit-based so they can be replaced before upload.
+- Mock review cards may contain generic nicknames/handles and star visuals because the review section must be design-complete. They must not contain real names, ages, locations, dates, review counts, purchase counts, order numbers, `실제 구매자`, or verified-review badges unless supplied.
 - Consolidate safety and liability copy into one calm safety/care section. Avoid repeating defensive phrasing in FAQ and body copy.
 - Keep factual caveats in specs, safety/care, compatibility, or FAQ. Do not let selling sections become a chain of hedges such as `확인해 주세요`.
 - Provide a copy context so the copywriter does not have to guess relationship, honorific, and medium from scratch.
@@ -180,7 +180,7 @@ For the current Danho flow standard, read `references/detail-flow-rules.md`.
 - If a section is natural but does not create desire, add a before/after shift, self-identification cue, value-confidence reason, or proof visual before continuing.
 - If a visible sentence fails the Kakao/read-aloud/seller tests, rewrite the sentence before continuing.
 - If a visible sentence would fail humanizer, grammar, or style-guide checks, rewrite it before copywriter review and still leave it for strict copywriter scoring.
-- Mark unsupported proof, certifications, awards, scarcity, or performance claims as `NEEDS_PROOF` in internal logs; do not write them as visible facts. Reviews are mandatory as a section: use supplied reviews or neutral replacement-ready placeholders with internal replacement flags.
+- Mark unsupported proof, certifications, awards, scarcity, or performance claims as `NEEDS_PROOF` in internal logs; do not write them as visible facts. Reviews are mandatory as a section: use supplied reviews or replacement-ready mock review cards with internal replacement flags.
 - Fail the planning draft if visible copy still sounds like the source memo rather than a consumer-facing detail page.
 
 ## Image Candidate Rules

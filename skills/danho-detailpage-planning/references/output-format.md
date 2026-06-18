@@ -149,13 +149,13 @@ The first two screens must feel like one connected opening story, not a hero fol
 
 ## 1-7. 리뷰 섹션 준비
 
-Every detail page must include a review/testimonial section. If real reviews are missing, create replacement-ready dummy review cards and flag them only here. Use a check-oriented headline: `실제 사용자 후기를 확인해 보세요` for supplied real reviews, or `사용 후기를 확인해 보세요` for replacement-ready cards. Do not use staged reviewer-voice headlines such as `먼저 써본 사람이 말해요`.
+Every detail page must include a review/testimonial section. If real reviews are missing, create replacement-ready mock review cards and flag them only here. Use a check-oriented headline: `실제 사용자 후기를 확인해 보세요` for supplied real reviews, or `사용 후기를 확인해 보세요` / `구매 전 많이 보는 후기를 모았습니다` for replacement-ready mock cards. Do not use staged reviewer-voice headlines such as `먼저 써본 사람이 말해요`.
 
-| review_item | source_status | visible_copy_type | internal_replacement_note |
-|---|---|---|---|
-| review-1 | supplied / placeholder | real_review / replacement_ready_dummy | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if placeholder |
-| review-2 | supplied / placeholder | real_review / replacement_ready_dummy | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if placeholder |
-| review-3 | supplied / placeholder | real_review / replacement_ready_dummy | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if placeholder |
+| review_item | source_status | visible_copy_type | nickname_or_handle | rating_visual | highlighted_quote | detailed_review_copy | internal_replacement_note |
+|---|---|---|---|---|---|---|---|
+| review-1 | supplied / mock | real_review / replacement_ready_mock |  | ★★★★★ |  | 2-4 lines | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if mock |
+| review-2 | supplied / mock | real_review / replacement_ready_mock |  | ★★★★★ |  | 2-4 lines | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if mock |
+| review-3 | supplied / mock | real_review / replacement_ready_mock |  | ★★★★★ |  | 2-4 lines | REVIEW_PLACEHOLDER_REPLACE_REQUIRED if mock |
 
 ## 1-8. 모바일 화면 흐름 설계
 
@@ -274,7 +274,7 @@ Run this after the first complete `PLANNING.md` draft and before copywriter revi
 - Include tone coordinates with persona and good/bad sentence pairs. Do not rely only on abstract adjectives such as `단정한`, `실용적인`, or `자신감 있는`.
 - Include at least 3 benefit modules for products with enough features or use cases.
 - Include a visual proof plan for the core problem, core mechanism, after-state, and value frame when the category can be demonstrated visually.
-- Include review section preparation. Reviews are mandatory; if real reviews are unavailable, use neutral replacement-ready dummy review cards and record replacement status only in internal notes.
+- Include review section preparation. Reviews are mandatory; if real reviews are unavailable, use replacement-ready mock review cards with generic nicknames, star visuals, highlighted quotes, and detailed benefit-based copy. Record replacement status only in internal notes.
 - Include mobile screen-flow planning before the section table. Use `screen_role`, `visual_mass`, `surface_role`, `tempo`, `proof_type`, `editable_risk`, and `layout_pattern`.
 - Include `sparse_image_gate` in the mobile screen-flow and section table. Use `SPARSE_SECTION_IMAGE_REQUIRED` when a section has only a short headline/lead, one note, or 1-2 small cards; then assign `REPLACE_CANDIDATE`, `SUPPORT_CANDIDATE`, or `merge_required`, not `NONE`.
 - Do not compress one major content point into one dense section. Split core benefits, technical claims, option systems, reviews, and FAQ/policy into multiple screen-sized sections when needed.
@@ -307,10 +307,11 @@ Run this after the first complete `PLANNING.md` draft and before copywriter revi
 - Do not mention sales channels in visible copy. Avoid `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, `채널별 구성`, and repeated `구매 페이지에서 확인해 주세요`; the buyer is already on the selling page.
 - Do not add final-section mutable-price, promotion, option, or order prompts. The shopping mall purchase UI already handles price, option, benefit, cart, and order actions.
 - Price-safe value sections must still build value confidence through included value, avoided extra purchases, reduced hassle, or common-alternative comparison. Do not use the no-direct-price rule as a reason to leave value vague.
-- Include a visible review/testimonial section even when no reviews are supplied. For missing reviews, create neutral replacement-ready dummy reviews without names, stars, dates, review counts, or `실제 구매자` claims.
+- Include a visible review/testimonial section even when no reviews are supplied. For missing reviews, create replacement-ready mock reviews with generic nicknames/handles, star visuals, highlighted quotes, and 2-4 lines of detailed benefit-based copy.
+- Mock reviews must not claim unsupported specifics: no real names, ages, locations, dates, review counts, purchase counts, order numbers, `실제 구매자`, verified-buyer badges, or sourced proof unless supplied.
 - Keep review replacement markers internal only. Visible copy must not say `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 - Keep safety disclaimers in one calm safety/care section. FAQ should reassure with practical use guidance, not repeat defensive legal language.
 - Concentrate caveats in specs, safety/care, compatibility, or FAQ. Do not scatter uncertainty through the selling sections.
 - Use product naming consistently.
 - Keep internal price facts, options, compatibility, limits, and FAQ explicit and editable. Do not expose numeric prices in visible detail-page copy.
-- Mark unsupported proof as `NEEDS_PROOF` internally instead of inventing certifications, awards, expert authority, scarcity, or performance data. Reviews remain mandatory as a section; use supplied reviews or neutral replacement-ready dummy cards with internal replacement flags.
+- Mark unsupported proof as `NEEDS_PROOF` internally instead of inventing certifications, awards, expert authority, scarcity, or performance data. Reviews remain mandatory as a section; use supplied reviews or replacement-ready mock review cards with internal replacement flags.

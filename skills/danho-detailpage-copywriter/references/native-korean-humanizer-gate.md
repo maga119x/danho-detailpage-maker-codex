@@ -101,7 +101,7 @@ Before final scoring, record:
 
 - Fixed facts preserved: product name, components, compatibility, limits, internal price facts, claim conditions.
 - No polarity reversal: possible/impossible, included/not included, safe/unsafe, compatible/incompatible.
-- No invented proof: no fake reviews, numbers, awards, scarcity, certifications, or expert authority.
+- No invented proof: no fake verified reviews, numbers, awards, scarcity, certifications, or expert authority. Replacement-ready mock review cards may use generic handles, star visuals, and benefit-based copy only when internal replacement status is recorded.
 - Rewrite scope: large enough to remove AI markers, but not so large that supplied facts or strategy are lost.
 
 If a rewrite would change more than half of the factual content, stop and convert the risky part into an internal assumption/proof log instead of presenting it as visible copy.

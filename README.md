@@ -12,6 +12,7 @@ This plugin helps Codex plan, review, write, design, and build mobile-first Kore
 - Static mobile-first HTML detail-page builds
 - `image-plan.md` driven `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` decisions
 - Mandatory designed `FULL_IMAGE` hero and final product/result closing section generation
+- Mandatory review/testimonial section with editable shopping-mall-style cards; when real reviews are missing, the workflow creates replacement-ready mock review cards with generic handles and star visuals
 - Locked text-asset, layout-grammar, and infographic-primitive prompting for designed images
 - Built-in Codex `image_gen.imagegen` native image generation workflow
 - No arbitrary image-count cap for detail-page images
@@ -134,6 +135,7 @@ build/sections/
 
 - Do not expose direct numeric prices in visible copy or generated images.
 - Do not expose sales channel names inside the detail page.
+- Do not omit the review/testimonial section. If real reviews are missing, include replacement-ready mock review cards and keep replacement notes internal.
 - Do not create button UI, link buttons, or button-like CTA graphics.
 - Do not skip PM review, copy review, or Phase A HTML.
 - Do not jump from planning directly to image generation.

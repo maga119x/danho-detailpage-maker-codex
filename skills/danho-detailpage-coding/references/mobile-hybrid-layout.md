@@ -134,7 +134,8 @@ For sparse sections, the acceptable added length is meaningful content: generate
 
 - Kicker/badge text should pass the "buyer meaning" test: if removed, would the buyer lose useful context? If not, remove it. If yes, write it as a short claim such as `칼 때문에 시작이 막힌다면`, `무뎌질 때 바로 관리합니다`, or `받는 구성을 먼저 봅니다`.
 - Use speech bubbles for customer thoughts, short questions, or quick FAQ.
-- Use quote cards for reviews. Do not put generic speech-bubble tails between stacked cards; they can render like broken diamonds.
+- Use quote cards or deliberate speech-bubble cards for reviews. Each review card should include a generic reviewer handle, star rating, short highlighted quote, and detailed editable review copy.
+- Do not put generic speech-bubble tails between stacked cards; they can render like broken diamonds.
 - Use a left accent rule and a subtle quote watermark for dark review cards.
 - Use comparison rows instead of dense tables on mobile.
 - Use product images in current-price guidance/options sections when the buyer is close to purchase. Do not hard-code numeric prices.

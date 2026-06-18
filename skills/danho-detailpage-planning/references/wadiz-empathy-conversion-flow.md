@@ -122,7 +122,7 @@ Do not rely only on product flatlays for high-friction products. Plan demonstrat
 ## Ethical Limits
 
 - Do not invent specific reviews, certifications, expert endorsements, sales numbers, awards, patents, scarcity, discounts, or deadlines.
-- If real reviews are missing, create neutral replacement-ready dummy review cards and mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`; do not expose that marker in visible copy.
+- If real reviews are missing, create replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, and detailed benefit-based copy. Mark them internally as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`; do not expose that marker in visible copy.
 - Do not say "완벽 해결", "삶을 바꿉니다", or "수많은 분들이 선택" without real proof.
 - Do not over-amplify fear. Acknowledge the inconvenience, then give a useful path.
 - If a claim needs evidence, write `NEEDS_PROOF` or phrase it as a safe use-case.

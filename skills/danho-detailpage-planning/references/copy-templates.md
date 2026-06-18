@@ -70,9 +70,9 @@
 
 ## Review Templates
 
-Every detail page needs a review/testimonial section. Use supplied real reviews when available. If none are supplied, use replacement-ready dummy review cards and mark them only in planning/proof logs as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+Every detail page needs a review/testimonial section. Use supplied real reviews when available. If none are supplied, use replacement-ready mock review cards and mark them only in planning/proof logs as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 
-Do not invent names, stars, ages, demographics, dates, review counts, purchase counts, or claims such as `실제 구매자`.
+Mock review cards may use generic nicknames/handles and star visuals. Do not invent real names, ages, demographics, locations, dates, review counts, purchase counts, order numbers, verified-buyer badges, or claims such as `실제 구매자`.
 
 ### Review Headline Rule
 

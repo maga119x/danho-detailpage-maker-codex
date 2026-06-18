@@ -26,26 +26,26 @@ colors:
 typography:
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(5rem, 10vw, 8rem)
+    fontSize: clamp(4rem, 8vw, 6rem)
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(4.5rem, 9vw, 6.75rem)
+    fontSize: clamp(3.5rem, 7vw, 5.25rem)
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(3.5rem, 7vw, 5.5rem)
+    fontSize: clamp(2.875rem, 5.6vw, 4.25rem)
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 5vw, 3.75rem)
+    fontSize: clamp(2.25rem, 4.2vw, 3rem)
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 4vw, 2.75rem)
+    fontSize: clamp(2rem, 3.6vw, 2.375rem)
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
@@ -131,7 +131,7 @@ components:
 배경은 거의 검정(#0a0a0a) 단계적으로 미세하게 밝아짐. 골드(#c9a962)가 유일한 강조색. 텍스트는 백색 위계 4단계로 정보 깊이 표현.
 
 ## Typography
-Paperlogy 사용. 본문 32px는 다른 테마와 동일하지만, 헤드라인에 골드 그라데이션/네온 효과를 강하게 적용해 임팩트 극대화.
+Paperlogy 사용. 본문 32px는 다른 테마와 동일하지만, 헤드라인 크기는 56~84px 중심으로 절제하고 골드 그라데이션/네온 효과로 임팩트를 만든다.
 
 ## Layout
 860px 컨테이너. 다크 테마 특성상 섹션 간 배경 변화는 명도 미세 조정(`bg` → `bg-var-1` → `bg-var-2`). 중간에 `bg-inverted`(라이트) 섹션으로 시선 전환.

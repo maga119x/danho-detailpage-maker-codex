@@ -49,26 +49,26 @@ colors:                  # 시맨틱 컬러 토큰
 typography:              # 타이포그래피 토큰
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(5rem, 10vw, 8rem) # 860px source: 80-128px, scaled to 438px: about 41-65px
+    fontSize: clamp(4rem, 8vw, 6rem) # 860px source: 64-96px, scaled to 438px: about 33-49px
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(4.5rem, 9vw, 6.75rem) # 860px source: 72-108px, scaled to 438px: about 37-55px
+    fontSize: clamp(3.5rem, 7vw, 5.25rem) # 860px source: 56-84px, scaled to 438px: about 29-43px
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(3.5rem, 7vw, 5.5rem) # 860px source: 56-88px, scaled to 438px: about 29-45px
+    fontSize: clamp(2.875rem, 5.6vw, 4.25rem) # 860px source: 46-68px, scaled to 438px: about 23-35px
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 5vw, 3.75rem) # 860px source: 40-60px, scaled to 438px: about 20-31px
+    fontSize: clamp(2.25rem, 4.2vw, 3rem) # 860px source: 36-48px, scaled to 438px: about 18-24px
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 4vw, 2.75rem) # 860px source: 36-44px, scaled to 438px: about 18-22px
+    fontSize: clamp(2rem, 3.6vw, 2.375rem) # 860px source: 32-38px, scaled to 438px: about 16-19px
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy

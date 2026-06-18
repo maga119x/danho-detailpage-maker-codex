@@ -25,7 +25,7 @@ Run this before delivering a Danho detail page.
 - [ ] In the final hybrid HTML, the first section is a generated full-image hero.
 - [ ] In the final hybrid HTML, the bottom/final selling section is a generated full-image product/result closing impression.
 - [ ] No section uses `<button>`, `.cta-button`, link-button styling, purchase buttons, or button-like rounded CTA graphics.
-- [ ] The final closing contains no CTA button, button-equivalent text, option/order prompt, benefit-check prompt, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, or `주문`.
+- [ ] The final closing contains no CTA button, button-equivalent text, option/order prompt, benefit-check prompt, utility option/size guidance, or purchase-action wording such as `구매하기`, `옵션 확인`, `혜택 확인`, `지금 보기`, `구성 확인`, `장바구니`, `주문`, `옵션은 구매 영역에서 확인`, or `사이즈와 구성은 주문 전 한 번 더 확인`.
 - [ ] Designed full-section images use one `<section class="full-image-section"><img ...></section>`.
 - [ ] Mandatory `FULL_IMAGE` sections were not downgraded to `IMAGE_STORY`, `HTML_MIXED`, textless imagery, or HTML overlay because Korean typography was difficult.
 - [ ] If generated Korean typography failed in a mandatory `FULL_IMAGE`, the item was regenerated/revised through native `image_gen.imagegen` or marked `FULL_IMAGE_TEXT_QA_BLOCKED`; it was not silently shipped as a fallback.
@@ -42,8 +42,9 @@ Run this before delivering a Danho detail page.
 - [ ] Direct numeric prices are not embedded in visible HTML or generated images; mutable benefits stay out of the final closing and are handled only in editable factual/options sections when needed.
 - [ ] Visible HTML and generated images do not mention sales channel names such as `스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, or `채널별 구성`.
 - [ ] Review/testimonial section exists.
-- [ ] If real reviews are unavailable, review-related HTML is framed as review-check criteria or neutral placeholder-safe cards, not fabricated testimonials.
-- [ ] If reviews are placeholders, replacement markers stay in `PLANNING.md`/`COPY_REVIEW.md` internal logs only, not visible text or final HTML comments.
+- [ ] The review/testimonial section looks like a shopping-mall review module: 3-5 cards or speech bubbles with nickname/handle, star rating, highlighted quote, and detailed review copy.
+- [ ] If real reviews are unavailable, review cards are replacement-ready mockups using generic handles and benefit-based copy, with no `실제 구매자`, verified-buyer badge, dates, locations, review counts, purchase counts, or order numbers.
+- [ ] If reviews are mockups, replacement markers stay in `PLANNING.md`/`COPY_REVIEW.md` internal logs only, not visible text or final HTML comments.
 
 ## Layout
 
@@ -76,8 +77,10 @@ Run this before delivering a Danho detail page.
 ## Typography
 
 - [ ] Body copy is 32-36px at the 860px source and reads as about 16-18px in the 438px scaled preview.
-- [ ] Lead copy is 36-44px at source and reads as about 18-22px in the scaled preview.
-- [ ] Section headlines are strong but controlled, normally 56-88px at source and about 29-45px in the scaled preview.
+- [ ] Lead/body-lg copy is 32-38px at source and reads as about 16-19px in the scaled preview.
+- [ ] Section headlines are strong but controlled, normally 46-68px at source and about 23-35px in the scaled preview.
+- [ ] Hero headlines are controlled, normally 56-84px at source; only the shortest opening display headline uses 64-96px.
+- [ ] FAQ answers, card paragraphs, long leads, closing reassurance, and option guidance do not use display/h1/h2 sizing.
 - [ ] Ordinary visible text scales to 16px or larger at 438px, including labels, badges, captions, reviews, comparison rows, closing text, and card copy.
 - [ ] Micro text that scales to 13-15px is used only for exceptional legal/spec footnotes or non-persuasive metadata, never for selling-flow copy.
 - [ ] Card body text is not oversized, normally 30-34px at source and about 15-17px in the scaled preview.
@@ -92,6 +95,7 @@ Run this before delivering a Danho detail page.
 
 - [ ] Speech bubbles render with intentional tails or no tails.
 - [ ] Stacked review cards use quote-card style, not broken bubble tails.
+- [ ] Review cards show star visuals and reviewer handles at readable size, and the detailed copy remains editable HTML.
 - [ ] Comparison is mobile-readable.
 - [ ] Option/benefit guidance uses an editable component, not a fixed numeric price panel.
 - [ ] Checklist icons are HTML/CSS/SVG elements, not raw `☐` or `□` characters.

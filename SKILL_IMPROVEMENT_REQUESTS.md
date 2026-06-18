@@ -1232,4 +1232,57 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 - 각 텍스트 자산은 kicker, headline, subhead, badge, feature label, stat card, callout label, comparison header, caption, proof label, closing phrase처럼 역할을 붙인다.
 - 인포그래픽은 정보가 아니라 기하학으로 지시한다. 카드 수, 그리드, 분할, 리더라인, 비교 스트립, step flow, 읽는 순서를 명시한다.
 - 타이포가 많은 이미지는 충분한 safe margin과 가능한 40% 수준의 negative space를 프롬프트에 넣는다.
-- 생성 실패 시에는 텍스트 자산 수를 줄이고, 글자 크기와 여백을 늘리며, 경쟁하는 카드/콜아웃을 줄여 재생성한다.
+- 생성 실패 시에는 텍스트 자산 수를 줄이고, 배경을 단순화하고, 여백을 늘리며, 경쟁하는 카드/콜아웃을 줄여 재생성한다. 읽히지 않는 작은 라벨만 키우고, 메인 헤드라인은 자동으로 키우지 않는다.
+
+### 43. 상세페이지 헤드라인 타이포 스케일 축소
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+변경된 스킬로 상세페이지를 제작해보니 헤드라인과 헤드라인에 가까운 폰트 크기가 너무 크다. 가장 큰 헤드라인은 1.5스텝, 그보다 작은 타이포들은 1스텝 정도 줄어야 한다.
+
+**원인 분석**:
+- 860px 원본 기준을 도입하면서 본문 가독성은 개선됐지만, `display/h1/h2/body-lg` 스케일이 함께 커져 화면 상단을 타이포가 과하게 점유했다.
+- FAQ 답변, 카드 문단, 긴 lead, 클로징 reassurance처럼 본문에 가까운 텍스트가 `body-lg` 또는 headline-adjacent 크기로 커지면 헤드라인처럼 보여 리듬이 무거워졌다.
+- 이미지 프롬프트 가이드의 retry ladder에 `Increase text size` 문구가 남아 있어, 한글 타이포 실패를 해결하려다 헤드라인 과대화가 반복될 수 있었다.
+
+**반영 내용**:
+- `detailpage-typography.md`, `layout-rules.md`, `output-checklist.md`, `danho-detailpage-coding/SKILL.md`의 기준을 조정했다.
+- `display`는 64~96px, `h1`은 56~84px, `h2`는 46~68px, `h3`는 36~48px, `body-lg`는 32~38px로 낮췄다. 본문 `body-md` 32~36px 기준은 유지했다.
+- 6개 `DESIGN.md` 프리셋과 `design-md-spec.md`, `build.py` fallback CSS에 같은 토큰을 반영했다.
+- FAQ 답변, 카드 문단, 긴 lead, 클로징 reassurance, 옵션 안내 문구에 display/h1/h2 크기를 쓰지 않도록 QA 규칙을 추가했다.
+- `imageprompt-helper`의 `prompt-guide.md`와 `native-image-generation.md`에서 포스터급 대형 헤드라인을 피하고, 실패 재시도 시 무조건 글자를 키우지 않도록 바꿨다.
+- 플러그인 버전을 `0.1.6`으로 올렸다.
+
+**운영 규칙**:
+- 상세페이지의 가장 큰 opening/final display headline도 860px 원본에서 64~96px을 넘기지 않는다.
+- 일반 hero/h1은 56~84px, 섹션 h2는 46~68px 중심으로 운용한다.
+- 긴 문장, FAQ 답변, 카드 본문, lead, 클로징 reassurance는 본문 또는 body-lg 범위에 머물러야 한다.
+- 한글 이미지 타이포가 작거나 틀렸을 때는 먼저 텍스트를 줄이고 배경/여백을 단순화한다. 메인 헤드라인을 자동으로 키우지 않는다.
+
+### 44. 쇼핑몰형 후기 목업 섹션 필수화
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+실제 후기 섹션은 상세페이지에 반드시 있어야 한다. 사용자가 후기 정보를 주지 않아도 별점과 함께 닉네임, 자세한 후기가 들어간 카드 혹은 말풍선 디자인의 후기 섹션을 목업으로 구성해야 한다. 나중에 실제 후기로 교체할 수 있도록 만들어야 하며, 사회적 증거로 구매 유도에 중요한 역할을 한다.
+
+**원인 분석**:
+- 기존 스킬에는 후기 섹션 필수 규칙은 있었지만, 실제 리뷰가 없을 때 `neutral replacement-ready dummy`로 쓰도록 하면서 닉네임, 별점, 구체적인 후기 copy를 금지했다.
+- 그 결과 실제 쇼핑몰 후기처럼 보이는 카드/말풍선 섹션이 아니라 검수 기준이나 중립 문장 카드로 약화될 수 있었다.
+- PM/코딩 체크리스트도 후기 섹션 존재만 확인하고, 쇼핑몰형 후기 카드 구조(닉네임/별점/하이라이트/상세 후기)를 강제하지 않았다.
+
+**반영 내용**:
+- `channel-review-production-rules.md`를 기준 문서로 개정해, 실제 리뷰가 없을 때도 교체용 목업 리뷰 카드 3-5개를 생성하도록 했다.
+- 목업 리뷰 카드는 generic nickname/handle, star rating, highlighted quote, 2-4줄 상세 후기 copy를 포함하도록 했다.
+- 실제 이름, 나이, 지역, 날짜, 리뷰 수, 구매 수, 주문번호, `실제 구매자`, verified-buyer badge 같은 검증 상태 정보는 공급되지 않으면 금지했다.
+- `planning`, `copywriter`, `workflow`, `pm-reviewer`, `coding`, `imageprompt-helper`, `AGENT.MD` 템플릿, `README`, `PROJECT_STRUCTURE_AI_CONTEXT.md`에 같은 기준을 반영했다.
+- `PLANNING.md`와 `COPY_REVIEW.md` 포맷에 리뷰 목업 필드(`nickname_or_handle`, `rating_visual`, `highlighted_quote`, `detailed_review_copy`)를 추가했다.
+- 코딩 체크리스트에 후기 섹션이 쇼핑몰형 카드/말풍선 구조로 보이는지, 별점/핸들/상세 copy가 있는지 확인하는 항목을 추가했다.
+- 플러그인 버전을 `0.1.7`로 올렸다.
+
+**운영 규칙**:
+- 모든 신규 상세페이지에는 후기/리뷰 섹션이 있어야 한다.
+- 실제 후기가 없으면 `replacement_ready_mock` 리뷰 카드로 구성한다.
+- 목업 리뷰는 고객에게 보이는 섹션에서는 자연스러운 쇼핑몰 후기처럼 보여야 하지만, 내부 로그에는 `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`를 남긴다.
+- 목업 리뷰는 닉네임/별점/상세 후기 copy를 포함하되, 실제 구매자 인증/날짜/리뷰 수/구매 수/지역/실명처럼 검증된 사실로 오해될 수 있는 정보는 만들지 않는다.

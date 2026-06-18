@@ -52,7 +52,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Do not code when visible copy fails spoken Korean tests: Kakao, read-aloud, seller, strategy-leak, and sentence-skeleton.
 - Do not code when visible copy would fail DaleSeo-style humanizer, grammar-checker, or style-guide checks adapted in `native-korean-humanizer-gate.md`.
 - Do not code when visible copy names sales channels (`스마트스토어`, `쿠팡`, `자사몰`, `판매 채널`, `채널별 구성`) or repeatedly sends the buyer to `구매 페이지`; the buyer is already on the selling page.
-- Do not code when a newly planned page lacks a review/testimonial section. If real reviews are missing, include neutral replacement-ready dummy review cards and keep `REVIEW_PLACEHOLDER_REPLACE_REQUIRED` only in internal logs.
+- Do not code when a newly planned page lacks a review/testimonial section. If real reviews are missing, include replacement-ready mock review cards with generic nicknames, star ratings, highlighted quotes, and detailed benefit-based review copy. Keep `REVIEW_PLACEHOLDER_REPLACE_REQUIRED` only in internal logs.
 - Do not code when visible copy exposes placeholder warnings such as `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `업로드 전 교체`, `NEEDS_PROOF`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 - Visible copy must prioritize consumer benefits and daily outcomes over product merits. The product should act as the guide/tool, not the hero.
 - Selling copy must be buyer-centered. The subject should usually be the buyer's situation, action, worry, home/body/routine, or desired outcome, not the seller/brand/product.
@@ -65,7 +65,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Adjacent sections must answer or raise the next buyer question. If two neighboring sections can be swapped without changing meaning, revise the headline, lead, or order.
 - Do not stop to ask broad tone/persona questions when reasonable ecommerce defaults can be inferred. Ask only for factual blockers.
 - When reference 상세페이지 design files are supplied, create `REFERENCE_DESIGN_ANALYSIS.md` and use it as design guidance. Do not clone the reference page, copy its brand/copy/logo/product images, or let it override the new product's buyer journey.
-- Use ethical persuasion only: no fake specific reviews, fake scarcity, fake authority, or unsupported numbers. Replacement-ready dummy review cards are allowed only without fabricated specifics and with internal replacement logs.
+- Use ethical persuasion only: no fake verified reviews, fake scarcity, fake authority, or unsupported numbers. Replacement-ready mock review cards are allowed as review-section scaffolds with generic handles, star visuals, detailed benefit-based copy, and internal replacement logs; they must not claim `실제 구매자`, verified status, counts, dates, or sourced proof.
 - Always establish the HTML detail-page layout first. Do not jump from planning directly to image generation.
 - `PLANNING.md` must include a mobile screen-flow plan for newly planned pages. Do not code a plan that treats every content point as one dense section.
 - In final hybrid HTML, the first visible section must be a generated designed full-image hero. Do not leave the opening screen as a normal HTML text hero.
@@ -86,6 +86,7 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Treat HTML sections as designed sections, not text-only blocks. Add product photos, lifestyle images, badges, quote cards, speech bubbles, or comparison cards when they improve persuasion.
 - Reject simple generic web pages. The result must read as an ecommerce product detail page with hero, problem, review/testimonial, proof, comparison, options, FAQ, and a product/result closing module.
 - Do not expose direct numeric prices in final detail-page HTML or generated section images. Do not add final-section option/order-area cues because the shopping mall purchase UI already handles the action.
+- Final product/result closing must not use utility purchase-area guidance such as `옵션은 구매 영역에서 확인`, `사이즈와 구성은 주문 전 한 번 더 확인`, `옵션 확인`, or `구성 확인`. Keep those mutable checks in editable option/spec/FAQ sections only when genuinely needed.
 - Do not expose sales channel names in final detail-page HTML or generated section images.
 - Do not expose internal planning labels such as "설치 방식" or "모바일 구매 판단 요약" in the final page. Convert them into consumer-facing selling copy.
 - Do not expose production notes such as source image filenames, `제공 이미지`, `추가 확인 필요`, `상세페이지 공개 전`, or candidate labels. Keep these in planning/proof logs only.
@@ -121,7 +122,7 @@ Always validate:
 - Section count and image roles/counts match the plan, with no arbitrary image-count cap, fixed percentage, or forced full-image/HTML split.
 - `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing section.
 - The first final section is a generated full-image hero.
-- The bottom/final selling section is a generated full-image product/result closing section, and it contains no CTA button, button-like CTA graphics, option/order prompt, benefit-check prompt, or button-equivalent text.
+- The bottom/final selling section is a generated full-image product/result closing section, and it contains no CTA button, button-like CTA graphics, option/order prompt, benefit-check prompt, utility option/size guidance, or button-equivalent text.
 - No HTML or generated image contains visual buttons, link buttons, button-shaped labels, or final-section purchase-action text.
 - No mandatory `FULL_IMAGE` section was accepted as a textless/HTML-overlay fallback due to Korean typography risk.
 - The first 3 mobile screens show product identity, core benefit/result, and difference or fit condition.

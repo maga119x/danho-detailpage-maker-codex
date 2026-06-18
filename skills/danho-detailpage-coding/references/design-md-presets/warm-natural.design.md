@@ -26,26 +26,26 @@ colors:
 typography:
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(5rem, 10vw, 8rem)
+    fontSize: clamp(4rem, 8vw, 6rem)
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(4.5rem, 9vw, 6.75rem)
+    fontSize: clamp(3.5rem, 7vw, 5.25rem)
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(3.5rem, 7vw, 5.5rem)
+    fontSize: clamp(2.875rem, 5.6vw, 4.25rem)
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 5vw, 3.75rem)
+    fontSize: clamp(2.25rem, 4.2vw, 3rem)
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 4vw, 2.75rem)
+    fontSize: clamp(2rem, 3.6vw, 2.375rem)
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
@@ -131,7 +131,7 @@ components:
 배경은 #faf7f2 크림. 단계적으로 살짝씩 어두워지는 베이지 톤. 액센트는 #8b7355 흙갈색. 텍스트는 짙은 브라운으로 따뜻하게.
 
 ## Typography
-Paperlogy. 본문 32px 동일. 헤드라인은 그라데이션 + 부드러운 shadow.
+Paperlogy. 본문 32px 동일. 헤드라인은 56~84px 중심으로 거대하지 않게 쓰고, 그라데이션 + 부드러운 shadow로 강조.
 
 ## Layout
 860px. 배경 변화 풍부 (`bg` → `bg-var-1` → `bg-var-2` → `bg-inverted` 중간 한 번).

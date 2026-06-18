@@ -111,7 +111,7 @@ Avoid these unless the product facts make them unusually true and natural:
 - Solution: state how the buyer uses it.
 - Fit check: turn restrictions into a helpful buying checklist.
 - Comparison: compare buyer effort, damage risk, and daily convenience.
-- Review/proof: include a review/testimonial section. Use real reviews when supplied; otherwise use neutral replacement-ready dummy review cards with internal replacement notes only.
+- Review/proof: include a review/testimonial section. Use real reviews when supplied; otherwise use replacement-ready mock review cards with generic nickname/handle, star rating, highlighted quote, detailed benefit-based copy, and internal replacement notes only.
 - Final closing: summarize the product/result impression without purchase-action text.
 - Options/value information: make fit, components, and mutable facts understandable without embedding numeric prices, sales-channel names, or final-section action prompts.
 - FAQ: answer the worry directly before adding explanation.

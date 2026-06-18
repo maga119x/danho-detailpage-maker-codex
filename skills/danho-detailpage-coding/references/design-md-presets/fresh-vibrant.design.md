@@ -26,26 +26,26 @@ colors:
 typography:
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(5rem, 10vw, 8rem)
+    fontSize: clamp(4rem, 8vw, 6rem)
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(4.5rem, 9vw, 6.75rem)
+    fontSize: clamp(3.5rem, 7vw, 5.25rem)
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(3.5rem, 7vw, 5.5rem)
+    fontSize: clamp(2.875rem, 5.6vw, 4.25rem)
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 5vw, 3.75rem)
+    fontSize: clamp(2.25rem, 4.2vw, 3rem)
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 4vw, 2.75rem)
+    fontSize: clamp(2rem, 3.6vw, 2.375rem)
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
@@ -131,7 +131,7 @@ components:
 배경은 화이트, 단계적으로 옅은 그린(#f0f9f0 → #e8f5e8 → #d4ecd4). 메인 액센트는 #2e8b57 깊은 그린. 시트러스 오렌지(#ff8c42)를 강조 포인트로.
 
 ## Typography
-Paperlogy. 본문 32px. 헤드라인에 그린 그라데이션.
+Paperlogy. 본문 32px. 섹션 제목은 46~68px, 히어로는 56~84px 중심. 헤드라인에 그린 그라데이션.
 
 ## Layout
 860px. 배경 변화 풍부 (화이트 ↔ 옅은 그린 교차).
