@@ -7,12 +7,14 @@ Use this whenever creating a new detail page after planning.
 Do not generate final design images before the HTML layout exists.
 
 1. Build a complete HTML detail page from `PLANNING.md` and `DESIGN.md`.
-2. Make the HTML look like a finished ecommerce detail page with placeholders or support-image slots.
-3. Render and inspect the HTML at mobile widths.
-4. Create `image-plan.md` from the inspected HTML.
-5. Generate designed section images only for approved `FULL_IMAGE` sections.
-6. Replace those HTML sections with generated images in Phase B.
-7. Keep factual sections as editable `HTML_MIXED` or `HTML_ONLY`.
+2. Read the mobile screen-flow plan. If missing, create a temporary viewport storyboard before coding.
+3. Split dense content points into screen-sized sections before writing HTML.
+4. Make the HTML look like a finished ecommerce detail page with placeholders or support-image slots.
+5. Render and inspect the HTML at mobile widths.
+6. Create `image-plan.md` from the inspected HTML.
+7. Generate designed section images only for approved `FULL_IMAGE` sections.
+8. Replace those HTML sections with generated images in Phase B.
+9. Keep factual sections as editable `HTML_MIXED` or `HTML_ONLY`.
 
 ## Phase A Quality Bar
 
@@ -21,9 +23,12 @@ The first HTML version must not be a simple web page.
 It must already include:
 
 - ecommerce detail-page section rhythm
+- mobile screen roles and varied visual mass, not one repeated section skeleton
+- enough screen depth for the product complexity; do not compress multiple purchase judgments into one viewport
 - strong product hero or hook area
 - large visual slots where imagery will persuade
-- proof components such as quote cards, checklists, comparison rows, FAQ bubbles, price panels
+- proof components such as quote cards, checklists, comparison rows, FAQ bubbles, current-price guidance panels
+- a review/testimonial section; use supplied reviews or neutral replacement-ready dummy review cards without visible replacement warnings
 - mobile-readable typography
 - role-based color system
 
@@ -36,8 +41,11 @@ If Phase A looks unfinished without generated images, fix the HTML before image 
 - Plain centered text blocks with empty space
 - Desktop 2-column layouts squeezed into mobile
 - Repeated identical cards from top to bottom
+- One dense section per source bullet when the content needs multiple screen units
+- Core benefit, mechanism, proof, option, and FAQ all squeezed into one section
 - `413px` fixed-width page wrappers
 - Image generation prompts before layout decisions
+- visible sales channel names, proof markers, review replacement warnings, or production notes
 
 ## Section Design Pattern
 
@@ -62,6 +70,8 @@ Most editable sections should follow:
   </div>
 </section>
 ```
+
+This structure is only one medium-tempo pattern. Do not use it for every screen. Use `mobile-screen-storyboarding.md` and `commercial-layout-components.md` to choose impact, question, explainer, proof, compare, catalog, info, and policy screens.
 
 Full-image sections are allowed only after this HTML role has been planned:
 

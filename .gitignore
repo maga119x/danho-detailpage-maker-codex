@@ -6,6 +6,11 @@
 # Python
 __pycache__/
 *.py[cod]
+.python-site/
+/yaml/
+/_yaml/
+/PyYAML-*.dist-info/
+/pyyaml-*.dist-info/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -19,8 +24,11 @@ desktop.ini
 
 # Runtime outputs from detail-page projects
 projects/
+/output/
+/test-results/
 
 # Generated media and manifests
+/assets/
 assets/generated/
 assets/inbox/
 **/assets/generated/
@@ -36,3 +44,7 @@ assets/inbox/
 *.bak
 tmp/
 temp/
+
+# Local packaging and analysis artifacts
+/dist/
+/REFERENCE_DETAILPAGE_*.md

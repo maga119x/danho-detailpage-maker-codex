@@ -69,48 +69,15 @@ animation: any;
 }
 ```
 
-### 입체감 버튼 (3D Button)
+### 정적 CTA cue
 
 ```css
-/* Primary - 볼록한 버튼 */
-.btn-3d-primary {
-    display: inline-block;
-    background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
-    color: #ffffff;
-    padding: 16px 32px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.25),
-        0 2px 4px rgba(0,0,0,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-}
-
-/* Secondary - 살짝 떠있는 버튼 */
-.btn-3d-secondary {
-    display: inline-block;
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-    color: #1a1a1a;
-    padding: 16px 32px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-weight: 600;
-    box-shadow:
-        0 2px 8px rgba(0,0,0,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.8);
-}
-
-/* Gold (Dark Luxury) - 프리미엄 버튼 */
-.btn-3d-gold {
-    background: linear-gradient(180deg, #d4b574 0%, #c9a962 100%);
-    color: #0a0a0a;
-    border: none;
-    border-radius: 8px;
-    box-shadow:
-        0 4px 16px rgba(201, 169, 98, 0.35),
-        0 2px 4px rgba(201, 169, 98, 0.2),
-        inset 0 1px 0 rgba(255,255,255,0.2);
+.cta-cue {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 700;
+    border-top: 1px solid rgba(0,0,0,0.14);
+    padding-top: 18px;
 }
 ```
 
@@ -913,38 +880,20 @@ LENOVO CARES              ← 레이블이 왼쪽 정렬됨
 
 ---
 
-## Buttons & Badges
+## CTA Cues & Badges
 
 **⚠️ 정적 디자인: 호버 효과 없이 기본 상태에서 완성된 스타일**
 
-### Primary Button
+### Static CTA Cue
 ```css
-.cta-button {
-    display: inline-block;
-    background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
-    color: #ffffff;
-    border: none;
-    padding: 24px 48px;  /* 증가된 패딩 (터치 영역 확대) */
-    font-family: 'Paperlogy', sans-serif;
-    font-weight: 600;
-    font-size: var(--font-md);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);  /* 정적 그림자 */
-    text-decoration: none;
-    /* NO :hover, NO transition */
-}
-```
-
-### Secondary Button
-```css
-.cta-button-secondary {
-    display: inline-block;
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-    border: 2px solid #e0e0e0;  /* 테두리로 영역 명확화 */
+.cta-cue {
+    display: block;
     color: #1a1a1a;
-    padding: 24px 48px;  /* 증가된 패딩 (터치 영역 확대) */
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.14);
+    padding: 18px 0 0;
+    font-family: 'Paperlogy', sans-serif;
+    font-weight: 700;
+    font-size: var(--font-md);
     text-decoration: none;
 }
 ```
@@ -976,13 +925,11 @@ LENOVO CARES              ← 레이블이 왼쪽 정렬됨
 }
 ```
 
-### Dark Luxury Theme Buttons
+### Dark Luxury Theme Cue
 ```css
-/* Dark Luxury - CTA Button */
-.dark-luxury .cta-button {
-    background: linear-gradient(180deg, #d4b574 0%, #c9a962 100%);
-    color: #0a0a0a;
-    box-shadow: 0 4px 16px rgba(201, 169, 98, 0.3);  /* 골드 글로우 */
+.dark-luxury .cta-cue {
+    color: #d4b574;
+    border-top-color: rgba(212, 181, 116, 0.45);
 }
 
 /* Dark Luxury - Badge */

@@ -6,6 +6,8 @@ Use these patterns to convert raw Korean copy into designed static HTML.
 
 - Design must be complete in the default state.
 - Use image + copy + proof together; do not leave text floating far from media.
+- Choose the screen's dominant mass before choosing a component: image, type, proof, or card.
+- Split dense content into multiple screen-sized sections instead of adding more cards to one section.
 - Use a restrained color system. See `color-system.md`.
 - Avoid one repeated section layout across the whole page.
 - Keep internal planning labels out of the final UI.
@@ -14,12 +16,20 @@ Use these patterns to convert raw Korean copy into designed static HTML.
 
 | Content type | Pattern |
 |---|---|
+| Opening differentiation | comparison hook |
+| Desired result | result-first hero |
+| Transition to why/how | question transition |
+| Mechanism / principle | mechanism explainer |
+| Measurement / quantified proof | measurement proof |
+| Awards / certification / sales proof | proof board |
+| Use cases | use-case grid |
+| Product details | feature callout map |
 | Customer thoughts | speech bubbles |
 | Reviews | quote cards |
 | Conditions / fit check | checklist card + support image |
 | Installation | large process image + numbered steps |
 | Comparison | mobile comparison rows |
-| Price / options | product image + price panel |
+| Current-price guidance / options | product image + current-price guidance panel |
 | FAQ | support image + question bubbles |
 | Emotional hook / CTA | designed full-section image |
 

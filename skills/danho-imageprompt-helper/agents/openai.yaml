@@ -1,7 +1,7 @@
 interface:
   display_name: "Danho Image Prompt Helper"
-  short_description: "Create prompts and native images for hybrid sections."
-  default_prompt: "Use $danho-imageprompt-helper to create designed full-section images and support visuals."
+  short_description: "Create prompts and GPT Image 2.0 native image_gen assets."
+  default_prompt: "Use $danho-imageprompt-helper to create prompts and generate section images only through the built-in Codex image_gen.imagegen GPT Image 2.0 (gpt-image-2) native path."
 
 policy:
   allow_implicit_invocation: true

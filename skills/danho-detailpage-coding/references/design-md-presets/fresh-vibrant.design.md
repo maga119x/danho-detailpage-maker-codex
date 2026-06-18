@@ -54,11 +54,11 @@ typography:
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: clamp(.875rem, 3.2vw, 1rem)
+    fontSize: clamp(1rem, 3.4vw, 1.0625rem)
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: .8125rem
+    fontSize: clamp(1rem, 3.2vw, 1rem)
     fontWeight: 500
 
 rounded:
@@ -106,13 +106,12 @@ components:
     padding: 24px
     border: "1px solid {colors.border}"
     elevation: "{elevation.sm}"
-  cta-button:
+  cta-cue:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.bg}"
     typography: "{typography.body-lg}"
-    rounded: "{rounded.xl}"
-    padding: "28px 80px"
-    elevation: "{elevation.lg}"
+    rounded: "{rounded.sm}"
+    padding: "16px 0"
   stat-value:
     typography: "{typography.h1}"
     textColor: "{colors.primary}"
@@ -144,7 +143,7 @@ Paperlogy. 본문 32px. 헤드라인에 그린 그라데이션.
 라운드 14~18px. CTA는 xl로 둥글게 (음식의 부드러움 강조).
 
 ## Components
-- `cta-button`: 깊은 그린 배경, 화이트 텍스트
+- `cta-cue`: 버튼이 아닌 정적 마감 문구. 깊은 그린 포인트 텍스트 또는 얇은 구분선과 함께 사용
 - `badge`: 옅은 그린 배경 + 진한 그린 텍스트
 - 배경 변화: 화이트 ↔ `bg-var-1`(옅은 그린) ↔ `bg-var-2`(미디엄 그린)
 

@@ -2,22 +2,23 @@
 
 ## Hook Section Templates
 
-### Question Hook (질문형)
+### Fit Check Hook (구매 조건 확인형)
 ```
-왜 어떤 사람은 늘 {positive_outcome}일까요?
-{product}의 비밀, 이제 공개합니다.
-```
-
-### Bold Statement Hook (선언형)
-```
-{time_period}간 전해 내려온 {benefit}의 비밀
-당신의 {target_area}을 바꿔줄 단 하나의 {product_type}
+구매 전, 이 부분만 꼭 확인해 주세요!
+{condition}라면 {benefit}을 바로 사용할 수 있어요.
 ```
 
-### Pain Point Hook (고통형)
+### Daily Moment Hook (생활 장면형)
 ```
-{pain_point}로 고민하셨나요?
-이제 그 걱정, 내려놓으세요.
+{daily_moment} 때,
+{pain_or_inconvenience} 때문에 불편하셨다면
+{simple_outcome}을 더 쉽게 만들 수 있어요.
+```
+
+### Benefit Hook (베네핏형)
+```
+{buyer_action}만 하면
+{desired_outcome}을 더 편하게 만들 수 있어요.
 ```
 
 ## Empathy List Templates
@@ -25,7 +26,7 @@
 **⚠️ 주의: `☐`, `□` 같은 체크박스 기호 사용 금지** → 코딩 시 SVG 아이콘으로 변환됨
 
 ```
-혹시 요즘 이런 생각 하셨나요?
+혹시 이런 순간이 자주 있나요?
 
 • {pain_point_1}
 • {pain_point_2}
@@ -35,22 +36,21 @@
 
 ### Empathy Message Template
 ```
-그 마음, {brand}가 알고 있습니다.
+매번 큰 불편은 아니어도,
+반복되면 은근히 신경 쓰이는 순간이 있어요.
 
-{emotional_understanding}
-
-중요한 건 {core_benefit}이니까요.
+그래서 {product}는 {core_benefit}에 집중했어요.
 ```
 
 ## Target Audience Templates
 
 ```
-이런 분들께 추천드립니다
+이런 상황이라면 특히 잘 맞아요
 
-🌱 {audience_1} - {benefit_1}
-📈 {audience_2} - {benefit_2}  
-🧘 {audience_3} - {benefit_3}
-🎁 {audience_4} - {benefit_4}
+• {situation_1} - {benefit_1}
+• {situation_2} - {benefit_2}
+• {situation_3} - {benefit_3}
+• {situation_4} - {benefit_4}
 ```
 
 ## Feature Description Templates
@@ -58,30 +58,45 @@
 ### Benefit-First Format
 ```
 {feature_title}
-{how_it_works}. {why_it_matters}.
+{buyer_action}할 때 {benefit}을 느낄 수 있어요.
+{proof_or_limit}.
 ```
 
 ### Problem-Solution Format
 ```
-{problem}?
-{product_feature}가 {solution}해줍니다.
+{daily_problem} 때문에 불편했다면,
+{product_feature}로 {consumer_outcome}을 만들 수 있어요.
 ```
 
 ## Review Templates
 
-### Standard Review
+Every detail page needs a review/testimonial section. Use supplied real reviews when available. If none are supplied, use replacement-ready dummy review cards and mark them only in planning/proof logs as `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
+
+Do not invent names, stars, ages, demographics, dates, review counts, purchase counts, or claims such as `실제 구매자`.
+
+### Review Headline Rule
+
+Use a check-oriented headline. Do not make the headline sound like a staged reviewer is speaking before the review cards.
+
+- Supplied real reviews: `실제 사용자 후기를 확인해 보세요`, `구매 전, 실제 사용 후기를 살펴보세요`
+- Replacement-ready placeholders: `사용 후기를 확인해 보세요`, `사용 후기로 확인할 포인트`
+- Avoid: `먼저 써본 사람이 말해요`, `먼저 써본 사람들의 이야기`, `써본 사람은 이렇게 말합니다`
+
+### Supplied Review Rewrite
 ```
-★★★★★
-{specific_experience}. {outcome}. {recommendation}.
-— {demographic} {name} 님
+실제 사용자 후기를 확인해 보세요
+
+{supplied_review_excerpt_rewritten_naturally}
+— {supplied_reviewer_label}
 ```
 
-### Before/After Review
+### Replacement-Ready Dummy Reviews
 ```
-★★★★★
-{before_situation}했는데, {product} 사용 후 {after_result}!
-{additional_praise}.
-— {demographic} {name} 님
+사용 후기를 확인해 보세요
+
+{benefit_based_neutral_review_1}
+{benefit_based_neutral_review_2}
+{benefit_based_neutral_review_3}
 ```
 
 ## FAQ Templates
@@ -102,15 +117,17 @@ A: {direct_answer}. {proof_point}. {additional_reassurance}.
 ## CTA Templates
 
 ### Urgency CTA
+Use only when the promotion, deadline, stock limit, or benefit is factual.
+
 ```
-🔥 {promotion_type} · {benefit}
-지금 바로 {action}
+{promotion_type} · {benefit}
+필요한 순간이 자주 있다면 지금 선택해 주세요.
 ```
 
 ### Value CTA
 ```
 {product_name}
-{price}원
+현재 혜택은 옵션 영역에서 확인
 {shipping_info} · {return_policy}
 ```
 
@@ -129,18 +146,18 @@ A: {direct_answer}. {proof_point}. {additional_reassurance}.
 | 소재 | {materials} |
 | 규격 | {dimensions} |
 | 구성품 | {included_items} |
-| 가격 | {price}원 |
+| 현재 혜택 | 옵션 영역에서 확인 |
 
 ## Brand Tagline Templates
 
-### Philosophy Type
+### Buyer Outcome Type
 ```
-{action}하고, {result}를 채우다
+{buyer_daily_moment}을 더 편하게
 ```
 
 ### Promise Type
 ```
-당신의 {life_area}에 {benefit}을 더하다
+{worry}은 줄이고, {benefit}은 더 쉽게
 ```
 
 ### Origin Type
@@ -150,11 +167,11 @@ A: {direct_answer}. {proof_point}. {additional_reassurance}.
 
 ## Section Transition Phrases
 
-- "그렇다면 왜 {product}일까요?"
-- "비밀은 바로 {feature}에 있습니다"
-- "{brand}가 {product}를 만든 이유"
-- "수많은 분들이 선택한 이유"
-- "직접 경험해보세요"
+- "먼저, 우리 집에 맞는지 확인해 주세요."
+- "자석이 붙는 문이라면 설치는 간단해요."
+- "손이 부족한 순간에는 이렇게 편해져요."
+- "걱정되는 부분은 여기서 확인해 주세요."
+- "구매 전 마지막으로 구성과 조건을 확인해 주세요."
 
 ## Founder/Team Templates
 
@@ -212,17 +229,17 @@ THE ARTISAN
 ### Standard Format
 ```
 💭 "{고객의 의심/우려}"
-{해소 방법 + 객관적 근거}
-[강조할 수치/뱃지]
+{해소 방법 + supplied 객관적 근거}
+[supplied 수치/뱃지]
 ```
 
 ### Comparison Format
 ```
 💭 "{가격/가치 의심}"
-{비교 대상}과 비교하면:
+{비교 대상}과 비교하면
 - {비교 포인트 1}
 - {비교 포인트 2}
-결론: {가성비/가치 강조}
+{buyer_decision_summary}
 ```
 
 ### Guarantee Format
@@ -234,46 +251,45 @@ THE ARTISAN
 
 ### Crowdfunding Specific
 ```
-💭 "펀딩이라 배송이 늦어지지 않을까?"
-현재 {진행 단계} 완료.
-펀딩 종료 후 {기간} 내 순차 배송.
-[진행 상황 투명 공개]
+💭 "배송이 늦어지지 않을까?"
+현재 {supplied 진행 단계}입니다.
+{supplied 배송 일정}에 맞춰 안내합니다.
 
 💭 "스타트업이라 A/S가 걱정돼요"
-{기간} 무상 A/S + 평생 유상 수리.
-고객센터 {운영 정보}
+{supplied 보증 기간} A/S 기준을 확인해 주세요.
+고객센터 {supplied 운영 정보}
 ```
 
 ## Genre-Specific Phrases
 
 ### 뷰티/스킨케어
-- "피부가 달라지는 경험"
-- "과학이 증명한 효과"
+- "아침에 만졌을 때 편안한 피부감"
+- "성분과 사용감으로 확인하는 변화"
 - "민감성 피부도 안심"
 - "트러블 없이 순하게"
 
 ### 건강기능식품
-- "몸이 먼저 알아봅니다"
-- "자연에서 찾은 답"
-- "매일 한 알로 시작하는 변화"
-- "과학적 배합, 자연의 원료"
+- "매일 챙기기 쉬운 루틴"
+- "원료와 함량을 먼저 확인해 주세요"
+- "바쁜 날에도 간단하게"
+- "섭취 기준을 지켜 꾸준히"
 
 ### 패션/의류
-- "입는 순간 달라지는 실루엣"
+- "입었을 때 바로 느껴지는 핏"
 - "편안함과 스타일, 둘 다"
 - "세탁해도 변하지 않는 핏"
 - "매일 입고 싶은 옷"
 
 ### 가전/테크
-- "기술이 일상을 바꿉니다"
-- "복잡한 건 우리가, 편리함은 당신이"
-- "한 번 쓰면 못 돌아갑니다"
-- "스마트한 선택"
+- "복잡한 설정 없이 바로 사용"
+- "손이 덜 가는 일상"
+- "자주 쓰는 기능은 더 간단하게"
+- "구매 전 호환 조건을 먼저 확인"
 
 ### 크라우드펀딩
 - "함께 만들어가는 제품"
 - "첫 번째 서포터가 되어주세요"
-- "당신의 지지가 혁신이 됩니다"
+- "필요한 제품을 함께 완성해 주세요"
 - "아이디어에서 현실로"
 
 ### 장인/핸드메이드

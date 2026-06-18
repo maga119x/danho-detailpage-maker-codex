@@ -278,7 +278,7 @@ BASE_CSS = """
         margin-top: 4px;
     }
     .check-text {
-        font-size: var(--font-body-sm-size, clamp(.9375rem, 3.4vw, 1rem));
+        font-size: var(--font-body-sm-size, clamp(1rem, 3.4vw, 1.0625rem));
         color: var(--color-text-secondary);
         line-height: 1.6;
     }
@@ -304,7 +304,7 @@ BASE_CSS = """
     .stack-card .badge {
         display: inline-block;
         margin-bottom: 16px;
-        font-size: .8125rem;
+        font-size: var(--font-caption-size, clamp(1rem, 3.2vw, 1rem));
     }
     .stack-card .section-subtitle {
         margin-bottom: 12px;
@@ -325,7 +325,7 @@ BASE_CSS = """
         line-height: 1.7;
     }
     .card .badge {
-        font-size: .8125rem;
+        font-size: var(--font-caption-size, clamp(1rem, 3.2vw, 1rem));
     }
     /* 카드 상단 풀-블리드 이미지 (카드+이미지 결합 패턴) */
     .stack-card.has-image {
@@ -391,7 +391,7 @@ BASE_CSS = """
         text-align: center;
     }
     .stat-label {
-        font-size: var(--font-body-sm-size, clamp(.875rem, 3.2vw, 1rem));
+        font-size: var(--font-body-sm-size, clamp(1rem, 3.4vw, 1.0625rem));
         color: var(--color-text-muted);
     }
 
@@ -406,14 +406,13 @@ BASE_CSS = """
         margin-right: auto;
     }
 
-    /* ===== CTA BUTTON LINK RESET (DESIGN.md 컴포넌트로 생성된 .cta-button을 <a>로 써도 깨지지 않게) ===== */
-    a.cta-button,
-    .cta-button {
-        display: inline-block;
+    /* ===== STATIC CTA CUE (상세페이지는 버튼 UI를 만들지 않음) ===== */
+    .cta-cue {
+        display: block;
         text-decoration: none;
     }
 
-    /* ===== PRICE DISPLAY (CTA 가격 강조 전용. stat-item과 달리 폭 제약 없음) ===== */
+    /* ===== CURRENT PRICE GUIDANCE (numeric prices must stay out of fixed detail-page UI) ===== */
     .price-display {
         display: flex;
         flex-direction: column;

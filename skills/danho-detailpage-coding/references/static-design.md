@@ -23,7 +23,7 @@
 
 ### 1. 호버 효과의 문제점
 - 호버 시에만 보이는 효과는 **정적 상태에서 디자인이 허전해 보임**
-- 버튼, 카드 등이 평범하고 밋밋하게 보이는 원인
+- 카드, CTA cue 등이 평범하고 밋밋하게 보이는 원인
 
 ### 2. 이커머스 상세페이지 특성
 - 사용자는 **스크롤하며 읽는 콘텐츠** → 인터랙션 불필요
@@ -60,7 +60,7 @@
     transform: scale(1.05);
 }
 
-.button:hover {
+.interactive-control:hover {
     background: #333;
 }
 
@@ -77,7 +77,7 @@
     transition: transform 0.2s ease;
 }
 
-.button {
+.interactive-control {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -131,32 +131,17 @@
 }
 ```
 
-### 버튼 컴포넌트
+### 정적 CTA cue 컴포넌트
 
 ```css
-/* ✅ REQUIRED - Primary 버튼 (볼록한 느낌) */
-.cta-button {
-    background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
-    border: none;
-    border-radius: 10px;
-    padding: 24px 48px;
-    color: #ffffff;
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.25),
-        0 2px 4px rgba(0,0,0,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.1);  /* 상단 하이라이트 */
-}
-
-/* ✅ REQUIRED - Secondary 버튼 (살짝 떠있는 느낌) */
-.cta-button-secondary {
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 24px 48px;
+/* ✅ REQUIRED - Static CTA cue (버튼처럼 보이지 않는 마감 문구) */
+.cta-cue {
+    display: block;
     color: #1a1a1a;
-    box-shadow:
-        0 2px 8px rgba(0,0,0,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.8);
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(0,0,0,0.14);
 }
 ```
 
@@ -167,7 +152,7 @@
     /* Level 1: 살짝 떠있음 (기본 카드, 뱃지) */
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
 
-    /* Level 2: 중간 높이 (강조 카드, 버튼) */
+    /* Level 2: 중간 높이 (강조 카드, 입력 정보) */
     --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
 
     /* Level 3: 높이 떠있음 (CTA, 중요 요소) */
@@ -217,8 +202,6 @@
 | 요소 | Shadow | Border | Gradient |
 |------|--------|--------|----------|
 | 카드 | `--shadow-md` | 1px solid | 배경 subtle |
-| 버튼 (Primary) | `--shadow-md` | none | top→bottom dark |
-| 버튼 (Secondary) | `--shadow-sm` | 2px solid | top→bottom light |
 | 뱃지 | `--shadow-sm` | optional | subtle |
 | 입력 필드 | inset shadow | 1px solid | none |
 | 섹션 구분 | `--shadow-sm` | bottom only | none |
@@ -237,5 +220,5 @@ HTML 제출 전 확인 사항:
 - [ ] NO `:focus` effects (스타일 변경 금지)
 - [ ] 모든 디자인 요소가 기본 상태에서 완성되어 보임
 - [ ] 카드에 기본 상태 `box-shadow`, `border` 적용됨
-- [ ] 버튼에 기본 상태 `box-shadow`, `inset highlight` 적용됨
-- [ ] CTA 영역에 `--shadow-lg` 이상 적용됨
+- [ ] 버튼 UI, `.cta-button`, 링크 버튼, 버튼처럼 보이는 둥근 CTA 그래픽이 없음
+- [ ] CTA 영역은 정적 문구, 제품 이미지, 구분선, 옵션 cue로 마무리됨

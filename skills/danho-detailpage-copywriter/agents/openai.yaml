@@ -1,0 +1,7 @@
+interface:
+  display_name: "Danho Detailpage Copywriter"
+  short_description: "Score and rewrite Korean ecommerce copy with native Korean gates."
+  default_prompt: "Use $danho-detailpage-copywriter to infer copy context, run native Korean humanizer/grammar/style gates, score PLANNING.md section copy, and rewrite visible copy until it is natural Korean benefit-first ecommerce copy."
+
+policy:
+  allow_implicit_invocation: true

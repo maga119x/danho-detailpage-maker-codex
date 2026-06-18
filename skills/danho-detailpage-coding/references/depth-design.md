@@ -31,7 +31,7 @@
     /* Level 1: 살짝 떠있음 (기본 카드, 뱃지) */
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
 
-    /* Level 2: 중간 높이 (강조 카드, 버튼) */
+    /* Level 2: 중간 높이 (강조 카드, 입력 정보) */
     --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
 
     /* Level 3: 높이 떠있음 (CTA, 중요 요소) */
@@ -47,8 +47,8 @@
 | Level | 변수 | 높이 느낌 | 용도 |
 |-------|------|-----------|------|
 | **sm** | `--shadow-sm` | 살짝 떠있음 | 기본 카드, 뱃지, 태그 |
-| **md** | `--shadow-md` | 중간 높이 | 강조 카드, 버튼, 인풋 |
-| **lg** | `--shadow-lg` | 높이 떠있음 | CTA 버튼, 중요 요소 |
+| **md** | `--shadow-md` | 중간 높이 | 강조 카드, 입력 정보 |
+| **lg** | `--shadow-lg` | 높이 떠있음 | 중요 카드, 증거 박스 |
 | **xl** | `--shadow-xl` | 최상위 | 모달, 팝업, 오버레이 |
 
 ---
@@ -58,8 +58,6 @@
 | 요소 | Shadow | Border | Gradient |
 |------|--------|--------|----------|
 | 카드 | `--shadow-md` | 1px solid | 배경 subtle |
-| 버튼 (Primary) | `--shadow-md` | none | top→bottom dark |
-| 버튼 (Secondary) | `--shadow-sm` | 2px solid | top→bottom light |
 | 뱃지 | `--shadow-sm` | optional | subtle |
 | 입력 필드 | inset shadow | 1px solid | none |
 | 섹션 구분 | `--shadow-sm` | bottom only | none |
@@ -92,30 +90,15 @@
 }
 ```
 
-### 버튼 입체감
+### 정적 CTA cue
 
 ```css
-/* Primary Button - 볼록한 느낌 */
-.cta-button {
-    background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
-    border: none;
-    border-radius: 10px;
-    padding: 24px 48px;  /* 증가된 패딩 (터치 영역 확대) */
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.25),
-        0 2px 4px rgba(0,0,0,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.1);  /* 상단 하이라이트 */
-}
-
-/* Secondary Button - 살짝 떠있는 느낌 */
-.cta-button-secondary {
-    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 24px 48px;  /* 증가된 패딩 (터치 영역 확대) */
-    box-shadow:
-        0 2px 8px rgba(0,0,0,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.8);
+.cta-cue {
+    display: block;
+    border-top: 1px solid rgba(0,0,0,0.14);
+    padding-top: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
 }
 ```
 
@@ -164,13 +147,11 @@
         0 1px 2px rgba(0,0,0,0.04);
 }
 
-/* Clean Minimal - 버튼 */
-.clean-minimal .cta-button {
-    background: linear-gradient(180deg, #2a2a2a 0%, #000000 100%);
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.15),
-        0 2px 4px rgba(0,0,0,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+/* Clean Minimal - 정적 CTA cue */
+.clean-minimal .cta-cue {
+    color: #2a2a2a;
+    border-top: 1px solid rgba(0,0,0,0.14);
+    box-shadow: none;
 }
 
 /* Clean Minimal - 섹션 구분 */
@@ -194,13 +175,11 @@
         0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Dark Luxury - 골드 액센트 버튼 */
-.dark-luxury .cta-button {
-    background: linear-gradient(135deg, #c9a962 0%, #a68b4b 100%);
-    box-shadow:
-        0 6px 20px rgba(201,169,98,0.3),
-        0 3px 8px rgba(0,0,0,0.2),
-        inset 0 1px 0 rgba(255,255,255,0.2);
+/* Dark Luxury - 골드 액센트 cue */
+.dark-luxury .cta-cue {
+    color: #c9a962;
+    border-top: 1px solid rgba(201,169,98,0.35);
+    box-shadow: none;
 }
 
 /* Dark Luxury - CTA 박스 */
@@ -228,13 +207,11 @@
         0 2px 6px rgba(139,115,85,0.06);
 }
 
-/* Warm Natural - 버튼 */
-.warm-natural .cta-button {
-    background: linear-gradient(180deg, #8b7355 0%, #6d5a43 100%);
-    box-shadow:
-        0 4px 16px rgba(139,115,85,0.25),
-        0 2px 6px rgba(139,115,85,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.15);
+/* Warm Natural - 정적 CTA cue */
+.warm-natural .cta-cue {
+    color: #8b7355;
+    border-top: 1px solid rgba(139,115,85,0.22);
+    box-shadow: none;
 }
 
 /* Warm Natural - 섹션 구분 */
@@ -253,10 +230,9 @@
 - [ ] `border` 적용됨 (1px solid)
 - [ ] `background` 그라데이션 적용됨
 
-**버튼:**
-- [ ] `box-shadow` 적용됨 (최소 `--shadow-md`)
-- [ ] `inset` 하이라이트 적용됨 (상단)
-- [ ] Primary/Secondary 구분됨
+**버튼 금지:**
+- [ ] `<button>`, `.cta-button`, 링크 버튼, 버튼형 rounded rectangle 사용 안 함
+- [ ] CTA는 정적 문구/구분선/제품 이미지/옵션 cue로 처리됨
 
 **CTA 영역:**
 - [ ] `--shadow-lg` 이상 적용됨

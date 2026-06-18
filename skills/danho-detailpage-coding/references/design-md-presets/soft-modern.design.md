@@ -54,11 +54,11 @@ typography:
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: clamp(.875rem, 3.2vw, 1rem)
+    fontSize: clamp(1rem, 3.4vw, 1.0625rem)
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: .8125rem
+    fontSize: clamp(1rem, 3.2vw, 1rem)
     fontWeight: 500
 
 rounded:
@@ -106,13 +106,12 @@ components:
     padding: 24px
     border: "1px solid {colors.border}"
     elevation: "{elevation.sm}"
-  cta-button:
+  cta-cue:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.bg}"
     typography: "{typography.body-lg}"
-    rounded: "{rounded.xl}"
-    padding: "28px 80px"
-    elevation: "{elevation.lg}"
+    rounded: "{rounded.sm}"
+    padding: "16px 0"
   stat-value:
     typography: "{typography.h1}"
     textColor: "{colors.primary}"
@@ -144,7 +143,7 @@ Paperlogy. 본문 32px. 헤드라인 굵기는 다른 테마와 동일하지만 
 라운드 16~20px (clean-minimal보다 더 둥글게). CTA는 xl(28px)로 더 둥근 느낌.
 
 ## Components
-- `cta-button`: 베이지 핑크 배경, 화이트 텍스트, 둥근 모서리(rounded.xl)
+- `cta-cue`: 버튼이 아닌 정적 마감 문구. 베이지 핑크 포인트 텍스트 또는 얇은 구분선과 함께 사용
 - `badge`: 블러시 핑크 배경
 - 배경 변화: `bg` → `bg-var-1` → `bg-var-3`(블러시) 순환
 

@@ -9,7 +9,7 @@ Commercial detail pages should not use many unrelated accent colors. Use role-ba
 | Role | Purpose | Example |
 |---|---|---|
 | Key | body text, dark sections, strong contrast | deep navy / charcoal |
-| Main | brand emphasis, price, active proof, key icon | restrained blue or brand primary |
+| Main | brand emphasis, current-price guidance, active proof, key icon | restrained blue or brand primary |
 | Sub | neutral backgrounds, cards, soft surfaces | cool gray / blue tint |
 | Exception | warning, limitation, unavailable condition | muted amber or red, used rarely |
 
@@ -45,7 +45,7 @@ Commercial detail pages should not use many unrelated accent colors. Use role-ba
 - Tags and badges: `--main-tint` background, `--main` text
 - Cards: white or `--soft`
 - Dark sections: `--key`
-- Price: `--main`
+- Current-price guidance: `--main`
 - Checklist icon background: `--main-tint`
 - Comparison winner: `--main`, not a new green
 - Warning or incompatible product note: `--exception-tint` + `--exception`

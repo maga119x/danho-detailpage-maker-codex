@@ -22,6 +22,7 @@ img {
 
 Do not use a single fixed ratio for all sections. Build a vertical mobile rhythm instead.
 Do not fix the whole page to 413px. Use responsive widths and verify at phone sizes.
+Design screen-sized purchase judgments. A major content point can and should become multiple sections when it contains several claims, proof types, or buying decisions.
 
 Recommended HTML section order:
 
@@ -31,6 +32,14 @@ Recommended HTML section order:
 4. proof component: quote, checklist, bubble, comparison, option card, FAQ
 
 Use `min-height` only as a minimum vertical feel, not as the design itself.
+
+Screen rhythm rules:
+
+- Assign each screen one dominant mass: image, type, proof, or cards.
+- Split crowded sections before styling. Do not solve density with smaller fonts.
+- Insert question, result, or proof screens between dense info/card screens.
+- Keep claim and evidence within one screen of each other.
+- Normal products usually need 14-22 screen-sized sections; technical or option-heavy products often need more.
 
 ## HTML-First Requirement
 
@@ -44,7 +53,7 @@ Required:
 - fit/condition section
 - install or use-confidence section
 - proof/review section
-- price/options section when product data exists
+- options/current-price guidance section when product data exists
 - FAQ or objection handling
 - final CTA
 
@@ -100,7 +109,8 @@ Support images can live inside the section when they tighten the argument.
 - Avoid 2-column layouts unless desktop-only or content is very short.
 - Use comparison rows instead of dense tables.
 - Use quote cards for reviews.
-- Use price panels for options.
+- Use review/testimonial cards even when real reviews are not supplied; placeholder status must stay internal and visible cards must not contain fake specifics.
+- Use option/benefit guidance panels for options. Do not hard-code numeric prices or sales channel names in the detail page.
 - Use grids only for short labels or 1-word/2-word items.
 
 ## Section IDs
@@ -132,6 +142,8 @@ Check at 393px width:
 - `animation`
 - `@keyframes`
 - card inside card
+- over-compressed sections that combine problem, solution, mechanism, proof, caveat, and action
 - fixed global aspect-ratio for all sections
 - fixed `width: 413px` page wrappers
 - image generation before HTML layout and image-plan
+- visible `NEEDS_PROOF`, `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`, sales channel names, or channel-specific instructions

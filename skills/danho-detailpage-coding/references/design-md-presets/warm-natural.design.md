@@ -54,11 +54,11 @@ typography:
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: clamp(.875rem, 3.2vw, 1rem)
+    fontSize: clamp(1rem, 3.4vw, 1.0625rem)
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: .8125rem
+    fontSize: clamp(1rem, 3.2vw, 1rem)
     fontWeight: 500
 
 rounded:
@@ -106,13 +106,12 @@ components:
     padding: 24px
     border: "1px solid {colors.border}"
     elevation: "{elevation.sm}"
-  cta-button:
+  cta-cue:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.bg}"
     typography: "{typography.body-lg}"
-    rounded: "{rounded.lg}"
-    padding: "28px 80px"
-    elevation: "{elevation.lg}"
+    rounded: "{rounded.sm}"
+    padding: "16px 0"
   stat-value:
     typography: "{typography.h1}"
     textColor: "{colors.primary}"
@@ -144,7 +143,7 @@ Paperlogy. 본문 32px 동일. 헤드라인은 그라데이션 + 부드러운 sh
 라운드 12~16px. 자연주의 무드라 다소 둥근 느낌 강조.
 
 ## Components
-- `cta-button`: 흙갈색 배경, 크림 텍스트
+- `cta-cue`: 버튼이 아닌 정적 마감 문구. 흙갈색 포인트 텍스트 또는 얇은 구분선과 함께 사용
 - `badge`: 옅은 베이지 배경 + 갈색 텍스트
 - 배경 변화: `bg` → `bg-var-1` → `bg-var-2` → 중간에 `bg-inverted`(다크) 한 번
 

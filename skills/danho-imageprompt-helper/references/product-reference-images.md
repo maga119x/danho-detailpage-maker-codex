@@ -12,7 +12,7 @@ Default behavior:
 
 1. Store user images under `assets/inbox/`.
 2. Select one or more canonical product references.
-3. Use those references as image-generation inputs for every generated product or lifestyle image.
+3. Make those references visible with `view_image`, then use them through the built-in `image_gen.imagegen` GPT Image 2.0 (`gpt-image-2`) context for every generated product or lifestyle image.
 4. Save the newly generated results under `assets/generated/`.
 5. Use generated files in final HTML unless the plan explicitly says to use the original image directly.
 
@@ -44,7 +44,7 @@ Before generation, write a short lock block in `prompts/banners.md` or `prompts/
   - logo/package marks when visible
   - distinctive components and accessories
 - do not:
-  - invent a different model
+  - invent a different product model
   - change the colorway
   - add buttons, holes, labels, or parts not present in the reference
   - replace the product with a generic stock object
@@ -52,7 +52,7 @@ Before generation, write a short lock block in `prompts/banners.md` or `prompts/
 
 ## Prompt Pattern
 
-For native image generation, pass the product image as reference input and include this language:
+For native image generation, inspect the product image with `view_image` first. If the built-in runtime supports explicit attachment, use the visible image as the reference input. If no explicit attachment parameter is exposed, still call `image_gen.imagegen` through the GPT Image 2.0 (`gpt-image-2`) native path with this product-lock language:
 
 ```text
 Use the attached product reference image as the source of truth for the product. Preserve the same product shape, proportions, material, color, finish, and visible details. Create a new ecommerce detail-page image for [section purpose]. Do not copy the reference photo as-is; generate a new scene/design while keeping the product consistent.
