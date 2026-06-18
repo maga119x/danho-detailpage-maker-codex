@@ -1,14 +1,14 @@
 {
-  "name": "danho-detailpage-maker-codex-local",
+  "name": "danho-detailpage-maker-codex",
   "interface": {
-    "displayName": "Danho Detailpage Maker Codex Local"
+    "displayName": "Danho Detailpage Maker Codex"
   },
   "plugins": [
     {
       "name": "danho-detailpage-maker-codex",
       "source": {
         "source": "local",
-        "path": "./"
+        "path": "./plugins/danho-detailpage-maker-codex"
       },
       "policy": {
         "installation": "AVAILABLE",

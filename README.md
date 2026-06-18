@@ -37,6 +37,8 @@ Add this repository as a Codex plugin marketplace:
 codex plugin marketplace add maga119x/danho-detailpage-maker-codex --ref main
 ```
 
+The repository is structured as a marketplace root. Its marketplace entry points to the plugin at `./plugins/danho-detailpage-maker-codex`.
+
 Then open Codex, install `danho-detailpage-maker-codex` from the added marketplace, and start a new thread so the plugin skills are loaded.
 
 If your Codex version expects a Git URL instead of `owner/repo`, use:
@@ -45,7 +47,7 @@ If your Codex version expects a Git URL instead of `owner/repo`, use:
 codex plugin marketplace add git@github.com:maga119x/danho-detailpage-maker-codex.git --ref main
 ```
 
-## Manual Local Install
+## Manual Local Marketplace Install
 
 Clone the repository:
 
@@ -53,32 +55,19 @@ Clone the repository:
 git clone git@github.com:maga119x/danho-detailpage-maker-codex.git
 ```
 
-Add or update your personal marketplace file at `~/.agents/plugins/marketplace.json`:
+Add the cloned repository as a local marketplace root:
 
-```json
-{
-  "name": "danho-detailpage-maker-codex-local",
-  "interface": {
-    "displayName": "Danho Detailpage Maker Codex Local"
-  },
-  "plugins": [
-    {
-      "name": "danho-detailpage-maker-codex",
-      "source": {
-        "source": "local",
-        "path": "./"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    }
-  ]
-}
+```bash
+codex plugin marketplace add /path/to/danho-detailpage-maker-codex
 ```
 
-For local marketplace installs, keep the marketplace file relative to the cloned repository or adjust `source.path` to point at the plugin root.
+On Windows, pass the absolute clone path, for example:
+
+```powershell
+codex plugin marketplace add E:\aiagents\danho-detailpage-maker-codex
+```
+
+The marketplace file at `.agents/plugins/marketplace.json` resolves `source.path` to `./plugins/danho-detailpage-maker-codex`.
 
 ## Usage
 
@@ -150,16 +139,18 @@ build/sections/
 ## Repository Layout
 
 ```text
-.codex-plugin/plugin.json
 .agents/plugins/marketplace.json
-skills/
-  danho/
-  danho-detailpage-workflow/
-  danho-detailpage-planning/
-  danho-detailpage-copywriter/
-  danho-detailpage-pm-reviewer/
-  danho-detailpage-coding/
-  danho-imageprompt-helper/
+plugins/
+  danho-detailpage-maker-codex/
+    .codex-plugin/plugin.json
+    skills/
+      danho/
+      danho-detailpage-workflow/
+      danho-detailpage-planning/
+      danho-detailpage-copywriter/
+      danho-detailpage-pm-reviewer/
+      danho-detailpage-coding/
+      danho-imageprompt-helper/
 ```
 
 ## License

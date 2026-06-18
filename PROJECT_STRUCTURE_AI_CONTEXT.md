@@ -21,20 +21,21 @@
 
 ```text
 danho-detailpage-maker-codex/
-├── .codex-plugin/
-│   └── plugin.json
 ├── .agents/
 │   └── plugins/
 │       └── marketplace.json
-├── assets/
-└── skills/
-    ├── danho/
-    ├── danho-detailpage-workflow/
-    ├── danho-detailpage-planning/
-    ├── danho-detailpage-copywriter/
-    ├── danho-detailpage-pm-reviewer/
-    ├── danho-detailpage-coding/
-    └── danho-imageprompt-helper/
+└── plugins/
+    └── danho-detailpage-maker-codex/
+        ├── .codex-plugin/
+        │   └── plugin.json
+        └── skills/
+            ├── danho/
+            ├── danho-detailpage-workflow/
+            ├── danho-detailpage-planning/
+            ├── danho-detailpage-copywriter/
+            ├── danho-detailpage-pm-reviewer/
+            ├── danho-detailpage-coding/
+            └── danho-imageprompt-helper/
 ```
 
 ### Main Skills
@@ -68,7 +69,7 @@ project:
     - 이미지 반영 후 최종 상세페이지 제작
 
 plugin:
-  manifest: .codex-plugin/plugin.json
+  manifest: plugins/danho-detailpage-maker-codex/.codex-plugin/plugin.json
   display_name: 단호한 상세페이지 메이커
   description: Korean e-commerce detail-page planning, text-first HTML publishing, and image prompt generation.
   skills_path: ./skills/
@@ -85,7 +86,7 @@ marketplace:
   file: .agents/plugins/marketplace.json
   source:
     type: local
-    path: ./
+    path: ./plugins/danho-detailpage-maker-codex
   policy:
     installation: AVAILABLE
     authentication: ON_INSTALL
@@ -93,18 +94,15 @@ marketplace:
 
 directories:
   root:
-    .codex-plugin/:
-      role: plugin_manifest_directory
-      contains:
-        - plugin.json
     .agents/plugins/:
       role: local_marketplace_registration
       contains:
         - marketplace.json
-    assets/:
-      role: root_shared_assets
-      current_state: empty
-    skills/:
+    plugins/danho-detailpage-maker-codex/.codex-plugin/:
+      role: plugin_manifest_directory
+      contains:
+        - plugin.json
+    plugins/danho-detailpage-maker-codex/skills/:
       role: skill_packages
       contains:
         - danho-detailpage-workflow
@@ -117,7 +115,7 @@ directories:
 
 skills:
   danho:
-    path: skills/danho/
+    path: plugins/danho-detailpage-maker-codex/skills/danho/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: /단호한상세페이지 Korean slash-command-friendly workflow alias and workspace initializer
@@ -133,12 +131,12 @@ skills:
     routes_to: danho-detailpage-workflow
     workspace_init:
       output: AGENT.MD
-      script: skills/danho/scripts/init_workspace.py
-      template: skills/danho/assets/AGENT.MD.template.md
+      script: plugins/danho-detailpage-maker-codex/skills/danho/scripts/init_workspace.py
+      template: plugins/danho-detailpage-maker-codex/skills/danho/assets/AGENT.MD.template.md
       overwrite_policy: do not overwrite unless explicitly requested
 
   danho-detailpage-workflow:
-    path: skills/danho-detailpage-workflow/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-workflow/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: 전체 상세페이지 제작 워크플로우 오케스트레이션
@@ -167,7 +165,7 @@ skills:
         run: danho-detailpage-coding.phase_b
 
   danho-detailpage-planning:
-    path: skills/danho-detailpage-planning/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-planning/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: 한국 이커머스 상세페이지 기획과 설득 카피 작성
@@ -227,11 +225,11 @@ skills:
       image_count_has_no_cap: true
     scripts:
       prepare_reference_designs.py:
-        path: skills/danho-detailpage-planning/scripts/prepare_reference_designs.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-planning/scripts/prepare_reference_designs.py
         role: copy reference design files into assets/reference-designs and slice tall images for visual analysis
 
   danho-detailpage-copywriter:
-    path: skills/danho-detailpage-copywriter/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-copywriter/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: 모바일 스캔 이해도 점수화와 자연스러운 한국어 상세페이지 카피 검수/재작성
@@ -276,7 +274,7 @@ skills:
       - ../danho-detailpage-planning/references/conversion-desire-architecture.md
 
   danho-detailpage-pm-reviewer:
-    path: skills/danho-detailpage-pm-reviewer/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-pm-reviewer/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: copywriter 전 planning 루프와 Phase A 전/후 상세페이지 PM 플로우 검토와 흐름 패치
@@ -327,7 +325,7 @@ skills:
           - forbidden_copy
 
   danho-detailpage-coding:
-    path: skills/danho-detailpage-coding/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: DESIGN.md 기반 세로형 정적 HTML 생성 및 image-plan.md 기반 하이브리드 이미지 반영
@@ -371,22 +369,22 @@ skills:
           - build/sections/
     scripts:
       build.py:
-        path: skills/danho-detailpage-coding/scripts/build.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/build.py
         role: DESIGN.md 기반 HTML 초기화 및 섹션 병합 빌드
       design_md.py:
-        path: skills/danho-detailpage-coding/scripts/design_md.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/design_md.py
         role: DESIGN.md 파싱, 검증, CSS variables와 component class 생성
       split_sections.py:
-        path: skills/danho-detailpage-coding/scripts/split_sections.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/split_sections.py
         role: Python이 있을 때 완성 HTML을 섹션별 파일과 CSS로 분리하는 선택 helper
       replace_placeholders.py:
-        path: skills/danho-detailpage-coding/scripts/replace_placeholders.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/replace_placeholders.py
         role: placeholder를 실제 이미지로 치환
       generate_placeholder.py:
-        path: skills/danho-detailpage-coding/scripts/generate_placeholder.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/generate_placeholder.py
         role: 단일 placeholder 이미지 생성
       generate_placeholders_to_assets.py:
-        path: skills/danho-detailpage-coding/scripts/generate_placeholders_to_assets.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/generate_placeholders_to_assets.py
         role: 프로젝트 placeholder 이미지를 assets로 일괄 생성
     references:
       - references/design-md-spec.md
@@ -402,7 +400,7 @@ skills:
       - references/output-checklist.md
 
   danho-imageprompt-helper:
-    path: skills/danho-imageprompt-helper/
+    path: plugins/danho-detailpage-maker-codex/skills/danho-imageprompt-helper/
     skill_file: SKILL.md
     agent_file: agents/openai.yaml
     role: HTML과 image-plan.md 기반 통 이미지/지원 이미지 프롬프트 작성 및 Codex 네이티브 이미지 생성
@@ -481,8 +479,8 @@ skills:
         source_root: "%USERPROFILE%/.codex/generated_images/<session-id>/ig_*.png"
         session_jsonl_root: "%USERPROFILE%/.codex/sessions/**/*.jsonl"
         rule: if Codex UI shows a preview, generation succeeded; first use any exposed saved path, then search generated_images, then decode session JSONL image_generation_end result before marking export blocked
-        helper_script: skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
-        diagnostic_command: "python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --diagnose --minutes 240 --limit 30"
+        helper_script: plugins/danho-detailpage-maker-codex/skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
+        diagnostic_command: "python plugins/danho-detailpage-maker-codex/skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --diagnose --minutes 240 --limit 30"
         copy_rule: copy accepted ig_*.png or decoded SESSION_JSONL_NATIVE_OUTPUT into the planned assets/generated path and record source id in manifest
         clipboard_rule: codex-clipboard screenshots prove a UI preview existed but are not valid generated asset provenance unless the user supplies the actual generated image file
     references:
@@ -491,7 +489,7 @@ skills:
       - references/product-reference-images.md
     scripts:
       collect_codex_generated_images.py:
-        path: skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
+        path: plugins/danho-detailpage-maker-codex/skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
         role: list/copy Codex native ig_*.png outputs from .codex/generated_images into project assets/generated
 
 workflow:
@@ -608,7 +606,7 @@ expected_project_output:
 
 design_system:
   source: DESIGN.md
-  parser: skills/danho-detailpage-coding/scripts/design_md.py
+  parser: plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/scripts/design_md.py
   presets:
     clean-minimal: 테크, 전자제품
     dark-luxury: 주얼리, 시계, 프리미엄
@@ -704,7 +702,7 @@ validation_rules:
     <item>중복 카피 제거 후 최종 HTML 생성</item>
   </purpose>
 
-  <plugin manifest=".codex-plugin/plugin.json">
+  <plugin manifest="plugins/danho-detailpage-maker-codex/.codex-plugin/plugin.json">
     <displayName>단호한 상세페이지 메이커</displayName>
     <skillsPath>./skills/</skillsPath>
     <capability>Write</capability>
@@ -713,18 +711,18 @@ validation_rules:
   </plugin>
 
   <root>
-    <directory path=".codex-plugin/" role="plugin_manifest">
+    <directory path="plugins/danho-detailpage-maker-codex/.codex-plugin/" role="plugin_manifest">
       <file>plugin.json</file>
     </directory>
     <directory path=".agents/plugins/" role="marketplace_registration">
       <file>marketplace.json</file>
     </directory>
     <directory path="assets/" role="shared_assets"/>
-    <directory path="skills/" role="skill_packages"/>
+    <directory path="plugins/danho-detailpage-maker-codex/skills/" role="skill_packages"/>
   </root>
 
   <skills>
-    <skill id="danho" path="skills/danho/">
+    <skill id="danho" path="plugins/danho-detailpage-maker-codex/skills/danho/">
       <role>korean_slash_command_alias_for_full_workflow</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -734,7 +732,7 @@ validation_rules:
       <trigger>단호한 상세페이지 메이커 시작</trigger>
     </skill>
 
-    <skill id="danho-detailpage-workflow" path="skills/danho-detailpage-workflow/">
+    <skill id="danho-detailpage-workflow" path="plugins/danho-detailpage-maker-codex/skills/danho-detailpage-workflow/">
       <role>workflow_orchestrator</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -745,7 +743,7 @@ validation_rules:
       </triggers>
     </skill>
 
-    <skill id="danho-detailpage-planning" path="skills/danho-detailpage-planning/">
+    <skill id="danho-detailpage-planning" path="plugins/danho-detailpage-maker-codex/skills/danho-detailpage-planning/">
       <role>planning_and_copywriting</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -767,7 +765,7 @@ validation_rules:
       <constraint>opening_story_bridge_required_for_first_two_screens</constraint>
     </skill>
 
-    <skill id="danho-detailpage-copywriter" path="skills/danho-detailpage-copywriter/">
+    <skill id="danho-detailpage-copywriter" path="plugins/danho-detailpage-maker-codex/skills/danho-detailpage-copywriter/">
       <role>natural_korean_benefit_first_copy_review</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -793,7 +791,7 @@ validation_rules:
       <constraint>sales_channel_hidden_from_visible_copy</constraint>
     </skill>
 
-    <skill id="danho-detailpage-pm-reviewer" path="skills/danho-detailpage-pm-reviewer/">
+    <skill id="danho-detailpage-pm-reviewer" path="plugins/danho-detailpage-maker-codex/skills/danho-detailpage-pm-reviewer/">
       <role>planning_loop_pre_coding_and_rendered_flow_pm_review</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -830,7 +828,7 @@ validation_rules:
       </mode>
     </skill>
 
-    <skill id="danho-detailpage-coding" path="skills/danho-detailpage-coding/">
+    <skill id="danho-detailpage-coding" path="plugins/danho-detailpage-maker-codex/skills/danho-detailpage-coding/">
       <role>static_html_build_and_image_replacement</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>
@@ -877,7 +875,7 @@ validation_rules:
       </scripts>
     </skill>
 
-    <skill id="danho-imageprompt-helper" path="skills/danho-imageprompt-helper/">
+    <skill id="danho-imageprompt-helper" path="plugins/danho-detailpage-maker-codex/skills/danho-imageprompt-helper/">
       <role>image_prompt_and_native_generation</role>
       <file type="skill">SKILL.md</file>
       <file type="agent">agents/openai.yaml</file>

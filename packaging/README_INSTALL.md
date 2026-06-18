@@ -5,7 +5,7 @@ Version: 0.1.0
 ## Manual Install
 
 1. Extract this zip.
-2. Move `danho-detailpage-maker-codex/` to:
+2. Move the plugin folder to:
 
 ```text
 ~/plugins/danho-detailpage-maker-codex
@@ -15,6 +15,12 @@ On Windows this is usually:
 
 ```text
 C:\Users\<user>\plugins\danho-detailpage-maker-codex
+```
+
+If you are installing from this repository checkout, the plugin folder is:
+
+```text
+plugins/danho-detailpage-maker-codex
 ```
 
 3. Ensure `~/.agents/plugins/marketplace.json` exists and contains this entry:
