@@ -141,7 +141,7 @@
 ### 나쁜 예 (6개 섹션)
 
 ```
-HOOK → HERO → FEATURES → MATERIALS → REVIEWS → CTA
+HOOK → HERO → FEATURES → MATERIALS → REVIEWS → FINAL-CLOSING
 ```
 → 각 포인트가 얕게 끝남, 설득력 부족
 
@@ -154,7 +154,7 @@ HOOK → HERO → SOCIAL PROOF
 → EMPATHY-1(페인포인트) → EMPATHY-2(이해) → EMPATHY-3(희망)
 → MATERIALS-1(왜 성분이 중요한가) → MATERIALS-2(우리 성분) → MATERIALS-3(효과)
 → DOUBT BREAKER-1(의심 인정) → DOUBT BREAKER-2(근거) → DOUBT BREAKER-3(보장)
-→ REVIEWS → TARGET → FAQ → CTA → SPECS → FOOTER
+→ REVIEWS → TARGET → FAQ → FINAL-CLOSING → SPECS → FOOTER
 ```
 → 각 포인트를 깊이 있게 다룸, 설득력 높음
 

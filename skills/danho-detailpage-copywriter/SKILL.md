@@ -34,7 +34,7 @@ Create or update `COPY_REVIEW.md`, score every visible section, then patch the v
    - Opening bridge pass: rewrite the first two sections so section 02 feels like the next beat after section 01, not a sudden generic problem/spec slide.
    - Scan pass: make the first 1-2 visible lines answer what this is, why it matters to the buyer, or what to check/do next.
    - Perspective pass: make the buyer's situation, action, worry, or desired outcome the subject of the copy. Keep the product/brand as guide, tool, or proof.
-   - Benefit pass: buyer situation -> worry -> benefit -> proof -> next action.
+   - Benefit pass: buyer situation -> worry -> benefit -> proof -> next information check or final product/result confidence.
    - Conversion force pass: add target desire, before/after shift, self-identification, confident value framing, and proof visual direction where the copy is natural but weak.
    - Korean sentence skeleton pass: rewrite object-subject, abstract noun, nominal-ending, and long modifier structures into short spoken Korean.
    - Sentence-ending fit pass: read `references/korean-sentence-ending-gate.md`; classify each visible sentence by function, compare plausible endings, allow `none fits`, and rewrite when the current ending does not fit the context.

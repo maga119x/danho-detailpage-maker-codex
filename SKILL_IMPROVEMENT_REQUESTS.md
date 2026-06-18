@@ -1180,3 +1180,29 @@ Codex 내장 이미지 생성으로 preview가 보였는데도 파일을 못 찾
 - 마지막 화면은 구매 유도가 아니라 제품명, 사용 후 장면, 조용한 결과 확신, 브랜드 톤으로 닫는다.
 - 가격/혜택/옵션/호환성처럼 바뀌거나 편집 가능해야 하는 정보는 인접 HTML 정보 섹션에만 둔다.
 - 마지막 클로징 `FULL_IMAGE`는 유지하되, 구매 행동을 유도하는 버튼/라벨/문구는 생성하지 않는다.
+
+### 41. 860px 원본 기준 모바일 QA와 개발환경 의존성 축소
+
+**요청일**: 2026-06-18
+
+**사용자 요청**:
+모바일 렌더링 검수는 393px/438px 폭으로 직접 렌더링하는 것이 아니라, 폭 860px 원본 상세페이지를 렌더링한 뒤 438px로 줄였을 때 폰트 가독성이 괜찮은지 판단해야 한다. 또한 Playwright, Python, Node 임시 서버가 없는 환경에서도 단순 HTML+CSS 상세페이지 작업이 가능하도록 개발 환경 의존성을 낮춘다.
+
+**원인 분석**:
+- 기존 문서가 `393px`, `413px`, `phone width`를 직접 렌더 viewport처럼 지시해, 상세페이지 원본을 축소해 보는 방식이 아니라 작은 웹페이지 reflow 검수가 되었다.
+- 기본 `DESIGN.md` 프리셋과 `build.py`의 폰트 토큰이 393px 직접 viewport 기준의 16~18px 본문 크기에 가까워, 860px 원본을 438px로 축소하면 본문이 너무 작아질 수 있었다.
+- `split_sections.py`, Playwright 모바일 렌더, Node 임시 서버가 필수처럼 읽히는 문구가 있어, 정적 HTML/CSS 프로젝트임에도 개발환경이 없으면 검수가 막히는 구조로 보였다.
+
+**반영 내용**:
+- `danho-detailpage-coding`, `workflow`, `AGENT.MD.template`, README, output checklist, layout/typography/storyboard/hybrid 레퍼런스에 860px source + 438px scaled preview 기준을 추가했다.
+- `DESIGN.md` 스펙과 모든 디자인 프리셋, `build.py` 기본 CSS의 타이포그래피를 860px 원본 기준으로 올렸다. 본문 32~36px은 438px preview에서 약 16~18px로 보이도록 맞췄다.
+- `split_sections.py`는 Python이 있을 때 쓰는 선택 helper로 낮추고, Python이 없으면 section id/comment 수동 확인으로 진행하도록 했다.
+- Playwright/browser automation은 선택 사항으로 낮췄고, 정적 HTML은 상대 경로와 `file://` 직접 열람을 기본으로 하도록 했다.
+- Node/npm/dev server/bundler/local HTTP server는 plain HTML 검수에 요구하지 않도록 명시했다.
+- 이미지 프롬프트의 tall mobile crop 문구도 `393px-wide phone screen`에서 `860px source composition scaled to 438px preview`로 바꿨다.
+
+**운영 규칙**:
+- 새 상세페이지는 860px 원본 상세페이지로 만든다.
+- 모바일 가독성 검수는 같은 원본을 438px 폭으로 축소한 preview에서 본다. 393px/438px 직접 viewport reflow는 보조 stress check일 뿐 1차 검수가 아니다.
+- 정적 HTML은 `file://`로 열려야 하며, 상대 경로를 사용한다.
+- Playwright, Python, Node/npm, dev server, bundler, local HTTP server가 없어도 작업이 멈추면 안 된다.

@@ -221,7 +221,7 @@ Layout:
 Implementation:
 
 - Keep text in HTML where possible.
-- Verify callout labels do not overlap at 393px width.
+- Verify callout labels do not overlap in the 860px source and the 438px scaled phone preview. A direct 393px/438px viewport is only a secondary stress check.
 
 ## 10. Review Highlight Stack
 

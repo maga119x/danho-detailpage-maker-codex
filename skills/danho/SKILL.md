@@ -13,17 +13,19 @@ Use `danho-detailpage-workflow` as the source of truth. Read its `SKILL.md` and 
 
 When the user asks to initialize a new 작업 디렉토리, or when the user starts Danho in a clean directory before creating product artifacts, create `AGENT.MD` in the current working directory before starting the detail-page project.
 
-Use the bundled script from this skill folder:
+Preferred helper when Python is available:
 
 ```powershell
 python <danho-skill-dir>/scripts/init_workspace.py --target <current-working-directory>
 ```
 
+If Python is unavailable, create `AGENT.MD` by copying the bundled `assets/AGENT.MD.template.md` text into the current working directory. The initialization routine must not fail just because Python is missing.
+
 Rules:
 
 - Create `AGENT.MD` at the workspace root, not inside `projects/MMDDHHmm_product-name/`.
 - Do not overwrite an existing `AGENT.MD` unless the user explicitly asks. If it exists, read it and continue.
-- If the script is unavailable, create `AGENT.MD` from `assets/AGENT.MD.template.md`.
+- If the script or Python runtime is unavailable, create `AGENT.MD` from `assets/AGENT.MD.template.md`.
 - After initialization, continue with `danho-detailpage-workflow`.
 
 Default behavior:

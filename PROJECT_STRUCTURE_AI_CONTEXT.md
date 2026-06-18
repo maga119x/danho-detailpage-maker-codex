@@ -376,7 +376,7 @@ skills:
         role: DESIGN.md 파싱, 검증, CSS variables와 component class 생성
       split_sections.py:
         path: skills/danho-detailpage-coding/scripts/split_sections.py
-        role: 완성 HTML을 섹션별 파일과 CSS로 분리
+        role: Python이 있을 때 완성 HTML을 섹션별 파일과 CSS로 분리하는 선택 helper
       replace_placeholders.py:
         path: skills/danho-detailpage-coding/scripts/replace_placeholders.py
         role: placeholder를 실제 이미지로 치환
@@ -641,7 +641,8 @@ validation_rules:
   - HTML_MIXED 지원 이미지는 텍스트를 포함하면 안 된다
   - 같은 한국어 카피가 HTML과 인접 이미지에 동시에 남으면 안 된다
   - 섹션을 고정 9:16으로 강제하지 않고 자연 높이의 세로형 모바일 리듬을 사용한다
-  - 모바일 우선은 413px 고정 폭이 아니라 360-430px phone width에서 읽히는 반응형 타이포그래피를 의미한다
+  - 모바일 상세페이지 QA는 860px 원본 상세페이지를 만든 뒤 같은 원본을 438px phone preview로 축소했을 때 읽히는지 확인하는 것이다. 393px/438px 직접 viewport reflow를 1차 검수로 삼지 않는다
+  - 최종 HTML은 상대 경로 기반 정적 HTML/CSS로 `file://`에서 열려야 하며, Node/npm/dev server/Playwright/Python/로컬 HTTP 서버가 없어도 기본 열람과 수동 QA가 가능해야 한다
   - 기획 후 바로 이미지 생성으로 넘어가지 않고 HTML 기반 상세페이지 레이아웃을 먼저 만든다
   - 사용자가 제공한 제품 이미지는 기본적으로 생성 레퍼런스이며, `USER_IMAGE_DIRECT`로 명시된 경우에만 원본을 최종 HTML에 직접 사용한다
   - HTML 섹션에도 이미지, 말풍선, quote-card, 비교 카드, 옵션/가치 정보 패널을 결합할 수 있다
@@ -833,7 +834,7 @@ validation_rules:
       <scripts>
         <script path="scripts/build.py" role="html_init_and_build"/>
         <script path="scripts/design_md.py" role="design_md_parse_validate_css_generate"/>
-        <script path="scripts/split_sections.py" role="split_html_into_section_files"/>
+        <script path="scripts/split_sections.py" role="optional_split_html_into_section_files_when_python_is_available"/>
         <script path="scripts/replace_placeholders.py" role="replace_placeholders_with_images"/>
         <script path="scripts/generate_placeholder.py" role="generate_single_placeholder"/>
         <script path="scripts/generate_placeholders_to_assets.py" role="generate_project_placeholders"/>
@@ -949,7 +950,7 @@ validation_rules:
 19. 이미지 프롬프트와 파일명이 확정되면 독립 이미지는 한 장씩 순차 생성하지 말고 병렬 배치로 생성한다.
 20. Phase B에서는 `FULL_IMAGE` 원본 HTML 섹션을 제거하고, `HTML_MIXED` 이미지는 텍스트 없는 비주얼로 HTML 안/주변에 결합한다.
 21. 고정 비율로 섹션을 해결하지 말고 세로형 스토리보드 구조 자체를 설계한다.
-22. 모바일 우선은 413px 고정이 아니라 360-430px 폭에서 읽히는 폰트 크기, 줄간격, 여백을 적용하는 것이다.
+22. 모바일 상세페이지 QA는 860px 원본 폭에서 만든 상세페이지를 438px phone preview로 축소했을 때 읽히는 폰트 크기, 줄간격, 여백을 적용하는 것이다. 393px/438px 직접 viewport 렌더링은 보조 stress check일 뿐 1차 검수가 아니다. 정적 HTML은 `file://`에서 열려야 하며 Node/npm/dev server/Playwright/Python/로컬 HTTP 서버를 필수로 요구하지 않는다.
 23. `assets/inbox/` 사용자 제품 이미지는 기본적으로 `PRODUCT_REFERENCE`로 취급하고, 생성 이미지의 제품 일관성을 유지하는 입력으로 사용한다.
 24. 원본 사용자 이미지를 최종 HTML에 직접 쓰려면 `image-plan.md`에 `USER_IMAGE_DIRECT`가 명시되어야 한다.
 25. HTML 요소 컬러는 Key/Main/Sub/Exception 시스템으로 제한한다.

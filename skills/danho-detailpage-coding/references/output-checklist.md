@@ -5,13 +5,14 @@ Run this before delivering a Danho detail page.
 ## Structure
 
 - [ ] Page max width is 860px or less.
-- [ ] Page does not use a fixed phone wrapper such as `width: 413px`.
+- [ ] Page is authored as an 860px source detail page, not a direct 393px/438px mini webpage or fixed phone wrapper.
 - [ ] `box-sizing: border-box` applies globally.
 - [ ] Main container has `overflow-x: hidden`.
 - [ ] Every section has a unique id and an identifying HTML comment.
-- [ ] Section split succeeds with `split_sections.py`.
+- [ ] Section ids/comments are sufficient for manual section splitting; `split_sections.py` is optional when Python is available.
 - [ ] Phase A HTML looks like an ecommerce detail page before image generation.
 - [ ] If `REFERENCE_DESIGN_ANALYSIS.md` exists, Phase A/Phase B visibly adapt its layout essence without copying the reference page.
+- [ ] The HTML can be opened directly from the filesystem with relative asset paths; no Node/dev server, bundler, Playwright, Python runtime, or local HTTP server is required for ordinary viewing.
 
 ## Hybrid Image/HTML
 
@@ -56,7 +57,7 @@ Run this before delivering a Danho detail page.
 - [ ] Headline visual shapes vary across the page; not every h1/h2 is manually split into the same `A<br>B` two-line rhythm.
 - [ ] Adjacent sections connect as a purchase journey. If two neighboring sections can be swapped without changing meaning, revise the headline, lead, or order.
 - [ ] Section 02 does not feel sudden after section 01. If it could sit under any other hero, revise it with more scene, bridge copy, or image continuity.
-- [ ] The page reads as `friction -> answer -> use proof -> set/value -> fit/review/options -> final action`, not as independent slides.
+- [ ] The page reads as `friction -> answer -> use proof -> set/value -> fit/review/options -> final product/result closing`, not as independent slides.
 - [ ] Reused generated images are cropped or placed differently when they represent different buyer actions.
 - [ ] No card grid contains three or more independent buying ideas that should be separate screens.
 - [ ] Key benefits, mechanisms, proof blocks, option systems, and FAQ/policy are split when needed instead of crammed into one viewport.
@@ -74,12 +75,12 @@ Run this before delivering a Danho detail page.
 
 ## Typography
 
-- [ ] Body copy is readable at phone widths, normally 16-18px.
-- [ ] Lead copy is 17-22px and not oversized.
-- [ ] Section headlines are strong but controlled, normally 28-44px.
-- [ ] Ordinary visible text is 16px or larger, including labels, badges, captions, reviews, comparison rows, closing text, and card copy.
-- [ ] 14-15px is used only for exceptional legal/spec footnotes or non-persuasive metadata, never for selling-flow copy.
-- [ ] Card body text is not oversized, normally 16-17px.
+- [ ] Body copy is 32-36px at the 860px source and reads as about 16-18px in the 438px scaled preview.
+- [ ] Lead copy is 36-44px at source and reads as about 18-22px in the scaled preview.
+- [ ] Section headlines are strong but controlled, normally 56-88px at source and about 29-45px in the scaled preview.
+- [ ] Ordinary visible text scales to 16px or larger at 438px, including labels, badges, captions, reviews, comparison rows, closing text, and card copy.
+- [ ] Micro text that scales to 13-15px is used only for exceptional legal/spec footnotes or non-persuasive metadata, never for selling-flow copy.
+- [ ] Card body text is not oversized, normally 30-34px at source and about 15-17px in the scaled preview.
 - [ ] Typography uses responsive min/max values such as `clamp()`.
 - [ ] No heading wraps into awkward one-character or two-character lines.
 - [ ] Head copy uses a mix of fragment, question, noun phrase, contrast, directive, and limited declarative forms.
@@ -109,9 +110,9 @@ Run this before delivering a Danho detail page.
 - [ ] No `transition`, `animation`, or `@keyframes`.
 - [ ] All design elements look complete in default static state.
 
-## Mobile Render
+## Scaled Mobile Preview
 
-Render at a mobile width such as 393px and verify:
+Open or render the final HTML at 860px source width, then inspect that same source scaled to a 438px-wide phone preview. Do not use direct 393px/438px viewport reflow as the primary QA result. Playwright, Python, and a local HTTP server are optional helpers only; if unavailable, open the local file directly and run the visual checks manually.
 
 - [ ] no horizontal overflow
 - [ ] no broken images

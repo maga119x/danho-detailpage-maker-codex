@@ -19,12 +19,12 @@ Do:
 - Use images inside HTML sections when they help persuasion.
 - Use speech bubbles, badges, checklists, quote cards, comparison rows, and product cards as designed HTML components.
 - Use badges/kickers only when they add buying meaning. A badge should say what the buyer should notice, not the planner's category name.
-- Use readable mobile typography. Mobile-first is not a fixed 413px canvas.
+- Use readable mobile typography. Mobile-first is an 860px source detail page that reads well when scaled to a 438px phone preview, not a fixed 413px canvas or direct 393px/438px reflow test.
 
 Do not:
 
 - Force every section to 9:16 or 3:4.
-- Set the page wrapper to a fixed phone width.
+- Set the page wrapper to a fixed phone width or treat 393px/438px as the source canvas.
 - Stretch a weak layout by only changing height.
 - Shrink copy or cram more cards into one section to make the page shorter.
 - Use the same section layout repeatedly.
@@ -156,10 +156,10 @@ Do not let the entire page default to left alignment unless the design is a dens
 
 ## Visual Checks
 
-Render at 393px and optionally 413px mobile width and verify:
+Open or render at 860px source width, then inspect the same source scaled to a 438px phone preview. Direct 393px/438px viewport reflow may be used only as a secondary stress check after this passes. Verify:
 
 - no horizontal overflow
-- body copy is 16-18px or equivalent readable size
+- body copy is 32-36px at source and reads as about 16-18px in the scaled preview
 - headings are large enough to sell but not so large that they wrap awkwardly
 - all images loaded
 - generated images have native image-generation provenance in the manifest

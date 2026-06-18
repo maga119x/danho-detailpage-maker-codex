@@ -13,7 +13,7 @@ Act like a senior 상세페이지 PM, not a copy editor.
 
 Review whether the page sells as one connected journey:
 
-`first impression -> buyer friction -> product answer -> mechanism/use proof -> set/value frame -> fit/review/options -> final action`
+`first impression -> buyer friction -> product answer -> mechanism/use proof -> set/value frame -> fit/review/options -> final product/result closing`
 
 ## Review Modes
 
@@ -63,7 +63,7 @@ Use after Phase A or Phase B HTML exists.
 2. Build the same section-flow table using rendered evidence.
 3. Find page-level failures before editing sentences.
 4. Patch the HTML so the section sequence feels intentional.
-5. Validate section count, image paths, mobile render, and forbidden copy.
+5. Validate section count, image paths, 860px source plus 438px scaled-preview readability, and forbidden copy.
 
 ## PM Review Workflow
 
@@ -121,7 +121,7 @@ Mix these headline types:
 | question | buyer doubt or transition | `왜 첫 칼로 중식도인가` |
 | noun phrase | proof/value screens | `칼 하나가 아니라 시작 준비` |
 | contrast | before/after | `칼만 볼 때와 / 구성까지 볼 때` |
-| directive | final action | `받는 구성부터 확인` |
+| directive | mid-page check or fit cue | `받는 구성을 먼저 봅니다` |
 | declarative | important claim, used sparingly | `첫 칼은 중식도면 충분합니다` |
 
 Use `합니다체` in body copy if requested, but do not force every headline to end in `습니다`.
@@ -141,7 +141,7 @@ Also vary the visual line structure:
 - Do not accept a second section that only says a broad problem in polished Korean. It needs a concrete situation, emotional recognition, or visual continuation.
 - The first line of a section should feel like it answers the previous section or creates the next question.
 - Use repeated nouns intentionally as anchors, not as AI-like repetition.
-- Move from broad to specific: friction -> ingredient -> action -> set -> value -> fit.
+- Move from broad to specific: friction -> ingredient -> action -> set -> value -> fit -> final product/result confidence.
 - If two adjacent headings could be swapped without changing meaning, the flow is weak. Rewrite at least one.
 - If a headline is just a section label made grammatical, replace it with the buyer's conclusion.
 - If a lead sentence mixes unlike items in one list, rewrite it around actions or buyer moments instead of planner categories.
@@ -155,7 +155,7 @@ Use only:
 - buyer situation
 - proof cue
 - micro-benefit
-- next action
+- useful buyer cue or next information check
 
 Remove or rewrite taxonomy labels such as `문제 인식`, `전환점`, `사용 장면`, `제품 디테일`, `FAQ`.
 

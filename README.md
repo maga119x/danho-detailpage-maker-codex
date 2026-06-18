@@ -25,6 +25,8 @@ This plugin helps Codex plan, review, write, design, and build mobile-first Kore
 
 No OpenAI API key is required for the Danho native image path. The workflow intentionally uses Codex's built-in `image_gen.imagegen` tool instead of API scripts or local image generation fallbacks.
 
+Python, Playwright, Node/npm, bundlers, and local HTTP/dev servers are not required for ordinary detail-page production or preview. The generated output is plain static HTML/CSS with relative asset paths and should open directly from the filesystem. Helper scripts and browser automation may be used when available, but they are optional.
+
 ## Install From GitHub
 
 Add this repository as a Codex plugin marketplace:
@@ -124,8 +126,8 @@ build/sections/
 7. Build Phase A HTML before image generation.
 8. Create `image-plan.md` with mandatory generated `FULL_IMAGE` rows for the opening hero and final product/result closing.
 9. Generate approved images through Codex native `image_gen.imagegen`.
-10. Build Phase B final HTML and split sections.
-11. Run final mobile and PM-level validation.
+10. Build Phase B final HTML and verify section ids/comments.
+11. Run final PM-level validation at 860px source width and inspect the same source scaled to a 438px phone preview.
 
 ## Important Production Rules
 
@@ -139,6 +141,8 @@ build/sections/
 - Do not copy a supplied reference design page; extract layout rhythm and design essence only.
 - Do not cap image count or force a fixed full-image/HTML split.
 - Do not use browser screenshots, SVG/canvas, PIL composites, API scripts, or CLI imagegen fallbacks as generated-image substitutes.
+- Do not treat a direct 393px/438px viewport as the primary mobile QA canvas; build an 860px source detail page and judge readability after scaling it to a 438px phone preview.
+- Do not start a Node/dev server for plain HTML unless the user explicitly asks or a real browser security limitation blocks local assets.
 
 ## Repository Layout
 

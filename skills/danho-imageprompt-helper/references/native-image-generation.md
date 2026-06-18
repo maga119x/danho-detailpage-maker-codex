@@ -69,14 +69,16 @@ On Windows, successful Codex native outputs have been persisted here:
 C:/Users/<user>/.codex/generated_images/<session-id>/ig_*.png
 ```
 
-Before marking any item `generated_export_blocked`, search this root first:
+Before marking any item `generated_export_blocked`, search this root first. The helper script is optional and requires Python:
 
 ```powershell
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --list --minutes 240 --limit 30
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --diagnose --minutes 240 --limit 30
 ```
 
-Then copy the selected accepted source to the planned project path:
+If Python is unavailable, use file search or the OS file explorer to inspect `%USERPROFILE%/.codex/generated_images/` manually and copy the accepted `ig_*.png` into the project. Do not fail generation recovery just because the helper cannot run.
+
+Then copy the selected accepted source to the planned project path. With Python:
 
 ```powershell
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --copy C:\Users\<user>\.codex\generated_images\<session-id>\ig_xxx.png --to projects\<project>\assets\generated\<file>.png
@@ -94,6 +96,8 @@ For a native preview that is not materialized under `generated_images`, decode t
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --diagnose --minutes 30 --limit 10
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --copy-latest-session --minutes 30 --to projects\<project>\assets\generated\<file>.png
 ```
+
+Without Python, inspect `%USERPROFILE%/.codex/sessions/**/*.jsonl` only if local tools can safely read it, or ask the user to attach the actual saved generated image file. A user-supplied actual generated output should be recorded as `USER_SUPPLIED_NATIVE_OUTPUT`; a screenshot of the conversation remains diagnostic only.
 
 Recovery rules:
 

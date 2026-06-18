@@ -59,13 +59,13 @@ PLANNING.md의 기본 정보 표 바로 아래 또는 별도 "제품 호칭" 블
 
 다음 위치에서는 정식 풀네임 사용 권장:
 - hero 섹션의 제품 소개 줄 (예: `<p>알파 식기세척기 초벌 전용 실리콘 수세미</p>`)
-- CTA 섹션의 제품명 헤더 (예: `<h2><span class="block">알파 식기세척기</span><span class="block accent">초벌 전용 실리콘 수세미</span></h2>`)
+- final product/result closing 섹션의 제품명 헤더 (예: `<h2><span class="block">알파 식기세척기</span><span class="block accent">초벌 전용 실리콘 수세미</span></h2>`)
 - 첫 단락 처음 호칭 (이후부터 단축형으로)
 
 ### 2-3. 이미지 안 텍스트 (REPLACE 케이스)
 
 이미지 생성 프롬프트에서도 동일 룰:
-- hero/CTA 배너의 메인 카피 안 제품명 → **풀네임**
+- hero/final-closing 배너의 메인 카피 안 제품명 → **풀네임**
 - 보조 라벨/캡션 → **단축형** 또는 생략
 
 ### 2-4. `alt` 속성
@@ -130,7 +130,7 @@ PLANNING 작성 후:
 HTML 빌드 후:
 - [ ] 위 grep 명령 실행 결과가 비어 있다 (또는 의도적인 푸터·로고 케이스만 남는다)
 - [ ] alt 속성에서도 단축형 또는 풀네임 사용
-- [ ] hero·CTA에는 풀네임, 본문에는 단축형
+- [ ] hero·final-closing에는 풀네임, 본문에는 단축형
 
 ---
 

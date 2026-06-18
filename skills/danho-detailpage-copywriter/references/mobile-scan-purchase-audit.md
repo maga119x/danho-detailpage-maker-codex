@@ -121,4 +121,4 @@ The first 3 sections should include:
 - Product/category cue: `무타공 자석 도어스토퍼`, `철문에 붙여 쓰는 도어스토퍼`.
 - Core benefit: `짐 들고 들어올 때 문이 다시 닫히지 않게`.
 - Purchase blocker: `자석이 붙는 철문/방화문인지 먼저 확인`.
-- One clear next action: `우리 집 문에 자석이 붙는지 확인해 주세요`.
+- One clear next information check: `우리 집 문에 자석이 붙는지 확인해 주세요`.

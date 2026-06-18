@@ -276,7 +276,7 @@ Full-section image prompts must behave like a mobile art-direction brief:
 For tall mobile detail-page sections, ask for a vertical composition. When the runtime does not expose size controls, express the crop in the prompt, for example:
 
 ```text
-vertical mobile ecommerce composition, tall portrait crop, designed to read on a 393px-wide phone screen
+vertical Korean ecommerce detail-page section, 860px-wide source composition, tall portrait crop, designed to stay readable when scaled down to a 438px-wide phone preview
 ```
 
 ## Color

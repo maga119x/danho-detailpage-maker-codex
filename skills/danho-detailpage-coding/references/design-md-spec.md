@@ -23,13 +23,15 @@
 
 ## YAML frontmatter 규격
 
+타이포그래피와 spacing 토큰은 860px 원본 상세페이지 기준이다. 모바일 QA는 이 원본을 438px phone preview로 축소해 판단한다. 393px/438px 직접 viewport reflow 기준으로 값을 줄이지 않는다.
+
 ```yaml
 version: alpha
 name: <브랜드/프로젝트 이름>
 description: <한 줄 컨셉>
 
 colors:                  # 시맨틱 컬러 토큰
-  primary: "#hex"        # 메인 강조색 (CTA, 핵심 헤드라인)
+  primary: "#hex"        # 메인 강조색 (핵심 헤드라인, proof cue, divider)
   secondary: "#hex"      # 보조 강조색
   tertiary: "#hex"       # 액센트 (강조 텍스트, 작은 포인트)
   surface: "#hex"        # 카드/표면 배경
@@ -47,43 +49,43 @@ colors:                  # 시맨틱 컬러 토큰
 typography:              # 타이포그래피 토큰
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 10vw, 4rem) # 40-64px
+    fontSize: clamp(5rem, 10vw, 8rem) # 860px source: 80-128px, scaled to 438px: about 41-65px
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 9vw, 3.4rem) # 36-54px
+    fontSize: clamp(4.5rem, 9vw, 6.75rem) # 860px source: 72-108px, scaled to 438px: about 37-55px
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(1.75rem, 7vw, 2.75rem) # 28-44px
+    fontSize: clamp(3.5rem, 7vw, 5.5rem) # 860px source: 56-88px, scaled to 438px: about 29-45px
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(1.25rem, 5vw, 1.875rem) # 20-30px
+    fontSize: clamp(2.5rem, 5vw, 3.75rem) # 860px source: 40-60px, scaled to 438px: about 20-31px
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(1.0625rem, 4vw, 1.375rem) # 17-22px
+    fontSize: clamp(2.25rem, 4vw, 2.75rem) # 860px source: 36-44px, scaled to 438px: about 18-22px
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.7vw, 1.125rem) # 16-18px body
+    fontSize: clamp(2rem, 3.7vw, 2.25rem) # 860px source: 32-36px body, scaled to 438px: about 16-18px
     fontWeight: 500
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.4vw, 1.0625rem) # 16-17px
+    fontSize: clamp(1.875rem, 3.4vw, 2.125rem) # 860px source: 30-34px, scaled to 438px: about 15-17px
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.2vw, 1rem) # 16px
+    fontSize: clamp(1.875rem, 3.2vw, 2rem) # 860px source: 30-32px, scaled to 438px: about 15-16px
     fontWeight: 500
   micro:
     fontFamily: Paperlogy
-    fontSize: clamp(.875rem, 3vw, .9375rem) # 14-15px, legal/spec footnotes only
+    fontSize: clamp(1.625rem, 3vw, 1.875rem) # 860px source: 26-30px, scaled to 438px: about 13-15px, legal/spec footnotes only
     fontWeight: 500
 
 rounded:                 # 라운드 토큰
@@ -100,7 +102,7 @@ spacing:                 # 간격 토큰 (8px 그리드)
   lg: 40px
   xl: 64px
   2xl: 96px
-  section: clamp(56px, 14vw, 112px) # mobile-readable section padding
+  section: clamp(96px, 14vw, 140px) # 860px source padding, scaled to 438px for mobile preview
 
 elevation:               # 그림자 토큰
   sm: "0 2px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04)"

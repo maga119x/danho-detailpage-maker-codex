@@ -59,12 +59,13 @@ Ask concise follow-up questions only when missing information affects factual ac
 When the user supplies a reference 상세페이지 design file:
 
 1. Store it under `assets/reference-designs/`, not `assets/inbox/`.
-2. For long PNG/JPG/WebP captures, optionally run:
+2. For long PNG/JPG/WebP captures, optionally run this helper when Python is available:
 
 ```powershell
 python <planning-skill-dir>/scripts/prepare_reference_designs.py --project <project-dir> <reference-files...>
 ```
 
+   If Python is unavailable, copy the reference files into `assets/reference-designs/` manually and inspect the original file directly; do not block `REFERENCE_DESIGN_ANALYSIS.md`.
 3. Inspect the original and useful slices visually.
 4. Create `REFERENCE_DESIGN_ANALYSIS.md` using `references/reference-design-analysis.md`.
 5. Apply only transferable design essence to `DESIGN.md` and the mobile screen-flow plan.

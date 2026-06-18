@@ -139,7 +139,7 @@ Background should signal the screen's job.
 |---|---|
 | `paper` | normal product, use, feature, and explanation screens |
 | `warm-lifestyle` | gift, home, lifestyle, emotional screens |
-| `dark-proof` | authority, awards, results, contrast, launch/CTA |
+| `dark-proof` | authority, awards, results, contrast, launch proof, final confidence |
 | `accent-declaration` | short strong statement or chapter break |
 | `policy-quiet` | FAQ, legal, shipping, AS, long caveats |
 
@@ -186,7 +186,7 @@ Use these classes as design intent markers. They do not replace semantic IDs or 
 
 ## QA Checklist
 
-At 393px mobile width:
+At 860px source width and in the 438px scaled phone preview:
 
 - first 3 screens show identity, benefit/result, and difference or fit condition
 - first 2 screens form a connected opening pair, not a hero plus abrupt second slide
@@ -197,3 +197,5 @@ At 393px mobile width:
 - claim and proof are within one screen of each other
 - dense information appears later or is split into multiple screens
 - options, compatibility, FAQ, policy, and prices remain editable HTML
+
+Do not use a direct 393px/438px viewport as the primary storyboard QA, because it checks a reflowed mini webpage instead of the 860px ecommerce detail-page source scaled for phone viewing.

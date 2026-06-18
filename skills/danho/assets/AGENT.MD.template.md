@@ -37,7 +37,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 7. Build Phase A HTML first. The HTML must be a complete ecommerce detail-page layout before final image generation.
 8. Create `image-plan.md` from the rendered Phase A HTML. Decide `FULL_IMAGE`, `HTML_MIXED`, and `HTML_ONLY` per section after reviewing actual layout. The plan must include mandatory generated `FULL_IMAGE` rows for the opening hero and final product/result closing section.
 9. Generate approved images with the built-in Codex `image_gen.imagegen` native path only. Prepare the full queue first, then generate one independent native image per approved asset.
-10. Build Phase B final HTML with generated or approved images, split section files, and validate mobile rendering.
+10. Build Phase B final HTML with generated or approved images, verify section ids/comments, and validate the 860px source plus 438px scaled phone preview.
 11. Run a final PM-level flow and visual QA pass before delivery.
 
 ## Hard Rules
@@ -55,6 +55,8 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 - Low-copy option, care/storage, value, reassurance, transition, result, and final decision sections must not remain sparse centered text-only blocks. Add meaningful product/lifestyle/proof imagery or merge with adjacent detail/proof content.
 - Generated support images must not contain text. Full-section images may contain only short, exact Korean lines that can be visually verified.
 - Use only the built-in Codex `image_gen.imagegen` native generation path for generated images. Do not use API scripts, CLI imagegen fallback, browser screenshots, HTML/CSS/SVG/canvas drawings, PIL composites, or placeholder graphics as generated-image substitutes.
+- Static HTML must open directly from the filesystem with relative asset paths. Do not require Node/npm, a temporary dev server, Playwright, Python, a bundler, or a local HTTP server for ordinary viewing and manual QA.
+- Mobile detail-page QA uses an 860px-wide source page scaled down to a 438px phone preview. Do not make the source a direct 393px/438px page or fixed phone wrapper.
 
 ## Final Validation
 
@@ -65,7 +67,7 @@ This workspace is initialized for the Danho Korean ecommerce 상세페이지 wor
 - Adjacent sections read as one purchase journey, not independent slides.
 - If `REFERENCE_DESIGN_ANALYSIS.md` exists, the final page adapts its essence without cloning the reference.
 - Headline endings and visual structures vary across the page.
-- No horizontal overflow on mobile.
-- Body copy remains readable at phone widths.
-- Section splitting succeeds and `build/sections/` is updated.
+- No horizontal overflow in the 860px source or 438px scaled preview.
+- Body copy is sized for the 860px source and remains readable after 438px scaling.
+- Section ids/comments are present. If Python is available, `build/sections/` may be updated with the helper script; if not, manual section inspection is acceptable.
 - Final HTML has no JavaScript, animation, transition, or hover-dependent design.

@@ -26,39 +26,39 @@ colors:
 typography:
   display:
     fontFamily: Paperlogy
-    fontSize: clamp(2.5rem, 10vw, 4rem)
+    fontSize: clamp(5rem, 10vw, 8rem)
     fontWeight: 800
     lineHeight: 1.1
   h1:
     fontFamily: Paperlogy
-    fontSize: clamp(2.25rem, 9vw, 3.4rem)
+    fontSize: clamp(4.5rem, 9vw, 6.75rem)
     fontWeight: 800
     lineHeight: 1.2
   h2:
     fontFamily: Paperlogy
-    fontSize: clamp(1.75rem, 7vw, 2.75rem)
+    fontSize: clamp(3.5rem, 7vw, 5.5rem)
     fontWeight: 700
     lineHeight: 1.3
   h3:
     fontFamily: Paperlogy
-    fontSize: clamp(1.25rem, 5vw, 1.875rem)
+    fontSize: clamp(2.5rem, 5vw, 3.75rem)
     fontWeight: 700
   body-lg:
     fontFamily: Paperlogy
-    fontSize: clamp(1.0625rem, 4vw, 1.375rem)
+    fontSize: clamp(2.25rem, 4vw, 2.75rem)
     fontWeight: 500
   body-md:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.7vw, 1.125rem)
+    fontSize: clamp(2rem, 3.7vw, 2.25rem)
     fontWeight: 500
     lineHeight: 1.6
   body-sm:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.4vw, 1.0625rem)
+    fontSize: clamp(1.875rem, 3.4vw, 2.125rem)
     fontWeight: 500
   caption:
     fontFamily: Paperlogy
-    fontSize: clamp(1rem, 3.2vw, 1rem)
+    fontSize: clamp(1.875rem, 3.2vw, 2rem)
     fontWeight: 500
 
 rounded:
@@ -75,7 +75,7 @@ spacing:
   lg: 40px
   xl: 64px
   2xl: 96px
-  section: clamp(56px, 14vw, 112px)
+  section: clamp(96px, 14vw, 140px)
 
 elevation:
   sm: "0 2px 4px rgba(26, 58, 26, 0.06), 0 1px 2px rgba(26, 58, 26, 0.04)"
@@ -157,4 +157,3 @@ Paperlogy. 본문 32px. 헤드라인에 그린 그라데이션.
 
 ## Notes
 신선식품, 건강기능식품, 음료, 비타민, 다이어트 제품에 적합.
-

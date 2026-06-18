@@ -16,8 +16,8 @@ Use these as high-level copywriting principles. Do not quote or imitate copyrigh
 - Customer is hero: copy centers on the buyer's problem and desired outcome.
 - Brand/product is guide: the product helps the buyer take a simple action; it is not the hero of the story.
 - Opening bridge: the first section introduces the desired result, and the second section makes the buyer recognize the lived problem or question behind that result.
-- Clear plan: show the 2-3 step path to use or buy.
-- Call to action: tell the buyer the next action clearly.
+- Clear plan: show the 2-3 step path to use, check fit, or understand options.
+- Buyer cue: in mid-page information sections, make the next check clear. In the final closing, do not write purchase-action text; close with product/result confidence.
 - Success state: show what daily life feels like after purchase.
 - Stakes: mention the avoidable inconvenience without fearmongering.
 

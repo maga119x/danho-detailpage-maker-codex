@@ -31,7 +31,7 @@ Use these patterns to convert raw Korean copy into designed static HTML.
 | Comparison | mobile comparison rows |
 | Current-price guidance / options | product image + current-price guidance panel |
 | FAQ | support image + question bubbles |
-| Emotional hook / CTA | designed full-section image |
+| Emotional hook / final product-result closing | designed full-section image |
 
 ## Speech Bubble
 

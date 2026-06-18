@@ -1,6 +1,6 @@
 # Genre-Based Section Composition (장르별 섹션 구성)
 
-제품 장르에 따라 섹션 구성과 순서를 조정합니다. 모든 장르는 HOOK → HERO로 시작하고 CTA → SPECS → FOOTER로 마무리합니다.
+제품 장르에 따라 섹션 구성과 순서를 조정합니다. 모든 장르는 HOOK → HERO로 시작하고 FINAL-CLOSING → SPECS/FAQ → FOOTER로 마무리합니다. FINAL-CLOSING은 구매 버튼이나 행동 문구가 아니라 상품/결과 인상으로 닫는 섹션입니다.
 
 ## 목차
 
@@ -63,7 +63,7 @@ HOOK → HERO → SOCIAL PROOF
 → ⭐MATERIALS (2~3단계 분할: 왜 중요 → 성분 설명 → 효과)
 → FEATURES
 → ⭐REVIEWS → TARGET → FAQ → OPTIONS
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 ---
@@ -79,7 +79,7 @@ HOOK → HERO
 → ⭐MATERIALS (3단계 분할: 왜 이 성분 → 성분 설명 → 임상 결과)
 → ⭐CRAFTSMANSHIP (2단계 분할: 제조 철학 → 제조 과정)
 → FEATURES → REVIEWS → TARGET → FAQ → OPTIONS
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 ---
@@ -94,7 +94,7 @@ HOOK → HERO → SOCIAL PROOF
 → ⭐OPTIONS(사이즈 가이드 상세히)
 → ⭐REVIEWS(착용샷 다양하게)
 → TARGET → FAQ
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 - STORY, CRAFTSMANSHIP 선택적 추가 가능
 
@@ -110,7 +110,7 @@ HOOK → HERO → SOCIAL PROOF
 → REVIEWS
 → ⭐FAQ(기술 Q&A 충실히)
 → OPTIONS
-→ CTA → FOOTER
+→ FINAL-CLOSING → FOOTER
 ```
 - STORY, EMPATHY는 선택적 (프리미엄 제품일 경우 추가)
 
@@ -126,7 +126,7 @@ HOOK → HERO → SOCIAL PROOF
 → FEATURES
 → ⭐REVIEWS(맛 후기 다양하게)
 → TARGET → OPTIONS → FAQ
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 ---
@@ -141,7 +141,7 @@ HOOK → HERO → SOCIAL PROOF → STORY
 → FEATURES
 → ⭐OPTIONS(사이즈/색상 상세 가이드)
 → REVIEWS → FAQ(설치/배송 상세히)
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 ---
@@ -157,7 +157,7 @@ HOOK → HERO
 → SOCIAL PROOF → FEATURES → MATERIALS
 → OPTIONS(포장 옵션 상세히)
 → REVIEWS → FAQ
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 ---
@@ -174,7 +174,7 @@ HOOK → HERO
 → FEATURES → MATERIALS/CRAFTSMANSHIP
 → OPTIONS(리워드 상세 설명)
 → TARGET → FAQ(배송/환불 상세히)
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 **펀딩 특화 DOUBT BREAKER 포인트**:
@@ -194,7 +194,7 @@ HOOK → HERO
 → ⭐CRAFTSMANSHIP (2~3단계 분할: 장인정신 철학 → 제작 과정 → 디테일)
 → ⭐MATERIALS (2단계 분할: 소재 선택 기준 → 소재 특성)
 → FEATURES → REVIEWS → OPTIONS → FAQ
-→ CTA → SPECS → FOOTER
+→ FINAL-CLOSING → SPECS → FOOTER
 ```
 
 **특화 포인트**: 한정 수량/제작 기간 명시

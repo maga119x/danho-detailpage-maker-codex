@@ -10,7 +10,7 @@ Do not generate final design images before the HTML layout exists.
 2. Read the mobile screen-flow plan. If missing, create a temporary viewport storyboard before coding.
 3. Split dense content points into screen-sized sections before writing HTML.
 4. Make the HTML look like a finished ecommerce detail page with placeholders or support-image slots.
-5. Render and inspect the HTML at mobile widths.
+5. Open or render the HTML at the 860px source width, then inspect the same source scaled to a 438px phone preview.
 6. Create `image-plan.md` from the inspected HTML.
 7. Confirm `image-plan.md` contains mandatory `FULL_IMAGE` rows for the opening hero and final product/result closing section.
 8. Generate designed section images for every approved `FULL_IMAGE` section.
@@ -44,7 +44,7 @@ If Phase A looks unfinished without generated images, fix the HTML before image 
 - Repeated identical cards from top to bottom
 - One dense section per source bullet when the content needs multiple screen units
 - Core benefit, mechanism, proof, option, and FAQ all squeezed into one section
-- `413px` fixed-width page wrappers
+- fixed phone-width page wrappers or direct 393px/438px source canvases
 - Image generation prompts before layout decisions
 - visible sales channel names, proof markers, review replacement warnings, or production notes
 
@@ -90,3 +90,12 @@ Full-image sections are allowed only after this HTML role has been planned:
 - `HTML_ONLY`: keep HTML only.
 
 Never skip the HTML layout stage just because the final section may become an image.
+
+## Low-Dependency Preview Rule
+
+Phase A and Phase B HTML must remain plain static HTML/CSS.
+
+- Use relative asset paths so the file opens directly through `file://`.
+- Do not require Node, npm, a temporary dev server, Playwright, Python, a bundler, or a local HTTP server for ordinary viewing.
+- If browser automation exists, it may produce screenshots, but the screenshot workflow must use 860px source width plus a 438px scaled preview.
+- If automation is unavailable, perform manual browser inspection or static HTML checks and note any visual QA that could not be executed.

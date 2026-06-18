@@ -51,7 +51,7 @@ Use these as editing categories, not as a rigid grammar table.
 | `합니다/습니다/입니다` | specs, policy, FAQ facts, calm product explanation, formal brand tone | Repetition across every headline/body line creates report tone. |
 | `해요/돼요/있어요` | friendly seller explanation, soft benefit, casual product guidance | Too casual for legal/safety/spec facts or if the user requested strict `합니다체`. |
 | `해 주세요/확인해 주세요` | buyer action, fit check, option confirmation | Overuse feels scolding or mechanical; do not use as a substitute for value persuasion. |
-| `보세요/챙겨보세요/살펴보세요` | soft recommendation or scan-friendly next action | Can sound too promotional if repeated. |
+| `보세요/챙겨보세요/살펴보세요` | soft recommendation or scan-friendly next information check | Can sound too promotional if repeated. |
 | `해야 합니다/필요합니다` | requirement, safety, compatibility, real limitation | Use sparingly; too much increases anxiety. |
 | `~죠/~지요` | gentle confirmation, shared assumption, conversational bridge | Avoid in formal brand/spec copy. |
 | `~네요/~군요/~구나` | perception, surprise, self-talk, customer thought | Usually not suitable for seller claims unless framed as buyer voice. |
@@ -79,7 +79,7 @@ Revise when:
 | Forced ending | Split the sentence or convert the headline to a noun phrase. |
 | Too many `합니다` endings | Keep `합니다체` in factual body copy, but make headlines phrase-based or question-based. |
 | Too many `확인합니다/확인해 주세요` endings | Use value/action wording before the confirmation cue. |
-| Over-strong command | Change to a soft next action or factual requirement. |
+| Over-strong command | Change to a soft information check or factual requirement. |
 | Casual ending in policy/safety | Change to formal factual ending. |
 | Awkward imperative | Reframe as what the buyer can check/do. |
 | Sentence still unnatural after ending swap | Rewrite the sentence skeleton, not just the final ending. |

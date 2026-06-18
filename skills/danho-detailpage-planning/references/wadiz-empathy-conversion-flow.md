@@ -52,7 +52,7 @@ Use this spine unless the product category clearly requires a different order:
 10. **Use Guide / Care / Safety**: steps, tips, and warnings when relevant.
 11. **Recommended For**: concrete buyer types that make the buyer self-identify.
 12. **FAQ / Objection Handling**: answer likely blockers directly.
-13. **CTA**: summarize the buyer's future moment, fit condition, and next action.
+13. **FINAL-CLOSING**: summarize the buyer's future moment, fit condition, and product/result confidence without purchase-action text.
 
 ## Conversion Desire Layer
 

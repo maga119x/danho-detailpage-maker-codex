@@ -55,7 +55,7 @@ Use `../danho-detailpage-pm-reviewer/SKILL.md` before copywriter review for the 
 Core rules:
 
 - Do not force fixed 9:16 or 3:4 section ratios.
-- Mobile-first means readable responsive typography on phone widths, not a fixed `413px` wrapper.
+- Mobile detail-page QA means a canonical 860px-wide source page that remains readable when scaled down to a 438px phone preview. Do not validate by rendering the page at 393px/438px as the primary viewport and letting CSS reflow into a tiny webpage.
 - Build screen-sized purchase judgments, not a short sequence of dense sections. One major content point may need several sections.
 - In final hybrid pages, the first visible section must be a generated designed `FULL_IMAGE` hero. Do not start the final page with an HTML text hero.
 - The bottom/final selling section must be a generated designed `FULL_IMAGE` product/result closing impression. Do not end a final hybrid detail page with a plain HTML action block. If legal, pricing, option, compatibility, or FAQ content must remain editable, split it into an adjacent HTML section and still keep the final full-image closing screen without purchase-action text.
@@ -98,18 +98,19 @@ Read `references/image-handling.md` and `references/text-image-deduplication.md`
 
 ## CSS Rules
 
-- Max page width: 860px.
+- Max page/source width: 860px. Treat this as the production canvas for typography and spacing.
 - Set `box-sizing: border-box`.
 - Set page `overflow-x: hidden`.
-- Use detail-page typography: body 16-18px, lead 17-22px, h2 28-44px, hero 36-54px unless the brand requires otherwise.
-- Keep ordinary readable text at 16px or larger, including labels, badges, card copy, reviews, comparison tables, CTA text, and captions inside the selling flow.
-- Use 14-15px only for exceptional secondary text such as legal notes, spec footnotes, or non-persuasive metadata; never use it for core selling copy or scannable section content.
-- Use `clamp()` for responsive type and spacing; do not set a fixed mobile canvas width such as 413px.
+- Use detail-page typography at the 860px source size: body 32-36px, lead 36-44px, h2 56-88px, hero 72-108px unless the brand requires otherwise. At the 438px scaled preview this reads as about body 16-18px, lead 18-22px, h2 28-45px, hero 37-55px.
+- Keep ordinary readable text at a source size that scales to 16px or larger at 438px, including labels, badges, card copy, reviews, comparison rows, closing text, and captions inside the selling flow.
+- Use micro text that scales to 13-15px only for exceptional secondary text such as legal notes, spec footnotes, or non-persuasive metadata; never use it for core selling copy or scannable section content.
+- Use `clamp()` for source-size type and spacing, but do not use a fixed phone wrapper or direct 393px/438px viewport as the main QA canvas.
 - Default section copy alignment should be centered for ecommerce detail-page flow. Use left alignment inside structured components such as cards, comparison rows, option rows, FAQ items, review cards, notices, and checklists.
 - Avoid JavaScript, `:hover`, `transition`, `animation`, and `@keyframes`.
 - Cards and quote blocks must look complete in default static state.
 - Do not use card-in-card layouts.
 - Use stable image dimensions or responsive constraints so text and media do not overlap.
+- Static HTML must work when opened directly from the filesystem. Do not require a Node/dev server, bundler, local HTTP server, Playwright, or Python runtime for ordinary viewing and manual QA. Use relative asset paths and CSS that works under `file://`.
 
 ## Validation
 
@@ -118,14 +119,21 @@ Before final response:
 1. Check image paths and section counts.
 2. Confirm the final HTML contains a review/testimonial section and no visible sales channel names, `NEEDS_PROOF`, `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, or `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`.
 3. Check `assets/generated/manifest.md` or the project manifest records built-in `image_gen.imagegen` GPT Image 2.0 (`gpt-image-2`) provenance for generated assets; reject locally drawn, screenshot, SVG/canvas, PIL, CLI/API, other-model, or HTML-rendered substitutes.
-4. Split sections:
+4. Section files:
    ```bash
    python skills/danho-detailpage-coding/scripts/split_sections.py <html> <output-dir>
    ```
-5. Render mobile width, preferably 393px, and verify:
+   This script is an optional helper, not a hard dependency. If Python is unavailable, manually confirm unique section ids/comments and keep `build/sections/` unchanged or update it by hand when needed; do not block final HTML solely because Python is missing.
+5. Render/open the page without adding infrastructure:
+   - Primary QA: open or render the final HTML at 860px source width.
+   - Mobile readability QA: inspect the same 860px source scaled to a 438px-wide phone preview (scale factor about `0.509`). Do not use a direct 393px/438px viewport as the primary test, because that checks a reflowed mini webpage instead of the ecommerce detail-page source image.
+   - If Playwright/browser automation exists, it may automate screenshots, but it must follow the 860px source plus 438px scaled-preview rule.
+   - If Playwright is unavailable, open the local HTML file directly in a browser or the Codex in-app browser via `file://` and use browser zoom/device scaling/manual screenshots. Do not start a Node temporary server for static HTML unless the user explicitly requests it or a real browser security limitation blocks a local asset.
+   - If no browser is available, run the static checks and report that visual render QA was not executed.
+6. Verify:
    - no broken images
    - no horizontal overflow
-   - typography is readable and not oversized
+   - typography is readable in the 438px scaled preview and not oversized at the 860px source
    - first 3 screens show product identity, core benefit/result, and difference or fit condition
    - first 2 screens form a story bridge: section 02 visually and verbally follows the hero instead of starting a generic new topic
    - no key benefit, mechanism, option system, or proof block is over-compressed into one dense section
@@ -144,7 +152,7 @@ Before final response:
    - h1/h2 endings do not repeat the same formal sentence ending across the page
    - h1/h2 visual line breaks do not all use the same manual two-line structure
    - the rendered sequence reads as one connected purchase flow, not standalone slides
-   - section kickers earn their space as buyer meaning, proof cue, micro-benefit, or next action
+   - section kickers earn their space as buyer meaning, proof cue, micro-benefit, or next information check
 
 ## References
 

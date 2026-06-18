@@ -11,7 +11,7 @@ Run the workflow in order unless the user is explicitly revising an existing art
 
 Before creating a new product project in a newly opened work directory, ensure the workspace root has `AGENT.MD`.
 
-- If `AGENT.MD` is missing and the user is starting a new Danho workspace, initialize it with the `danho` skill's bundled `scripts/init_workspace.py`.
+- If `AGENT.MD` is missing and the user is starting a new Danho workspace, initialize it with the `danho` skill. Use its bundled `scripts/init_workspace.py` only when Python is available; otherwise copy `assets/AGENT.MD.template.md` to `AGENT.MD`.
 - Create `AGENT.MD` in the current working directory, not inside the generated `projects/MMDDHHmm_product-name/` folder.
 - Do not overwrite an existing `AGENT.MD` unless the user explicitly asks. If it exists, read it and follow it as the local bootstrap rules.
 - `AGENT.MD` is a local checklist. The installed `danho-detailpage-workflow` skill remains the source of truth when rules differ.
@@ -81,7 +81,8 @@ Before creating a new product project in a newly opened work directory, ensure t
 - Do not code when a normal product is artificially short or when a technical/high-consideration/option-heavy product lacks enough screen depth for result, mechanism, proof, comparison, options, and FAQ.
 - Each screen should have one dominant visual mass: image, type, proof, or cards. Avoid repeating the same `headline -> paragraph -> image -> card` skeleton from top to bottom.
 - Do not force every section to a fixed 9:16 or 3:4 ratio. Use vertical mobile rhythm with sufficient section height, large images, and natural content flow.
-- Mobile-first means responsive readable typography for phone widths, not coding the page as a fixed 413px canvas.
+- Mobile detail-page QA means building an 860px-wide source page and judging readability after scaling that source to a 438px phone preview. Do not code the page as a fixed 413px canvas, and do not use direct 393px/438px viewport reflow as the primary QA result.
+- Keep the workflow low-dependency. Static HTML/CSS outputs must open directly from the filesystem with relative asset paths; do not require Node/npm, a temporary dev server, Playwright, Python, a bundler, or a local HTTP server for ordinary viewing and manual QA.
 - Treat HTML sections as designed sections, not text-only blocks. Add product photos, lifestyle images, badges, quote cards, speech bubbles, or comparison cards when they improve persuasion.
 - Reject simple generic web pages. The result must read as an ecommerce product detail page with hero, problem, review/testimonial, proof, comparison, options, FAQ, and a product/result closing module.
 - Do not expose direct numeric prices in final detail-page HTML or generated section images. Do not add final-section option/order-area cues because the shopping mall purchase UI already handles the action.
@@ -133,11 +134,11 @@ Always validate:
 - Low-copy action/result/transition/option/care/value sections are image-dominant or merged with a proof/detail section.
 - No low-content section remains as centered text-only, tiny card-only, or note-only; `SPARSE_SECTION_IMAGE_REQUIRED` sections use meaningful generated/user imagery or are merged.
 - Empty padding, dark backgrounds, or large blank bands are not used as a substitute for product/lifestyle/proof imagery.
-- No horizontal overflow on mobile.
-- Font sizes and spacing are readable at phone widths.
+- No horizontal overflow in the 860px source or the 438px scaled phone preview.
+- Font sizes and spacing are readable after the 860px source is scaled to the 438px phone preview.
 - Phase A HTML has a finished detail-page layout before image replacement.
 - No JavaScript, animation, transition, or hover-dependent design.
-- Section splitting succeeds with `scripts/split_sections.py`.
+- Section ids/comments are sufficient for section splitting. `scripts/split_sections.py` is an optional Python helper; if Python is unavailable, manually inspect or update section files instead of blocking final delivery.
 - `COPY_REVIEW.md` exists for newly planned pages and all visible copy issues marked revise are resolved.
 - `COPY_REVIEW.md` includes copy context and Korean naturalness audit for newly planned pages.
 - `COPY_REVIEW.md` includes a section scorecard, revision loop, and final pass reason for newly planned pages.

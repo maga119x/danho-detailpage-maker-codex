@@ -21,7 +21,7 @@ img {
 ## Section Rhythm
 
 Do not use a single fixed ratio for all sections. Build a vertical mobile rhythm instead.
-Do not fix the whole page to 413px. Use responsive widths and verify at phone sizes.
+Do not fix the whole page to a phone wrapper. Author the page as an 860px source detail page and verify the same source scaled down to a 438px phone preview. Direct 393px/438px viewport rendering is only a secondary stress check, not the primary QA path.
 Design screen-sized purchase judgments. A major content point can and should become multiple sections when it contains several claims, proof types, or buying decisions.
 
 Recommended HTML section order:
@@ -65,10 +65,10 @@ Use `references/detailpage-typography.md` for exact scale.
 
 Minimum rules:
 
-- body: 16-18px
-- lead: 17-22px
-- h2: 28-44px
-- card body: 15-17px
+- body: 32-36px at 860px source, about 16-18px in the 438px scaled preview
+- lead: 36-44px at source, about 18-22px in the preview
+- h2: 56-88px at source, about 29-45px in the preview
+- card body: 30-34px at source, about 15-17px in the preview
 - line-height: 1.55-1.75 for body
 - use `clamp()` for responsive type
 
@@ -127,12 +127,14 @@ Every section must have:
 
 ## Overflow Prevention
 
-Check at 393px width:
+Check at 860px source width and in the 438px scaled preview:
 
 - no element exceeds viewport width
 - no text overlaps images
 - pseudo-elements do not escape awkwardly
 - images are fully loaded
+
+The static HTML must also open directly from the filesystem with relative asset paths. Do not require a Node/dev server, bundler, Playwright, Python runtime, or local HTTP server for ordinary viewing and manual QA.
 
 ## Forbidden
 
@@ -144,6 +146,6 @@ Check at 393px width:
 - card inside card
 - over-compressed sections that combine problem, solution, mechanism, proof, caveat, and action
 - fixed global aspect-ratio for all sections
-- fixed `width: 413px` page wrappers
+- fixed phone-width page wrappers or direct 393px/438px source canvases
 - image generation before HTML layout and image-plan
 - visible `NEEDS_PROOF`, `더미 리뷰`, `실제 리뷰 없음`, `교체 예정`, `REVIEW_PLACEHOLDER_REPLACE_REQUIRED`, sales channel names, or channel-specific instructions

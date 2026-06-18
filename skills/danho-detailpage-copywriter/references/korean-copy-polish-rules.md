@@ -64,7 +64,7 @@ Use simpler buyer language unless the section is a formal spec table.
 Before passing copy, scan repeated wording across the full page:
 
 - Do not repeat the same headline structure in hero and final product/result closing.
-- Avoid repeating `처음 사는/처음 쓰는/첫` across adjacent sections. Change the angle: first purchase anxiety, set composition, long-term care, final action.
+- Avoid repeating `처음 사는/처음 쓰는/첫` across adjacent sections. Change the angle: first purchase anxiety, set composition, long-term care, final product/result confidence.
 - Avoid repeating `관리와 보관` in multiple headlines. Use one section for set composition and one section for care habits.
 - Avoid overusing one verb or noun such as `손질`; rotate naturally with `썰기`, `다듬기`, `준비`, `요리`, `옮기기`.
 - Avoid repeated `확인해 주세요`; vary with `챙겨보세요`, `참고해 주세요`, or `살펴보세요` when appropriate. Do not use the final closing for purchase-action prompts.

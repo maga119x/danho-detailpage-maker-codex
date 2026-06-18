@@ -54,7 +54,7 @@ Recovery sequence after every `image_gen.imagegen` call:
 8. Run `--diagnose` when the UI shows a preview but no file is found; it lists generated image files, session image events, and `codex-clipboard-*.png` captures so they are not confused with each other.
 9. Only after this recovery search fails should the manifest use `generated_export_blocked` or `native_preview_path_unavailable`.
 
-Use `scripts/collect_codex_generated_images.py` to avoid manual path mistakes:
+Use `scripts/collect_codex_generated_images.py` to avoid manual path mistakes when Python is available:
 
 ```powershell
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --list --minutes 240 --limit 30
@@ -63,6 +63,12 @@ python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --copy-latest-session --minutes 30 --to projects/<project>/assets/generated/<file>.png
 python skills/danho-imageprompt-helper/scripts/collect_codex_generated_images.py --copy C:\Users\<user>\.codex\generated_images\<session-id>\ig_xxx.png --to projects/<project>/assets/generated/<file>.png
 ```
+
+If Python is unavailable, perform the same recovery manually:
+
+- Inspect or search `%USERPROFILE%/.codex/generated_images/` for recent `ig_*.png` files and copy the accepted file into the planned `assets/generated/` path.
+- If no file is materialized but a Codex preview appeared, inspect `%USERPROFILE%/.codex/sessions/**/*.jsonl` for recent `image_generation_end` events when the local tools allow it, or ask the user to attach the actual generated file from the Codex UI.
+- Do not mark generation as failed merely because the helper script cannot run.
 
 ## Inputs
 
